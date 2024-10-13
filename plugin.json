@@ -1,0 +1,20 @@
+{
+	"logo": "logo.png",
+	"main": "index.html",
+	"preload": "preload.js",
+	"name": "zjbbywkx",
+	"version": "1.0.0",
+	"pluginName": "BJHL",
+	"description": "白荆回廊自用简易Wiki",
+	"author": "momentsd",
+	"homepage": "https://github.com/momentsd",
+	"features": [
+		{
+			"code": "BJHL",
+			"explain": "白荆回廊自用简易Wiki",
+			"cmds": [
+				"bj", "白荆回廊"
+			]
+		}
+	]
+}
