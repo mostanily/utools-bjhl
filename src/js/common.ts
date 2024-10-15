@@ -1,6 +1,7 @@
 import { charAttr, allChar, allCharSkill, allCharTea } from './consts/charConsts.ts';
 import { SkillColorEnum } from './enum/skillSimpleEnum.ts';
-import { blueColor, orangeColor, } from './consts/simpleConsts.ts'
+import { blueColor, orangeColor } from './consts/simpleConsts.ts';
+import { poolConfig, roleConfig, laohenConfig} from './consts/chouConfig.ts';
 
 /**
  * 角色通用类
@@ -11,6 +12,9 @@ export default class CommonUtil {
     static allChar = allChar
     static allCharSkill = allCharSkill
     static allCharTea = allCharTea
+    static poolConfig = poolConfig
+    static roleConfig = roleConfig
+    static laohenConfig = laohenConfig
 
     /**
      * 获取角色头像

@@ -1,10 +1,10 @@
 {
-  "name": "utools-plugin-template",
+  "name": "utools-plugin-bjhl",
   "private": true,
   "main": "dist-electron/main/index.js",
   "version": "0.0.0",
-  "author": "QC2168",
-  "description": "Easily create utools plugins",
+  "author": "mostanily",
+  "description": "白荆回廊自用简易Wiki插件",
   "scripts": {
     "dev": "vite",
     "dev:electron": "vite --mode=electron",
