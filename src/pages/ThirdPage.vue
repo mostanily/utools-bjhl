@@ -2,7 +2,10 @@
     <div>
         <h2><router-link :to="{ name: 'index' }">首页</router-link></h2>
         <p><button type="button" @click="loadPage()">初始化数据，先点我，初始化完成后可以点击下面的统计按钮（首次需要QQ扫码登录，登录完成后关闭弹窗再次点我）</button></p>
-        <p><button type="button" @click="getBjData()">统计数据</button></p>
+        <p>
+            <button type="button" @click="getBjData()">统计数据</button>
+            <button type="button" @click="saveScreenshot()" style="margin-left: 10px;">截图并保存</button>
+        </p>
         <!-- 显示获取的数据 -->
         <div id="output">
             <ul class="resp-tabs-list clearfix" style="margin:10px 0 0">
@@ -65,10 +68,21 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 2 === currentActiveIndex, 'display-none': 2 !== currentActiveIndex }">
                 <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
-                <h3>UP池SSR数量：{{ currLaohenData.up.data.length }}</h3>
-                <h3>UP池SSR平均耗抽：{{ currLaohenData.up.oneEach }}</h3>
-                <h3>UP池综合概率：{{ currLaohenData.up.radio }}</h3>
+                <h3>UP池综合不歪率：{{ currLaohenData.up.noWaiRadio }}</h3>
                 <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
+                <hr>
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
+                        <h3>UP池SSR平均耗抽（+歪）：{{ currLaohenData.up.oneEach }}</h3>
+                        <h3>UP池SSR综合概率（+歪）：{{ currLaohenData.up.radio }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <h3>获取限定SSR数量：{{ currLaohenData.up.noWaiData.length }}</h3>
+                        <h3>获取限定SSR平均耗抽：{{ currLaohenData.up.oneUpEach }}</h3>
+                        <h3>获取限定SSR综合概率：{{ currLaohenData.up.realUpRadio }}</h3>
+                    </div>
+                </div>
                 <hr>
                 <div v-for="(ssr, index) in currLaohenData.up.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
@@ -104,10 +118,21 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 5 === currentActiveIndex, 'display-none': 5 !== currentActiveIndex }">
                 <h3>UP池角色总抽数：{{ currRoleData.up.total }}</h3>
-                <h3>UP池6星数量：{{ currRoleData.up.data.length }}</h3>
-                <h3>UP池6星平均耗抽：{{ currRoleData.up.oneEach }}</h3>
-                <h3>UP池综合概率：{{ currRoleData.up.radio }}</h3>
+                <h3>UP池综合不歪率：{{ currRoleData.up.noWaiRadio }}</h3>
                 <h3>当期已垫抽数（限定）：{{ currRoleData.up.lastDian }}</h3>
+                <hr>
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>UP池6星数量（+歪）：{{ currRoleData.up.data.length }}</h3>
+                        <h3>UP池6星平均耗抽（+歪）：{{ currRoleData.up.oneEach }}</h3>
+                        <h3>UP池6星综合概率（+歪）：{{ currRoleData.up.radio }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <h3>获取限定6星数量：{{ currRoleData.up.noWaiData.length }}</h3>
+                        <h3>获取限定6星平均耗抽：{{ currRoleData.up.oneUpEach }}</h3>
+                        <h3>获取限定6星综合概率：{{ currRoleData.up.realUpRadio }}</h3>
+                    </div>
+                </div>
                 <hr>
                 <div v-for="(ssr, index) in currRoleData.up.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
@@ -132,6 +157,7 @@
 </template>
 <script>
 import { computed } from 'vue';
+import html2canvas from 'html2canvas';
 import ProgressBar from './components/ProgressBar.vue';
 
 export default {
@@ -140,9 +166,9 @@ export default {
     },
     setup() {
         /**
-         * 判断当前处于哪一个时间节点，因为本地数据库一次性存储数据最大为1M，所以根据时间节点对数据库进行拆分，每年新增一个数据库id
+         * 返回游戏开服的周年次数（按360天算）
          */
-        const currDateWhere = () => {
+        const currYearCount = () => {
             //开服日期
             let startDate = new Date('2024-01-01T00:00:00');
             let startTimestamp = Math.floor(startDate.getTime() / 1000);
@@ -153,7 +179,13 @@ export default {
 
             let diffTime = todayTimestamp - startTimestamp
             let yearTime = 24 * 3600 * 360//一年按360天来处理
-            let yearCount = Math.floor(diffTime / yearTime)
+            return Math.floor(diffTime / yearTime)
+        }
+        /**
+         * 判断当前处于哪一个时间节点，因为本地数据库一次性存储数据最大为1M，所以根据时间节点对数据库进行拆分，每年新增一个数据库id
+         */
+        const currDateWhere = () => {
+            let yearCount = currYearCount()
             //根据年次数返回特定的数据库id
             if (yearCount > 0) {
                 return { laohen: `laohen${yearCount}`, role: `role${yearCount}` }
@@ -367,17 +399,23 @@ export default {
                         let saveLaohenData = {}
                         saveLaohenData._id = idName
                         //数据库中数据格式： { _id: 'laohen', data: {"20241010":[{},{}]} }
+                        //在存在多个id数据源时
+                        //本地数据库存储的最后一条数据的日期一定比上一次请求记录的时间小
+                        //官方提供的抽卡数据一定是完整的，不存在同一天的数据却会被分割在两个请求里面
+                        //故新请求到的数据一定跟本地的数据是不存在重复数据的
                         let dbLaohenData = window.utools.db.get(idName)
-                        let laohenNewData = data[0]
+                        let laohenNewData = {}
                         //为null的情况，则表明是首次请求，直接把请求的数据直接赋值给变量即可
                         if (dbLaohenData) {
                             saveLaohenData._rev = dbLaohenData._rev
                             //如果存在已经保存的数据，则将新请求到的数据保存到本地数据库中
-                            //先把数据库中的数据重新赋值给变量，再把新请求数据遍历分别添加
+                            //先把数据库中的数据重新赋值给变量，再把新请求数据遍历分别添加新请求到的数据
                             laohenNewData = dbLaohenData.data
                             for (let newDate in data[0]) {
                                 laohenNewData.newDate = data[0][newDate]
                             }
+                        } else {
+                            laohenNewData = data[0]
                         }
                         saveLaohenData.data = laohenNewData
                         console.log(`新增或更新烙痕数据：`)
@@ -390,13 +428,15 @@ export default {
                         let saveRoleData = {}
                         saveRoleData._id = idName
                         let dbRoleData = window.utools.db.get(idName)
-                        let roleNewData = data[1]
-                        if (dbRoleData !== null) {
+                        let roleNewData = {}
+                        if (dbRoleData) {
                             saveRoleData._rev = dbRoleData._rev
                             roleNewData = dbRoleData.data
                             for (let newDate in data[1]) {
                                 roleNewData.newDate = data[1][newDate]
                             }
+                        } else {
+                            roleNewData = data[1]
                         }
                         saveRoleData.data = roleNewData
                         console.log(`新增或更新角色数据：`)
@@ -416,9 +456,33 @@ export default {
                 console.error(error)
             })
         }
-        return {
-            loadPage
+
+        /**
+         * 长截图并保存
+         */
+        const saveScreenshot = async () => {
+            try {
+                const node = document.getElementById('app'); // 选择需要截图的DOM节点
+                const canvas = await html2canvas(node);
+                const dataURL = canvas.toDataURL('image/png');
+                const blob = await fetch(dataURL).then(r => r.blob());
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                let todayDate = new Date();
+                let todayDateZero = `${todayDate.getFullYear()}${todayDate.getMonth() + 1}${todayDate.getDate()}_${todayDate.getHours()}${todayDate.getMinutes()}${todayDate.getMilliseconds()}`
+                a.download = `${todayDateZero}_bjhl.png`;
+                a.click();
+                URL.revokeObjectURL(a.href);
+            } catch (error) {
+                console.error('截图失败:', error);
+            }
         }
+        return {
+            loadPage, currYearCount, saveScreenshot
+        }
+    },
+    mounted() {
+        this.getBjData()
     },
     data() {
         return {
@@ -433,9 +497,13 @@ export default {
                 },//混池
                 up: {
                     data: new Array,
+                    noWaiData: new Array,
                     total: 0,
                     oneEach: '0',
+                    oneUpEach: '0',//每获取一个UP角色的平均抽数
                     radio: '',
+                    realUpRadio: '',//每获取一个UP的实际概率（去除歪的角色或烙痕）
+                    noWaiRadio: '',//不歪率，不歪数量/总数量（up获取的ssr或6*）
                     lastDian: 0
                 },//UP池
                 changzhu: {
@@ -456,9 +524,13 @@ export default {
                 },
                 up: {
                     data: new Array,
+                    noWaiData: new Array,
                     total: 0,
                     oneEach: '0',
+                    oneUpEach: '0',
                     radio: '',
+                    realUpRadio: '',
+                    noWaiRadio: '',
                     lastDian: 0
                 },
                 changzhu: {
@@ -477,6 +549,49 @@ export default {
         setActiveClass(index) {
             this.currentActiveIndex = index
         },
+        /**
+         * 处理所有的本地数据，如果存在多个数据源，则进行整合处理
+         */
+        dealAllDbData() {
+            const yearCount = this.currYearCount()
+            let dbIdName = { laohen: new Array, role: new Array }
+            for (let i = 0; i <= yearCount; i++) {
+                if (i === 0) {
+                    dbIdName.laohen.push('laohen')
+                    dbIdName.role.push('role')
+                } else {
+                    dbIdName.laohen.push(`laohen${i}`)
+                    dbIdName.role.push(`role${i}`)
+                }
+            }
+            const allLaohenDBData = window.utools.db.allDocs(dbIdName.laohen)
+            const allRoleDBData = window.utools.db.allDocs(dbIdName.role)
+
+            let newDBData = { laohen: {}, role: {} }
+            if (allLaohenDBData) {
+                if (allLaohenDBData.length === 1) {
+                    newDBData.laohen = allLaohenDBData[0].data
+                } else {
+                    let laohenDBData = {}
+                    for (let key in allLaohenDBData) {
+                        laohenDBData = { ...laohenDBData, ...allLaohenDBData[key].data }
+                    }
+                    newDBData.laohen = laohenDBData
+                }
+            }
+            if (allRoleDBData) {
+                if (allRoleDBData.length === 1) {
+                    newDBData.role = allRoleDBData[0].data
+                } else {
+                    let roleDBData = {}
+                    for (let key in allRoleDBData) {
+                        roleDBData = { ...roleDBData, ...allRoleDBData[key].data }
+                    }
+                    newDBData.role = roleDBData
+                }
+            }
+            return newDBData
+        },
         getBjData() {
             const pool = window.$commonUtil.poolConfig
             const role = window.$commonUtil.roleConfig
@@ -485,10 +600,9 @@ export default {
             // console.log(pool)
             // console.log(role)
             // console.log(laohen)
-            const laohenData = window.utools.db.get("laohen")
-            const roleData = window.utools.db.get("role")
-            const lData = this.dealPoolData(laohenData.data, pool, laohen)
-            const rData = this.dealPoolData(roleData.data, pool, role, true)
+            const allDBData = this.dealAllDbData()
+            const lData = this.dealPoolData(allDBData.laohen, pool, laohen)
+            const rData = this.dealPoolData(allDBData.role, pool, role, true)
             //倒叙排，ssr烙痕
             this.currLaohenData.mix.data = computed(() => { return [...lData.data].reverse() }).value
             this.currLaohenData.mix.total = lData.totalCount
@@ -497,9 +611,13 @@ export default {
             this.currLaohenData.mix.lastDian = lData.upDianCount + lData.changzhuDianCount
 
             this.currLaohenData.up.data = computed(() => { return [...lData.upData].reverse() }).value
+            this.currLaohenData.up.noWaiData = computed(() => { return [...lData.upWithNoWaiData].reverse() }).value
             this.currLaohenData.up.total = lData.upTotalCount
             this.currLaohenData.up.radio = ((this.currLaohenData.up.data.length * 100) / lData.upTotalCount).toFixed(3) + '%'
+            this.currLaohenData.up.realUpRadio = ((this.currLaohenData.up.noWaiData.length * 100) / lData.upTotalCount).toFixed(3) + '%'
+            this.currLaohenData.up.noWaiRadio = ((this.currLaohenData.up.noWaiData.length * 100) / this.currLaohenData.up.data.length).toFixed(3) + '%'
             this.currLaohenData.up.oneEach = (lData.upTotalCount / this.currLaohenData.up.data.length).toFixed(3)
+            this.currLaohenData.up.oneUpEach = (lData.upTotalCount / this.currLaohenData.up.noWaiData.length).toFixed(3)
             this.currLaohenData.up.lastDian = lData.upDianCount
 
             this.currLaohenData.changzhu.data = computed(() => { return [...lData.changzhuData].reverse() }).value
@@ -515,9 +633,13 @@ export default {
             this.currRoleData.mix.lastDian = rData.upDianCount + rData.changzhuDianCount
 
             this.currRoleData.up.data = computed(() => { return [...rData.upData].reverse() }).value
+            this.currRoleData.up.noWaiData = computed(() => { return [...rData.upWithNoWaiData].reverse() }).value
             this.currRoleData.up.total = rData.upTotalCount
             this.currRoleData.up.radio = ((this.currRoleData.up.data.length * 100) / rData.upTotalCount).toFixed(3) + '%'
+            this.currRoleData.up.realUpRadio = ((this.currRoleData.up.noWaiData.length * 100) / rData.upTotalCount).toFixed(3) + '%'
+            this.currRoleData.up.noWaiRadio = ((this.currRoleData.up.noWaiData.length * 100) / this.currRoleData.up.data.length).toFixed(3) + '%'
             this.currRoleData.up.oneEach = (rData.upTotalCount / this.currRoleData.up.data.length).toFixed(3)
+            this.currRoleData.up.oneUpEach = (rData.upTotalCount / this.currRoleData.up.noWaiData.length).toFixed(3)
             this.currRoleData.up.lastDian = rData.upDianCount
 
             this.currRoleData.changzhu.data = computed(() => { return [...rData.changzhuData].reverse() }).value
@@ -529,12 +651,20 @@ export default {
             this.allLaohenPoolData = lData.allData//烙痕卡池所有抽卡情况
             this.allRolePoolData = rData.allData//角色卡池所有抽卡情况
         },
+        /**
+         * 处理卡池数据
+         * @param laohenOrRoleData 烙痕池或者角色池抽卡数据
+         * @param pool 卡池配置信息
+         * @param laohenOrRole 烙痕或者角色池配置信息
+         * @param isRole 是否是在处理角色抽卡数据
+         */
         dealPoolData(laohenOrRoleData, pool, laohenOrRole, isRole = false) {
             // console.log(`卡池配置（卡池-角色-烙痕）`)
             // console.log(pool)
             const needCheckRarity = isRole ? '6' : '3'
             let allData = new Array//所有6星或者ssr
             let changzhuData = new Array//常驻卡池
+            let upWithNoWaiData = new Array//不算歪的UP池
             let upData = new Array//限定UP卡池
             let allPoolData = {}//所以抽卡汇总（UP+常驻+友情）
             //烙痕或角色通用数据结构：{poolId:{type:'',name:''},...}
@@ -579,6 +709,10 @@ export default {
                         ssrCount++
                         if (isUp) {
                             upData.push(ssrLaohenWithPool)
+                            //判断是否歪（UP池才有歪的概念）
+                            if (ssrLaohenWithPool.name == pool[poolId].up) {
+                                upWithNoWaiData.push(ssrLaohenWithPool)
+                            }
                             upDianCount = 0
                         } else {
                             changzhuData.push(ssrLaohenWithPool)
@@ -604,13 +738,14 @@ export default {
             return {
                 data: allData,
                 upData: upData,
+                upWithNoWaiData: upWithNoWaiData,
                 changzhuData: changzhuData,
                 allData: allPoolData,
                 totalCount: totalCount,
                 upTotalCount: upTotalCount,
                 changzhuTotalCount: changzhuTotalCount,
-                upDianCount:upDianCount,
-                changzhuDianCount:changzhuDianCount
+                upDianCount: upDianCount,
+                changzhuDianCount: changzhuDianCount
             }
         }
     }

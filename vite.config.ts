@@ -70,11 +70,19 @@ export default defineConfig(({ command, mode }) => {
         },
         vite: {
           build: {
+            chunkSizeWarningLimit: 1500,
             sourcemap: sourcemap ? 'inline' : undefined, // #332
             minify: isBuild,
             outDir: 'dist-electron/preload',
             rollupOptions: {
               external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
+              // output: {
+              //   manualChunks(id) {
+              //     if(id.includes('node_modules')) {
+              //       return id.toString().split('node_modules/')[1].split('/')[0].toString()
+              //     }
+              //   }
+              // }
             },
           },
           plugins: [

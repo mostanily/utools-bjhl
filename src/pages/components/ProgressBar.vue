@@ -48,7 +48,7 @@ export default {
         },
         checkIsWai(ssr) {
             if (ssr.up && ssr.name !== ssr.up) {
-                if (ssr.dian !== 0) {
+                if (ssr.dian >= 8) {
                     return "【歪】"
                 }
                 return "【「歪的好」】"
