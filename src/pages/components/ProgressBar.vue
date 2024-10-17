@@ -7,7 +7,8 @@
         </div>
         <div class="chou-con">
             <span style="color: brown;">{{ checkIsWai(ssr) }}</span>
-            「{{ ssr.poolName }}」<span style="font-weight: bold;">【{{ ssr.name }}】【{{ ssr.dian }}】</span>
+            「{{ ssr.poolName + '(' + ssr.time + ')' }}」<span style="font-weight: bold;">【{{ ssr.name }}】【{{ ssr.dian
+                }}】</span>
         </div>
     </div>
 </template>
@@ -47,9 +48,14 @@ export default {
             }
         },
         checkIsWai(ssr) {
+            if (ssr.poolId === '101') {
+                return "【68R十连必出6星礼包卡池，不参与数据统计】"
+            }
             if (ssr.up && ssr.name !== ssr.up) {
-                if (ssr.dian >= 8) {
+                if (ssr.dian > 30) {
                     return "【歪】"
+                } else if (ssr.dian >= 8 && ssr.dian <= 30) {
+                    return "【「小歪，不亏」】"
                 }
                 return "【「歪的好」】"
             }

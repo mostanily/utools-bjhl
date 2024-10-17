@@ -56,8 +56,8 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 1 === currentActiveIndex, 'display-none': 1 !== currentActiveIndex }">
                 <h3>混池烙痕总抽数：{{ currLaohenData.mix.total }}</h3>
                 <h3>混池SSR数量：{{ currLaohenData.mix.data.length }}</h3>
-                <h3>混池SSR平均耗抽：{{ currLaohenData.mix.oneEach }}</h3>
-                <h3>混池综合概率（总）：{{ currLaohenData.mix.radio }}</h3>
+                <h3>混池SSR平均耗抽：{{ currLaohenData.mix.oneEach }} | 公式：<span class="formula">混池烙痕总抽数/混池SSR数量</span></h3>
+                <h3>混池综合概率（总）：{{ currLaohenData.mix.radio }} | 公式：<span class="formula">混池SSR数量/混池烙痕总抽数</span></h3>
                 <h3>当期已垫抽数（UP+常驻）：{{ currLaohenData.mix.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currLaohenData.mix.data" :key="index"
@@ -68,19 +68,21 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 2 === currentActiveIndex, 'display-none': 2 !== currentActiveIndex }">
                 <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
-                <h3>UP池综合不歪率：{{ currLaohenData.up.noWaiRadio }}</h3>
+                <h3>UP池综合不歪率：{{ currLaohenData.up.noWaiRadio }}|公式(根据最后一抽是否歪了区分，最后一抽歪了则公式开头中的`SSR数量`+1，否则不加)：
+                    <span class="formula"> (SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量</span>
+                </h3>
                 <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
                 <hr>
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
-                        <h3>UP池SSR平均耗抽（+歪）：{{ currLaohenData.up.oneEach }}</h3>
-                        <h3>UP池SSR综合概率（+歪）：{{ currLaohenData.up.radio }}</h3>
+                        <h3>UP池SSR平均耗抽（+歪）：{{ currLaohenData.up.oneEach }} | 公式：<span class="formula">UP池烙痕总抽数/UP池SSR数量</span></h3>
+                        <h3>UP池SSR综合概率（+歪）：{{ currLaohenData.up.radio }} | 公式： <span class="formula">UP池SSR数量/UP池烙痕总抽数</span></h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定SSR数量：{{ currLaohenData.up.noWaiData.length }}</h3>
-                        <h3>获取限定SSR平均耗抽：{{ currLaohenData.up.oneUpEach }}</h3>
-                        <h3>获取限定SSR综合概率：{{ currLaohenData.up.realUpRadio }}</h3>
+                        <h3>获取限定SSR平均耗抽：{{ currLaohenData.up.oneUpEach }} | 公式： <span class="formula">UP池烙痕总抽数/限定池SSR数量</span></h3>
+                        <h3>获取限定SSR综合概率：{{ currLaohenData.up.realUpRadio }} | 公式：<span class="formula">限定池SSR数量/UP池烙痕总抽数</span></h3>
                     </div>
                 </div>
                 <hr>
@@ -93,8 +95,8 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 3 === currentActiveIndex, 'display-none': 3 !== currentActiveIndex }">
                 <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
                 <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
-                <h3>常驻池SSR平均耗抽：{{ currLaohenData.changzhu.oneEach }}</h3>
-                <h3>常驻池综合概率：{{ currLaohenData.changzhu.radio }}</h3>
+                <h3>常驻池SSR平均耗抽：{{ currLaohenData.changzhu.oneEach }} | 公式：<span class="formula">常驻池烙痕总抽数/常驻池SSR数量</span></h3>
+                <h3>常驻池综合概率：{{ currLaohenData.changzhu.radio }} | 公式： <span class="formula">常驻池SSR数量/常驻池烙痕总抽数</span></h3>
                 <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
@@ -106,9 +108,14 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 4 === currentActiveIndex, 'display-none': 4 !== currentActiveIndex }">
                 <h3>混池角色总抽数：{{ currRoleData.mix.total }}</h3>
                 <h3>混池6星数量：{{ currRoleData.mix.data.length }}</h3>
-                <h3>混池6星平均耗抽：{{ currRoleData.mix.oneEach }}</h3>
-                <h3>混池综合概率（总）：{{ currRoleData.mix.radio }}</h3>
+                <h3>混池6星平均耗抽：{{ currRoleData.mix.oneEach }}| 公式：<span class="formula">混池角色总抽数/混池6星数量</span></h3>
+                <h3>混池综合概率（总）：{{ currRoleData.mix.radio }} | 公式：<span class="formula">混池6星数量/混池角色总抽数</span></h3>
                 <h3>当期已垫抽数（UP+常驻）：{{ currRoleData.mix.lastDian }}</h3>
+                <hr>
+                <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
+                    style="width: 100%;float: left;margin: 5px 0px;">
+                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                </div>
                 <hr>
                 <div v-for="(ssr, index) in currRoleData.mix.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
@@ -118,19 +125,21 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 5 === currentActiveIndex, 'display-none': 5 !== currentActiveIndex }">
                 <h3>UP池角色总抽数：{{ currRoleData.up.total }}</h3>
-                <h3>UP池综合不歪率：{{ currRoleData.up.noWaiRadio }}</h3>
+                <h3>UP池综合不歪率：{{ currRoleData.up.noWaiRadio }}|公式(根据最后一抽是否歪了区分，最后一抽歪了则公式开头中的`6星数量`+1，否则不加)：
+                    <span class="formula"> (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量</span>
+                </h3>
                 <h3>当期已垫抽数（限定）：{{ currRoleData.up.lastDian }}</h3>
                 <hr>
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池6星数量（+歪）：{{ currRoleData.up.data.length }}</h3>
-                        <h3>UP池6星平均耗抽（+歪）：{{ currRoleData.up.oneEach }}</h3>
-                        <h3>UP池6星综合概率（+歪）：{{ currRoleData.up.radio }}</h3>
+                        <h3>UP池6星平均耗抽（+歪）：{{ currRoleData.up.oneEach }}| 公式：<span class="formula">UP池角色总抽数/UP池6星数量</span></h3>
+                        <h3>UP池6星综合概率（+歪）：{{ currRoleData.up.radio }}| 公式：<span class="formula">UP池6星数量/UP池角色总抽数</span></h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定6星数量：{{ currRoleData.up.noWaiData.length }}</h3>
-                        <h3>获取限定6星平均耗抽：{{ currRoleData.up.oneUpEach }}</h3>
-                        <h3>获取限定6星综合概率：{{ currRoleData.up.realUpRadio }}</h3>
+                        <h3>获取限定6星平均耗抽：{{ currRoleData.up.oneUpEach }}| 公式：<span class="formula">UP池角色总抽数/限定池6星数量</span></h3>
+                        <h3>获取限定6星综合概率：{{ currRoleData.up.realUpRadio }}| 公式：<span class="formula">限定池6星数量/UP池角色总抽数</span></h3>
                     </div>
                 </div>
                 <hr>
@@ -143,9 +152,14 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 6 === currentActiveIndex, 'display-none': 6 !== currentActiveIndex }">
                 <h3>常驻池角色总抽数：{{ currRoleData.changzhu.total }}</h3>
                 <h3>常驻池6星数量：{{ currRoleData.changzhu.data.length }}</h3>
-                <h3>常驻池6星平均耗抽：{{ currRoleData.changzhu.oneEach }}</h3>
-                <h3>常驻池综合概率：{{ currRoleData.changzhu.radio }}</h3>
+                <h3>常驻池6星平均耗抽：{{ currRoleData.changzhu.oneEach }}| 公式：<span class="formula">常驻池角色总抽数/常驻池6星数量</span></h3>
+                <h3>常驻池综合概率：{{ currRoleData.changzhu.radio }}| 公式：<span class="formula">常驻池6星数量/常驻池角色总抽数</span></h3>
                 <h3>当期已垫抽数（常驻）：{{ currRoleData.changzhu.lastDian }}</h3>
+                <hr>
+                <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
+                    style="width: 100%;float: left;margin: 5px 0px;">
+                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                </div>
                 <hr>
                 <div v-for="(ssr, index) in currRoleData.changzhu.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
@@ -534,12 +548,15 @@ export default {
                     lastDian: 0
                 },
                 changzhu: {
+                    hasSureSixPool: false,
                     data: new Array,
                     total: 0,
                     oneEach: '0',
                     radio: '',
                     lastDian: 0
-                }
+                },
+                hasSureSixPool: false,
+                sureSixRolePool: new Array
             },
             allLaohenPoolData: {},
             allRolePoolData: {}
@@ -615,7 +632,19 @@ export default {
             this.currLaohenData.up.total = lData.upTotalCount
             this.currLaohenData.up.radio = ((this.currLaohenData.up.data.length * 100) / lData.upTotalCount).toFixed(3) + '%'
             this.currLaohenData.up.realUpRadio = ((this.currLaohenData.up.noWaiData.length * 100) / lData.upTotalCount).toFixed(3) + '%'
-            this.currLaohenData.up.noWaiRadio = ((this.currLaohenData.up.noWaiData.length * 100) / this.currLaohenData.up.data.length).toFixed(3) + '%'
+            //最后一抽是否歪了，因为数据被倒叙，所以第一条即为最新一个6星
+            let lastUpLaohenIsWai = false
+            if(this.currLaohenData.up.data[0].up && this.currLaohenData.up.data[0].name != this.currLaohenData.up.data[0].up) {
+                lastUpLaohenIsWai = true
+            }
+            const realUpLaohenWai = (this.currLaohenData.up.data.length - this.currLaohenData.up.noWaiData.length) * 2
+            let withWaiUpLaohenTotal = this.currLaohenData.up.data.length
+            if(lastUpLaohenIsWai) {
+                //最后一抽歪了，则未来下一次为大保底必出6星
+                withWaiUpLaohenTotal = this.currLaohenData.up.data.length + 1
+            }
+            //未歪的UP/已获取的UP数量
+            this.currLaohenData.up.noWaiRadio = (((withWaiUpLaohenTotal - realUpLaohenWai) * 100) / this.currLaohenData.up.noWaiData.length).toFixed(3) + '%'
             this.currLaohenData.up.oneEach = (lData.upTotalCount / this.currLaohenData.up.data.length).toFixed(3)
             this.currLaohenData.up.oneUpEach = (lData.upTotalCount / this.currLaohenData.up.noWaiData.length).toFixed(3)
             this.currLaohenData.up.lastDian = lData.upDianCount
@@ -628,8 +657,8 @@ export default {
             //角色
             this.currRoleData.mix.data = computed(() => { return [...rData.data].reverse() }).value
             this.currRoleData.mix.total = rData.totalCount
-            this.currRoleData.mix.radio = ((this.currRoleData.mix.data.length * 100) / rData.totalCount).toFixed(3) + '%'
-            this.currRoleData.mix.oneEach = (rData.totalCount / this.currRoleData.mix.data.length).toFixed(3)
+            this.currRoleData.mix.radio = ((this.currRoleData.mix.data.length * 100) / this.currRoleData.mix.total).toFixed(3) + '%'
+            this.currRoleData.mix.oneEach = (this.currRoleData.mix.total / this.currRoleData.mix.data.length).toFixed(3)
             this.currRoleData.mix.lastDian = rData.upDianCount + rData.changzhuDianCount
 
             this.currRoleData.up.data = computed(() => { return [...rData.upData].reverse() }).value
@@ -637,15 +666,28 @@ export default {
             this.currRoleData.up.total = rData.upTotalCount
             this.currRoleData.up.radio = ((this.currRoleData.up.data.length * 100) / rData.upTotalCount).toFixed(3) + '%'
             this.currRoleData.up.realUpRadio = ((this.currRoleData.up.noWaiData.length * 100) / rData.upTotalCount).toFixed(3) + '%'
-            this.currRoleData.up.noWaiRadio = ((this.currRoleData.up.noWaiData.length * 100) / this.currRoleData.up.data.length).toFixed(3) + '%'
+            let lastUpRoleIsWai = false
+            if(this.currRoleData.up.data[0].up && this.currRoleData.up.data[0].name != this.currRoleData.up.data[0].up) {
+                lastUpRoleIsWai = true
+            }
+            const realUpRoleWai = (this.currRoleData.up.data.length - this.currRoleData.up.noWaiData.length) * 2
+            let withWaiUpRoleTotal = this.currRoleData.up.data.length
+            if(lastUpRoleIsWai) {
+                //最后一抽歪了，则未来下一次为大保底必出6星
+                withWaiUpRoleTotal = this.currRoleData.up.data.length + 1
+            }
+            this.currRoleData.up.noWaiRadio = (((withWaiUpRoleTotal - realUpRoleWai) * 100) / this.currRoleData.up.noWaiData.length).toFixed(3) + '%'
             this.currRoleData.up.oneEach = (rData.upTotalCount / this.currRoleData.up.data.length).toFixed(3)
             this.currRoleData.up.oneUpEach = (rData.upTotalCount / this.currRoleData.up.noWaiData.length).toFixed(3)
             this.currRoleData.up.lastDian = rData.upDianCount
 
+            this.currRoleData.hasSureSixPool = rData.hasSureSixPool
+            this.currRoleData.sureSixRolePool = rData.sureSixRolePool
+
             this.currRoleData.changzhu.data = computed(() => { return [...rData.changzhuData].reverse() }).value
             this.currRoleData.changzhu.total = rData.changzhuTotalCount
-            this.currRoleData.changzhu.radio = ((this.currRoleData.changzhu.data.length * 100) / rData.changzhuTotalCount).toFixed(3) + '%'
-            this.currRoleData.changzhu.oneEach = (rData.changzhuTotalCount / this.currRoleData.changzhu.data.length).toFixed(3)
+            this.currRoleData.changzhu.radio = ((this.currRoleData.changzhu.data.length * 100) / this.currRoleData.changzhu.total).toFixed(3) + '%'
+            this.currRoleData.changzhu.oneEach = (this.currRoleData.changzhu.total / this.currRoleData.changzhu.data.length).toFixed(3)
             this.currRoleData.changzhu.lastDian = rData.changzhuDianCount
 
             this.allLaohenPoolData = lData.allData//烙痕卡池所有抽卡情况
@@ -666,7 +708,8 @@ export default {
             let changzhuData = new Array//常驻卡池
             let upWithNoWaiData = new Array//不算歪的UP池
             let upData = new Array//限定UP卡池
-            let allPoolData = {}//所以抽卡汇总（UP+常驻+友情）
+            let allPoolData = {}//所有抽卡汇总（UP+常驻+友情）
+            let sureSixRolePool = new Array//十连必出6星礼包卡池抽到的6星角色
             //烙痕或角色通用数据结构：{poolId:{type:'',name:''},...}
             //卡池数据结构：{tid:{namr:"",rarity:"1"}}
             let totalCount = 0//总抽数
@@ -675,6 +718,7 @@ export default {
             let ssrCount = 0//ssr数量
             let changzhuDianCount = 0//常驻池垫
             let upDianCount = 0//UP池垫
+            let hasSureSixPool = false//是否包含商城68R角色十连必出6星礼包卡池（poolId=101）
             for (let date in laohenOrRoleData) {
                 const laohenList = laohenOrRoleData[date]
                 totalCount += laohenList.length
@@ -682,9 +726,6 @@ export default {
                     //实际抽卡（角色/烙痕）通用数据结构：{time: '2024-01-12 09:19:42', poolId: '2', tid: '1013'}
                     const eachData = laohenList[index]
                     let poolId = eachData.poolId
-                    if (!Object.keys(allPoolData).includes(poolId)) {
-                        allPoolData[poolId] = new Array
-                    }
                     let ssrLaohenWithPool = {
                         poolId: eachData.poolId,
                         poolName: pool[poolId].name,
@@ -694,7 +735,18 @@ export default {
                         dian: 0,
                         up: pool[poolId].up
                     }
+                    if (!Object.keys(allPoolData).includes(poolId)) {
+                        allPoolData[poolId] = new Array
+                    }
                     allPoolData[poolId].push(ssrLaohenWithPool)
+                    //过滤掉十连必出6星礼包卡池
+                    if (poolId === '101') {
+                        hasSureSixPool = true
+                        if (ssrLaohenWithPool.rarity === needCheckRarity) {
+                            sureSixRolePool.push(ssrLaohenWithPool)
+                        }
+                        continue
+                    }
                     //判断是常驻还是UP抽
                     let isUp = ssrLaohenWithPool.up.length > 0
                     if (isUp) {
@@ -736,12 +788,14 @@ export default {
                 }
             }
             return {
+                hasSureSixPool: hasSureSixPool,
                 data: allData,
                 upData: upData,
                 upWithNoWaiData: upWithNoWaiData,
                 changzhuData: changzhuData,
                 allData: allPoolData,
-                totalCount: totalCount,
+                sureSixRolePool: sureSixRolePool,
+                totalCount: hasSureSixPool ? totalCount - 10 * sureSixRolePool.length : totalCount,
                 upTotalCount: upTotalCount,
                 changzhuTotalCount: changzhuTotalCount,
                 upDianCount: upDianCount,
@@ -771,6 +825,11 @@ a:hover {
 h2>a,
 h2>a:visited {
     color: #333;
+}
+
+.formula {
+    font-size: 14px;
+    border-style: dotted;
 }
 
 p>button {
