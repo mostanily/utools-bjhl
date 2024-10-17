@@ -1,11 +1,11 @@
 # utools-bjhl
 白荆回廊utools插件
 
-基于`Vite+Vue`的`Utools`插件开发模板，让您更快的开发出一款属于自己的`Utools`插件
+基于`Vite+Vue`的`Utools`插件开发模板开发的插件
 
 ## ✨ 特性
 
-- 🌈 开箱即用的`Vite+Vue3`的`Utools`插件开发模板
+- 🌈 本插件基于开箱即用的`Vite+Vue3`的`Utools`插件开发模板开发，[模板地址 utools-plugin-template](https://github.com/QC2168/utools-plugin-template)
 - ⚡ 开发环境自动注入`HMR`字段
 - 🦍 自动构建`upx`包，此打的包已经无效，直接使用官方的开发工具打包即可
 - 🧸 构建`utools/preload`文件，处理第三方依赖
@@ -21,7 +21,7 @@
 npm install 或者 pnpm install
 ```
 
-> 如果使用`pnpm`安装失败的话，直接使用`npm`进行安装吧
+> 如果使用`pnpm`安装失败的话，清除缓存后直接使用`npm`进行安装吧
 
 ### 🛫 启动项目
 
