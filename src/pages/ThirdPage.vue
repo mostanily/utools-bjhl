@@ -2,6 +2,7 @@
     <div>
         <h2><router-link :to="{ name: 'index' }">首页</router-link></h2>
         <p><button type="button" @click="loadPage()">初始化数据，先点我，初始化完成后可以点击下面的统计按钮（首次需要QQ扫码登录，登录完成后关闭弹窗再次点我）</button></p>
+        <p><button type="button" @click="clearAllDBData()">清空本地数据，此功能会清空上一个账号的所有统计数据，当需要获取其他账号的数据时可以点击此按钮（不同的账号数据会冲突，所以需要先清除上一个账号的数据），否则慎重，如意外操作可点击`初始化`数据再次获取</button></p>
         <p>
             <button type="button" @click="getBjData()">统计数据</button>
             <button type="button" @click="saveScreenshot()" style="margin-left: 10px;">截图并保存</button>
@@ -76,13 +77,17 @@
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
-                        <h3>UP池SSR平均耗抽（+歪）：{{ currLaohenData.up.oneEach }} | 公式：<span class="formula">UP池烙痕总抽数/UP池SSR数量</span></h3>
-                        <h3>UP池SSR综合概率（+歪）：{{ currLaohenData.up.radio }} | 公式： <span class="formula">UP池SSR数量/UP池烙痕总抽数</span></h3>
+                        <h3>UP池SSR平均耗抽（+歪）：{{ currLaohenData.up.oneEach }} | 公式：<span
+                                class="formula">UP池烙痕总抽数/UP池SSR数量</span></h3>
+                        <h3>UP池SSR综合概率（+歪）：{{ currLaohenData.up.radio }} | 公式： <span
+                                class="formula">UP池SSR数量/UP池烙痕总抽数</span></h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定SSR数量：{{ currLaohenData.up.noWaiData.length }}</h3>
-                        <h3>获取限定SSR平均耗抽：{{ currLaohenData.up.oneUpEach }} | 公式： <span class="formula">UP池烙痕总抽数/限定池SSR数量</span></h3>
-                        <h3>获取限定SSR综合概率：{{ currLaohenData.up.realUpRadio }} | 公式：<span class="formula">限定池SSR数量/UP池烙痕总抽数</span></h3>
+                        <h3>获取限定SSR平均耗抽：{{ currLaohenData.up.oneUpEach }} | 公式： <span
+                                class="formula">UP池烙痕总抽数/限定池SSR数量</span></h3>
+                        <h3>获取限定SSR综合概率：{{ currLaohenData.up.realUpRadio }} | 公式：<span
+                                class="formula">限定池SSR数量/UP池烙痕总抽数</span></h3>
                     </div>
                 </div>
                 <hr>
@@ -95,8 +100,10 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 3 === currentActiveIndex, 'display-none': 3 !== currentActiveIndex }">
                 <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
                 <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
-                <h3>常驻池SSR平均耗抽：{{ currLaohenData.changzhu.oneEach }} | 公式：<span class="formula">常驻池烙痕总抽数/常驻池SSR数量</span></h3>
-                <h3>常驻池综合概率：{{ currLaohenData.changzhu.radio }} | 公式： <span class="formula">常驻池SSR数量/常驻池烙痕总抽数</span></h3>
+                <h3>常驻池SSR平均耗抽：{{ currLaohenData.changzhu.oneEach }} | 公式：<span class="formula">常驻池烙痕总抽数/常驻池SSR数量</span>
+                </h3>
+                <h3>常驻池综合概率：{{ currLaohenData.changzhu.radio }} | 公式： <span class="formula">常驻池SSR数量/常驻池烙痕总抽数</span>
+                </h3>
                 <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
@@ -133,13 +140,17 @@
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池6星数量（+歪）：{{ currRoleData.up.data.length }}</h3>
-                        <h3>UP池6星平均耗抽（+歪）：{{ currRoleData.up.oneEach }}| 公式：<span class="formula">UP池角色总抽数/UP池6星数量</span></h3>
-                        <h3>UP池6星综合概率（+歪）：{{ currRoleData.up.radio }}| 公式：<span class="formula">UP池6星数量/UP池角色总抽数</span></h3>
+                        <h3>UP池6星平均耗抽（+歪）：{{ currRoleData.up.oneEach }}| 公式：<span
+                                class="formula">UP池角色总抽数/UP池6星数量</span></h3>
+                        <h3>UP池6星综合概率（+歪）：{{ currRoleData.up.radio }}| 公式：<span class="formula">UP池6星数量/UP池角色总抽数</span>
+                        </h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定6星数量：{{ currRoleData.up.noWaiData.length }}</h3>
-                        <h3>获取限定6星平均耗抽：{{ currRoleData.up.oneUpEach }}| 公式：<span class="formula">UP池角色总抽数/限定池6星数量</span></h3>
-                        <h3>获取限定6星综合概率：{{ currRoleData.up.realUpRadio }}| 公式：<span class="formula">限定池6星数量/UP池角色总抽数</span></h3>
+                        <h3>获取限定6星平均耗抽：{{ currRoleData.up.oneUpEach }}| 公式：<span class="formula">UP池角色总抽数/限定池6星数量</span>
+                        </h3>
+                        <h3>获取限定6星综合概率：{{ currRoleData.up.realUpRadio }}| 公式：<span
+                                class="formula">限定池6星数量/UP池角色总抽数</span></h3>
                     </div>
                 </div>
                 <hr>
@@ -566,10 +577,7 @@ export default {
         setActiveClass(index) {
             this.currentActiveIndex = index
         },
-        /**
-         * 处理所有的本地数据，如果存在多个数据源，则进行整合处理
-         */
-        dealAllDbData() {
+        getAllDBIdNames() {
             const yearCount = this.currYearCount()
             let dbIdName = { laohen: new Array, role: new Array }
             for (let i = 0; i <= yearCount; i++) {
@@ -581,6 +589,25 @@ export default {
                     dbIdName.role.push(`role${i}`)
                 }
             }
+            return dbIdName
+        },
+        clearAllDBData() {
+            const dbIdName = this.getAllDBIdNames()
+            for (let key in dbIdName.laohen) {
+                window.utools.db.remove(dbIdName.laohen[key])
+            }
+            for (let key in dbIdName.role) {
+                window.utools.db.remove(dbIdName.role[key])
+            }
+            window.utools.dbStorage.removeItem('lastUpdateTime')
+            this.getBjData()
+            alert("数据清除成功！")
+        },
+        /**
+         * 处理所有的本地数据，如果存在多个数据源，则进行整合处理
+         */
+        dealAllDbData() {
+            const dbIdName = this.getAllDBIdNames()
             const allLaohenDBData = window.utools.db.allDocs(dbIdName.laohen)
             const allRoleDBData = window.utools.db.allDocs(dbIdName.role)
 
@@ -620,78 +647,82 @@ export default {
             const allDBData = this.dealAllDbData()
             const lData = this.dealPoolData(allDBData.laohen, pool, laohen)
             const rData = this.dealPoolData(allDBData.role, pool, role, true)
-            //倒叙排，ssr烙痕
-            this.currLaohenData.mix.data = computed(() => { return [...lData.data].reverse() }).value
-            this.currLaohenData.mix.total = lData.totalCount
-            this.currLaohenData.mix.radio = ((this.currLaohenData.mix.data.length * 100) / lData.totalCount).toFixed(3) + '%'
-            this.currLaohenData.mix.oneEach = (lData.totalCount / this.currLaohenData.mix.data.length).toFixed(3)
-            this.currLaohenData.mix.lastDian = lData.upDianCount + lData.changzhuDianCount
+            if (lData && lData.data.length > 0) {
+                //倒叙排，ssr烙痕
+                this.currLaohenData.mix.data = computed(() => { return [...lData.data].reverse() }).value
+                this.currLaohenData.mix.total = lData.totalCount
+                this.currLaohenData.mix.radio = ((this.currLaohenData.mix.data.length * 100) / lData.totalCount).toFixed(3) + '%'
+                this.currLaohenData.mix.oneEach = (lData.totalCount / this.currLaohenData.mix.data.length).toFixed(3)
+                this.currLaohenData.mix.lastDian = lData.upDianCount + lData.changzhuDianCount
 
-            this.currLaohenData.up.data = computed(() => { return [...lData.upData].reverse() }).value
-            this.currLaohenData.up.noWaiData = computed(() => { return [...lData.upWithNoWaiData].reverse() }).value
-            this.currLaohenData.up.total = lData.upTotalCount
-            this.currLaohenData.up.radio = ((this.currLaohenData.up.data.length * 100) / lData.upTotalCount).toFixed(3) + '%'
-            this.currLaohenData.up.realUpRadio = ((this.currLaohenData.up.noWaiData.length * 100) / lData.upTotalCount).toFixed(3) + '%'
-            //最后一抽是否歪了，因为数据被倒叙，所以第一条即为最新一个6星
-            let lastUpLaohenIsWai = false
-            if(this.currLaohenData.up.data[0].up && this.currLaohenData.up.data[0].name != this.currLaohenData.up.data[0].up) {
-                lastUpLaohenIsWai = true
-            }
-            const realUpLaohenWai = (this.currLaohenData.up.data.length - this.currLaohenData.up.noWaiData.length) * 2
-            let withWaiUpLaohenTotal = this.currLaohenData.up.data.length
-            if(lastUpLaohenIsWai) {
-                //最后一抽歪了，则未来下一次为大保底必出6星
-                withWaiUpLaohenTotal = this.currLaohenData.up.data.length + 1
-            }
-            //未歪的UP/已获取的UP数量
-            this.currLaohenData.up.noWaiRadio = (((withWaiUpLaohenTotal - realUpLaohenWai) * 100) / this.currLaohenData.up.noWaiData.length).toFixed(3) + '%'
-            this.currLaohenData.up.oneEach = (lData.upTotalCount / this.currLaohenData.up.data.length).toFixed(3)
-            this.currLaohenData.up.oneUpEach = (lData.upTotalCount / this.currLaohenData.up.noWaiData.length).toFixed(3)
-            this.currLaohenData.up.lastDian = lData.upDianCount
+                this.currLaohenData.up.data = computed(() => { return [...lData.upData].reverse() }).value
+                this.currLaohenData.up.noWaiData = computed(() => { return [...lData.upWithNoWaiData].reverse() }).value
+                this.currLaohenData.up.total = lData.upTotalCount
+                this.currLaohenData.up.radio = ((this.currLaohenData.up.data.length * 100) / lData.upTotalCount).toFixed(3) + '%'
+                this.currLaohenData.up.realUpRadio = ((this.currLaohenData.up.noWaiData.length * 100) / lData.upTotalCount).toFixed(3) + '%'
+                //最后一抽是否歪了，因为数据被倒叙，所以第一条即为最新一个6星
+                let lastUpLaohenIsWai = false
+                if (this.currLaohenData.up.data[0].up && this.currLaohenData.up.data[0].name != this.currLaohenData.up.data[0].up) {
+                    lastUpLaohenIsWai = true
+                }
+                const realUpLaohenWai = (this.currLaohenData.up.data.length - this.currLaohenData.up.noWaiData.length) * 2
+                let withWaiUpLaohenTotal = this.currLaohenData.up.data.length
+                if (lastUpLaohenIsWai) {
+                    //最后一抽歪了，则未来下一次为大保底必出6星
+                    withWaiUpLaohenTotal = this.currLaohenData.up.data.length + 1
+                }
+                //未歪的UP/已获取的UP数量
+                this.currLaohenData.up.noWaiRadio = (((withWaiUpLaohenTotal - realUpLaohenWai) * 100) / this.currLaohenData.up.noWaiData.length).toFixed(3) + '%'
+                this.currLaohenData.up.oneEach = (lData.upTotalCount / this.currLaohenData.up.data.length).toFixed(3)
+                this.currLaohenData.up.oneUpEach = (lData.upTotalCount / this.currLaohenData.up.noWaiData.length).toFixed(3)
+                this.currLaohenData.up.lastDian = lData.upDianCount
 
-            this.currLaohenData.changzhu.data = computed(() => { return [...lData.changzhuData].reverse() }).value
-            this.currLaohenData.changzhu.total = lData.changzhuTotalCount
-            this.currLaohenData.changzhu.radio = ((this.currLaohenData.changzhu.data.length * 100) / lData.changzhuTotalCount).toFixed(3) + '%'
-            this.currLaohenData.changzhu.oneEach = (lData.changzhuTotalCount / this.currLaohenData.changzhu.data.length).toFixed(3)
-            this.currLaohenData.changzhu.lastDian = lData.changzhuDianCount
+                this.currLaohenData.changzhu.data = computed(() => { return [...lData.changzhuData].reverse() }).value
+                this.currLaohenData.changzhu.total = lData.changzhuTotalCount
+                this.currLaohenData.changzhu.radio = ((this.currLaohenData.changzhu.data.length * 100) / lData.changzhuTotalCount).toFixed(3) + '%'
+                this.currLaohenData.changzhu.oneEach = (lData.changzhuTotalCount / this.currLaohenData.changzhu.data.length).toFixed(3)
+                this.currLaohenData.changzhu.lastDian = lData.changzhuDianCount
+                this.allLaohenPoolData = lData.allData//烙痕卡池所有抽卡情况
+            }
+
             //角色
-            this.currRoleData.mix.data = computed(() => { return [...rData.data].reverse() }).value
-            this.currRoleData.mix.total = rData.totalCount
-            this.currRoleData.mix.radio = ((this.currRoleData.mix.data.length * 100) / this.currRoleData.mix.total).toFixed(3) + '%'
-            this.currRoleData.mix.oneEach = (this.currRoleData.mix.total / this.currRoleData.mix.data.length).toFixed(3)
-            this.currRoleData.mix.lastDian = rData.upDianCount + rData.changzhuDianCount
+            if (rData && rData.data.length > 0) {
+                this.currRoleData.mix.data = computed(() => { return [...rData.data].reverse() }).value
+                this.currRoleData.mix.total = rData.totalCount
+                this.currRoleData.mix.radio = ((this.currRoleData.mix.data.length * 100) / this.currRoleData.mix.total).toFixed(3) + '%'
+                this.currRoleData.mix.oneEach = (this.currRoleData.mix.total / this.currRoleData.mix.data.length).toFixed(3)
+                this.currRoleData.mix.lastDian = rData.upDianCount + rData.changzhuDianCount
 
-            this.currRoleData.up.data = computed(() => { return [...rData.upData].reverse() }).value
-            this.currRoleData.up.noWaiData = computed(() => { return [...rData.upWithNoWaiData].reverse() }).value
-            this.currRoleData.up.total = rData.upTotalCount
-            this.currRoleData.up.radio = ((this.currRoleData.up.data.length * 100) / rData.upTotalCount).toFixed(3) + '%'
-            this.currRoleData.up.realUpRadio = ((this.currRoleData.up.noWaiData.length * 100) / rData.upTotalCount).toFixed(3) + '%'
-            let lastUpRoleIsWai = false
-            if(this.currRoleData.up.data[0].up && this.currRoleData.up.data[0].name != this.currRoleData.up.data[0].up) {
-                lastUpRoleIsWai = true
+                this.currRoleData.up.data = computed(() => { return [...rData.upData].reverse() }).value
+                this.currRoleData.up.noWaiData = computed(() => { return [...rData.upWithNoWaiData].reverse() }).value
+                this.currRoleData.up.total = rData.upTotalCount
+                this.currRoleData.up.radio = ((this.currRoleData.up.data.length * 100) / rData.upTotalCount).toFixed(3) + '%'
+                this.currRoleData.up.realUpRadio = ((this.currRoleData.up.noWaiData.length * 100) / rData.upTotalCount).toFixed(3) + '%'
+                let lastUpRoleIsWai = false
+                if (this.currRoleData.up.data[0].up && this.currRoleData.up.data[0].name != this.currRoleData.up.data[0].up) {
+                    lastUpRoleIsWai = true
+                }
+                const realUpRoleWai = (this.currRoleData.up.data.length - this.currRoleData.up.noWaiData.length) * 2
+                let withWaiUpRoleTotal = this.currRoleData.up.data.length
+                if (lastUpRoleIsWai) {
+                    //最后一抽歪了，则未来下一次为大保底必出6星
+                    withWaiUpRoleTotal = this.currRoleData.up.data.length + 1
+                }
+                this.currRoleData.up.noWaiRadio = (((withWaiUpRoleTotal - realUpRoleWai) * 100) / this.currRoleData.up.noWaiData.length).toFixed(3) + '%'
+                this.currRoleData.up.oneEach = (rData.upTotalCount / this.currRoleData.up.data.length).toFixed(3)
+                this.currRoleData.up.oneUpEach = (rData.upTotalCount / this.currRoleData.up.noWaiData.length).toFixed(3)
+                this.currRoleData.up.lastDian = rData.upDianCount
+
+                this.currRoleData.hasSureSixPool = rData.hasSureSixPool
+                this.currRoleData.sureSixRolePool = rData.sureSixRolePool
+
+                this.currRoleData.changzhu.data = computed(() => { return [...rData.changzhuData].reverse() }).value
+                this.currRoleData.changzhu.total = rData.changzhuTotalCount
+                this.currRoleData.changzhu.radio = ((this.currRoleData.changzhu.data.length * 100) / this.currRoleData.changzhu.total).toFixed(3) + '%'
+                this.currRoleData.changzhu.oneEach = (this.currRoleData.changzhu.total / this.currRoleData.changzhu.data.length).toFixed(3)
+                this.currRoleData.changzhu.lastDian = rData.changzhuDianCount
+                this.allRolePoolData = rData.allData//角色卡池所有抽卡情况
             }
-            const realUpRoleWai = (this.currRoleData.up.data.length - this.currRoleData.up.noWaiData.length) * 2
-            let withWaiUpRoleTotal = this.currRoleData.up.data.length
-            if(lastUpRoleIsWai) {
-                //最后一抽歪了，则未来下一次为大保底必出6星
-                withWaiUpRoleTotal = this.currRoleData.up.data.length + 1
-            }
-            this.currRoleData.up.noWaiRadio = (((withWaiUpRoleTotal - realUpRoleWai) * 100) / this.currRoleData.up.noWaiData.length).toFixed(3) + '%'
-            this.currRoleData.up.oneEach = (rData.upTotalCount / this.currRoleData.up.data.length).toFixed(3)
-            this.currRoleData.up.oneUpEach = (rData.upTotalCount / this.currRoleData.up.noWaiData.length).toFixed(3)
-            this.currRoleData.up.lastDian = rData.upDianCount
-
-            this.currRoleData.hasSureSixPool = rData.hasSureSixPool
-            this.currRoleData.sureSixRolePool = rData.sureSixRolePool
-
-            this.currRoleData.changzhu.data = computed(() => { return [...rData.changzhuData].reverse() }).value
-            this.currRoleData.changzhu.total = rData.changzhuTotalCount
-            this.currRoleData.changzhu.radio = ((this.currRoleData.changzhu.data.length * 100) / this.currRoleData.changzhu.total).toFixed(3) + '%'
-            this.currRoleData.changzhu.oneEach = (this.currRoleData.changzhu.total / this.currRoleData.changzhu.data.length).toFixed(3)
-            this.currRoleData.changzhu.lastDian = rData.changzhuDianCount
-
-            this.allLaohenPoolData = lData.allData//烙痕卡池所有抽卡情况
-            this.allRolePoolData = rData.allData//角色卡池所有抽卡情况
         },
         /**
          * 处理卡池数据
