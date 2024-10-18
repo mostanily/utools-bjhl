@@ -52,19 +52,20 @@
             <p><br></p>
             <hr>
             <div class="tabber tabberlive">
-                <div class="half-skill" style="border: 1px solid #525c66;border-top: none;border-bottom: none;border-left: none;">
+                <div class="half-skill"
+                    style="border: 1px solid #525c66;border-top: none;border-bottom: none;border-left: none;">
                     <h3>漫巡技能：</h3>
                     <div class="tabbertab" title="漫巡技能" data-hash="漫巡技能" style="">
                         <p class="mw-empty-elt"></p>
                         <div style="display:flex;flex-wrap:wrap;gap:4px;width:100%;max-width:480px;">
                             <div style="display:none"></div>
-                            <router-link class="bili-tt skill-box" 
+                            <router-link class="bili-tt skill-box"
                                 v-for="(mx, index) in getLaohenDetail($route.params.name).mxSkill" :key="index"
-                                :to="{name: 'laohen_skill_detail', params: { name: mx}}" 
+                                :to="{ name: 'laohen_skill_detail', params: { name: mx } }"
                                 @mouseenter="mouseCurrLaohenSkillEnum = mx">
                                 <div class="skill-bg">
                                     <span>
-                                        <img :alt="'烙痕技能 '+ rarityEnName[getLaohenSkillDetaill(mx).rarity] +'.png'"
+                                        <img :alt="'烙痕技能 ' + rarityEnName[getLaohenSkillDetaill(mx).rarity] + '.png'"
                                             :src="getLaohenBgNavRarityImg([getLaohenSkillDetaill(mx).rarity])"
                                             decoding="async" loading="lazy" width="225" height="56"
                                             data-file-width="225" data-file-height="56">
@@ -72,9 +73,9 @@
                                 </div>
                                 <div class="skill-detail">
                                     <div class="skill-icon">
-                                        <img :src="getLaohenSkillImg(mx)"
-                                            :alt="getLaohenSkillDetaill(mx).name + '.png'" decoding="async" loading="lazy" width="128"
-                                            height="128" data-file-width="128" data-file-height="128">
+                                        <img :src="getLaohenSkillImg(mx)" :alt="getLaohenSkillDetaill(mx).name + '.png'"
+                                            decoding="async" loading="lazy" width="128" height="128"
+                                            data-file-width="128" data-file-height="128">
                                     </div>
                                     <div class="skill-name">{{ getLaohenSkillDetaill(mx).name }}</div>
                                 </div>
@@ -87,12 +88,12 @@
                         <p class="mw-empty-elt"></p>
                         <div style="display:flex;flex-wrap:wrap;gap:4px;width:100%;max-width:480px;">
                             <div style="display:none"></div>
-                            <router-link v-for="(hx, index) in getLaohenDetail($route.params.name).hxSkill" :key="index" 
-                                :to="{name: 'laohen_skill_detail', params: { name: hx}}" class="bili-tt skill-box" 
+                            <router-link v-for="(hx, index) in getLaohenDetail($route.params.name).hxSkill" :key="index"
+                                :to="{ name: 'laohen_skill_detail', params: { name: hx } }" class="bili-tt skill-box"
                                 @mouseenter="mouseCurrLaohenSkillEnum = hx">
                                 <div class="skill-bg">
                                     <span>
-                                        <img :alt="'烙痕技能 '+ rarityEnName[getLaohenSkillDetaill(hx).rarity] +'.png'"
+                                        <img :alt="'烙痕技能 ' + rarityEnName[getLaohenSkillDetaill(hx).rarity] + '.png'"
                                             :src="getLaohenBgNavRarityImg([getLaohenSkillDetaill(hx).rarity])"
                                             decoding="async" loading="lazy" width="225" height="56"
                                             data-file-width="225" data-file-height="56">
@@ -100,9 +101,9 @@
                                 </div>
                                 <div class="skill-detail">
                                     <div class="skill-icon">
-                                        <img :src="getLaohenSkillImg(hx)"
-                                            :alt="getLaohenSkillDetaill(hx).name + '.png'" decoding="async" loading="lazy" width="128"
-                                            height="128" data-file-width="128" data-file-height="128">
+                                        <img :src="getLaohenSkillImg(hx)" :alt="getLaohenSkillDetaill(hx).name + '.png'"
+                                            decoding="async" loading="lazy" width="128" height="128"
+                                            data-file-width="128" data-file-height="128">
                                     </div>
                                     <div class="skill-name">{{ getLaohenSkillDetaill(hx).name }}</div>
                                 </div>
@@ -111,20 +112,18 @@
                         <p class="mw-empty-elt"></p>
                     </div>
                 </div>
-                <div class="half-skill">
-                    <LaohenSkillDetaillCon :moveCurrLaohenSkillEnum="mouseCurrLaohenSkillEnum"></LaohenSkillDetaillCon>
-                </div>
+                <LaohenNav :moveCurrLaohenSkillEnum="mouseCurrLaohenSkillEnum"></LaohenNav>
             </div>
         </div>
     </div>
 </template>
 <script>
 import { defineComponent } from 'vue';
-import LaohenSkillDetaillCon from './detail/LaohenSkillDetaillCon.vue';
+import LaohenNav from './detail/LaohenNav.vue';
 
 export default defineComponent({
     components: {
-        LaohenSkillDetaillCon
+        LaohenNav
     },
     data() {
         return {
@@ -134,6 +133,9 @@ export default defineComponent({
         }
     },
     methods: {
+        initDefLaohenSkillEnum(defEnum) {
+            this.mouseCurrLaohenSkillEnum = defEnum
+        },
         /**
          * 获取筛选条件对应的属性图片
          * @param attr 烙痕属性值（体质、防御等）
@@ -166,7 +168,7 @@ export default defineComponent({
          * 获取烙痕卡面稀有度背景图片
          * @param rarityEnum 烙痕稀有度对应的枚举值
          */
-         getLaohenBgNavRarityImg(rarityEnum) {
+        getLaohenBgNavRarityImg(rarityEnum) {
             return window.$laohen.getLaohenBgNavRarityImg(rarityEnum, true)
         },
         /**
@@ -189,14 +191,14 @@ export default defineComponent({
          * 获取烙痕技能详情
          * @param laohenSkillEnum 烙痕技能对应的枚举值
          */
-         getLaohenSkillDetaill(laohenSkillEnum) {
+        getLaohenSkillDetaill(laohenSkillEnum) {
             return window.$laohen.getLaohenSkillDetaill(laohenSkillEnum);
         },
         /**
          * 获取烙痕技能对应的图片
          * @param laohenSkillEnum 
          */
-         getLaohenSkillImg(laohenSkillEnum) {
+        getLaohenSkillImg(laohenSkillEnum) {
             return window.$laohen.getLaohenSkillImg(laohenSkillEnum)
         }
     }
@@ -263,7 +265,7 @@ table.wikitable>*>tr>td {
 }
 
 .tabber .tabbertab {
-    padding: 4px;
+    padding: 4px 4px 0 4px;
     border: 1px solid #525c66;
     border: none;
     background: #fff;
@@ -278,12 +280,13 @@ table.wikitable>*>tr>td {
     font-family: 'sans-serif';
 }
 
-a, a:visited {
+a,
+a:visited {
     color: #fff;
 }
 
 a:hover {
-    color: rgb(0,110,225);
+    color: rgb(0, 110, 225);
 }
 
 .half-skill {
