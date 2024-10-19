@@ -9,6 +9,43 @@
         </p>
         <!-- 显示获取的数据 -->
         <div id="output">
+            <hr>
+            <div class="chou-summary" style="width: 100%;">
+                <div class="common-summary">
+                    <div style="width: 100%;position: relative;">
+                        <div class="summary-item" style="line-height: 42px;font-weight: bold;">角色</div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.mix.radio }}</span><br><span>综合概率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneEach }}抽</span><br><span>每6星角色</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.noWaiRadio }}</span><br><span>角色不歪率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneUpEach }}抽</span><br><span>每UP角色</span></div>
+                    </div>
+                    <div style="width: 100%;position: relative;">
+                        <div class="summary-item" style="line-height: 42px;"></div>
+                        <div class="summary-item">总抽数：<span class="item-detail">{{ currRoleData.mix.total }}抽</span></div>
+                        <div class="summary-item">6星：<span class="item-detail">{{ currRoleData.mix.data.length }}个</span></div>
+                        <div class="summary-item">UP抽数：<span class="item-detail">{{ currRoleData.up.total }}抽</span></div>
+                        <div class="summary-item">限定6星：<span class="item-detail">{{ currRoleData.up.noWaiData.length }}个</span></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="common-summary">
+                    <div style="width: 100%;position: relative;">
+                        <div class="summary-item" style="line-height: 42px;font-weight: bold;">烙痕</div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.mix.radio }}</span><br><span>综合概率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneEach }}抽</span><br><span>每SSR烙痕</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.noWaiRadio }}</span><br><span>烙痕不歪率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneUpEach }}抽</span><br><span>每UP烙痕</span></div>
+                    </div>
+                    <div style="width: 100%;position: relative;">
+                        <div class="summary-item" style="line-height: 42px;"></div>
+                        <div class="summary-item">总抽数：<span class="item-detail">{{ currLaohenData.mix.total }}抽</span></div>
+                        <div class="summary-item">SSR：<span class="item-detail">{{ currLaohenData.mix.data.length }}个</span></div>
+                        <div class="summary-item">UP抽数：<span class="item-detail">{{ currLaohenData.up.total }}抽</span></div>
+                        <div class="summary-item">限定SSR：<span class="item-detail">{{ currLaohenData.up.noWaiData.length }}个</span></div>
+                    </div>
+                </div>
+            </div>
+            <hr>
             <ul class="resp-tabs-list clearfix" style="margin:10px 0 0">
                 <li :class="{ 'bili-list-style': true, 'active': 1 === currentActiveIndex }" @click="setActiveClass(1)">
                     <span class="tab-panel">
@@ -503,7 +540,7 @@ export default {
                     data: new Array,
                     total: 0,
                     oneEach: '0',
-                    radio: '',
+                    radio: '--',
                     lastDian: 0//最新期已垫抽数，下同
                 },//混池
                 up: {
@@ -512,16 +549,16 @@ export default {
                     total: 0,
                     oneEach: '0',
                     oneUpEach: '0',//每获取一个UP角色的平均抽数
-                    radio: '',
-                    realUpRadio: '',//每获取一个UP的实际概率（去除歪的角色或烙痕）
-                    noWaiRadio: '',//不歪率，不歪数量/总数量（up获取的ssr或6*）
+                    radio: '--',
+                    realUpRadio: '--',//每获取一个UP的实际概率（去除歪的角色或烙痕）
+                    noWaiRadio: '--',//不歪率，不歪数量/总数量（up获取的ssr或6*）
                     lastDian: 0
                 },//UP池
                 changzhu: {
                     data: new Array,
                     total: 0,
                     oneEach: '0',
-                    radio: '',
+                    radio: '--',
                     lastDian: 0
                 }//常驻池
             },
@@ -530,7 +567,7 @@ export default {
                     data: new Array,
                     total: 0,
                     oneEach: '0',
-                    radio: '',
+                    radio: '--',
                     lastDian: 0
                 },
                 up: {
@@ -539,9 +576,9 @@ export default {
                     total: 0,
                     oneEach: '0',
                     oneUpEach: '0',
-                    radio: '',
-                    realUpRadio: '',
-                    noWaiRadio: '',
+                    radio: '--',
+                    realUpRadio: '--',
+                    noWaiRadio: '--',
                     lastDian: 0
                 },
                 changzhu: {
@@ -549,7 +586,7 @@ export default {
                     data: new Array,
                     total: 0,
                     oneEach: '0',
-                    radio: '',
+                    radio: '--',
                     lastDian: 0
                 },
                 hasSureSixPool: false,
@@ -834,6 +871,24 @@ export default {
 .show-tips {
     cursor: pointer;
     color:red;
+}
+
+.common-summary {
+    width: 100%;
+    float: left;
+}
+
+.summary-item {
+    display: block;
+    position: relative;
+    float: left;
+    width: 20%;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.item-detail {
+    color: deepskyblue;
 }
 
 .resp-tab-content {
