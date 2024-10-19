@@ -50,116 +50,34 @@
                 <li :class="{ 'bili-list-style': true, 'active': 1 === currentActiveIndex }" @click="setActiveClass(1)">
                     <span class="tab-panel">
                         <div style="display:flex;align-items:center;">
-                            <div style="padding:0px 2px;font-size:16px;">所有烙痕混池</div>
+                            <div style="padding:0px 2px;font-size:16px;">限定角色池</div>
                         </div>
                     </span>
                 </li>
                 <li :class="{ 'bili-list-style': true, 'active': 2 === currentActiveIndex }" @click="setActiveClass(2)">
                     <span class="tab-panel">
                         <div style="display:flex;align-items:center;">
-                            <div style="padding:0px 2px;font-size:16px;">限定烙痕池</div>
+                            <div style="padding:0px 2px;font-size:16px;">常驻角色池</div>
                         </div>
                     </span>
                 </li>
                 <li :class="{ 'bili-list-style': true, 'active': 3 === currentActiveIndex }" @click="setActiveClass(3)">
                     <span class="tab-panel">
                         <div style="display:flex;align-items:center;">
-                            <div style="padding:0px 2px;font-size:16px;">常驻烙痕池</div>
+                            <div style="padding:0px 2px;font-size:16px;">限定烙痕池</div>
                         </div>
                     </span>
                 </li>
                 <li :class="{ 'bili-list-style': true, 'active': 4 === currentActiveIndex }" @click="setActiveClass(4)">
                     <span class="tab-panel">
                         <div style="display:flex;align-items:center;">
-                            <div style="padding:0px 2px;font-size:16px;">所有角色混池</div>
-                        </div>
-                    </span>
-                </li>
-                <li :class="{ 'bili-list-style': true, 'active': 5 === currentActiveIndex }" @click="setActiveClass(5)">
-                    <span class="tab-panel">
-                        <div style="display:flex;align-items:center;">
-                            <div style="padding:0px 2px;font-size:16px;">限定角色池</div>
-                        </div>
-                    </span>
-                </li>
-                <li :class="{ 'bili-list-style': true, 'active': 6 === currentActiveIndex }" @click="setActiveClass(6)">
-                    <span class="tab-panel">
-                        <div style="display:flex;align-items:center;">
-                            <div style="padding:0px 2px;font-size:16px;">常驻角色池</div>
+                            <div style="padding:0px 2px;font-size:16px;">常驻烙痕池</div>
                         </div>
                     </span>
                 </li>
             </ul>
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 1 === currentActiveIndex, 'display-none': 1 !== currentActiveIndex }">
-                <h3>混池烙痕总抽数：{{ currLaohenData.mix.total }}</h3>
-                <h3>混池SSR数量：{{ currLaohenData.mix.data.length }}</h3>
-                <h3>混池SSR平均耗抽<span class="show-tips" v-tooltip="'混池烙痕总抽数/混池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.mix.oneEach }}</h3>
-                <h3>混池综合概率（总）<span class="show-tips" v-tooltip="'混池SSR数量/混池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.mix.radio }}</h3>
-                <h3>当期已垫抽数（UP+常驻）：{{ currLaohenData.mix.lastDian }}</h3>
-                <hr>
-                <div v-for="(ssr, index) in currLaohenData.mix.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
-                </div>
-            </div>
-            <div
-                :class="{ 'resp-tab-content': true, 'display-block': 2 === currentActiveIndex, 'display-none': 2 !== currentActiveIndex }">
-                <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
-                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="'(SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.noWaiRadio }}</h3>
-                <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
-                <hr>
-                <div style="width: 100%;">
-                    <div style="float:left;width:49%;">
-                        <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
-                        <h3>UP池SSR平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池烙痕总抽数/UP池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneEach }}</h3>
-                        <h3>UP池SSR综合概率（+歪）<span class="show-tips" v-tooltip="'UP池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.radio }}</h3>
-                    </div>
-                    <div style="float:left;width:50%;">
-                        <h3>获取限定SSR数量：{{ currLaohenData.up.noWaiData.length }}</h3>
-                        <h3>获取限定SSR平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneUpEach }}</h3>
-                        <h3>获取限定SSR综合概率<span class="show-tips" v-tooltip="'限定池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.realUpRadio }}</h3>
-                    </div>
-                </div>
-                <hr>
-                <div v-for="(ssr, index) in currLaohenData.up.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
-                </div>
-            </div>
-            <div
-                :class="{ 'resp-tab-content': true, 'display-block': 3 === currentActiveIndex, 'display-none': 3 !== currentActiveIndex }">
-                <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
-                <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
-                <h3>常驻池SSR平均耗抽<span class="show-tips" v-tooltip="'常驻池烙痕总抽数/常驻池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.oneEach }}</h3>
-                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池SSR数量/常驻池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.radio }}</h3>
-                <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
-                <hr>
-                <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
-                </div>
-            </div>
-            <div
-                :class="{ 'resp-tab-content': true, 'display-block': 4 === currentActiveIndex, 'display-none': 4 !== currentActiveIndex }">
-                <h3>混池角色总抽数：{{ currRoleData.mix.total }}</h3>
-                <h3>混池6星数量：{{ currRoleData.mix.data.length }}</h3>
-                <h3>混池6星平均耗抽<span class="show-tips" v-tooltip="'混池角色总抽数/混池6星数量'">⁽﹖⁾</span>：{{ currRoleData.mix.oneEach }}</h3>
-                <h3>混池综合概率（总）<span class="show-tips" v-tooltip="'混池6星数量/混池角色总抽数'">⁽﹖⁾</span>：{{ currRoleData.mix.radio }}</h3>
-                <h3>当期已垫抽数（UP+常驻）：{{ currRoleData.mix.lastDian }}</h3>
-                <hr>
-                <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
-                </div>
-                <hr>
-                <div v-for="(ssr, index) in currRoleData.mix.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
-                </div>
-            </div>
-            <div
-                :class="{ 'resp-tab-content': true, 'display-block': 5 === currentActiveIndex, 'display-none': 5 !== currentActiveIndex }">
                 <h3>UP池角色总抽数：{{ currRoleData.up.total }}</h3>
                 <h3>UP池综合不歪率<span class="show-tips" v-tooltip="' (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量'">⁽﹖⁾</span>：{{ currRoleData.up.noWaiRadio }}</h3>
                 <h3>当期已垫抽数（限定）：{{ currRoleData.up.lastDian }}</h3>
@@ -183,7 +101,7 @@
                 </div>
             </div>
             <div
-                :class="{ 'resp-tab-content': true, 'display-block': 6 === currentActiveIndex, 'display-none': 6 !== currentActiveIndex }">
+                :class="{ 'resp-tab-content': true, 'display-block': 2 === currentActiveIndex, 'display-none': 2 !== currentActiveIndex }">
                 <h3>常驻池角色总抽数：{{ currRoleData.changzhu.total }}</h3>
                 <h3>常驻池6星数量：{{ currRoleData.changzhu.data.length }}</h3>
                 <h3>常驻池6星平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currRoleData.changzhu.oneEach }}</h3>
@@ -198,6 +116,43 @@
                 <div v-for="(ssr, index) in currRoleData.changzhu.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                </div>
+            </div>
+            <div
+                :class="{ 'resp-tab-content': true, 'display-block': 3 === currentActiveIndex, 'display-none': 3 !== currentActiveIndex }">
+                <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
+                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="'(SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.noWaiRadio }}</h3>
+                <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
+                <hr>
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
+                        <h3>UP池SSR平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池烙痕总抽数/UP池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneEach }}</h3>
+                        <h3>UP池SSR综合概率（+歪）<span class="show-tips" v-tooltip="'UP池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.radio }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <h3>获取限定SSR数量：{{ currLaohenData.up.noWaiData.length }}</h3>
+                        <h3>获取限定SSR平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneUpEach }}</h3>
+                        <h3>获取限定SSR综合概率<span class="show-tips" v-tooltip="'限定池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.realUpRadio }}</h3>
+                    </div>
+                </div>
+                <hr>
+                <div v-for="(ssr, index) in currLaohenData.up.data" :key="index"
+                    style="width: 100%;float: left;margin: 5px 0px;">
+                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
+                </div>
+            </div>
+            <div
+                :class="{ 'resp-tab-content': true, 'display-block': 4 === currentActiveIndex, 'display-none': 4 !== currentActiveIndex }">
+                <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
+                <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
+                <h3>常驻池SSR平均耗抽<span class="show-tips" v-tooltip="'常驻池烙痕总抽数/常驻池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.oneEach }}</h3>
+                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池SSR数量/常驻池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.radio }}</h3>
+                <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
+                <hr>
+                <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
+                    style="width: 100%;float: left;margin: 5px 0px;">
+                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
                 </div>
             </div>
         </div>
