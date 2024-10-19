@@ -57,8 +57,8 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 1 === currentActiveIndex, 'display-none': 1 !== currentActiveIndex }">
                 <h3>混池烙痕总抽数：{{ currLaohenData.mix.total }}</h3>
                 <h3>混池SSR数量：{{ currLaohenData.mix.data.length }}</h3>
-                <h3>混池SSR平均耗抽：{{ currLaohenData.mix.oneEach }} | 公式：<span class="formula">混池烙痕总抽数/混池SSR数量</span></h3>
-                <h3>混池综合概率（总）：{{ currLaohenData.mix.radio }} | 公式：<span class="formula">混池SSR数量/混池烙痕总抽数</span></h3>
+                <h3>混池SSR平均耗抽<span class="show-tips" v-tooltip="'混池烙痕总抽数/混池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.mix.oneEach }}</h3>
+                <h3>混池综合概率（总）<span class="show-tips" v-tooltip="'混池SSR数量/混池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.mix.radio }}</h3>
                 <h3>当期已垫抽数（UP+常驻）：{{ currLaohenData.mix.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currLaohenData.mix.data" :key="index"
@@ -69,25 +69,19 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 2 === currentActiveIndex, 'display-none': 2 !== currentActiveIndex }">
                 <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
-                <h3>UP池综合不歪率：{{ currLaohenData.up.noWaiRadio }}|公式(根据最后一抽是否歪了区分，最后一抽歪了则公式开头中的`SSR数量`+1，否则不加)：
-                    <span class="formula"> (SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量</span>
-                </h3>
+                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="'(SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.noWaiRadio }}</h3>
                 <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
                 <hr>
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
-                        <h3>UP池SSR平均耗抽（+歪）：{{ currLaohenData.up.oneEach }} | 公式：<span
-                                class="formula">UP池烙痕总抽数/UP池SSR数量</span></h3>
-                        <h3>UP池SSR综合概率（+歪）：{{ currLaohenData.up.radio }} | 公式： <span
-                                class="formula">UP池SSR数量/UP池烙痕总抽数</span></h3>
+                        <h3>UP池SSR平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池烙痕总抽数/UP池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneEach }}</h3>
+                        <h3>UP池SSR综合概率（+歪）<span class="show-tips" v-tooltip="'UP池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.radio }}</h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定SSR数量：{{ currLaohenData.up.noWaiData.length }}</h3>
-                        <h3>获取限定SSR平均耗抽：{{ currLaohenData.up.oneUpEach }} | 公式： <span
-                                class="formula">UP池烙痕总抽数/限定池SSR数量</span></h3>
-                        <h3>获取限定SSR综合概率：{{ currLaohenData.up.realUpRadio }} | 公式：<span
-                                class="formula">限定池SSR数量/UP池烙痕总抽数</span></h3>
+                        <h3>获取限定SSR平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneUpEach }}</h3>
+                        <h3>获取限定SSR综合概率<span class="show-tips" v-tooltip="'限定池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.realUpRadio }}</h3>
                     </div>
                 </div>
                 <hr>
@@ -100,10 +94,8 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 3 === currentActiveIndex, 'display-none': 3 !== currentActiveIndex }">
                 <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
                 <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
-                <h3>常驻池SSR平均耗抽：{{ currLaohenData.changzhu.oneEach }} | 公式：<span class="formula">常驻池烙痕总抽数/常驻池SSR数量</span>
-                </h3>
-                <h3>常驻池综合概率：{{ currLaohenData.changzhu.radio }} | 公式： <span class="formula">常驻池SSR数量/常驻池烙痕总抽数</span>
-                </h3>
+                <h3>常驻池SSR平均耗抽<span class="show-tips" v-tooltip="'常驻池烙痕总抽数/常驻池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.oneEach }}</h3>
+                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池SSR数量/常驻池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.radio }}</h3>
                 <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
@@ -115,8 +107,8 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 4 === currentActiveIndex, 'display-none': 4 !== currentActiveIndex }">
                 <h3>混池角色总抽数：{{ currRoleData.mix.total }}</h3>
                 <h3>混池6星数量：{{ currRoleData.mix.data.length }}</h3>
-                <h3>混池6星平均耗抽：{{ currRoleData.mix.oneEach }}| 公式：<span class="formula">混池角色总抽数/混池6星数量</span></h3>
-                <h3>混池综合概率（总）：{{ currRoleData.mix.radio }} | 公式：<span class="formula">混池6星数量/混池角色总抽数</span></h3>
+                <h3>混池6星平均耗抽<span class="show-tips" v-tooltip="'混池角色总抽数/混池6星数量'">⁽﹖⁾</span>：{{ currRoleData.mix.oneEach }}</h3>
+                <h3>混池综合概率（总）<span class="show-tips" v-tooltip="'混池6星数量/混池角色总抽数'">⁽﹖⁾</span>：{{ currRoleData.mix.radio }}</h3>
                 <h3>当期已垫抽数（UP+常驻）：{{ currRoleData.mix.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
@@ -132,25 +124,19 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 5 === currentActiveIndex, 'display-none': 5 !== currentActiveIndex }">
                 <h3>UP池角色总抽数：{{ currRoleData.up.total }}</h3>
-                <h3>UP池综合不歪率：{{ currRoleData.up.noWaiRadio }}|公式(根据最后一抽是否歪了区分，最后一抽歪了则公式开头中的`6星数量`+1，否则不加)：
-                    <span class="formula"> (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量</span>
-                </h3>
+                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="' (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量'">⁽﹖⁾</span>：{{ currRoleData.up.noWaiRadio }}</h3>
                 <h3>当期已垫抽数（限定）：{{ currRoleData.up.lastDian }}</h3>
                 <hr>
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池6星数量（+歪）：{{ currRoleData.up.data.length }}</h3>
-                        <h3>UP池6星平均耗抽（+歪）：{{ currRoleData.up.oneEach }}| 公式：<span
-                                class="formula">UP池角色总抽数/UP池6星数量</span></h3>
-                        <h3>UP池6星综合概率（+歪）：{{ currRoleData.up.radio }}| 公式：<span class="formula">UP池6星数量/UP池角色总抽数</span>
-                        </h3>
+                        <h3>UP池6星平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池角色总抽数/UP池6星数量'">⁽﹖⁾</span>：{{ currRoleData.up.oneEach }}</h3>
+                        <h3>UP池6星综合概率（+歪）<span class="show-tips" v-tooltip="'UP池6星数量/UP池角色总抽数'">⁽﹖⁾</span>：{{ currRoleData.up.radio }}</h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定6星数量：{{ currRoleData.up.noWaiData.length }}</h3>
-                        <h3>获取限定6星平均耗抽：{{ currRoleData.up.oneUpEach }}| 公式：<span class="formula">UP池角色总抽数/限定池6星数量</span>
-                        </h3>
-                        <h3>获取限定6星综合概率：{{ currRoleData.up.realUpRadio }}| 公式：<span
-                                class="formula">限定池6星数量/UP池角色总抽数</span></h3>
+                        <h3>获取限定6星平均耗抽<span class="show-tips" v-tooltip="'UP池角色总抽数/限定池6星数量'">⁽﹖⁾</span>：{{ currRoleData.up.oneUpEach }}</h3>
+                        <h3>获取限定6星综合概率<span class="show-tips" v-tooltip="'限定池6星数量/UP池角色总抽数'">⁽﹖⁾</span>：{{ currRoleData.up.realUpRadio }}</h3>
                     </div>
                 </div>
                 <hr>
@@ -163,8 +149,8 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 6 === currentActiveIndex, 'display-none': 6 !== currentActiveIndex }">
                 <h3>常驻池角色总抽数：{{ currRoleData.changzhu.total }}</h3>
                 <h3>常驻池6星数量：{{ currRoleData.changzhu.data.length }}</h3>
-                <h3>常驻池6星平均耗抽：{{ currRoleData.changzhu.oneEach }}| 公式：<span class="formula">常驻池角色总抽数/常驻池6星数量</span></h3>
-                <h3>常驻池综合概率：{{ currRoleData.changzhu.radio }}| 公式：<span class="formula">常驻池6星数量/常驻池角色总抽数</span></h3>
+                <h3>常驻池6星平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currRoleData.changzhu.oneEach }}</h3>
+                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currRoleData.changzhu.radio }}</h3>
                 <h3>当期已垫抽数（常驻）：{{ currRoleData.changzhu.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
@@ -845,6 +831,11 @@ export default {
     display: none;
 }
 
+.show-tips {
+    cursor: pointer;
+    color:red;
+}
+
 .resp-tab-content {
     width: 100%;
 }
@@ -856,11 +847,6 @@ a:hover {
 h2>a,
 h2>a:visited {
     color: #333;
-}
-
-.formula {
-    font-size: 14px;
-    border-style: dotted;
 }
 
 p>button {
