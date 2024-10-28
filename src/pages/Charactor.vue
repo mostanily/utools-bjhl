@@ -222,7 +222,7 @@ export default {
 }
 
 .BOX-AN2 {
-    width: 100%;
+    width: 88%;
     display: inline-block;
     height: 30px;
     line-height: 30px;
@@ -368,11 +368,9 @@ li {
     left: 0;
     right: 0;
     width: 80px;
-    background: rgba(0, 0, 0, .4);
     margin: auto;
     color: #fff;
     text-align: center;
-    text-wrap: nowrap;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000, 2px 2px 4px #000;
 }
 
@@ -380,18 +378,5 @@ a {
     text-decoration: none;
     color: #0645ad;
     background: none;
-}
-
-.character-name-home a img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    text-align: center;
-    border: 0;
-    vertical-align: middle;
-    width: 80px;
-    aspect-ratio: auto 80 / 3;
-    verflow-clip-margin: content-box;
-    overflow: clip;
 }
 </style>

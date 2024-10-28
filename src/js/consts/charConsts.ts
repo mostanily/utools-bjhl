@@ -97,6 +97,11 @@ const allChar = {
         "nameEn": "BAILITUSU", "tag": ["破盾", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
         "cv": "陈家恒", "openDate": "2024年02月01日", "resourse": ["定向共鸣·岁暮重明", "常态共鸣·森罗万象"]
     },
+    "米达斯": {
+        "job": "尖锋", "skill":[] ,"attr": "wuli", "star": "6",
+        "nameEn": "MIDAS", "tag": ["输出", "召唤"], "originWorld": "森罗", "orginChar": "原创",
+        "cv": "刘雨轩", "openDate": "2024年10月31日", "resourse": ["定向共鸣·荒土悲歌"]
+    },
     "明月尘": {
         "job": "尖锋", "skill":[MXLaohenEnum.异核过载, MXLaohenEnum.蚀核强攻] ,"attr": "shi", "star": "6",
         "nameEn": "SOLBYRD VON LUMINBERG", "tag": ["输出", "爆发"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
@@ -2146,6 +2151,70 @@ const allCharSkill = {
                         "场上每有一名炎元素同调者（包含自己），百里屠苏造成的伤害提高",
                         speSkillCon("6%"),
                         speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+                    ]//三花特性
+                ]
+            }
+        }
+    ],
+    "米达斯": [
+        {
+            "name": "暗噬",
+            "aliasNum": "1",//技能简称，1技能
+            "maxLevel": 12,//技能最大等级
+            "detail": {
+                "type": "主动技能",//技能类型，主动、被动、自定等
+                "skillTab": [["指令冷却", "25秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+                "tab": ["伤害"],//技能标签
+                "content": [
+                    "待定",
+                ]//满级技能内容描述
+            }
+        },
+        {
+            "name": "沙啸",
+            "aliasNum": "2",
+            "maxLevel": 12,
+            "detail": {
+                "type": "自动技能",
+                "skillTab": [["施放冷却", "10秒"]],
+                "tab": ["伤害", "自身增益", "负面状态", "格挡条破坏3"],
+                "content": [
+                    "待定"
+                ]
+            }
+        },
+        {
+            "name": "灾渊来客",
+            "aliasNum": "异核",
+            "maxLevel": 6,
+            "detail": {
+                "type": "异核技能",
+                "skillTab": [["充能时间", "60秒"]],
+                "tab": ["伤害", "格挡条破坏3"],
+                "content": [
+                    "待定",
+                ]
+            }
+        },
+        {
+            "name": "特性：暂定",
+            "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+            "detail": {
+                "type": "战斗特性",
+                "tab": [["射程", "400"], ["攻击速度", "0.50次每秒"]],
+                "atType": ["单体", "格挡条破坏1"],
+                "content": [
+                    "待定",
+                ],//普通攻击
+                "specialContent": [
+                    [
+                        "待定"
+                    ],//零花本体特性
+                    [
+                        "待定"
+                    ],//一花特性
+                    [
+                        "待定",
                     ]//三花特性
                 ]
             }
@@ -9866,6 +9935,10 @@ const allCharTea = {
                 "ex": [495, 554, 604],//参考默契值，无加，满家具，满加成
             }
         ]
+    },
+    "米达斯": {
+        "achievement": [],
+        "hignRapport": []
     },
     "明月尘": {
         "achievement": [
