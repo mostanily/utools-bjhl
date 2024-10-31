@@ -285,7 +285,9 @@ enum MXLaohenEnum {
     元素专攻三角α型,
     力量平衡,
     轰能激发,
-    雷核释力
+    雷核释力,
+    物理异能,
+    唤物充能
 }
 
 /**
@@ -395,7 +397,8 @@ enum LaohenNameEnum {
     归档,
     向阳,
     魇境边界,
-    曙色的地平线
+    曙色的地平线,
+    怯者的墓志铭
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

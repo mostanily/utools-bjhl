@@ -1184,6 +1184,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.曙色的地平线,
                 LaohenNameEnum.残照,
                 LaohenNameEnum.偷偷摩摩,
@@ -1617,7 +1618,8 @@ const allLaohenSkill = [
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
-                "唐路遥"
+                "唐路遥",
+                "米达斯"
             ] //角色名称
         },
         "detail": [
@@ -1801,6 +1803,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.同行,
                 LaohenNameEnum.光阴间隙,
                 LaohenNameEnum.恶土之花,
@@ -2398,6 +2401,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.角色扮演,
                 LaohenNameEnum.噩梦,
                 LaohenNameEnum.血露薇绝密
@@ -2787,6 +2791,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.朗朗乾坤,
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.烟尘往事,
@@ -3347,6 +3352,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.底线大作战,
                 LaohenNameEnum.流星坠处,
                 LaohenNameEnum.奢梦,
@@ -4169,6 +4175,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.魇境边界,
                 LaohenNameEnum.空,
                 LaohenNameEnum.天狼,
@@ -5011,6 +5018,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.曙色的地平线,
                 LaohenNameEnum.一线之隔,
                 LaohenNameEnum.醒太平,
@@ -10279,6 +10287,73 @@ const allLaohenSkill = [
             speSkillCon("（属性乘区·刻印攻击百分比增加）", SkillColorEnum.injuries),
             "，持续60秒，重复触发刷新持续时间",
         ]
+    },
+    {
+        "name": "物理异能", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.物理异能,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [
+                "米达斯"
+            ] //角色名称
+        },
+        "detail": [
+            "物理同调者施展异核技能后，当前场上敌方目标受到伤害提高20％",
+            speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries),
+            "，持续60秒，同时自身刻印攻击提高",
+            speSkillCon("10％（等级1时）"),
+            "/",
+            speSkillCon("20％（等级2时）"),
+            "/",
+            speSkillCon("30％（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "，持续45秒，重复触发刷新效果持续时间",
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.目标减益乘区目标受伤害增加)
+        ]
+    },
+    {
+        "name": "唤物充能", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.唤物充能,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.怯者的墓志铭], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "同调者施展主动技能或异核技能时，使自身召唤物造成的伤害额外提高",
+            speSkillCon("25％（等级1时）"),
+            "/",
+            speSkillCon("50％（等级2时）"),
+            "/",
+            speSkillCon("75％（等级3时）"),
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+            "且忽略目标10％",
+            speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+            "基础减伤，持续45秒，重复触发刷新效果持续时间",
+            "",
+            "持续时间内造成召唤物伤害时自身获得10.0秒异核充能，该回复充能效果每个同调者每45秒最多触发1次"
+        ]
     }
 ]
 
@@ -12492,6 +12567,28 @@ const allLaohen = [
         ], //慢巡技能
         "hxSkill": [
             MXLaohenEnum.轰能激发
+        ], //唤醒技能
+    },
+    {
+        "name": "怯者的墓志铭",
+        "rarity": LaohenRarity.ssr, //稀有度
+        "type": LaohenAttrType.体质,
+        "id": LaohenNameEnum.怯者的墓志铭,
+        "extraData": {
+            "illust": LaohenIllust.AurogonShanghai, //画师,
+            "resourse": LaohenResourse.定向潜航
+        },
+        "mxSkill": [
+            MXLaohenEnum.距离把控,
+            MXLaohenEnum.职业联动方块,
+            MXLaohenEnum.无处可藏,
+            MXLaohenEnum.人形特攻α型,
+            MXLaohenEnum.生生不息方块,
+            MXLaohenEnum.核心充能方块α型,
+            MXLaohenEnum.强攻对地
+        ], //慢巡技能
+        "hxSkill": [
+            MXLaohenEnum.唤物充能
         ], //唤醒技能
     }
 ]
