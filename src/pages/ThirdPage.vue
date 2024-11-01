@@ -173,11 +173,11 @@ export default {
          */
         const currYearCount = () => {
             //开服日期
-            let startDate = new Date('2024-01-01T00:00:00');
+            let startDate = new Date('2024-01-01 00:00:00');
             let startTimestamp = Math.floor(startDate.getTime() / 1000);
 
             let todayDate = new Date();
-            let todayDateZero = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}T00:00:00`
+            let todayDateZero = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()} 00:00:00`
             let todayTimestamp = Math.floor(new Date(todayDateZero).getTime() / 1000);
 
             let diffTime = todayTimestamp - startTimestamp
