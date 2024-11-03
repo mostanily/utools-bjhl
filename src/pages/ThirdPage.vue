@@ -1,47 +1,87 @@
 <template>
     <div>
         <h2><router-link :to="{ name: 'index' }">首页</router-link></h2>
-        <p><button type="button" @click="loadPage()">初始化数据，先点我，初始化完成后可以点击下面的统计按钮（首次需要QQ扫码登录，登录完成后关闭弹窗再次点我）</button></p>
-        <p><button type="button" @click="clearAllDBData()">清空本地数据，此功能会清空上一个账号的所有统计数据，当需要获取其他账号的数据时可以点击此按钮（不同的账号数据会冲突，所以需要先清除上一个账号的数据），否则慎重，如意外操作可点击`初始化`数据再次获取</button></p>
         <p>
-            <button type="button" @click="getBjData()">统计数据</button>
-            <button type="button" @click="saveScreenshot()" style="margin-left: 10px;">截图并保存</button>
+            <span style="font-weight: bold;">规则描述：</span><br>
+            版本（1.0.9）更新后，建议先点击`清除当前账号数据`按钮后再重新初始化数据，不然可能会出现其他问题<br>
+            <span
+                style="font-weight: bold;">查询账号：</span>默认只有`新账号`按钮，当初始化数据完成后，点击`统计数据`按钮，此处将会出现刚查询的账号昵称；当展示出现错误时，可以点击`新账号`初始化数据后再切回对应的账号即可展示正常<br>
+            <span style="font-weight: bold;">统计数据：</span>首次初始化数据后需要点击此按钮，后续只需要点击账号切换即可自动统计数据<br>
+            <span style="font-weight: bold;">截图并保存：</span>全屏截图并保存<br>
+            <span
+                style="font-weight: bold;">初始化数据：</span>在新弹出的弹窗里面进行账号登录（如果未登录的话），<span style="font-weight: bold;">如果需要查询其他账号，需确保查询账号当前选中<span style="color: red;">`新账号`</span>按钮</span>，则可以直接在此弹窗右上角退出当前登录账号再使用其他账号登录即可<br>
+            <span style="font-weight: bold;">清除当前账号数据：</span>清除当前选中的账号数据，如果`初始化数据`出现问题无法获取数据时，可以点此按钮，之后再进行初始化数据
         </p>
+        <hr>
+        <p style="min-height: 34px;background-color: #525c66;">
+            <span class="select-title">选择查询账号：</span>
+            <span v-for="(nick, index) in hisNick" :key="index"
+                :class="{ 'select-nicks-items': true, 'nicks-active': nickActiveIndex == index }"
+                @click="setNickActiveIndex(index)">
+                {{ nick }}
+            </span>
+            <span :class="{ 'select-nicks-items': true, 'nicks-active': nickActiveIndex == -1 }"
+                @click="setNickActiveIndex(-1)">
+                新账号
+            </span>
+        </p>
+        <p>
+            <button style="margin-right: 10px;" type="button" @click="loadPage()">初始化数据</button>
+            <button type="button" @click="getBjData()" style="margin-right: 10px;">统计数据</button>
+            <button type="button" @click="saveScreenshot()" style="margin-right: 10px;">截图并保存</button>
+            <button type="button" @click="clearAllDBData()">清除当前账号数据</button>
+        </p>
+        <hr>
         <!-- 显示获取的数据 -->
         <div id="output">
-            <hr>
             <div class="chou-summary" style="width: 100%;">
                 <div class="common-summary">
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;font-weight: bold;">角色</div>
-                        <div class="summary-item"><span class="item-detail">{{ currRoleData.mix.radio }}</span><br><span>综合概率</span></div>
-                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneEach }}抽</span><br><span>每6星角色</span></div>
-                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.noWaiRadio }}</span><br><span>角色不歪率</span></div>
-                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneUpEach }}抽</span><br><span>每UP角色</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.mix.radio
+                                }}</span><br><span>综合概率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneEach
+                                }}抽</span><br><span>每6星角色</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.noWaiRadio
+                                }}</span><br><span>角色不歪率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneUpEach
+                                }}抽</span><br><span>每UP角色</span></div>
                     </div>
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;"></div>
-                        <div class="summary-item">总抽数：<span class="item-detail">{{ currRoleData.mix.total }}抽</span></div>
-                        <div class="summary-item">6星：<span class="item-detail">{{ currRoleData.mix.data.length }}个</span></div>
-                        <div class="summary-item">UP抽数：<span class="item-detail">{{ currRoleData.up.total }}抽</span></div>
-                        <div class="summary-item">限定6星：<span class="item-detail">{{ currRoleData.up.noWaiData.length }}个</span></div>
+                        <div class="summary-item">总抽数：<span class="item-detail">{{ currRoleData.mix.total }}抽</span>
+                        </div>
+                        <div class="summary-item">6星：<span class="item-detail">{{ currRoleData.mix.data.length
+                                }}个</span></div>
+                        <div class="summary-item">UP抽数：<span class="item-detail">{{ currRoleData.up.total }}抽</span>
+                        </div>
+                        <div class="summary-item">限定6星：<span class="item-detail">{{ currRoleData.up.noWaiData.length
+                                }}个</span></div>
                     </div>
                 </div>
                 <hr>
                 <div class="common-summary">
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;font-weight: bold;">烙痕</div>
-                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.mix.radio }}</span><br><span>综合概率</span></div>
-                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneEach }}抽</span><br><span>每SSR烙痕</span></div>
-                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.noWaiRadio }}</span><br><span>烙痕不歪率</span></div>
-                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneUpEach }}抽</span><br><span>每UP烙痕</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.mix.radio
+                                }}</span><br><span>综合概率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneEach
+                                }}抽</span><br><span>每SSR烙痕</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.noWaiRadio
+                                }}</span><br><span>烙痕不歪率</span></div>
+                        <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneUpEach
+                                }}抽</span><br><span>每UP烙痕</span></div>
                     </div>
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;"></div>
-                        <div class="summary-item">总抽数：<span class="item-detail">{{ currLaohenData.mix.total }}抽</span></div>
-                        <div class="summary-item">SSR：<span class="item-detail">{{ currLaohenData.mix.data.length }}个</span></div>
-                        <div class="summary-item">UP抽数：<span class="item-detail">{{ currLaohenData.up.total }}抽</span></div>
-                        <div class="summary-item">限定SSR：<span class="item-detail">{{ currLaohenData.up.noWaiData.length }}个</span></div>
+                        <div class="summary-item">总抽数：<span class="item-detail">{{ currLaohenData.mix.total }}抽</span>
+                        </div>
+                        <div class="summary-item">SSR：<span class="item-detail">{{ currLaohenData.mix.data.length
+                                }}个</span></div>
+                        <div class="summary-item">UP抽数：<span class="item-detail">{{ currLaohenData.up.total }}抽</span>
+                        </div>
+                        <div class="summary-item">限定SSR：<span class="item-detail">{{ currLaohenData.up.noWaiData.length
+                                }}个</span></div>
                     </div>
                 </div>
             </div>
@@ -79,19 +119,24 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 1 === currentActiveIndex, 'display-none': 1 !== currentActiveIndex }">
                 <h3>UP池角色总抽数：{{ currRoleData.up.total }}</h3>
-                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="' (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量'">⁽﹖⁾</span>：{{ currRoleData.up.noWaiRadio }}</h3>
+                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="' (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量'">⁽﹖⁾</span>：{{
+                    currRoleData.up.noWaiRadio }}</h3>
                 <h3>当期已垫抽数（限定）：{{ currRoleData.up.lastDian }}</h3>
                 <hr>
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池6星数量（+歪）：{{ currRoleData.up.data.length }}</h3>
-                        <h3>UP池6星平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池角色总抽数/UP池6星数量'">⁽﹖⁾</span>：{{ currRoleData.up.oneEach }}</h3>
-                        <h3>UP池6星综合概率（+歪）<span class="show-tips" v-tooltip="'UP池6星数量/UP池角色总抽数'">⁽﹖⁾</span>：{{ currRoleData.up.radio }}</h3>
+                        <h3>UP池6星平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池角色总抽数/UP池6星数量'">⁽﹖⁾</span>：{{
+                            currRoleData.up.oneEach }}</h3>
+                        <h3>UP池6星综合概率（+歪）<span class="show-tips" v-tooltip="'UP池6星数量/UP池角色总抽数'">⁽﹖⁾</span>：{{
+                            currRoleData.up.radio }}</h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定6星数量：{{ currRoleData.up.noWaiData.length }}</h3>
-                        <h3>获取限定6星平均耗抽<span class="show-tips" v-tooltip="'UP池角色总抽数/限定池6星数量'">⁽﹖⁾</span>：{{ currRoleData.up.oneUpEach }}</h3>
-                        <h3>获取限定6星综合概率<span class="show-tips" v-tooltip="'限定池6星数量/UP池角色总抽数'">⁽﹖⁾</span>：{{ currRoleData.up.realUpRadio }}</h3>
+                        <h3>获取限定6星平均耗抽<span class="show-tips" v-tooltip="'UP池角色总抽数/限定池6星数量'">⁽﹖⁾</span>：{{
+                            currRoleData.up.oneUpEach }}</h3>
+                        <h3>获取限定6星综合概率<span class="show-tips" v-tooltip="'限定池6星数量/UP池角色总抽数'">⁽﹖⁾</span>：{{
+                            currRoleData.up.realUpRadio }}</h3>
                     </div>
                 </div>
                 <hr>
@@ -104,8 +149,10 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 2 === currentActiveIndex, 'display-none': 2 !== currentActiveIndex }">
                 <h3>常驻池角色总抽数：{{ currRoleData.changzhu.total }}</h3>
                 <h3>常驻池6星数量：{{ currRoleData.changzhu.data.length }}</h3>
-                <h3>常驻池6星平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currRoleData.changzhu.oneEach }}</h3>
-                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currRoleData.changzhu.radio }}</h3>
+                <h3>常驻池6星平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{
+                    currRoleData.changzhu.oneEach }}</h3>
+                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{
+                    currRoleData.changzhu.radio }}</h3>
                 <h3>当期已垫抽数（常驻）：{{ currRoleData.changzhu.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
@@ -121,19 +168,24 @@
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 3 === currentActiveIndex, 'display-none': 3 !== currentActiveIndex }">
                 <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
-                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="'(SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.noWaiRadio }}</h3>
+                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="'(SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量'">⁽﹖⁾</span>：{{
+                    currLaohenData.up.noWaiRadio }}</h3>
                 <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
                 <hr>
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
-                        <h3>UP池SSR平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池烙痕总抽数/UP池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneEach }}</h3>
-                        <h3>UP池SSR综合概率（+歪）<span class="show-tips" v-tooltip="'UP池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.radio }}</h3>
+                        <h3>UP池SSR平均耗抽（+歪）<span class="show-tips" v-tooltip="'UP池烙痕总抽数/UP池SSR数量'">⁽﹖⁾</span>：{{
+                            currLaohenData.up.oneEach }}</h3>
+                        <h3>UP池SSR综合概率（+歪）<span class="show-tips" v-tooltip="'UP池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{
+                            currLaohenData.up.radio }}</h3>
                     </div>
                     <div style="float:left;width:50%;">
                         <h3>获取限定SSR数量：{{ currLaohenData.up.noWaiData.length }}</h3>
-                        <h3>获取限定SSR平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.up.oneUpEach }}</h3>
-                        <h3>获取限定SSR综合概率<span class="show-tips" v-tooltip="'限定池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.up.realUpRadio }}</h3>
+                        <h3>获取限定SSR平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{
+                            currLaohenData.up.oneUpEach }}</h3>
+                        <h3>获取限定SSR综合概率<span class="show-tips" v-tooltip="'限定池SSR数量/UP池烙痕总抽数'">⁽﹖⁾</span>：{{
+                            currLaohenData.up.realUpRadio }}</h3>
                     </div>
                 </div>
                 <hr>
@@ -146,8 +198,10 @@
                 :class="{ 'resp-tab-content': true, 'display-block': 4 === currentActiveIndex, 'display-none': 4 !== currentActiveIndex }">
                 <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
                 <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
-                <h3>常驻池SSR平均耗抽<span class="show-tips" v-tooltip="'常驻池烙痕总抽数/常驻池SSR数量'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.oneEach }}</h3>
-                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池SSR数量/常驻池烙痕总抽数'">⁽﹖⁾</span>：{{ currLaohenData.changzhu.radio }}</h3>
+                <h3>常驻池SSR平均耗抽<span class="show-tips" v-tooltip="'常驻池烙痕总抽数/常驻池SSR数量'">⁽﹖⁾</span>：{{
+                    currLaohenData.changzhu.oneEach }}</h3>
+                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池SSR数量/常驻池烙痕总抽数'">⁽﹖⁾</span>：{{
+                    currLaohenData.changzhu.radio }}</h3>
                 <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
                 <hr>
                 <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
@@ -187,20 +241,24 @@ export default {
         /**
          * 判断当前处于哪一个时间节点，因为本地数据库一次性存储数据最大为1M，所以根据时间节点对数据库进行拆分，每年新增一个数据库id
          */
-        const currDateWhere = () => {
+        const currDateWhere = (nickName) => {
             let yearCount = currYearCount()
             //根据年次数返回特定的数据库id
             if (yearCount > 0) {
-                return { laohen: `laohen${yearCount}`, role: `role${yearCount}` }
+                return { laohen: `laohen${nickName}${yearCount}`, role: `role${nickName}${yearCount}` }
             }
-            return { laohen: `laohen`, role: `role` }
+            return { laohen: `laohen${nickName}`, role: `role${nickName}` }
         }
 
         /**
          * 加载页面
          */
         const loadPage = () => {
-            const lastUpdateTime = window.utools.dbStorage.getItem("lastUpdateTime")
+            let currNickName = document.getElementsByClassName("select-nicks-items nicks-active")[0].textContent.trim()
+            if (currNickName == "新账号") {
+                currNickName = ""
+            }
+            let lastUpdateTime = window.utools.dbStorage.getItem(`lastUpdateTime-${currNickName}`)
             const initBJ = window.utools.ubrowser.goto('https://seed.qq.com/act/a20240905record/index.html')
                 .devTools("right")
                 .viewport(1280, 900)
@@ -219,14 +277,14 @@ export default {
 
                     // 查询所有烙痕数据
                     async function queryAllCardData(lastUpTime) {
-                        let defStartDate = '2024-01-01T00:00:00';
+                        let defStartDate = '2024-01-01 00:00:00';
                         let currentDate = new Date();
                         let currentTimestamp = Math.floor(Date.now() / 1000)
                         console.log(`当前时间：${currentDate} - ${currentTimestamp}`);
 
                         if (lastUpTime !== null) {
                             let date = new Date(Number(lastUpTime) * 1000)
-                            let lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}T00:00:00`
+                            let lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 00:00:00`
                             defStartDate = lastDate
 
                         }
@@ -308,7 +366,7 @@ export default {
 
                     //查询所有角色信息
                     async function queryAllRoleData(lastUpTime) {
-                        let defStartDate = '2024-01-01T00:00:00';
+                        let defStartDate = '2024-01-01 00:00:00';
                         let currentDate = new Date();
                         let currentTimestamp = Math.floor(Date.now() / 1000)
                         console.log(`当前时间：${currentDate} - ${currentTimestamp}`);
@@ -316,7 +374,7 @@ export default {
 
                         if (lastUpTime !== null) {
                             let date = new Date(Number(lastUpTime) * 1000)
-                            let lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}T00:00:00`
+                            let lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 00:00:00`
                             defStartDate = lastDate
                         }
 
@@ -387,12 +445,38 @@ export default {
                         return roleRecodes
                     }
                 }, lastUpdateTime)
+                .evaluate(() => {
+                    return document.getElementById("nickName").textContent
+                })
                 .run({ width: 1280, height: 900 });
 
             initBJ.then((data) => {
                 console.log(data)
-                if (data.length === 3) {
-                    let dbIdNameData = currDateWhere()
+                if (data.length === 4) {
+                    if (data[2]) {
+                        let saveDBNickName = {}
+                        saveDBNickName._id = "nickNames"
+                        let dbNicks = window.utools.db.get("nickNames")
+                        let needSave = false
+                        if (dbNicks) {
+                            if (!dbNicks.data.includes(data[2])) {
+                                dbNicks.data.push(data[2])
+                                saveDBNickName._rev = dbNicks._rev
+                                saveDBNickName.data = dbNicks.data
+                                needSave = true
+                            }
+                        } else {
+                            let nickNames = new Array
+                            nickNames.push(data[2])
+                            saveDBNickName.data = nickNames
+                            needSave = true
+                        }
+                        if (needSave) {
+                            window.utools.db.put(saveDBNickName)
+                        }
+                    }
+
+                    let dbIdNameData = currDateWhere(data[2])
                     console.log(`ID名称(烙痕-角色)：${dbIdNameData.laohen}-${dbIdNameData.role}`)
                     let hasUpOrAdd = false
                     //根据evaluate请求顺序，第一个为烙痕数据，第二个为角色数据
@@ -415,6 +499,9 @@ export default {
                             //先把数据库中的数据重新赋值给变量，再把新请求数据遍历分别添加新请求到的数据
                             laohenNewData = dbLaohenData.data
                             for (let newDate in data[0]) {
+                                if (laohenNewData.hasOwnProperty(newDate)) {
+                                    continue
+                                }
                                 laohenNewData.newDate = data[0][newDate]
                             }
                         } else {
@@ -436,6 +523,9 @@ export default {
                             saveRoleData._rev = dbRoleData._rev
                             roleNewData = dbRoleData.data
                             for (let newDate in data[1]) {
+                                if (roleNewData.hasOwnProperty(newDate)) {
+                                    continue
+                                }
                                 roleNewData.newDate = data[1][newDate]
                             }
                         } else {
@@ -450,7 +540,7 @@ export default {
                     if (hasUpOrAdd) {
                         let currentDate = new Date();
                         let currentTimestamp = Math.floor(Date.now() / 1000)
-                        window.utools.dbStorage.setItem('lastUpdateTime', currentTimestamp)
+                        window.utools.dbStorage.setItem(`lastUpdateTime-${data[2]}`, currentTimestamp)
                         alert("数据更新成功！")
                     }
                 }
@@ -490,6 +580,8 @@ export default {
     data() {
         return {
             currentActiveIndex: 1,
+            hisNick: new Array,
+            nickActiveIndex: -1,
             currLaohenData: {
                 mix: {
                     data: new Array,
@@ -555,16 +647,88 @@ export default {
         setActiveClass(index) {
             this.currentActiveIndex = index
         },
+        setNickActiveIndex(index) {
+            this.nickActiveIndex = index
+            this.getBjData()
+        },
+        initData() {
+            this.currentActiveIndex = 1
+            this.hisNick = new Array
+            this.nickActiveIndex = -1
+            this.currLaohenData = {
+                mix: {
+                    data: new Array,
+                    total: 0,
+                    oneEach: '0',
+                    radio: '--',
+                    lastDian: 0//最新期已垫抽数，下同
+                },//混池
+                up: {
+                    data: new Array,
+                    noWaiData: new Array,
+                    total: 0,
+                    oneEach: '0',
+                    oneUpEach: '0',//每获取一个UP角色的平均抽数
+                    radio: '--',
+                    realUpRadio: '--',//每获取一个UP的实际概率（去除歪的角色或烙痕）
+                    noWaiRadio: '--',//不歪率，不歪数量/总数量（up获取的ssr或6*）
+                    lastDian: 0
+                },//UP池
+                changzhu: {
+                    data: new Array,
+                    total: 0,
+                    oneEach: '0',
+                    radio: '--',
+                    lastDian: 0
+                }//常驻池
+            }
+            this.currRoleData = {
+                mix: {
+                    data: new Array,
+                    total: 0,
+                    oneEach: '0',
+                    radio: '--',
+                    lastDian: 0
+                },
+                up: {
+                    data: new Array,
+                    noWaiData: new Array,
+                    total: 0,
+                    oneEach: '0',
+                    oneUpEach: '0',
+                    radio: '--',
+                    realUpRadio: '--',
+                    noWaiRadio: '--',
+                    lastDian: 0
+                },
+                changzhu: {
+                    hasSureSixPool: false,
+                    data: new Array,
+                    total: 0,
+                    oneEach: '0',
+                    radio: '--',
+                    lastDian: 0
+                },
+                hasSureSixPool: false,
+                sureSixRolePool: new Array
+            }
+            this.allLaohenPoolData = {}
+            this.allRolePoolData = {}
+        },
         getAllDBIdNames() {
             const yearCount = this.currYearCount()
+            let currNickName = ''
+            if (this.nickActiveIndex != -1) {
+                currNickName = this.hisNick[this.nickActiveIndex]
+            }
             let dbIdName = { laohen: new Array, role: new Array }
             for (let i = 0; i <= yearCount; i++) {
                 if (i === 0) {
-                    dbIdName.laohen.push('laohen')
-                    dbIdName.role.push('role')
+                    dbIdName.laohen.push(`laohen${currNickName}`)
+                    dbIdName.role.push(`role${currNickName}`)
                 } else {
-                    dbIdName.laohen.push(`laohen${i}`)
-                    dbIdName.role.push(`role${i}`)
+                    dbIdName.laohen.push(`laohen${currNickName}${i}`)
+                    dbIdName.role.push(`role${currNickName}${i}`)
                 }
             }
             return dbIdName
@@ -577,9 +741,20 @@ export default {
             for (let key in dbIdName.role) {
                 window.utools.db.remove(dbIdName.role[key])
             }
-            window.utools.dbStorage.removeItem('lastUpdateTime')
+            let currNickName = ''
+            if (this.nickActiveIndex != -1) {
+                currNickName = this.hisNick[this.nickActiveIndex]
+                let hisNicks = window.utools.db.get("nickNames")
+                if (hisNicks) {
+                    hisNicks.data.splice(hisNicks.data.indexOf(currNickName), 1)
+                    window.utools.db.put(hisNicks)
+                }
+            }
+            window.utools.dbStorage.removeItem(`lastUpdateTime`)
+            window.utools.dbStorage.removeItem(`lastUpdateTime-${currNickName}`)
+            this.setNickActiveIndex(-1)
             this.getBjData()
-            alert("数据清除成功！")
+            alert(`${currNickName}数据清除成功！`)
         },
         /**
          * 处理所有的本地数据，如果存在多个数据源，则进行整合处理
@@ -588,7 +763,6 @@ export default {
             const dbIdName = this.getAllDBIdNames()
             const allLaohenDBData = window.utools.db.allDocs(dbIdName.laohen)
             const allRoleDBData = window.utools.db.allDocs(dbIdName.role)
-
             let newDBData = { laohen: {}, role: {} }
             if (allLaohenDBData) {
                 if (allLaohenDBData.length === 1) {
@@ -615,6 +789,13 @@ export default {
             return newDBData
         },
         getBjData() {
+            if (this.nickActiveIndex == -1) {
+                this.initData()
+            }
+            const hisNicks = window.utools.db.get("nickNames")
+            if (hisNicks) {
+                this.hisNick = hisNicks.data
+            }
             const pool = window.$commonUtil.poolConfig
             const role = window.$commonUtil.roleConfig
             const laohen = window.$commonUtil.laohenConfig
@@ -815,6 +996,36 @@ export default {
 };
 </script>
 <style scoped>
+.select-nicks-items {
+    display: block;
+    float: left;
+    min-width: 60px;
+    height: 32px;
+    line-height: 32px;
+    background-color: #333;
+    color: #fff;
+    padding: 0 5px;
+    border: 1px solid;
+    text-align: center;
+    cursor: pointer;
+}
+
+.select-title {
+    display: block;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    background-color: #fff;
+    color: black;
+    font-weight: bold;
+}
+
+.nicks-active {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+}
+
 .display-block {
     display: block;
 }
@@ -825,7 +1036,7 @@ export default {
 
 .show-tips {
     cursor: pointer;
-    color:red;
+    color: red;
 }
 
 .common-summary {
