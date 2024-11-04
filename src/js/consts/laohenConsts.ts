@@ -217,7 +217,8 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.曙色的地平线,
-                LaohenNameEnum.遇见宝石海
+                LaohenNameEnum.遇见宝石海,
+                LaohenNameEnum.未晞
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -1769,6 +1770,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.同行,
                 LaohenNameEnum.棺中鸟,
+                LaohenNameEnum.未晞,
                 LaohenNameEnum.打成一片,
                 LaohenNameEnum.大隐于市
             ], //枚举LaohenNameEnum.(x)
@@ -1808,6 +1810,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.光阴间隙,
                 LaohenNameEnum.恶土之花,
                 LaohenNameEnum.问卜天地,
+                LaohenNameEnum.未晞,
                 LaohenNameEnum.海临人的好奇心,
                 LaohenNameEnum.代号百草,
                 LaohenNameEnum.街市清晨,
@@ -3612,7 +3615,8 @@ const allLaohenSkill = [
                 LaohenNameEnum.问卜天地,
                 LaohenNameEnum.意外邂逅,
                 LaohenNameEnum.截稿日,
-                LaohenNameEnum.甜蜜心绪
+                LaohenNameEnum.甜蜜心绪,
+                LaohenNameEnum.未晞
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -4911,6 +4915,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.未晞,
                 LaohenNameEnum.雪轻日暖,
                 LaohenNameEnum.最好吃的朋友
             ], //枚举LaohenNameEnum.(x)
@@ -4985,6 +4990,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.调和清凉,
                 LaohenNameEnum.化为千鹤,
                 LaohenNameEnum.繁星记忆,
+                LaohenNameEnum.未晞,
                 LaohenNameEnum.交换惊喜,
                 LaohenNameEnum.世事难料,
                 LaohenNameEnum.千本之门
@@ -10354,6 +10360,43 @@ const allLaohenSkill = [
             "",
             "持续时间内造成召唤物伤害时自身获得10.0秒异核充能，该回复充能效果每个同调者每45秒最多触发1次"
         ]
+    },
+    {
+        "name": "物调联破", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": true,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.物调联破,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            200,
+            200,
+            200
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.未晞], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "施放异核技能时，场上所有同调者获得2层",
+            speSkillCon("[激励]"),
+            "，若为物理同调者施放且是该同调者的首次施放，则该次额外获得2层",
+            speSkillCon("[激励]"),
+            "通过该效果获得的",
+            speSkillCon("[激励]"),
+            "不能超过",
+            speSkillCon("4（等级1时）"),
+            "/",
+            speSkillCon("7（等级2时）"),
+            "/",
+            speSkillCon("10（等级3时）"),
+            speSkillCon("(增伤乘区·激励)", SkillColorEnum.injuries),
+            "层"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.激励)
+        ]
     }
 ]
 
@@ -12589,6 +12632,27 @@ const allLaohen = [
         ], //慢巡技能
         "hxSkill": [
             MXLaohenEnum.唤物充能
+        ], //唤醒技能
+    },
+    {
+        "name": "未晞",
+        "rarity": LaohenRarity.sr, //稀有度
+        "type": LaohenAttrType.终端,
+        "id": LaohenNameEnum.未晞,
+        "extraData": {
+            "illust": LaohenIllust.乙配, //画师,
+            "resourse": LaohenResourse.叶脉联结计划
+        },
+        "mxSkill": [
+            MXLaohenEnum.大力出奇迹,
+            MXLaohenEnum.奉献,
+            MXLaohenEnum.单打独斗对首领,
+            MXLaohenEnum.人形特攻α型,
+            MXLaohenEnum.蓄势待发,
+            MXLaohenEnum.手执利兵方块
+        ], //慢巡技能
+        "hxSkill": [
+            MXLaohenEnum.物调联破
         ], //唤醒技能
     }
 ]

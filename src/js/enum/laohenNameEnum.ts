@@ -287,7 +287,8 @@ enum MXLaohenEnum {
     轰能激发,
     雷核释力,
     物理异能,
-    唤物充能
+    唤物充能,
+    物调联破
 }
 
 /**
@@ -398,7 +399,8 @@ enum LaohenNameEnum {
     向阳,
     魇境边界,
     曙色的地平线,
-    怯者的墓志铭
+    怯者的墓志铭,
+    未晞
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
