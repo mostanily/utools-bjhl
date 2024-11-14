@@ -8,8 +8,9 @@
                 style="font-weight: bold;">查询账号：</span>默认只有`新账号`按钮，当初始化数据完成后，点击`统计数据`按钮，此处将会出现刚查询的账号昵称；当展示出现错误时，可以点击`新账号`初始化数据后再切回对应的账号即可展示正常<br>
             <span style="font-weight: bold;">统计数据：</span>首次初始化数据后需要点击此按钮，后续只需要点击账号切换即可自动统计数据<br>
             <span style="font-weight: bold;">截图并保存：</span>全屏截图并保存<br>
-            <span
-                style="font-weight: bold;">初始化数据：</span>在新弹出的弹窗里面进行账号登录（如果未登录的话），<span style="font-weight: bold;">如果需要查询其他账号，需确保查询账号当前选中<span style="color: red;">`新账号`</span>按钮</span>，则可以直接在此弹窗右上角退出当前登录账号再使用其他账号登录即可<br>
+            <span style="font-weight: bold;">初始化数据：</span>在新弹出的弹窗里面进行账号登录（如果未登录的话），<span
+                style="font-weight: bold;">如果需要查询其他账号，需确保查询账号当前选中<span
+                    style="color: red;">`新账号`</span>按钮</span>，则可以直接在此弹窗右上角退出当前登录账号再使用其他账号登录即可<br>
             <span style="font-weight: bold;">清除当前账号数据：</span>清除当前选中的账号数据，如果`初始化数据`出现问题无法获取数据时，可以点此按钮，之后再进行初始化数据
         </p>
         <hr>
@@ -259,6 +260,9 @@ export default {
                 currNickName = ""
             }
             let lastUpdateTime = window.utools.dbStorage.getItem(`lastUpdateTime-${currNickName}`)
+            if (lastUpdateTime != null) {
+                lastUpdateTime = lastUpdateTime - 30 * 24 * 3600
+            }
             const initBJ = window.utools.ubrowser.goto('https://seed.qq.com/act/a20240905record/index.html')
                 .devTools("right")
                 .viewport(1280, 900)
@@ -909,6 +913,7 @@ export default {
             let changzhuDianCount = 0//常驻池垫
             let upDianCount = 0//UP池垫
             let hasSureSixPool = false//是否包含商城68R角色十连必出6星礼包卡池（poolId=101）
+            const changzhuUpLimit = pool["11"].limit
             for (let date in laohenOrRoleData) {
                 const laohenList = laohenOrRoleData[date]
                 totalCount += laohenList.length
@@ -943,6 +948,17 @@ export default {
                         upTotalCount++
                     } else {
                         changzhuTotalCount++
+                    }
+                    //判断是否是角色常驻UP池
+                    if (poolId == '11') {
+                        for (let czUpIndex in changzhuUpLimit) {
+                            const limitUpData = changzhuUpLimit[czUpIndex]
+                            if (this.checkTwoDate(ssrLaohenWithPool.time, limitUpData.startTime, limitUpData.endTime)) {
+                                ssrLaohenWithPool.poolName = limitUpData.name
+                                ssrLaohenWithPool.up = limitUpData.up
+                                break
+                            }
+                        }
                     }
                     //totalCount++
                     //获取ssr或者6星
@@ -991,6 +1007,18 @@ export default {
                 upDianCount: upDianCount,
                 changzhuDianCount: changzhuDianCount
             }
+        },
+        /**
+         * 校验指定日期是否是在某个区间日期之间
+         */
+        checkTwoDate(needCheckTime, startTime, endTime) {
+            let startDate = new Date(startTime);
+            let startTimestamp = Math.floor(startDate.getTime() / 1000);
+            let endDate = new Date(endTime);
+            let endTimestamp = Math.floor(endDate.getTime() / 1000);
+            let needData = new Date(needCheckTime);
+            let needTimestamp = Math.floor(needData.getTime() / 1000);
+            return needTimestamp >= startTimestamp && needTimestamp <= endTimestamp
         }
     }
 };
