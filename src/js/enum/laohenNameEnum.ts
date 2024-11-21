@@ -288,7 +288,11 @@ enum MXLaohenEnum {
     雷核释力,
     物理异能,
     唤物充能,
-    物调联破
+    物调联破,
+    碎易蚀影,
+    暴风骤雨菱形β型,
+    伤疗双效,
+    终转攻轮
 }
 
 /**
@@ -400,7 +404,9 @@ enum LaohenNameEnum {
     魇境边界,
     曙色的地平线,
     怯者的墓志铭,
-    未晞
+    未晞,
+    千灯无间,
+    浊雨
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

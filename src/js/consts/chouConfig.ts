@@ -262,6 +262,26 @@ const poolConfig = {
         "type": "2",
         "name": "怯者的墓志铭",
         "up": "怯者的墓志铭"
+    },
+    "43": {
+        "type": "1",
+        "name": "振玉知微",
+        "up": "珑"
+    },
+    "44": {
+        "type": "2",
+        "name": "千灯无间",
+        "up": "千灯无间"
+    },
+    "45": {
+        "type": "1",
+        "name": "渊火伏明",
+        "up": "林"
+    },
+    "46": {
+        "type": "2",
+        "name": "野风",
+        "up": "野风"
     }
 }
 
@@ -505,7 +525,15 @@ const roleConfig = {
     "634": {
         "rarity": "6",
         "name": "明月尘"
-    }
+    },
+    "638": {
+        "rarity": "6",
+        "name": "林"
+    },
+    "642": {
+        "rarity": "6",
+        "name": "珑"
+    },
 }
 
 const laohenConfig = {
@@ -853,8 +881,16 @@ const laohenConfig = {
         "name": "天狼",
         "rarity": "3"
     },
+    "2030": {
+        "name": "千灯无间",
+        "rarity": "3"
+    },
     "2031": {
         "name": "怯者的墓志铭",
+        "rarity": "3"
+    },
+    "2032": {
+        "name": "野风",
         "rarity": "3"
     },
     "2033": {
@@ -903,6 +939,10 @@ const laohenConfig = {
     },
     "2808": {
         "name": "曙色的地平线",
+        "rarity": "3"
+    },
+    "2809": {
+        "name": "浊雨",
         "rarity": "3"
     },
     "3001": {
