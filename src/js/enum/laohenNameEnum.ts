@@ -292,7 +292,9 @@ enum MXLaohenEnum {
     碎易蚀影,
     暴风骤雨菱形β型,
     伤疗双效,
-    终转攻轮
+    终转攻轮,
+    炎域强袭,
+    攻守兼备
 }
 
 /**
@@ -406,7 +408,8 @@ enum LaohenNameEnum {
     怯者的墓志铭,
     未晞,
     千灯无间,
-    浊雨
+    浊雨,
+    野风
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

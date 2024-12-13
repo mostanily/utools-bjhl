@@ -1145,6 +1145,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.残照,
                 LaohenNameEnum.同行,
+                LaohenNameEnum.野风,
                 LaohenNameEnum.角色扮演,
                 LaohenNameEnum.醒太平,
                 LaohenNameEnum.玄学,
@@ -1659,6 +1660,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.天陷,
+                LaohenNameEnum.野风,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.藏锋,
@@ -1857,6 +1859,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.同行,
+                LaohenNameEnum.野风,
                 LaohenNameEnum.双重引力,
                 LaohenNameEnum.玄学,
                 LaohenNameEnum.CATvsDOG,
@@ -2171,6 +2174,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.野风,
                 LaohenNameEnum.棺中鸟
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -4260,6 +4264,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.野风,
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.奢梦,
                 LaohenNameEnum.CATvsDOG
@@ -4760,6 +4765,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.野风,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.千纪启明,
                 LaohenNameEnum.火热手感,
@@ -5049,7 +5055,8 @@ const allLaohenSkill = [
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
-                "马尔斯"
+                "马尔斯",
+                "林"
             ] //角色名称
         },
         "detail": [
@@ -5258,6 +5265,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.野风,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.调和清凉,
                 LaohenNameEnum.繁花蜃影,
@@ -10538,6 +10546,65 @@ const allLaohenSkill = [
             speSkillCon("(属性乘区·刻印攻击额外增加值)", SkillColorEnum.injuries),
             "提升场上同调者的刻印攻击（每次最多提升90点刻印攻击），该效果每6秒最多触发1次，可叠加5次"
         ]
+    },
+    {
+        "name": "炎域强袭", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.炎域强袭,
+        "takeEffect": [JobTypeName.轻卫, JobTypeName.铁御, JobTypeName.尖锋], //职业名称
+        "useSkill": [
+            180,
+            240,
+            300
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": ["林"] //角色名称
+        },
+        "detail": [
+            "炎元素区域扩大20%，同调者处于炎元素区域上时，每2秒回复1%最大生命值且额外攻击力提高",
+            speSkillCon("10%（等级1时）"),
+            "/",
+            speSkillCon("20%（等级2时）"),
+            "/",
+            speSkillCon("30%（等级3时）"),
+            speSkillCon("(属性乘区·额外攻击力加成)", SkillColorEnum.injuries),
+            "，炎元素同调者额外攻击力提高效果翻倍"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区额外攻击力加成)
+        ]
+    },
+    {
+        "name": "攻守兼备", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.攻守兼备,
+        "takeEffect": [JobTypeName.轻卫, JobTypeName.铁御, JobTypeName.尖锋], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.野风], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "自身的刻印防御每100点提高",
+            speSkillCon("2.0%（等级1时）"),
+            "/",
+            speSkillCon("3.0%（等级2时）"),
+            "/",
+            speSkillCon("4.0%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "刻印攻击，当同调者生命值低于50%时，可获得最大生命值20%的护盾（护盾效果每个同调者每60秒最多触发1次）"
+        ]
     }
 ]
 
@@ -12838,6 +12905,28 @@ const allLaohen = [
         ], //慢巡技能
         "hxSkill": [
             MXLaohenEnum.终转攻轮
+        ], //唤醒技能
+    },
+    {
+        "name": "野风",
+        "rarity": LaohenRarity.ssr, //稀有度
+        "type": LaohenAttrType.防御,
+        "id": LaohenNameEnum.野风,
+        "extraData": {
+            "illust": LaohenIllust.MOL, //画师,
+            "resourse": LaohenResourse.定向潜航
+        },
+        "mxSkill": [
+            MXLaohenEnum.元素逆转方块,
+            MXLaohenEnum.破釜沉舟,
+            MXLaohenEnum.一线生机,
+            MXLaohenEnum.异种特攻α型,
+            MXLaohenEnum.暴风骤雨方块α型,
+            MXLaohenEnum.元素专攻方块α型,
+            MXLaohenEnum.化险为夷
+        ], //慢巡技能
+        "hxSkill": [
+            MXLaohenEnum.攻守兼备
         ], //唤醒技能
     }
 ]
