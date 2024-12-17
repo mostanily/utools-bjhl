@@ -1,6 +1,6 @@
 import { toastWithSkill, laohenToastWithSkill } from './toastWithSkillConst.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
-import { LaohenToastSkillEnum } from '../enum/toastSkillEnum.ts';
+import { LaohenToastSkillEnum, ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import {
     SkillColorEnum,
     LaohenRarity,
@@ -62,7 +62,8 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.遇见宝石海,
                 LaohenNameEnum.幕影重重,
-                LaohenNameEnum.最强召唤师
+                LaohenNameEnum.最强召唤师,
+                LaohenNameEnum.度晴波
             ],
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -218,6 +219,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.曙色的地平线,
                 LaohenNameEnum.遇见宝石海,
+                LaohenNameEnum.度晴波,
                 LaohenNameEnum.未晞
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -492,6 +494,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.月光下的告解,
                 LaohenNameEnum.因果历然,
+                LaohenNameEnum.度晴波,
                 LaohenNameEnum.截稿日,
                 LaohenNameEnum.白夜,
                 LaohenNameEnum.混乱烟尘
@@ -1273,6 +1276,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.残照,
+                LaohenNameEnum.度晴波,
                 LaohenNameEnum.醒太平,
                 LaohenNameEnum.繁星记忆,
                 LaohenNameEnum.樱华如梦,
@@ -3858,6 +3862,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.旧友无多,
+                LaohenNameEnum.度晴波,
                 LaohenNameEnum.增肌训练,
                 LaohenNameEnum.白夜
             ], //枚举LaohenNameEnum.(x)
@@ -5124,6 +5129,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.度晴波,
                 LaohenNameEnum.火热手感,
                 LaohenNameEnum.流星坠处,
                 LaohenNameEnum.交换惊喜,
@@ -10605,6 +10611,41 @@ const allLaohenSkill = [
             speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
             "刻印攻击，当同调者生命值低于50%时，可获得最大生命值20%的护盾（护盾效果每个同调者每60秒最多触发1次）"
         ]
+    },
+    {
+        "name": "炙地之力", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": true,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.炙地之力,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            200,
+            200,
+            200
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.度晴波], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "同调者处于炎元素区域上时最大生命值提高20％，且处于炎元素区域上施展主动技能获得1层",
+            speSkillCon("[激励]"),
+            "，<轻卫、铁御>施展时额外获得3层。通过该效果获得的",
+            speSkillCon("[激励]"),
+            "不能超过",
+            speSkillCon("4（等级1时）"),
+            "/",
+            speSkillCon("7（等级2时）"),
+            "/",
+            speSkillCon("10（等级3时）"),
+            speSkillCon("(增伤乘区·激励)", SkillColorEnum.injuries),
+            "层"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.激励)
+        ]
     }
 ]
 
@@ -12927,6 +12968,27 @@ const allLaohen = [
         ], //慢巡技能
         "hxSkill": [
             MXLaohenEnum.攻守兼备
+        ], //唤醒技能
+    },
+    {
+        "name": "度晴波",
+        "rarity": LaohenRarity.sr, //稀有度
+        "type": LaohenAttrType.体质,
+        "id": LaohenNameEnum.度晴波,
+        "extraData": {
+            "illust": LaohenIllust.YGeriAn, //画师,
+            "resourse": LaohenResourse.叶脉联结计划
+        },
+        "mxSkill": [
+            MXLaohenEnum.回收利用,
+            MXLaohenEnum.黄金精神,
+            MXLaohenEnum.生机盎然方块α型,
+            MXLaohenEnum.利刃三角β型,
+            MXLaohenEnum.单打独斗对首领,
+            MXLaohenEnum.核心充能三角β型
+        ], //慢巡技能
+        "hxSkill": [
+            MXLaohenEnum.炙地之力
         ], //唤醒技能
     }
 ]

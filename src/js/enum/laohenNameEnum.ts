@@ -294,7 +294,8 @@ enum MXLaohenEnum {
     伤疗双效,
     终转攻轮,
     炎域强袭,
-    攻守兼备
+    攻守兼备,
+    炙地之力
 }
 
 /**
@@ -409,7 +410,8 @@ enum LaohenNameEnum {
     未晞,
     千灯无间,
     浊雨,
-    野风
+    野风,
+    度晴波
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
