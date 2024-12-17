@@ -1,6 +1,6 @@
 import { toastWithSkill, laohenToastWithSkill } from './toastWithSkillConst.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
-import { LaohenToastSkillEnum, ToastSkillEnum } from '../enum/toastSkillEnum.ts';
+import { LaohenToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import {
     SkillColorEnum,
     LaohenRarity,
