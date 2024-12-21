@@ -48,8 +48,8 @@ export default {
             }
         },
         checkIsWai(ssr) {
-            if (ssr.poolId === '101') {
-                return "【68R十连必出6星礼包卡池，不参与数据统计】"
+            if (ssr.mustGet === true) {
+                return ssr.desc
             }
             if (ssr.up && ssr.name !== ssr.up) {
                 if (ssr.dian > 30) {

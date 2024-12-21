@@ -896,7 +896,7 @@ export default {
          */
         dealPoolData(laohenOrRoleData, pool, laohenOrRole, isRole = false) {
             // console.log(`卡池配置（卡池-角色-烙痕）`)
-            // console.log(pool)
+            //console.log(pool)
             const needCheckRarity = isRole ? '6' : '3'
             let allData = new Array//所有6星或者ssr
             let changzhuData = new Array//常驻卡池
@@ -928,15 +928,19 @@ export default {
                         name: laohenOrRole[eachData.tid].name,
                         rarity: laohenOrRole[eachData.tid].rarity,
                         dian: 0,
-                        up: pool[poolId].up
+                        up: pool[poolId].up,
+                        desc: "",
+                        mustGet: false
                     }
                     if (!Object.keys(allPoolData).includes(poolId)) {
                         allPoolData[poolId] = new Array
                     }
                     allPoolData[poolId].push(ssrLaohenWithPool)
-                    //过滤掉十连必出6星礼包卡池
-                    if (poolId === '101') {
+                    //过滤掉十连必出卡池
+                    if (Object.keys(pool[poolId]).includes("mustGet")) {
                         hasSureSixPool = true
+                        ssrLaohenWithPool.desc = pool[poolId].desc
+                        ssrLaohenWithPool.mustGet = true
                         if (ssrLaohenWithPool.rarity === needCheckRarity) {
                             sureSixRolePool.push(ssrLaohenWithPool)
                         }
