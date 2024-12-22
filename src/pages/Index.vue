@@ -1,5 +1,6 @@
 <template>
     <Charactor></Charactor>
+    <IndexOtherBox></IndexOtherBox>
     <div class="center">
         <div class="floatnone">
             <img alt="WikiLogoFull.png" src="/img/1x/320px-WikiLogoFull.png" decoding="async" loading="lazy" width="320"
@@ -11,10 +12,11 @@
 
 <script>
 import Charactor from './Charactor.vue'
+import IndexOtherBox from './components/IndexOtherBox.vue';
 
 export default {
     components: {
-        Charactor
+        Charactor, IndexOtherBox
     }
 }
 </script>
