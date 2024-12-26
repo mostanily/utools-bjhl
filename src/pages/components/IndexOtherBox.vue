@@ -38,3 +38,58 @@
 <script>
 export default {}
 </script>
+
+<style scoped>
+.BOX-N {
+    padding: 5px 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.BOX-AN2 {
+    width: 88%;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 35px;
+    padding-right: 5px;
+    color: #404040;
+}
+
+.BOX-AN-25 {
+    width: 25%;
+}
+
+.BOX-AN-25:hover,.BOX-AN2:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.BOX-title-1 {
+    border: none;
+    font-size: 18px;
+    margin: 0px 0 5px;
+    padding: 0px;
+    line-height: 35px;
+    background-image: url(/veinos.png), url(/ash.png), url(/grey.png);
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-attachment: scroll, scroll, scroll;
+    background-size: 84px 35px, 81px 35px, 100% 35px;
+    background-position: left, right, center;
+    background-clip: border-box, border-box, content-box;
+    background-origin: padding-box, padding-box, padding-box;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 0px 0px 0px 0px;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    font-family: "Source Han Serif SC", "Source Han Sans CN";
+}
+
+a {
+    text-decoration: none;
+    color: #0645ad;
+    background: none;
+}
+</style>

@@ -44,7 +44,7 @@
                                         :src="getJobTypeImg(jobType.jobName, 1)" decoding="async" width="24" height="24"
                                         :srcset="getJobTypeImg(jobType.jobName, 1.5) + ' 1.5x, ' + getJobTypeImg(jobType.jobName, 2) + ' 2x'"
                                         data-file-width="64" data-file-height="64"></div>
-                                <div style="padding:0px 2px;font-size:16px;">{{ jobType.jobName }}</div>
+                                <div class="job-name-item">{{ jobType.jobName }}</div>
                             </div>
                         </span>
                     </li>
@@ -197,7 +197,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .BOX-N {
     padding: 5px 10px;
     width: 100%;
@@ -242,6 +242,15 @@ export default {
 *.center * {
     margin-left: auto;
     margin-right: auto;
+}
+
+.job-name-item {
+    padding:0px 2px;
+    font-size:16px;
+}
+
+.active .job-name-item,.job-name-item:hover,.bili-list-style:hover {
+    color: #000;
 }
 
 .BOX-title-1 {

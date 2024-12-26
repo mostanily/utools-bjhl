@@ -913,7 +913,6 @@ export default {
             let changzhuDianCount = 0//常驻池垫
             let upDianCount = 0//UP池垫
             let hasSureSixPool = false//是否包含商城68R角色十连必出6星礼包卡池（poolId=101）
-            const changzhuUpLimit = pool["11"].limit
             for (let date in laohenOrRoleData) {
                 const laohenList = laohenOrRoleData[date]
                 totalCount += laohenList.length
@@ -954,9 +953,10 @@ export default {
                         changzhuTotalCount++
                     }
                     //判断是否是角色常驻UP池
-                    if (poolId == '11') {
+                    if (Object.keys(pool[poolId]).includes("limit")) {
+                        let changzhuUpLimit = pool[poolId].limit
                         for (let czUpIndex in changzhuUpLimit) {
-                            const limitUpData = changzhuUpLimit[czUpIndex]
+                            let limitUpData = changzhuUpLimit[czUpIndex]
                             if (this.checkTwoDate(ssrLaohenWithPool.time, limitUpData.startTime, limitUpData.endTime)) {
                                 ssrLaohenWithPool.poolName = limitUpData.name
                                 ssrLaohenWithPool.up = limitUpData.up
