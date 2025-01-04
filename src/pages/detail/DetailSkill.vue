@@ -59,6 +59,12 @@
                         <div style="margin-bottom:20px;"><b>异核III级解锁：</b>
                             <skill-content :skillArr="skill.detail.specialContent[2]"></skill-content>
                         </div>
+                        <div style="margin-bottom:20px;"><b>异核Ⅳ级解锁：</b>
+                            <div><span>技能【{{ allSkill[$route.params.name][0].name }}】等级增加3级</span></div>
+                        </div>
+                        <div style="margin-bottom:20px;"><b>异核Ⅴ级解锁：</b>
+                            <div><span>技能【{{ allSkill[$route.params.name][1].name }}】等级增加3级</span></div>
+                        </div>
                     </div>
                 </div>
                 <div v-if="skill.aliasNum === '特性强化'">

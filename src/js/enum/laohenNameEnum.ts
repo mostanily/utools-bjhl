@@ -295,7 +295,11 @@ enum MXLaohenEnum {
     终转攻轮,
     炎域强袭,
     攻守兼备,
-    炙地之力
+    炙地之力,
+    连破留痕,
+    元素领袖物理,
+    利刃连击,
+    异能再生
 }
 
 /**
@@ -411,7 +415,9 @@ enum LaohenNameEnum {
     千灯无间,
     浊雨,
     野风,
-    度晴波
+    度晴波,
+    默,
+    暗涌轮廓
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="moveCurrLaohenSkillEnum !== -1" style="position: relative;max-width:500px;">
+    <div v-if="moveCurrLaohenSkillEnum !== -1" style="position: relative;max-width:900px;">
         <div
             style="position: absolute;top: 0;width: 100%;height: 31px;display: flex;justify-content: flex-end;align-items: center;gap: 4px;padding: 0 10px;right: 0px;">
             <div v-if="getLaohenSkillDetaill(moveCurrLaohenSkillEnum).isJL" style="background-color:rgba(250, 150, 22);padding:2px 10px;border-radius:4px;color:#fff;">激励</div>
@@ -7,7 +7,7 @@
                 {{ laohenSkillTypeName[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).skillType] }}
             </div>
         </div>
-        <table class="wikitable" style="max-width:500px;">
+        <table class="wikitable" style="max-width:900px;">
             <tbody>
                 <tr>
                     <th colspan="2" style="text-align:center;">{{ getLaohenSkillDetaill(moveCurrLaohenSkillEnum).name }}

@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="tabber tabberlive">
-                <div class="half-skill">
+                <div class="">
                     <LaohenSkillDetaillCon :moveCurrLaohenSkillEnum="$route.params.name"></LaohenSkillDetaillCon>
                 </div>
             </div>

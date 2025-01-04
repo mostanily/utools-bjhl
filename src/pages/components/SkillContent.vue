@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <template v-for="(con, index) in skillArr" :key="index">
             <span v-if="typeof con === 'string'">
                 <template v-if="con === ''"><br></template>

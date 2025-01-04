@@ -19,7 +19,12 @@
                         <b>{{ eachSpeCon.title }}</b><br>
                         <span v-for="(speCon, conIndex) in eachSpeCon.con" :key="conIndex">
                             <template v-if="conIndex > 0">
-                                {{ speCon }}<br>
+                                <span v-if="typeof speCon === 'string'">
+                                    {{ speCon }}<br>
+                                </span>
+                                <skill-content v-else :skillArr="speCon">
+                                    <br>
+                                </skill-content>
                             </template>
                         </span>
                     </div>
@@ -31,8 +36,12 @@
 
 <script>
 import { defineComponent } from 'vue';
+import SkillContent from './SkillContent.vue'
 
 export default defineComponent({
+    components: {
+        SkillContent
+    },
     props: ["skillDetail"],
     methods: {
         getSkillNumColor(colorEnum) {

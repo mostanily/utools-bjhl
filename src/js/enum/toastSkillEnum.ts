@@ -54,7 +54,10 @@ enum ToastSkillEnum {
     石化,
     靶向效应,
     苦痛涡核,
-    同调者暴击伤害
+    同调者暴击伤害,
+    璨星,
+    属性乘区额外攻击力加成,
+    同调
 }
 
 /**
@@ -87,7 +90,8 @@ enum LaohenToastSkillEnum {
     汽化反应,
     消融反应,
     增益效果,
-    定身
+    定身,
+    同调
 }
 
 export { ToastSkillEnum, LaohenToastSkillEnum }

@@ -11,11 +11,17 @@ import { toastWithSkill } from './toastWithSkillConst.ts';
  * @returns 
  */
 const speSkillCon = (con: string, color: number = SkillColorEnum.normal, toastTitle: number = -1) => {
-    const res = { "desc": con, "color": color, "withToast": false, "title": "", "con": "" };
+    const res = { "desc": con, "color": color, "withToast": false, "title": "", "con": "", "conSpe": new Array };
     if (toastTitle != -1) {
         res.withToast = true
-        res.title = toastWithSkill[toastTitle][0]
-        res.con = toastWithSkill[toastTitle][1]
+        if (typeof toastWithSkill[toastTitle][0] === "string") {
+            res.title = toastWithSkill[toastTitle][0]
+        }
+        if (typeof toastWithSkill[toastTitle][1] === "string") {
+            res.con = toastWithSkill[toastTitle][1]
+        } else {
+            res.conSpe = toastWithSkill[toastTitle][1]
+        }
     }
     return res
 }
@@ -38,312 +44,317 @@ const charAttr = {
  */
 const allChar = {
     "莫红袖": {
-        "job": "铁御", "skill":[MXLaohenEnum.生机盎然方块α型, MXLaohenEnum.祝福区域] ,"attr": "yan", "star": "6",
+        "job": "铁御", "skill": [MXLaohenEnum.生机盎然方块α型, MXLaohenEnum.祝福区域], "attr": "yan", "star": "6",
         "nameEn": "MOHONGXIU", "tag": ["防护", "控场", "元素区域"], "originWorld": "森罗", "orginChar": "古剑奇谭网络版",
         "cv": "张安琪", "openDate": "2024年01月12日", "resourse": ["常态共鸣", "常态共鸣·森罗万象"]
     },
     "禺期": {
-        "job": "铁御", "skill":[MXLaohenEnum.生机盎然方块β型, MXLaohenEnum.荆棘之志] ,"attr": "lei", "star": "5",
+        "job": "铁御", "skill": [MXLaohenEnum.生机盎然方块β型, MXLaohenEnum.荆棘之志], "attr": "lei", "star": "5",
         "nameEn": "YUQI", "tag": ["防护", "反伤"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭二",
         "cv": "斑马", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "田偌": {
-        "job": "铁御", "skill":[MXLaohenEnum.一线生机, MXLaohenEnum.坚毅不屈] ,"attr": "shui", "star": "4",
+        "job": "铁御", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.坚毅不屈], "attr": "shui", "star": "4",
         "nameEn": "TIANRUO", "tag": ["治疗", "屏障"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "风袖", "openDate": "2024年01月12日", "resourse": ["精神深潜教学", "常态共鸣"]
     },
     "焰响": {
-        "job": "铁御", "skill":[MXLaohenEnum.一线生机, MXLaohenEnum.绝处逢生] ,"attr": "yan", "star": "4",
+        "job": "铁御", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.绝处逢生], "attr": "yan", "star": "4",
         "nameEn": "INFA", "tag": ["防护", "支援"], "originWorld": "黑曜", "orginChar": "原创",
         "cv": "张昱", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "林": {
-        "job": "轻卫", "skill":[MXLaohenEnum.核心充能方块α型, MXLaohenEnum.炎域强袭] ,"attr": "yan", "star": "6",
+        "job": "轻卫", "skill": [MXLaohenEnum.核心充能方块α型, MXLaohenEnum.炎域强袭], "attr": "yan", "star": "6",
         "nameEn": "LYNN", "tag": ["防护", "输出", "元素区域"], "originWorld": "黑曜", "orginChar": "原创",
         "cv": "孟阳", "openDate": "2024年12月12日", "resourse": ["定向潜航·渊火伏明"]
     },
     "云无月": {
-        "job": "轻卫", "skill":[MXLaohenEnum.大敌当前, MXLaohenEnum.蚀之激励] ,"attr": "shi", "star": "6",
+        "job": "轻卫", "skill": [MXLaohenEnum.大敌当前, MXLaohenEnum.蚀之激励], "attr": "shi", "star": "6",
         "nameEn": "LORELLE", "tag": ["防护", "输出"], "originWorld": "森罗", "orginChar": "古剑奇谭三",
         "cv": "冯骏骅", "openDate": "2024年01月12日", "resourse": ["常态共鸣·森罗万象", "常态共鸣"]
     },
     "乐无异": {
-        "job": "轻卫", "skill":[MXLaohenEnum.一线生机, MXLaohenEnum.卸劲化能] ,"attr": "lei", "star": "6",
+        "job": "轻卫", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.卸劲化能], "attr": "lei", "star": "6",
         "nameEn": "KYLIN", "tag": ["防护", "输出", "屏障"], "originWorld": "森罗", "orginChar": "古剑奇谭二",
         "cv": "赵毅", "openDate": "2024年04月18日", "resourse": ["常态共鸣·森罗万象", "定向共鸣·王牌机械师"]
     },
     "修": {
-        "job": "轻卫", "skill":[MXLaohenEnum.乘人之危对地, MXLaohenEnum.物理专精] ,"attr": "wuli", "star": "5",
+        "job": "轻卫", "skill": [MXLaohenEnum.乘人之危对地, MXLaohenEnum.物理专精], "attr": "wuli", "star": "5",
         "nameEn": "SHU", "tag": ["防护", "控场"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "刘北辰", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "唐路遥": {
-        "job": "轻卫", "skill":[MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.战斗反射] ,"attr": "wuli", "star": "4",
+        "job": "轻卫", "skill": [MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.战斗反射], "attr": "wuli", "star": "4",
         "nameEn": "RODNEY", "tag": ["输出", "防护"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "马正阳", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "豹富": {
-        "job": "轻卫", "skill":[MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.润物无声] ,"attr": "shui", "star": "1",
+        "job": "轻卫", "skill": [MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.润物无声], "attr": "shui", "star": "1",
         "nameEn": "RICHEST", "tag": ["防护", "支援"], "originWorld": "海错", "orginChar": "原创",
         "cv": "夏磊", "openDate": "2024年01月12日", "resourse": ["成就奖励"]
     },
     "尤尼": {
-        "job": "尖锋", "skill":[MXLaohenEnum.强攻对地方块, MXLaohenEnum.愈伤澜起] ,"attr": "shui", "star": "6",
+        "job": "尖锋", "skill": [MXLaohenEnum.强攻对地方块, MXLaohenEnum.愈伤澜起], "attr": "shui", "star": "6",
         "nameEn": "UNI", "tag": ["输出", "元素区域"], "originWorld": "斯奈菲尔", "orginChar": "原创",
         "cv": "豆奶", "openDate": "2024年05月30日", "resourse": ["定向共鸣·再见孤蓝之海", "常态共鸣·异世交汇"]
     },
     "昊苍": {
-        "job": "尖锋", "skill":[MXLaohenEnum.化险为夷, MXLaohenEnum.烈焰暴击] ,"attr": "yan", "star": "6",
+        "job": "尖锋", "skill": [MXLaohenEnum.化险为夷, MXLaohenEnum.烈焰暴击], "attr": "yan", "star": "6",
         "nameEn": "CATULUS", "tag": ["爆发", "元素区域"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
         "cv": "孙晔", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
     },
     "百里屠苏": {
-        "job": "尖锋", "skill":[MXLaohenEnum.饱和式救援, MXLaohenEnum.先破后立] ,"attr": "yan", "star": "6",
+        "job": "尖锋", "skill": [MXLaohenEnum.饱和式救援, MXLaohenEnum.先破后立], "attr": "yan", "star": "6",
         "nameEn": "BAILITUSU", "tag": ["破盾", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
         "cv": "陈家恒", "openDate": "2024年02月01日", "resourse": ["定向共鸣·岁暮重明", "常态共鸣·森罗万象"]
     },
     "米达斯": {
-        "job": "尖锋", "skill":[MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.物理异能] ,"attr": "wuli", "star": "6",
+        "job": "尖锋", "skill": [MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.物理异能], "attr": "wuli", "star": "6",
         "nameEn": "MIDAS", "tag": ["输出", "召唤"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "刘雨轩", "openDate": "2024年10月31日", "resourse": ["定向共鸣·荒土悲歌"]
     },
     "明月尘": {
-        "job": "尖锋", "skill":[MXLaohenEnum.异核过载, MXLaohenEnum.蚀核强攻] ,"attr": "shi", "star": "6",
+        "job": "尖锋", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.蚀核强攻], "attr": "shi", "star": "6",
         "nameEn": "SOLBYRD VON LUMINBERG", "tag": ["输出", "爆发"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
         "cv": "谢添天", "openDate": "2024年09月19日", "resourse": ["定向共鸣·飞鸟也栖"]
     },
     "景": {
-        "job": "尖锋", "skill":[MXLaohenEnum.元素专攻方块β型, MXLaohenEnum.雷域和源] ,"attr": "lei", "star": "6",
+        "job": "尖锋", "skill": [MXLaohenEnum.元素专攻方块β型, MXLaohenEnum.雷域和源], "attr": "lei", "star": "6",
         "nameEn": "JING·GLIT·JUSTICE", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "张若瑜", "openDate": "2024年08月08日", "resourse": ["定向共鸣·荣耀俯首"]
     },
     "耶芙娜": {
-        "job": "尖锋", "skill":[MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.冻结精通] ,"attr": "shuang", "star": "6",
+        "job": "尖锋", "skill": [MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.冻结精通], "attr": "shuang", "star": "6",
         "nameEn": "IVANA", "tag": ["输出", "群攻"], "originWorld": "斯奈菲尔", "orginChar": "原创",
         "cv": "杨梦露", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
     },
     "无咎": {
-        "job": "尖锋", "skill":[MXLaohenEnum.乘人之危对精英, MXLaohenEnum.如火如荼] ,"attr": "yan", "star": "5",
+        "job": "尖锋", "skill": [MXLaohenEnum.乘人之危对精英, MXLaohenEnum.如火如荼], "attr": "yan", "star": "5",
         "nameEn": "REID", "tag": ["输出", "群攻"], "originWorld": "海错", "orginChar": "古剑奇谭网络版",
         "cv": "胡良伟", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "比戈尼娅": {
-        "job": "尖锋", "skill":[MXLaohenEnum.核心充能方块β型, MXLaohenEnum.冰霜共鸣] ,"attr": "shuang", "star": "5",
+        "job": "尖锋", "skill": [MXLaohenEnum.核心充能方块β型, MXLaohenEnum.冰霜共鸣], "attr": "shuang", "star": "5",
         "nameEn": "BEGONIA", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭网络版",
         "cv": "冯骏骅", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "白鸟梓": {
-        "job": "尖锋", "skill":[MXLaohenEnum.强攻对精英, MXLaohenEnum.致命弱点] ,"attr": "feng", "star": "5",
+        "job": "尖锋", "skill": [MXLaohenEnum.强攻对精英, MXLaohenEnum.致命弱点], "attr": "feng", "star": "5",
         "nameEn": "SHIRATORI AZUSA", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "翁媛", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "霍冉": {
-        "job": "尖锋", "skill":[MXLaohenEnum.自动瞄准系统方块α型, MXLaohenEnum.破碎打击] ,"attr": "yan", "star": "4",
+        "job": "尖锋", "skill": [MXLaohenEnum.自动瞄准系统方块α型, MXLaohenEnum.破碎打击], "attr": "yan", "star": "4",
         "nameEn": "HUORAN", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "小巫", "openDate": "2024年01月12日", "resourse": ["主线S0-3赠送", "常态共鸣"]
     },
     "马尔斯": {
-        "job": "尖锋", "skill":[MXLaohenEnum.核心充能方块α型, MXLaohenEnum.无畏者] ,"attr": "lei", "star": "4",
+        "job": "尖锋", "skill": [MXLaohenEnum.核心充能方块α型, MXLaohenEnum.无畏者], "attr": "lei", "star": "4",
         "nameEn": "MARS", "tag": ["破盾", "爆发"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "不一", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "Sweeper-EX": {
-        "job": "尖锋", "skill":[MXLaohenEnum.生生不息方块, MXLaohenEnum.绝处逢生] ,"attr": "wuli", "star": "1",
+        "job": "尖锋", "skill": [MXLaohenEnum.生生不息方块, MXLaohenEnum.绝处逢生], "attr": "wuli", "star": "1",
         "nameEn": "SWEEPER-EX", "tag": ["输出"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "吴磊", "openDate": "2024年01月12日", "resourse": ["成就奖励"]
     },
+    "玄戈": {
+        "job": "游徒", "skill": [MXLaohenEnum.铁杵磨成针三角, MXLaohenEnum.连破留痕], "attr": "wuli", "star": "6",
+        "nameEn": "LIONEL", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭三",
+        "cv": "夏磊", "openDate": "2025年01月02日", "resourse": ["定向潜航·灼金格言"]
+    },
     "鸢": {
-        "job": "游徒", "skill":[MXLaohenEnum.核心充能三角β型, MXLaohenEnum.核心蚀解] ,"attr": "shi", "star": "6",
+        "job": "游徒", "skill": [MXLaohenEnum.核心充能三角β型, MXLaohenEnum.核心蚀解], "attr": "shi", "star": "6",
         "nameEn": "LEILANI", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "王晓彤", "openDate": "2024年06月27日", "resourse": ["定向共鸣·沉默的誓言"]
     },
     "崔远之": {
-        "job": "游徒", "skill":[MXLaohenEnum.利刃三角α型, MXLaohenEnum.狙击] ,"attr": "lei", "star": "6",
+        "job": "游徒", "skill": [MXLaohenEnum.利刃三角α型, MXLaohenEnum.狙击], "attr": "lei", "star": "6",
         "nameEn": "HASSEL", "tag": ["输出", "爆发"], "originWorld": "黑曜", "orginChar": "古剑奇谭网络版",
         "cv": "夏磊", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
     },
     "红玉": {
-        "job": "游徒", "skill":[MXLaohenEnum.利刃三角β型, MXLaohenEnum.狂风卷袭] ,"attr": "feng", "star": "6",
+        "job": "游徒", "skill": [MXLaohenEnum.利刃三角β型, MXLaohenEnum.狂风卷袭], "attr": "feng", "star": "6",
         "nameEn": "SCARLETT", "tag": ["输出", "击退", "拦截"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
         "cv": "蔡娜", "openDate": "2024年02月01日", "resourse": ["定向共鸣·玉照长夜·陈酒新酌", "常态共鸣·森罗万象"]
     },
     "凤无梦": {
-        "job": "游徒", "skill":[MXLaohenEnum.庇佑, MXLaohenEnum.束缚蚀力] ,"attr": "shi", "star": "5",
+        "job": "游徒", "skill": [MXLaohenEnum.庇佑, MXLaohenEnum.束缚蚀力], "attr": "shi", "star": "5",
         "nameEn": "VIDAR", "tag": ["输出", "召唤"], "originWorld": "特默里恩", "orginChar": "古剑奇谭网络版",
         "cv": "刘十四", "openDate": "2024年01月18日", "resourse": ["定向共鸣·游光澄明", "常态共鸣"]
     },
     "吉娜": {
-        "job": "游徒", "skill":[MXLaohenEnum.人形特攻α型, MXLaohenEnum.灵感激活] ,"attr": "shi", "star": "5",
+        "job": "游徒", "skill": [MXLaohenEnum.人形特攻α型, MXLaohenEnum.灵感激活], "attr": "shi", "star": "5",
         "nameEn": "GINA", "tag": ["输出", "爆发"], "originWorld": "特默里恩", "orginChar": "原创",
         "cv": "降温", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "司危": {
-        "job": "游徒", "skill":[MXLaohenEnum.机械特攻α型, MXLaohenEnum.连击精通] ,"attr": "lei", "star": "5",
+        "job": "游徒", "skill": [MXLaohenEnum.机械特攻α型, MXLaohenEnum.连击精通], "attr": "lei", "star": "5",
         "nameEn": "PRIS", "tag": ["输出"], "originWorld": "艾达", "orginChar": "古剑奇谭三",
         "cv": "醋醋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "雪长夏": {
-        "job": "游徒", "skill":[MXLaohenEnum.铁杵磨成针三角, MXLaohenEnum.超频引雷] ,"attr": "lei", "star": "5",
+        "job": "游徒", "skill": [MXLaohenEnum.铁杵磨成针三角, MXLaohenEnum.超频引雷], "attr": "lei", "star": "5",
         "nameEn": "SORLEY", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "三石", "openDate": "2024年03月28日", "resourse": ["定向共鸣·飞雪初晴", "定向共鸣·王牌机械师", "常态共鸣"]
     },
     "狄砚": {
-        "job": "游徒", "skill":[MXLaohenEnum.针对打击三角, MXLaohenEnum.同步强化] ,"attr": "wuli", "star": "4",
+        "job": "游徒", "skill": [MXLaohenEnum.针对打击三角, MXLaohenEnum.同步强化], "attr": "wuli", "star": "4",
         "nameEn": "DIYAN", "tag": ["群攻", "支援", "拦截"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "苏婉", "openDate": "2024年01月12日", "resourse": ["主线S0-1赠送", "常态共鸣"]
     },
     "艾摩诃": {
-        "job": "游徒", "skill":[MXLaohenEnum.特殊减伤对空, MXLaohenEnum.隐匿其中] ,"attr": "lei", "star": "4",
+        "job": "游徒", "skill": [MXLaohenEnum.特殊减伤对空, MXLaohenEnum.隐匿其中], "attr": "lei", "star": "4",
         "nameEn": "EMAHA", "tag": ["输出", "生存"], "originWorld": "夜摩", "orginChar": "原创",
         "cv": "鹏小胖", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "卯绒绒": {
-        "job": "筑术师", "skill":[MXLaohenEnum.核心充能三角α型, MXLaohenEnum.主场扩大] ,"attr": "shui", "star": "6",
+        "job": "筑术师", "skill": [MXLaohenEnum.核心充能三角α型, MXLaohenEnum.主场扩大], "attr": "shui", "star": "6",
         "nameEn": "FURAY&FURNEY", "tag": ["群攻", "元素区域"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
         "cv": "二娇、杨鸥", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
     },
     "瞳": {
-        "job": "筑术师", "skill":[MXLaohenEnum.狩猎时刻对地, MXLaohenEnum.左膀右臂三角] ,"attr": "wuli", "star": "6",
+        "job": "筑术师", "skill": [MXLaohenEnum.狩猎时刻对地, MXLaohenEnum.左膀右臂三角], "attr": "wuli", "star": "6",
         "nameEn": "TONG", "tag": ["召唤", "输出"], "originWorld": "森罗", "orginChar": "古剑奇谭二",
         "cv": "刘北辰", "openDate": "2024年01月12日", "resourse": ["常态共鸣·森罗万象", "常态共鸣"]
     },
     "缇诗": {
-        "job": "筑术师", "skill":[MXLaohenEnum.利刃三角α型, MXLaohenEnum.雷核释力] ,"attr": "lei", "star": "6",
+        "job": "筑术师", "skill": [MXLaohenEnum.利刃三角α型, MXLaohenEnum.雷核释力], "attr": "lei", "star": "6",
         "nameEn": "TISHI", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "虫虫", "openDate": "2024年10月10日", "resourse": ["定向共鸣·凡我之至"]
     },
     "风晴雪": {
-        "job": "筑术师", "skill":[MXLaohenEnum.强攻对地, MXLaohenEnum.霜天] ,"attr": "shuang", "star": "6",
+        "job": "筑术师", "skill": [MXLaohenEnum.强攻对地, MXLaohenEnum.霜天], "attr": "shuang", "star": "6",
         "nameEn": "FENG JR.", "tag": ["召唤", "输出"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
         "cv": "朱雀橙", "openDate": "2024年03月28日", "resourse": ["定向共鸣·飞雪初晴", "常态共鸣·森罗万象"]
     },
     "罗咤": {
-        "job": "筑术师", "skill":[MXLaohenEnum.原生特攻α型, MXLaohenEnum.熊熊燃烧] ,"attr": "yan", "star": "5",
+        "job": "筑术师", "skill": [MXLaohenEnum.原生特攻α型, MXLaohenEnum.熊熊燃烧], "attr": "yan", "star": "5",
         "nameEn": "ROAR", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "古剑奇谭网络版",
         "cv": "叶知秋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "卡洛琳": {
-        "job": "筑术师", "skill":[MXLaohenEnum.暴风骤雨三角α型, MXLaohenEnum.蚀入骨髓] ,"attr": "shi", "star": "5",
+        "job": "筑术师", "skill": [MXLaohenEnum.暴风骤雨三角α型, MXLaohenEnum.蚀入骨髓], "attr": "shi", "star": "5",
         "nameEn": "CAROLINE", "tag": ["治疗", "爆发"], "originWorld": "特默里恩", "orginChar": "原创",
         "cv": "苏婉", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "莉缇亚": {
-        "job": "筑术师", "skill":[MXLaohenEnum.人形特攻β型, MXLaohenEnum.源源不断] ,"attr": "lei", "star": "5",
+        "job": "筑术师", "skill": [MXLaohenEnum.人形特攻β型, MXLaohenEnum.源源不断], "attr": "lei", "star": "5",
         "nameEn": "LYDIA", "tag": ["群攻", "输出"], "originWorld": "黎威尔", "orginChar": "原创",
         "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "尚非乐": {
-        "job": "筑术师", "skill":[MXLaohenEnum.强攻对空, MXLaohenEnum.信号干扰三角] ,"attr": "feng", "star": "5",
+        "job": "筑术师", "skill": [MXLaohenEnum.强攻对空, MXLaohenEnum.信号干扰三角], "attr": "feng", "star": "5",
         "nameEn": "HIRUNDO", "tag": ["群攻", "拦截"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
         "cv": "王燕华", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "刘兄": {
-        "job": "筑术师", "skill":[MXLaohenEnum.特殊减伤对地, MXLaohenEnum.雷霆万钧] ,"attr": "lei", "star": "4",
+        "job": "筑术师", "skill": [MXLaohenEnum.特殊减伤对地, MXLaohenEnum.雷霆万钧], "attr": "lei", "star": "4",
         "nameEn": "MARGARET·LIU", "tag": ["治疗", "屏障"], "originWorld": "特默里恩", "orginChar": "古剑奇谭三",
         "cv": "洪海天", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "龙晴": {
-        "job": "护佑者", "skill":[MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.屏障水] ,"attr": "shui", "star": "6",
+        "job": "护佑者", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.屏障水], "attr": "shui", "star": "6",
         "nameEn": "LONGQING", "tag": ["治疗", "屏障"], "originWorld": "海错", "orginChar": "原创",
         "cv": "翁媛", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
     },
     "珑": {
-        "job": "护佑者", "skill":[MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.碎易蚀影] ,"attr": "shi", "star": "6",
+        "job": "护佑者", "skill": [MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.碎易蚀影], "attr": "shi", "star": "6",
         "nameEn": "LONG", "tag": ["支援", "治疗"], "originWorld": "黑曜", "orginChar": "原创",
         "cv": "缇安", "openDate": "2024年11月21日", "resourse": ["定向潜航·振玉知微"]
     },
     "言御": {
-        "job": "护佑者", "skill":[MXLaohenEnum.坚实护盾, MXLaohenEnum.刺骨寒意] ,"attr": "shuang", "star": "6",
+        "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.刺骨寒意], "attr": "shuang", "star": "6",
         "nameEn": "BOREAS", "tag": ["支援", "治疗", "控场"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "梁达伟", "openDate": "2024年03月14日", "resourse": ["定向共鸣·夜幕下的本相", "常态共鸣·森罗万象"]
     },
     "紫都": {
-        "job": "护佑者", "skill":[MXLaohenEnum.坚实护盾, MXLaohenEnum.风之庇佑] ,"attr": "feng", "star": "6",
+        "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.风之庇佑], "attr": "feng", "star": "6",
         "nameEn": "ZODIVIN AZURE", "tag": ["治疗", "支援"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
         "cv": "洪海天", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
     },
     "芙蕖": {
-        "job": "护佑者", "skill":[MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.沉浸舞台] ,"attr": "shui", "star": "5",
+        "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.沉浸舞台], "attr": "shui", "star": "5",
         "nameEn": "FREDA", "tag": ["治疗", "支援"], "originWorld": "艾达", "orginChar": "古剑奇谭一",
         "cv": "陈奕雯", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "苏筱": {
-        "job": "护佑者", "skill":[MXLaohenEnum.坚实护盾, MXLaohenEnum.锻炼治疗] ,"attr": "wuli", "star": "5",
+        "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.锻炼治疗], "attr": "wuli", "star": "5",
         "nameEn": "SUXIAO", "tag": ["治疗", "屏障"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "Vila", "openDate": "2024年01月12日", "resourse": ["主线初始赠送"]
     },
     "阳铃": {
-        "job": "护佑者", "skill":[MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.冻结延长] ,"attr": "shuang", "star": "5",
+        "job": "护佑者", "skill": [MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.冻结延长], "attr": "shuang", "star": "5",
         "nameEn": "NOLA", "tag": ["治疗", "控场"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
         "cv": "叶知秋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "长谣": {
-        "job": "护佑者", "skill":[MXLaohenEnum.落井下石, MXLaohenEnum.润物无声] ,"attr": "shui", "star": "4",
+        "job": "护佑者", "skill": [MXLaohenEnum.落井下石, MXLaohenEnum.润物无声], "attr": "shui", "star": "4",
         "nameEn": "CHANGYAO", "tag": ["治疗", "控场"], "originWorld": "海错", "orginChar": "原创",
         "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "元桃桃": {
-        "job": "护佑者", "skill":[MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.因祸得福] ,"attr": "shui", "star": "4",
+        "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.因祸得福], "attr": "shui", "star": "4",
         "nameEn": "BUBBLES", "tag": ["治疗", "输出"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "富贵", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "提提亚": {
-        "job": "战术家", "skill":[MXLaohenEnum.元素专攻菱形β型, MXLaohenEnum.元素跃威] ,"attr": "shui", "star": "6",
+        "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形β型, MXLaohenEnum.元素跃威], "attr": "shui", "star": "6",
         "nameEn": "TITIA", "tag": ["支援", "元素区域"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "郭贝", "openDate": "2024年07月18日", "resourse": ["定向共鸣·本真枷锁"]
     },
     "伊琅相思": {
-        "job": "战术家", "skill":[MXLaohenEnum.元素专攻菱形α型, MXLaohenEnum.隐匿回响] ,"attr": "yan", "star": "6",
+        "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形α型, MXLaohenEnum.隐匿回响], "attr": "yan", "star": "6",
         "nameEn": "Thea", "tag": ["群攻", "生存"], "originWorld": "夜摩", "orginChar": "古剑奇谭网络版",
         "cv": "龟娘", "openDate": "2024年05月09日", "resourse": ["定向共鸣·走向彼岸"]
     },
     "北洛": {
-        "job": "战术家", "skill":[MXLaohenEnum.势如破竹对空, MXLaohenEnum.战术强化] ,"attr": "wuli", "star": "6",
+        "job": "战术家", "skill": [MXLaohenEnum.势如破竹对空, MXLaohenEnum.战术强化], "attr": "wuli", "star": "6",
         "nameEn": "LUKE", "tag": ["输出", "召唤", "屏障"], "originWorld": "黑曜", "orginChar": "古剑奇谭三",
         "cv": "张沛", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
     },
     "岑缨": {
-        "job": "战术家", "skill":[MXLaohenEnum.伤害赐福菱形α型, MXLaohenEnum.左膀右臂菱形] ,"attr": "wuli", "star": "6",
+        "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形α型, MXLaohenEnum.左膀右臂菱形], "attr": "wuli", "star": "6",
         "nameEn": "CENYING", "tag": ["输出", "召唤", "拦截"], "originWorld": "森罗", "orginChar": "古剑奇谭三",
         "cv": "龟娘", "openDate": "2024年01月18日", "resourse": ["定向共鸣·游光澄明", "常态共鸣·森罗万象"]
     },
     "言雀": {
-        "job": "战术家", "skill":[MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.高压雷击] ,"attr": "lei", "star": "6",
+        "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.高压雷击], "attr": "lei", "star": "6",
         "nameEn": "SKYLAR", "tag": ["控场", "输出"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "筱筝", "openDate": "2024年02月29日", "resourse": ["定向共鸣·云端来信", "常态共鸣·森罗万象"]
     },
     "晴雪": {
-        "job": "战术家", "skill":[MXLaohenEnum.元素专攻菱形α型, MXLaohenEnum.风刃侵蚀] ,"attr": "feng", "star": "6",
+        "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形α型, MXLaohenEnum.风刃侵蚀], "attr": "feng", "star": "6",
         "nameEn": "ELPIS", "tag": ["召唤", "输出", "支援"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭一",
         "cv": "朱雀橙", "openDate": "2024年08月29日", "resourse": ["定向共鸣·晴空龙吟"]
     },
     "瓦卡莎": {
-        "job": "战术家", "skill":[MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.等待时机] ,"attr": "shui", "star": "5",
+        "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.等待时机], "attr": "shui", "star": "5",
         "nameEn": "SAMBHEKA", "tag": ["击退", "元素区域"], "originWorld": "夜摩", "orginChar": "原创",
         "cv": "灯果", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "襄铃": {
-        "job": "战术家", "skill":[MXLaohenEnum.伤害赐福菱形α型, MXLaohenEnum.针对削弱] ,"attr": "yan", "star": "5",
+        "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形α型, MXLaohenEnum.针对削弱], "attr": "yan", "star": "5",
         "nameEn": "XIANGLING", "tag": ["输出", "拉拽"], "originWorld": "艾达", "orginChar": "古剑奇谭一",
         "cv": "阎萌萌", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "阿棘": {
-        "job": "战术家", "skill":[MXLaohenEnum.核心充能菱形β型, MXLaohenEnum.蚀力渗透] ,"attr": "shi", "star": "5",
+        "job": "战术家", "skill": [MXLaohenEnum.核心充能菱形β型, MXLaohenEnum.蚀力渗透], "attr": "shi", "star": "5",
         "nameEn": "ACEO", "tag": ["控场", "生存"], "originWorld": "乌瑞亚", "orginChar": "原创",
         "cv": "时音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "赫九逸": {
-        "job": "战术家", "skill":[MXLaohenEnum.生生不息菱形, MXLaohenEnum.针对削弱] ,"attr": "wuli", "star": "4",
+        "job": "战术家", "skill": [MXLaohenEnum.生生不息菱形, MXLaohenEnum.针对削弱], "attr": "wuli", "star": "4",
         "nameEn": "GAUYA", "tag": ["指挥", "拉拽"], "originWorld": "黑曜", "orginChar": "原创",
         "cv": "泽勋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "岚岚": {
-        "job": "战术家", "skill":[MXLaohenEnum.对空特攻α型, MXLaohenEnum.风力加剧] ,"attr": "feng", "star": "4",
+        "job": "战术家", "skill": [MXLaohenEnum.对空特攻α型, MXLaohenEnum.风力加剧], "attr": "feng", "star": "4",
         "nameEn": "LANLAN", "tag": ["击退", "拦截"], "originWorld": "乌瑞亚", "orginChar": "原创",
         "cv": "张昱", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
     },
     "老板": {
-        "job": "战术家", "skill":[MXLaohenEnum.昂扬斗志菱形α型, MXLaohenEnum.意志永存] ,"attr": "wuli", "star": "1",
+        "job": "战术家", "skill": [MXLaohenEnum.昂扬斗志菱形α型, MXLaohenEnum.意志永存], "attr": "wuli", "star": "1",
         "nameEn": "BOSS", "tag": ["充能", "爆发"], "originWorld": "森罗", "orginChar": "原创",
         "cv": "？？？", "openDate": "2024年01月12日", "resourse": ["成就奖励"]
     }
@@ -2336,6 +2347,23 @@ const allCharSkill = {
                     ]//三花特性
                 ]
             }
+        },
+        {
+            "name": "特性强化",
+            "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
+            "detail": {
+                "content": [
+                    "登场异核充能40秒，每层",
+                    speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火),
+                    "可获得0.5％",
+                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+                    "暴击率和1.5％",
+                    speSkillCon("（属性乘区·暴击伤害）"),
+                    "暴击伤害且初始获得15层",
+                    speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火),
+                    "，解封第Ⅲ重能力所需累积消耗的生命值降低一半"
+                ]
+            }
         }
     ],
     "米达斯": [
@@ -3588,6 +3616,170 @@ const allCharSkill = {
             }
         }
     ],
+    "玄戈": [
+        {
+            "name": "御厄",
+            "aliasNum": "1",//技能简称，1技能
+            "maxLevel": 15,//技能最大等级
+            "detail": {
+                "type": "主动技能",//技能类型，主动、被动、自定等
+                "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+                "tab": ["伤害", "对空", "穿透屏障"],//技能标签
+                "content": [
+                    speSkillCon("【御厄】技能形态指令冷却：", SkillColorEnum.injuries),
+                    speSkillCon("15"),
+                    speSkillCon("秒", SkillColorEnum.injuries),
+                    "",
+                    "在目标区域创造空间裂缝，对",
+                    speSkillCon("450"),
+                    "范围内的敌人造成",
+                    speSkillCon("2352％最终攻击的物理伤害"),
+                    "",
+                    "【连击】：获得",
+                    speSkillCon("2"),
+                    "个",
+                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                    "",
+                    "",
+                    speSkillCon("【荡厄】技能形态指令冷却：", SkillColorEnum.injuries),
+                    speSkillCon("10"),
+                    speSkillCon("秒", SkillColorEnum.injuries),
+                    "",
+                    "激活后可以使用",
+                    speSkillCon("2"),
+                    "次",
+                    "",
+                    "在目标区域创造空间裂缝，对",
+                    speSkillCon("450"),
+                    "范围内的敌人造成",
+                    speSkillCon("4480％最终攻击的物理伤害"),
+                    "",
+                    "【连击】：回复",
+                    speSkillCon("15"),
+                    "秒的异核充能"
+                ]//满级技能内容描述
+            }
+        },
+        {
+            "name": "纵略黑白",
+            "aliasNum": "2",
+            "maxLevel": 15,
+            "detail": {
+                "type": "自动技能",
+                "skillTab": [["增益冷却", "15秒"], ["增益持续", "15秒"]],
+                "tab": ["自身增益"],
+                "content": [
+                    "提高自身暴击率",
+                    speSkillCon("45%"),
+                    speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+                    "、暴击伤害",
+                    speSkillCon("90%"),
+                    speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
+                    "，且获得",
+                    speSkillCon("1"),
+                    "个",
+                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                    "",
+                    "当玄戈在增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的友方同调者使用主动技能时，玄戈会触发【璨星】效果，获得",
+                    speSkillCon("2"),
+                    "个",
+                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星)
+                ]
+            }
+        },
+        {
+            "name": "抑扬话事",
+            "aliasNum": "异核",
+            "maxLevel": 6,
+            "detail": {
+                "type": "异核技能",
+                "skillTab": [["充能时间", "60秒"]],
+                "tab": ["伤害", "拦截", "对空", "穿透屏障"],
+                "content": [
+                    "对",
+                    speSkillCon("500"),
+                    "范围内的敌人造成",
+                    speSkillCon("5000％最终攻击的物理伤害"),
+                    "，可以摧毁范围内的投射物，且获得",
+                    speSkillCon("3"),
+                    "个",
+                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                    "",
+                    "技能释放结束后，受到伤害的敌人在接下来的",
+                    speSkillCon("60"),
+                    "秒内，受到【御厄】、【荡厄】的伤害提高",
+                    speSkillCon("25％"),
+                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+                ]
+            }
+        },
+        {
+            "name": "特性：破而后立",
+            "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+            "detail": {
+                "type": "战斗特性",
+                "tab": [["射程", "800"], ["攻击速度", "0.50次每秒"]],
+                "atType": ["单体", "对空"],
+                "content": [
+                    "对当前目标造成",
+                    speSkillCon("200％最终攻击的物理伤害")
+                ],//普通攻击
+                "specialContent": [
+                    [
+                        "自身施放【御厄】、【纵略黑白】和【抑扬话事】可获得",
+                        speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                        "",
+                        "当获得",
+                        speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                        "数量达到",
+                        speSkillCon("5"),
+                        "个时，会激活【荡厄】。在释放",
+                        speSkillCon("2"),
+                        "次【荡厄】后，恢复到【御厄】技能形态",
+                        "",
+                        "当获得",
+                        speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                        "数量大于",
+                        speSkillCon("5"),
+                        "个时，会保留剩余的",
+                        speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                        "，保留的",
+                        speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                        "的数量上限是",
+                        speSkillCon("5"),
+                        "个",
+                        "",
+                        "",
+                        "登场时获得",
+                        speSkillCon("[同调]", SkillColorEnum.normal, ToastSkillEnum.同调),
+                        "效果"
+                    ],//零花本体特性
+                    [
+                        "登场时，异核充能",
+                        speSkillCon("45"),
+                        "秒，【纵略黑白】充能",
+                        speSkillCon("15"),
+                        "秒，且释放异核技能【抑扬话事】额外获得",
+                        speSkillCon("2"),
+                        "个",
+                        speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                        "。【御厄】、【荡厄】造成的伤害提高",
+                        speSkillCon("30%"),
+                        speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+                    ],//一花特性
+                    [
+                        "【御厄】、【荡厄】造成伤害时忽略敌人减伤",
+                        speSkillCon("40%"),
+                        speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+                        "。当玄戈在【纵略黑白】增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的队友使用主动技能时，玄戈触发【璨星】效果时，会额外获得",
+                        speSkillCon("2"),
+                        "个",
+                        speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星)
+                    ]//三花特性
+                ]
+            }
+        }
+    ],
     "鸢": [
         {
             "name": "月巡",
@@ -4061,6 +4253,18 @@ const allCharSkill = {
                         speSkillCon("36%"),
                         speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
                     ]//三花特性
+                ]
+            }
+        },
+        {
+            "name": "特性强化",
+            "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
+            "detail": {
+                "content": [
+                    "施放连击后友方同调者提高20％",
+                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+                    speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
+                    "，持续20秒，且【猎逐】被动触发时普通攻击获得与「缉捕模式」等同的强化效果（不与「缉捕模式」叠加）"
                 ]
             }
         }
@@ -7637,6 +7841,17 @@ const allCharSkill = {
                         speSkillCon("10"),
                         "秒"
                     ]//三花特性
+                ]
+            }
+        },
+        {
+            "name": "特性强化",
+            "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
+            "detail": {
+                "content": [
+                    "通过特性召唤副无人机「感光者」时，使自身及召唤物所有伤害提高15％",
+                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                    "，若该伤害为异核伤害则效果翻倍，持续12秒"
                 ]
             }
         }
@@ -11941,6 +12156,135 @@ const allCharTea = {
                     "燕麦奶"
                 ],
                 "ex": [461, 517, 564],//参考默契值，无加，满家具，满加成
+            }
+        ]
+    },
+    "玄戈": {
+        "achievement": [
+            {
+                "name": "死敌",
+                "limit": "【默契值4级】",
+                "tips": [
+                    "“监督，即便是我的死敌，也不会端一杯熊熊燕麦牛奶给我。”",
+                    "“……一般人的人生可不会有死敌这种东西…”",
+                    "“而我有很多。”",
+                ],
+                "recipe": [
+                    "蝶形香槟杯",
+                    "熊熊燕麦牛奶",
+                    "燕麦奶",
+                    "焦糖布丁",
+                    "迷迭香"
+                ]
+            },
+            {
+                "name": "意外",
+                "limit": "【默契值5级】",
+                "tips": [
+                    "“玄戈，你看起来很惊讶？这杯盐水有什么问题吗？”",
+                    "“没什么，只是……它太简单了。而我的人生离这个词太远了。”",
+                ],
+                "recipe": [
+                    "马天尼杯",
+                    "白开水",
+                    "盐",
+                    "常温",
+                    "银杏叶"
+                ]
+            },
+            {
+                "name": "刻板印象",
+                "limit": "【默契值1级】",
+                "tips": [
+                    "“苦啤、苦咖、双倍浓缩咖啡液，还有额外添加的苦味素……也许我该反思一下，我在监督眼中究竟是什么形象？”",
+                    "“我看影视作品中的大佬都喜欢这种配置？”",
+                    "“……”"
+                ],
+                "recipe": [
+                    "笛型香槟杯",
+                    "恩利都苦啤兑苦咖",
+                    "多冰",
+                    "苦味素",
+                    "加双份",
+                    "薄荷叶"
+                ]
+            },
+            {
+                "name": "相似处？",
+                "limit": "【默契值13级】",
+                "tips": [
+                    "“说不定乌瑞亚也许是与北三岛最相似的地方。”",
+                    "“监督为什么这么说？”",
+                    "“我不是说自然环境，而是两地对于种群或者说家族的重视。”",
+                    "“若是在这一方面，我不否认。”"
+                ],
+                "recipe": [
+                    "郁金香酒杯",
+                    "德里亚德风味花茶",
+                    "常温",
+                    "叶子冻",
+                    "空心圆匙"
+                ]
+            },
+            {
+                "name": "礼物",
+                "limit": "【默契值10级】",
+                "tips": [
+                    "“蝴蝶结？”",
+                    "“咳。可以取下来，拿给陀螺玩。”",
+                    "“你想得还真是周全。多谢。”"
+                ],
+                "recipe": [
+                    "蝶形香槟杯",
+                    "夜色危情",
+                    "少冰",
+                    "偏烈",
+                    "珍珠",
+                    "蝴蝶结"
+                ]
+            },
+            {
+                "name": "冬日气息",
+                "limit": "【默契值16级】",
+                "tips": [
+                    "“这杯饮品有北三岛的味道。”",
+                    "“毕竟是以银色青松为灵感调配的嘛。”",
+                    "“难怪。有一股凛冬的味道。”"
+                ],
+                "recipe": [
+                    "马天尼杯",
+                    "银色青松",
+                    "柠檬汁",
+                    "偏淡",
+                    "五叶长签"
+                ]
+            },
+            {
+                "name": "未来",
+                "limit": "【默契值18级】",
+                "tips": [
+                    "“我很好奇，你希望北洛毕业后回北三岛吗？”",
+                    "“比起我的‘希望’，他自己要先想清楚。”"
+                ],
+                "recipe": [
+                    "笛型香槟杯",
+                    "沉金记忆",
+                    "五分糖",
+                    "苦味素",
+                    "柠檬片"
+                ]
+            }
+        ],
+        "hignRapport": [
+            {
+                "needLevel": 1,
+                "recipe": [
+                    "黑月亮",
+                    "多冰",
+                    "盐",
+                    "青提"
+                ],
+                "ex": [554, 620, 676],//参考默契值，无加，满家具，满加成
             }
         ]
     },
