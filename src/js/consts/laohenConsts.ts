@@ -13178,8 +13178,8 @@ const allLaohen = [
         "type": LaohenAttrType.防御,
         "id": LaohenNameEnum.暗涌轮廓,
         "extraData": {
-            "illust": LaohenIllust.YGeriAn, //画师,
-            "resourse": LaohenResourse.叶脉联结计划
+            "illust": LaohenIllust.AurogonShanghai, //画师,
+            "resourse": LaohenResourse.活动
         },
         "mxSkill": [
             MXLaohenEnum.擒贼先擒王,
