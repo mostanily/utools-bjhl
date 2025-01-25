@@ -1,6 +1,10 @@
 //通用描述特殊颜色配置
-const blueColor = "#358DE7";
-const orangeColor = "#ED7000";
+const colorConfig = [
+    "#358DE7",
+    "#ED7000",
+    "#DAB886",
+    "#96C3D6"
+];
 
 //稀有度中文名称映射
 const rarityName = ["白", "金", "红"];//对应r,sr,ssr
@@ -76,8 +80,7 @@ const LaohenSkillTypeName = [
 ]
 
 export {
-    blueColor,
-    orangeColor,
+    colorConfig,
     rarityName,
     rarityEnName,
     jobNames,

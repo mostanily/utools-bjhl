@@ -2,6 +2,8 @@
 enum SkillColorEnum {
     normal,//正常
     injuries,//其他伤害乘区（增伤，减伤，减抗等等）
+    orange,//雷元素
+    bing,//霜元素
 }
 
 //烙痕稀有度

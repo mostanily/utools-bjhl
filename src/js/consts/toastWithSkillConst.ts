@@ -94,6 +94,62 @@ const toastWithSkill = [
         "",
         speSkillCon("属性乘区·暴击伤害"),
         "：最终值小于等于160%"
+    ]],
+    ["【切分音】", "在产生时，可以生成小范围的水元素区域。可以消耗一定数量的[切分音]释放主动技能【定音乐轨】"],
+    ["【汽化反应】", [
+        "当目标处于",
+        speSkillCon("水元素"),
+        "区域上，受到",
+        speSkillCon("炎元素", SkillColorEnum.injuries),
+        "伤害时，或者",
+        "",
+        "当目标处于",
+        speSkillCon("炎元素", SkillColorEnum.injuries),
+        "区域上，受到",
+        speSkillCon("水元素"),
+        "伤害时，触发",
+        speSkillCon("【汽化】"),
+        "反应：",
+        "",
+        "生成雾化区域，该区域中的友方同调者受到的伤害",
+        speSkillCon("降低50%"),
+        "。"
+    ]],
+    ["【传导反应】", [
+        "当目标处于",
+        speSkillCon("水元素"),
+        "区域上，受到",
+        speSkillCon("雷元素", SkillColorEnum.orange),
+        "伤害时触发",
+        speSkillCon("【传导】"),
+        "反应：",
+        "",
+        "使该区域内敌对目标",
+        speSkillCon("【麻痹】"),
+        "而无法行动（不会清除水元素区域)。",
+        "",
+        "反应免疫类型为水或雷的单位及部分特殊单位可免疫传导反应。"
+    ]],
+    ["【冻结反应】", [
+        "当目标处于",
+        speSkillCon("水元素"),
+        "区域上，受到",
+        speSkillCon("霜元素", SkillColorEnum.bing),
+        "伤害时，或者",
+        "",
+        "当目标处于",
+        speSkillCon("霜元素", SkillColorEnum.bing),
+        "区域上，受到",
+        speSkillCon("水元素"),
+        "伤害时，触发",
+        speSkillCon("【冻结】"),
+        "反应：",
+        "",
+        "对该区域内敌对目标造成",
+        speSkillCon("【冻结】"),
+        "效果。",
+        "",
+        "反应免疫类型为水或霜的单位及部分特殊单位可免疫冻结反应。"
     ]]
 ];
 
@@ -187,7 +243,8 @@ const laohenToastWithSkill = [
             speSkillCon("属性乘区·暴击伤害"),
             "：最终值小于等于160%"
         ]
-    ]
+    ],
+    ["【屏障破碎】", "屏障受到超出屏障强度的投射物攻击时或破坏屏障效果时会破碎；若屏障以层数计数，则每次消耗层数均视为屏障破碎，但存在8秒冷却时间"]
 ]
 
 export { toastWithSkill, laohenToastWithSkill }

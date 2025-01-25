@@ -53,12 +53,12 @@
                         char[$route.params.name].originWorld }}</a>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <th>CV
                     </th>
                     <td>{{ char[$route.params.name].cv }}
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <th>原型来源
                     </th>

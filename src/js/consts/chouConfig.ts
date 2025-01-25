@@ -351,6 +351,16 @@ const poolConfig = {
         "name": "「默」",
         "up": "「默」"
     },
+    "50": {
+        "type": "1",
+        "name": "空心人",
+        "up": "余音"
+    },
+    "51": {
+        "type": "2",
+        "name": "神·迹",
+        "up": "神·迹"
+    },
     "10001": {
         "type": "1",
         "name": "既定回响",
@@ -615,6 +625,10 @@ const roleConfig = {
     "645": {
         "rarity": "6",
         "name": "玄戈"
+    },
+    "646": {
+        "rarity": "6",
+        "name": "余音"
     },
 }
 
@@ -991,6 +1005,10 @@ const laohenConfig = {
         "name": "晓梦迷花",
         "rarity": "3"
     },
+    "2043": {
+        "name": "神·迹",
+        "rarity": "3"
+    },
     "2044": {
         "name": "「默」",
         "rarity": "3"
@@ -1029,6 +1047,10 @@ const laohenConfig = {
     },
     "2809": {
         "name": "浊雨",
+        "rarity": "3"
+    },
+    "2810": {
+        "name": "Feat",
         "rarity": "3"
     },
     "3001": {

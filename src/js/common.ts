@@ -1,6 +1,5 @@
 import { charAttr, allChar, allCharSkill, allCharTea } from './consts/charConsts.ts';
-import { SkillColorEnum } from './enum/skillSimpleEnum.ts';
-import { blueColor, orangeColor } from './consts/simpleConsts.ts';
+import { colorConfig } from './consts/simpleConsts.ts';
 import { poolConfig, roleConfig, laohenConfig} from './consts/chouConfig.ts';
 
 /**
@@ -87,11 +86,7 @@ export default class CommonUtil {
      * @returns 
      */
     static getSkillNumColor(colorEnum: number) {
-        if (colorEnum === SkillColorEnum.normal) {
-            return blueColor
-        } else {
-            return orangeColor
-        }
+        return colorConfig[colorEnum]
     }
 
     /**

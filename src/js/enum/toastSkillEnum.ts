@@ -57,7 +57,11 @@ enum ToastSkillEnum {
     同调者暴击伤害,
     璨星,
     属性乘区额外攻击力加成,
-    同调
+    同调,
+    切分音,
+    汽化反应,
+    传导反应,
+    冻结反应
 }
 
 /**
@@ -91,7 +95,8 @@ enum LaohenToastSkillEnum {
     消融反应,
     增益效果,
     定身,
-    同调
+    同调,
+    屏障破碎
 }
 
 export { ToastSkillEnum, LaohenToastSkillEnum }

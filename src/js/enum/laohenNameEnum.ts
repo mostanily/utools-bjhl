@@ -299,7 +299,11 @@ enum MXLaohenEnum {
     连破留痕,
     元素领袖物理,
     利刃连击,
-    异能再生
+    异能再生,
+    水陷抗涣,
+    远击增幅,
+    屏碎涟漪,
+    精神振奋
 }
 
 /**
@@ -417,7 +421,10 @@ enum LaohenNameEnum {
     野风,
     度晴波,
     默,
-    暗涌轮廓
+    暗涌轮廓,
+    Feat,
+    神迹,
+    须臾浮生
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
