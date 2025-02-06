@@ -60,6 +60,9 @@
                         <th colspan="2" width="8%">技能类型
                         </th>
                         <td>
+                            <li @click="setSortFiled('isJL', true)" 
+                                :style="sortField.isJL ? 'background-color: silver;color: #000;' : ''"
+                                class="btn btn-default cardSelectOption">激励</li>
                             <li @click="setSortFiled('skillType', 1)" 
                                 :style="sortField.skillType.includes(1) ? 'background-color: silver;color: #000;' : ''"
                                 class="btn btn-default cardSelectOption">核心技能</li>
@@ -124,7 +127,8 @@ export default defineComponent({
                 rarity: new Array,
                 job: new Array,
                 resourse: new Array,
-                skillType: new Array
+                skillType: new Array,
+                isJL: false
             },
         }
     },
@@ -156,6 +160,12 @@ export default defineComponent({
                     this.sortField.skillType.push(fieldEnum)
                 } else {
                     this.sortField.skillType.splice(this.sortField.skillType.indexOf(fieldEnum), 1)
+                }
+            } else if (type === 'isJL') {
+                if (this.sortField.isJL) {
+                    this.sortField.isJL = false
+                } else {
+                    this.sortField.isJL = true
                 }
             }
             this.sortLaohenSkill()
@@ -206,6 +216,15 @@ export default defineComponent({
                 const temp = new Array
                 for (let key in this.allLaohenSkill) {
                     if (this.sortField.skillType.includes(this.allLaohenSkill[key].skillType)) {
+                        temp.push(this.allLaohenSkill[key])
+                    }
+                }
+                this.allLaohenSkill = temp
+            }
+            if (this.sortField.isJL) {
+                const temp = new Array
+                for (let key in this.allLaohenSkill) {
+                    if (this.allLaohenSkill[key].isJL) {
                         temp.push(this.allLaohenSkill[key])
                     }
                 }

@@ -303,7 +303,9 @@ enum MXLaohenEnum {
     水陷抗涣,
     远击增幅,
     屏碎涟漪,
-    精神振奋
+    精神振奋,
+    水蕴赐福,
+    元素领袖水
 }
 
 /**
@@ -424,6 +426,7 @@ enum LaohenNameEnum {
     暗涌轮廓,
     Feat,
     神迹,
+    TARGETERROR,
     须臾浮生
 }
 

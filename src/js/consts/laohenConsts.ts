@@ -504,6 +504,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.因果历然,
                 LaohenNameEnum.默,
                 LaohenNameEnum.度晴波,
+                LaohenNameEnum.TARGETERROR,
                 LaohenNameEnum.截稿日,
                 LaohenNameEnum.白夜,
                 LaohenNameEnum.混乱烟尘
@@ -1046,6 +1047,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.庆典巡游,
                 LaohenNameEnum.逐光者,
                 LaohenNameEnum.海临人的好奇心,
+                LaohenNameEnum.TARGETERROR,
                 LaohenNameEnum.书卷晨曦,
                 LaohenNameEnum.早日康复,
             ], //枚举LaohenNameEnum.(x)
@@ -4710,7 +4712,8 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.Feat,
-                LaohenNameEnum.参商形影
+                LaohenNameEnum.参商形影,
+                LaohenNameEnum.TARGETERROR
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -4909,7 +4912,8 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.神迹,
-                LaohenNameEnum.如在镜中
+                LaohenNameEnum.如在镜中,
+                LaohenNameEnum.TARGETERROR
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -5345,7 +5349,9 @@ const allLaohenSkill = [
             140
         ],
         "sourseLaohen": {
-            "烙痕漫巡技能": [LaohenNameEnum.泡影
+            "烙痕漫巡技能": [
+                LaohenNameEnum.泡影,
+                LaohenNameEnum.TARGETERROR
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -10953,6 +10959,71 @@ const allLaohenSkill = [
         "speSkillToast": [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区额外攻击力加成)
         ]
+    },
+    {
+        "name": "水蕴赐福", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": true,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.水蕴赐福,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            200,
+            200,
+            200
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.TARGETERROR], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "当有敌方目标处在水元素区域时，同调者施展主动技能后场上所有同调者获得2层",
+            speSkillCon("[激励]"),
+            "，通过该效果获得的",
+            speSkillCon("[激励]"),
+            "不能超过",
+            speSkillCon("4（等级1时）"),
+            "/",
+            speSkillCon("7（等级2时）"),
+            "/",
+            speSkillCon("10（等级3时）"),
+            speSkillCon("(增伤乘区·激励)", SkillColorEnum.injuries),
+            "层"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.激励)
+        ]
+    },
+    {
+        "name": "元素领袖·水", //技能名称
+        "skillType": LaohenSkillType.常规技能,
+        "isJL": false,
+        "rarity": LaohenRarity.r, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.元素领袖水,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            120,
+            90,
+            90
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [
+                LaohenNameEnum.TARGETERROR
+            ], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "当编队队长是水元素同调者时，全队提升",
+            speSkillCon("10％（等级1时）"),
+            "/",
+            speSkillCon("17.5％（等级2时）"),
+            "/",
+            speSkillCon("20％（等级3时）"),
+            speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
+            "额外伤害",
+        ]
     }
 ]
 
@@ -13384,6 +13455,27 @@ const allLaohen = [
         ], //慢巡技能
         "hxSkill": [
             MXLaohenEnum.屏碎涟漪
+        ], //唤醒技能
+    },
+    {
+        "name": "TARGET ERROR",
+        "rarity": LaohenRarity.sr, //稀有度
+        "type": LaohenAttrType.防御,
+        "id": LaohenNameEnum.TARGETERROR,
+        "extraData": {
+            "illust": LaohenIllust.laxy, //画师,
+            "resourse": LaohenResourse.叶脉联结计划
+        },
+        "mxSkill": [
+            MXLaohenEnum.潮汐助威,
+            MXLaohenEnum.屏障效应,
+            MXLaohenEnum.元素领袖水,
+            MXLaohenEnum.核心充能三角β型,
+            MXLaohenEnum.元素专攻三角β型,
+            MXLaohenEnum.特殊减伤对空
+        ], //慢巡技能
+        "hxSkill": [
+            MXLaohenEnum.水蕴赐福
         ], //唤醒技能
     }
 ]
