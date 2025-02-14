@@ -897,6 +897,7 @@ export default {
         dealPoolData(laohenOrRoleData, pool, laohenOrRole, isRole = false) {
             // console.log(`卡池配置（卡池-角色-烙痕）`)
             //console.log(pool)
+            //console.log(laohenOrRoleData)
             const needCheckRarity = isRole ? '6' : '3'
             let allData = new Array//所有6星或者ssr
             let changzhuData = new Array//常驻卡池
@@ -920,6 +921,7 @@ export default {
                     //实际抽卡（角色/烙痕）通用数据结构：{time: '2024-01-12 09:19:42', poolId: '2', tid: '1013'}
                     const eachData = laohenList[index]
                     let poolId = eachData.poolId
+                    //console.log(poolId)
                     let ssrLaohenWithPool = {
                         poolId: eachData.poolId,
                         poolName: pool[poolId].name,
