@@ -205,6 +205,11 @@
                     currLaohenData.changzhu.radio }}</h3>
                 <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
                 <hr>
+                <div v-for="(ssr, index) in currLaohenData.sureSixRolePool" :key="index"
+                    style="width: 100%;float: left;margin: 5px 0px;">
+                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
+                </div>
+                <hr>
                 <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
@@ -606,12 +611,15 @@ export default {
                     lastDian: 0
                 },//UP池
                 changzhu: {
+                    hasSureSixPool: false,
                     data: new Array,
                     total: 0,
                     oneEach: '0',
                     radio: '--',
                     lastDian: 0
-                }//常驻池
+                },//常驻池
+                hasSureSixPool: false,
+                sureSixRolePool: new Array
             },
             currRoleData: {
                 mix: {
@@ -679,12 +687,15 @@ export default {
                     lastDian: 0
                 },//UP池
                 changzhu: {
+                    hasSureSixPool: false,
                     data: new Array,
                     total: 0,
                     oneEach: '0',
                     radio: '--',
                     lastDian: 0
-                }//常驻池
+                },//常驻池
+                hasSureSixPool: false,
+                sureSixRolePool: new Array
             }
             this.currRoleData = {
                 mix: {
@@ -839,6 +850,9 @@ export default {
                 this.currLaohenData.up.oneEach = (lData.upTotalCount / this.currLaohenData.up.data.length).toFixed(3)
                 this.currLaohenData.up.oneUpEach = (lData.upTotalCount / this.currLaohenData.up.noWaiData.length).toFixed(3)
                 this.currLaohenData.up.lastDian = lData.upDianCount
+
+                this.currLaohenData.hasSureSixPool = lData.hasSureSixPool
+                this.currLaohenData.sureSixRolePool = lData.sureSixRolePool
 
                 this.currLaohenData.changzhu.data = computed(() => { return [...lData.changzhuData].reverse() }).value
                 this.currLaohenData.changzhu.total = lData.changzhuTotalCount
