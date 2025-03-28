@@ -160,6 +160,7 @@
                 </div>
             </div>
         </div>
+        <button v-scroll-to="{ element: 'body', offset: -30 }" style="position: fixed;right: 10px;bottom: 10px;">Top ⇧</button>
     </div>
 </template>
 <script>

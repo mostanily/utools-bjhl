@@ -307,7 +307,15 @@ enum MXLaohenEnum {
     水蕴赐福,
     元素领袖水,
     驭风之力,
-    风影追击
+    风影追击,
+    炽锋叠势,
+    烬灼连破,
+    元素领袖炎,
+    战策充能,
+    炎境激聚,
+    影刻方阵,
+    追跡痕爆,
+    庇护共鸣,
 }
 
 /**
@@ -429,7 +437,11 @@ enum LaohenNameEnum {
     Feat,
     神迹,
     TARGETERROR,
-    须臾浮生
+    须臾浮生,
+    泅游,
+    执愿,
+    问天,
+    新醅,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

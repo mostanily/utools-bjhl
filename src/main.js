@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import VueScrollTo from 'vue-scrollto'
 import './style.css'
 import App from './App.vue'
 
@@ -7,6 +8,7 @@ import utoolsUtil from './js/utoolsUtil'
 import './js/extraCommon.ts'
 const app = createApp(App)
 app.use(router)
+app.use(VueScrollTo)
 
 app.directive('tooltip', {
     beforeMount(el, binding) {
