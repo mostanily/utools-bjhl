@@ -120,13 +120,13 @@
                     <table class="wikitable" style="width:100%;text-align:center;margin:0px;">
                         <tbody>
                             <tr>
-                                <th style="width:10%">等级</th>
+                                <th style="width:10%">等级MAX</th>
                                 <th style="width:60%">技能效果</th>
                             </tr>
                             <tr>
                                 <td>LV{{ skill.maxLevel }}</td>
                                 <td style="text-align:left;">
-                                    <skill-content :skillArr="skill.detail.content"></skill-content>
+                                    <skill-content :skillArr="skill.detail.content" :detailSkillArr="skill.detail"></skill-content>
                                 </td>
                             </tr>
                         </tbody>

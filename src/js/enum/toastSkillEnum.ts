@@ -63,6 +63,7 @@ enum ToastSkillEnum {
     传导反应,
     冻结反应,
     天相,
+    腐淖,
 }
 
 /**

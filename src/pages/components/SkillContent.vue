@@ -6,17 +6,15 @@
                 {{ con }}
             </span>
             <template v-else>
-                <span v-if="con.withToast" 
-                    :style="'text-decoration: underline;color: ' + getSkillNumColor(con.color)" 
-                    @mouseenter="currentIndex = index" 
-                    @mouseleave="currentIndex = -1">
-                    {{ con.desc}}
+                <span v-if="con.withToast" :style="'text-decoration: underline;color: ' + getSkillNumColor(con.color)"
+                    @mouseenter="currentIndex = index" @mouseleave="currentIndex = -1">
+                    {{ setSkillCon(con, detailSkillArr) }}
                     <span>
                         <Toast :toastCon="con" :showToastIndex="index" :currIndex="currentIndex"></Toast>
                     </span>
                 </span>
                 <span v-else :style="'color: ' + getSkillNumColor(con.color)">
-                    {{ con.desc}}
+                    {{ setSkillCon(con, detailSkillArr) }}
                 </span>
             </template>
         </template>
@@ -31,7 +29,7 @@ export default defineComponent({
     components: {
         Toast
     },
-    props:["skillArr"],
+    props: ["skillArr", "detailSkillArr"],
     data() {
         return {
             currentIndex: -1
@@ -40,6 +38,18 @@ export default defineComponent({
     methods: {
         getSkillNumColor(colorEnum) {
             return window.$commonUtil.getSkillNumColor(colorEnum)
+        },
+        setSkillCon(con, detailSkillArr) {
+            if (con.repIndex != -1 && detailSkillArr != null && Object.keys(detailSkillArr).includes("sizeLevel")) {
+                let newConArr = new Array
+                for (let index in this.detailSkillArr.sizeLevel) {
+                    const currCon = this.detailSkillArr.sizeLevel[index]
+                    const lv = Number(index) + 1
+                    newConArr.push(`LV${lv}:${currCon[con.repIndex]}`)
+                }
+                return `(${newConArr.join('；')})`
+            }
+            return con.desc
         }
     }
 })

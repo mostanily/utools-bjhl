@@ -7,6 +7,7 @@ import LaohenDetaill from './pages/LaohenDetaill.vue'
 import LaohenSkillDetaill from './pages/LaohenSkillDetaill.vue'
 import ThirdPage from './pages/ThirdPage.vue'
 import SaoLei from './pages/games/SaoLei.vue'
+import WZQ from './pages/games/WuZiQi.vue'
 
 const routes = [
     { path: '/', name: 'index', component: Index, alias: '/index' },
@@ -16,7 +17,8 @@ const routes = [
     { path: '/laohen/:name', name: 'laohen_detail', component: LaohenDetaill },
     { path: '/laohen-skill/:name', name: 'laohen_skill_detail', component: LaohenSkillDetaill },
     { path: '/lthird_page', name: 'third_page', component: ThirdPage },
-    { path: '/game/sl', name: 'sl', component: SaoLei }
+    { path: '/game/sl', name: 'sl', component: SaoLei },
+    { path: '/game/wzq', name: 'wzq', component: WZQ }
 ]
 
 const router = createRouter({

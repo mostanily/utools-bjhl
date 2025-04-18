@@ -316,6 +316,8 @@ enum MXLaohenEnum {
     影刻方阵,
     追跡痕爆,
     庇护共鸣,
+    蚀刻连携,
+    深邃蚀渊,
 }
 
 /**
@@ -442,6 +444,7 @@ enum LaohenNameEnum {
     执愿,
     问天,
     新醅,
+    欢声萦回,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
