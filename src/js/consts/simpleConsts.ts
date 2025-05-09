@@ -57,7 +57,8 @@ const IllustNames = [
     "跟头",
     "阿尼鸭Any-a",
     "鲛猫",
-    "鲸谜"
+    "鲸谜",
+    "llmia咻"
 ]
 
 /**

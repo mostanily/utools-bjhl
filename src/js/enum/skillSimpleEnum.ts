@@ -78,7 +78,8 @@ enum LaohenIllust {
     跟头,
     阿尼鸭Anya,
     鲛猫,
-    鲸谜
+    鲸谜,
+    llmia咻,
 }
 
 //职业名称

@@ -64,6 +64,7 @@ enum ToastSkillEnum {
     冻结反应,
     天相,
     腐淖,
+    重塑空间,
 }
 
 /**

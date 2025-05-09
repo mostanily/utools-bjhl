@@ -318,6 +318,10 @@ enum MXLaohenEnum {
     庇护共鸣,
     蚀刻连携,
     深邃蚀渊,
+    蚀能联结,
+    霜汐共振,
+    凝冰间隙,
+    元素领袖霜,
 }
 
 /**
@@ -445,6 +449,8 @@ enum LaohenNameEnum {
     问天,
     新醅,
     欢声萦回,
+    芳年未及,
+    形与神,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
