@@ -65,6 +65,7 @@ enum ToastSkillEnum {
     天相,
     腐淖,
     重塑空间,
+    属性乘区忽略减伤,
 }
 
 /**

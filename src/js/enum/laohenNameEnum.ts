@@ -322,6 +322,9 @@ enum MXLaohenEnum {
     霜汐共振,
     凝冰间隙,
     元素领袖霜,
+    澜盾凝锋,
+    涌泉赋能,
+    磐潮壁垒,
 }
 
 /**
@@ -451,6 +454,8 @@ enum LaohenNameEnum {
     欢声萦回,
     芳年未及,
     形与神,
+    萌火直出,
+    沙中金火,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
