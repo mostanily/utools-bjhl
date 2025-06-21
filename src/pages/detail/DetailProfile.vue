@@ -49,7 +49,7 @@
                 <tr>
                     <th>原生世界
                     </th>
-                    <td><a href="#" :title="char[$route.params.name].originWorld">{{
+                    <td><a :title="char[$route.params.name].originWorld">{{
                         char[$route.params.name].originWorld }}</a>
                     </td>
                 </tr>
@@ -62,7 +62,7 @@
                 <tr>
                     <th>原型来源
                     </th>
-                    <td><a rel="nofollow" class="external text" href="#" target="_blank">{{
+                    <td><a rel="nofollow" class="external text" target="_blank">{{
                         char[$route.params.name].orginChar }}</a>
                     </td>
                 </tr>

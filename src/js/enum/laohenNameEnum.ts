@@ -325,6 +325,10 @@ enum MXLaohenEnum {
     澜盾凝锋,
     涌泉赋能,
     磐潮壁垒,
+    盾鸣赐福,
+    怒霆共鸣,
+    元素之境,
+    炎雷同灼,
 }
 
 /**
@@ -456,6 +460,9 @@ enum LaohenNameEnum {
     形与神,
     萌火直出,
     沙中金火,
+    余兴节目,
+    失罪夜,
+    燎夜余尘,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

@@ -1,5 +1,5 @@
 import { charAttr, allChar, allCharSkill, allCharTea } from './consts/charConsts.ts';
-import { colorConfig } from './consts/simpleConsts.ts';
+import { colorConfig, rapportFormula } from './consts/simpleConsts.ts';
 import { poolConfig, roleConfig, laohenConfig} from './consts/chouConfig.ts';
 
 /**
@@ -14,6 +14,7 @@ export default class CommonUtil {
     static poolConfig = poolConfig
     static roleConfig = roleConfig
     static laohenConfig = laohenConfig
+    static rapportFormula = rapportFormula
 
     /**
      * 获取角色头像

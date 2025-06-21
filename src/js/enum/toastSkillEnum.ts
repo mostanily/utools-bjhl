@@ -66,6 +66,9 @@ enum ToastSkillEnum {
     腐淖,
     重塑空间,
     属性乘区忽略减伤,
+    雷之界域,
+    爆燃反应,
+    电解反应,
 }
 
 /**
@@ -100,7 +103,8 @@ enum LaohenToastSkillEnum {
     增益效果,
     定身,
     同调,
-    屏障破碎
+    屏障破碎,
+    雷之界域,
 }
 
 export { ToastSkillEnum, LaohenToastSkillEnum }

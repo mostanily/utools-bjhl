@@ -5,6 +5,12 @@ const colorConfig = [
     "#DAB886",
     "#96C3D6"
 ];
+//茶憩加成计算公式基础比例
+const rapportFormula = [
+    1.12,//满家具(12%)
+    1.2208,//满穹顶(9%)1.12*1.09
+    1.3328,//满加成（目前包含“真心联礼加成”道具加成）(10%)1.12*1.19
+];
 
 //稀有度中文名称映射
 const rarityName = ["白", "金", "红"];//对应r,sr,ssr
@@ -82,6 +88,7 @@ const LaohenSkillTypeName = [
 
 export {
     colorConfig,
+    rapportFormula,
     rarityName,
     rarityEnName,
     jobNames,
