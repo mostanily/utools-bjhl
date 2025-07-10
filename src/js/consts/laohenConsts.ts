@@ -49,6 +49,57 @@ const speLaohenSkillCon = (toastTitle: number) => {
     return res
 }
 
+/**
+ * 返回烙痕特质突破等级关联的角色特性文案
+ * @param charName 
+ * @param hxSkillName 
+ */
+const getSpeLink = (charName: string, hxSkillName: string) => {
+    return [
+        [
+            "战术刻印上无",
+            speSkillCon(hxSkillName),
+            "时，",
+            speSkillCon(charName),
+            "在战斗中生效",
+            speSkillCon(hxSkillName),
+            "的",
+            speSkillCon("等级1"),
+            "效果。"
+        ],
+        [
+            "战术刻印上无",
+            speSkillCon(hxSkillName),
+            "或",
+            speSkillCon(hxSkillName),
+            "等级低于",
+            speSkillCon("2级"),
+            "时，",
+            speSkillCon(charName),
+            "在战斗中生效",
+            speSkillCon(hxSkillName),
+            "的",
+            speSkillCon("等级2"),
+            "效果。"
+        ],
+        [
+            "战术刻印上无",
+            speSkillCon(hxSkillName),
+            "或",
+            speSkillCon(hxSkillName),
+            "等级低于",
+            speSkillCon("3级"),
+            "时，",
+            speSkillCon(charName),
+            "在战斗中生效",
+            speSkillCon(hxSkillName),
+            "的",
+            speSkillCon("等级3"),
+            "效果。"
+        ]
+    ]
+}
+
 const allLaohenSkill = [
     {
         "name": "回收利用", //技能名称
@@ -660,6 +711,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.幻想彼境,
                 LaohenNameEnum.无罪之徒,
+                LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.雨中愿
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -739,6 +791,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.暗涌轮廓,
                 LaohenNameEnum.双重引力,
                 LaohenNameEnum.谎言之下,
+                LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.千灯无间,
                 LaohenNameEnum.雪轻日暖,
                 LaohenNameEnum.泡影,
@@ -2394,6 +2447,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.光阴间隙,
                 LaohenNameEnum.噩梦,
                 LaohenNameEnum.于火光中蛋生,
+                LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.千纪启明,
                 LaohenNameEnum.秩序囚笼,
                 LaohenNameEnum.甜蜜心绪,
@@ -3358,7 +3412,8 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
-                LaohenNameEnum.无罪之徒
+                LaohenNameEnum.无罪之徒,
+                LaohenNameEnum.堕入星尘,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
@@ -3704,6 +3759,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.谎言之下,
                 LaohenNameEnum.空,
                 LaohenNameEnum.萌火直出,
+                LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.千灯无间,
                 LaohenNameEnum.问卜天地,
                 LaohenNameEnum.意外邂逅,
@@ -4166,6 +4222,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.夕阳挽歌,
+                LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.千纪启明,
                 LaohenNameEnum.秩序囚笼,
                 LaohenNameEnum.代号百草,
@@ -4642,6 +4699,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.馆中遗影,
+                LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.意外邂逅,
                 LaohenNameEnum.旖旎夜色
             ], //枚举LaohenNameEnum.(x)
@@ -5937,13 +5995,13 @@ const allLaohenSkill = [
         "isJL": false,
         "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
         "id": MXLaohenEnum.反应增幅,
-        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者
-        ], //职业名称
+        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者], //职业名称
         "useSkill": [
             150,
             200,
             200
         ],
+        "linkChar": "言雀",
         "sourseLaohen": {
             "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [LaohenNameEnum.幻想彼境
@@ -6213,6 +6271,7 @@ const allLaohenSkill = [
         "id": MXLaohenEnum.创痕激发,
         "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者
         ], //职业名称
+        "linkChar": "伊琅相思",
         "useSkill": [
             200,
             200,
@@ -11780,6 +11839,7 @@ const allLaohenSkill = [
         "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
         "id": MXLaohenEnum.元素之境,
         "takeEffect": [JobTypeName.游徒, JobTypeName.筑术师], //职业名称
+        "linkChar": "司旸",
         "useSkill": [
             180,
             240,
@@ -11845,6 +11905,37 @@ const allLaohenSkill = [
             speSkillCon("60%（等级3时）"),
             speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
             "，持续45秒，重复触发刷新效果持续时间",
+        ]
+    },
+    {
+        "name": "雷霆同辉", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.雷霆同辉,
+        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.堕入星尘], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "同调者施放异核技能时，场上同调者刻印攻击提高",
+            speSkillCon("10%（等级1时）"),
+            "/",
+            speSkillCon("20%（等级2时）"),
+            "/",
+            speSkillCon("30%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "，若场上同调者为雷元素，则再提高",
+            speSkillCon("15%"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "刻印攻击。该效果持续45秒，重复触发刷新持续时间"
         ]
     },
 ]
@@ -14583,6 +14674,28 @@ const allLaohen = [
             MXLaohenEnum.炎雷同灼
         ], //唤醒技能
     },
+    {
+        "name": "堕入星尘",
+        "rarity": LaohenRarity.ssr, //稀有度
+        "type": LaohenAttrType.终端,
+        "id": LaohenNameEnum.堕入星尘,
+        "extraData": {
+            "illust": LaohenIllust.AurogonShanghai, //画师,
+            "resourse": LaohenResourse.定向潜航
+        },
+        "mxSkill": [
+            MXLaohenEnum.能力催化,
+            MXLaohenEnum.职业联动菱形,
+            MXLaohenEnum.元素专攻菱形β型,
+            MXLaohenEnum.异核过载,
+            MXLaohenEnum.核心充能菱形α型,
+            MXLaohenEnum.蓄势待发,
+            MXLaohenEnum.伤害赐福菱形α型
+        ], //慢巡技能
+        "hxSkill": [
+            MXLaohenEnum.雷霆同辉
+        ], //唤醒技能
+    },
 ]
 
-export { allLaohenSkill, allLaohen }
+export { allLaohenSkill, allLaohen, getSpeLink }

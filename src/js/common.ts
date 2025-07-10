@@ -111,6 +111,23 @@ export default class CommonUtil {
     }
 
     /**
+     * 获取角色技能同调被替换的技能图标
+     * @param aliasNum 技能别称
+     * @param charName 角色名称
+     * @param xType 图片尺寸类型
+     * @returns 
+     */
+    static getSpeRepSkillImg(aliasNum: string, charName: string, xType: number) {
+        if (xType === 1) {
+            return 'img/skill/1x/50px-' + charName + '_r_' + aliasNum + '.png'
+        } else if (xType === 1.5) {
+            return 'img/skill/1.5x/75px-' + charName + '_r_' + aliasNum + '.png'
+        } else {
+            return 'img/skill/2x/100px-' + charName + '_r_' + aliasNum + '.png'
+        }
+    }
+
+    /**
      * 获取通用特性技能图标
      * @param xType 图片尺寸类型
      * @param aliasNum 技能别称

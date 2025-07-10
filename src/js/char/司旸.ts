@@ -1,12 +1,12 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.庇佑, MXLaohenEnum.怒霆共鸣], "attr": "lei", "star": "6",
     "nameEn": "SOLSTICE", "tag": ["输出", "元素区域", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "", "openDate": "2025年06月19日", "resourse": ["定向共鸣·第三种诘问"]
+    "cv": "", "openDate": "2025年06月19日", "resourse": ["定向共鸣·第三种诘问"], "laohenLink":LaohenNameEnum.失罪夜
 }
 
 const Skill = [

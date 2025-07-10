@@ -1,23 +1,41 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.高压雷击], "attr": "lei", "star": "6",
     "nameEn": "SKYLAR", "tag": ["控场", "输出"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "筱筝", "openDate": "2024年02月29日", "resourse": ["定向共鸣·云端来信", "常态共鸣·森罗万象"]
+    "cv": "筱筝", "openDate": "2024年02月29日", 
+    "resourse": ["定向共鸣·云端来信", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.幻想彼境
 }
 
 const Skill = [
     {
         "name": "呜呜风暴",
         "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
+        "maxLevel": 15,//技能最大等级
         "detail": {
             "type": "主动技能",//技能类型，主动、被动、自定等
             "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
             "tab": ["伤害", "负面状态", "拦截", "对空"],//技能标签
+            "sizeLevel": [
+                ["200%"],
+                ["230%"],
+                ["260%"],
+                ["290%"],
+                ["320%"],
+                ["350%"],
+                ["380%"],
+                ["410%"],
+                ["440%"],
+                ["460%"],
+                ["480%"],
+                ["500%"],
+                ["520%"],
+                ["540%"],
+                ["560%"]
+            ],
             "content": [
                 "在目标位置生成持续",
                 speSkillCon("8"),
@@ -26,18 +44,36 @@ const Skill = [
                 "将",
                 speSkillCon("500"),
                 "范围内的所有敌方单位向中心牵引，并造成",
-                speSkillCon("500%最终攻击的雷元素伤害")
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的雷元素伤害")
             ]//满级技能内容描述
         }
     },
     {
         "name": "嘭嘭礼炮",
         "aliasNum": "2",
-        "maxLevel": 12,
+        "maxLevel": 15,
         "detail": {
             "type": "自动技能",
             "skillTab": [["施放冷却", "15秒"]],
             "tab": ["伤害", "对空"],
+            "sizeLevel": [
+                ["320%", "50%", "10%"],
+                ["368%", "57%", "12%"],
+                ["416%", "65%", "13%"],
+                ["464%", "73%", "14%"],
+                ["512%", "80%", "16%"],
+                ["560%", "88%", "18%"],
+                ["608%", "95%", "19%"],
+                ["656%", "102%", "21%"],
+                ["704%", "110%", "22%"],
+                ["736%", "115%", "23%"],
+                ["768%", "120%", "24%"],
+                ["800%", "125%", "25%"],
+                ["832%", "130%", "26%"],
+                ["864%", "135%", "27%"],
+                ["896%", "140%", "28%"]
+            ],
             "content": [
                 "朝目标周围投掷",
                 speSkillCon("4"),
@@ -46,17 +82,20 @@ const Skill = [
                 "，礼炮命中地面时会对",
                 speSkillCon("200"),
                 "范围内的所有敌方单位造成",
-                speSkillCon("800%最终攻击的雷元素伤害"),
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的雷元素伤害"),
                 "",
                 speSkillCon("[不规则星芒]", SkillColorEnum.normal, ToastSkillEnum.不规则星芒),
                 "每隔",
                 speSkillCon("5"),
                 "秒会随机攻击场上的一名敌方单位，对目标造成",
-                speSkillCon("125%最终攻击的雷元素伤害"),
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的雷元素伤害"),
                 "，同时溅射目标周围",
                 speSkillCon("250"),
                 "范围的敌人造成",
-                speSkillCon("25%最终攻击的雷元素伤害"),
+                speSkillCon("", 0, -1, 2),
+                speSkillCon("最终攻击的雷元素伤害"),
                 "",
                 "最多同时存在",
                 speSkillCon("3"),
@@ -75,6 +114,14 @@ const Skill = [
             "type": "异核技能",
             "skillTab": [["充能时间", "45秒"]],
             "tab": ["伤害", "负面状态", "拦截", "对空", "屏障破坏"],
+            "sizeLevel": [
+                ["2100%"],
+                ["2450%"],
+                ["2800%"],
+                ["3150%"],
+                ["3325%"],
+                ["3500%"]
+            ],
             "content": [
                 "施放时拦截范围内的投射物，并摧毁范围内的所有敌方屏障，",
                 speSkillCon("[眩晕]", SkillColorEnum.normal, ToastSkillEnum.眩晕),
@@ -83,7 +130,8 @@ const Skill = [
                 "范围内的所有敌方非首领单位，持续",
                 speSkillCon("6"),
                 "秒，对范围内所有敌方单位共造成",
-                speSkillCon("3500%最终攻击的雷元素伤害"),
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的雷元素伤害"),
                 "",
                 "技能结束时，将会激活场上存在的所有",
                 speSkillCon("[不规则星芒]", SkillColorEnum.normal, ToastSkillEnum.不规则星芒),
@@ -147,11 +195,91 @@ const Skill = [
                     "，重复触发将会刷新效果的持续时间"
                 ],//一花特性
                 [
+                    "场上每有一个",
+                    speSkillCon("[不规则星芒]", SkillColorEnum.normal, ToastSkillEnum.不规则星芒),
+                    "，提高自身",
+                    speSkillCon("12%"),
+                    speSkillCon("(属性乘区·专精加成)", SkillColorEnum.injuries),
+                    "专精"
+                ],//二花特性
+                [
                     speSkillCon("[不规则星芒]", SkillColorEnum.normal, ToastSkillEnum.不规则星芒),
                     "对主目标造成的伤害额外附加言雀",
                     speSkillCon("120%"),
                     "自身专精值的伤害"
                 ]//三花特性
+            ]
+        }
+    },
+    {
+        "name": "特性强化",
+        "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
+        "detail": {
+            "content": [
+                "[不规则星芒] 可同时存在的数量上限+1。当[不规则星芒]激活时，[不规则星芒]的伤害提高40%",
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "。"
+            ]
+        }
+    },
+    {
+        "name": "技能同调",
+        "aliasNum": "技能同调",
+        "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+        "unlock": LaohenNameEnum.堕入星尘,//该技能解锁条件，拥有对应的烙痕ID
+        "detail": {
+            "name": "星霜螺旋",
+            "aliasNum": "1",
+            "maxLevel": 15,
+            "type": "主动技能",
+            "skillTab": [["施放冷却", "15秒"], ["次数", "4"]],
+            "tab": ["伤害", "对空", "穿透屏障"],
+            "sizeLevel": [
+                ["800%", "12%", "1600%"],
+                ["920%", "14%", "1840%"],
+                ["1040%", "16%", "2080%"],
+                ["1160%", "17%", "2320%"],
+                ["1280%", "19%", "2560%"],
+                ["1400%", "21%", "2800%"],
+                ["1520%", "23%", "3040%"],
+                ["1640%", "25%", "3280%"],
+                ["1760%", "26%", "3520%"],
+                ["1840%", "28%", "3680%"],
+                ["1920%", "29%", "3840%"],
+                ["2000%", "30%", "4000%"],
+                ["2080%", "31%", "4160%"],
+                ["2160%", "32%", "4320%"],
+                ["2240%", "34%", "4480%"]
+            ],
+            "content": [
+                "在目标区域的两端生成两个龙卷风，两个龙卷风会往中心移动并对路径上的首领单位敌人造成",
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的雷元素伤害"),
+                "、对非首领单位造成其当前生命值",
+                speSkillCon("", 0, -1, 1),
+                "的",
+                speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害),
+                "。",
+                "",
+                "当龙卷风达到中间时会发生爆炸，对周围",
+                speSkillCon("350"),
+                "范围内的敌人额外造成",
+                speSkillCon("", 0, -1, 2),
+                speSkillCon("最终攻击的雷元素伤害"),
+                "，并生成一处",
+                speSkillCon("[不规则星芒]", SkillColorEnum.normal, ToastSkillEnum.不规则星芒)
+            ],
+            "specialContent":[
+                [
+                    "【星霜螺旋】技能冷却时间降至10.0秒，且每次施放异核技能【集合，小鸟骑士团！】后回复1次主动技能【星霜螺旋】次数"
+                ],//特质Ⅱ级解锁
+                [
+                    speSkillCon("[不规则星芒]", SkillColorEnum.normal, ToastSkillEnum.不规则星芒),
+                    "激活时，提高自身暴击率15%",
+                    speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+                    "、暴击伤害30%",
+                    speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries)
+                ],//特质Ⅴ级解锁
             ]
         }
     }

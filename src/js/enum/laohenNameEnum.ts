@@ -329,6 +329,7 @@ enum MXLaohenEnum {
     怒霆共鸣,
     元素之境,
     炎雷同灼,
+    雷霆同辉,
 }
 
 /**
@@ -463,6 +464,7 @@ enum LaohenNameEnum {
     余兴节目,
     失罪夜,
     燎夜余尘,
+    堕入星尘,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

@@ -1,12 +1,12 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形α型, MXLaohenEnum.隐匿回响], "attr": "yan", "star": "6",
     "nameEn": "Thea", "tag": ["群攻", "生存"], "originWorld": "夜摩", "orginChar": "古剑奇谭网络版",
-    "cv": "龟娘", "openDate": "2024年05月09日", "resourse": ["定向共鸣·走向彼岸"]
+    "cv": "龟娘", "openDate": "2024年05月09日", "resourse": ["定向共鸣·走向彼岸"], "laohenLink":LaohenNameEnum.光阴间隙
 }
 
 const Skill = [

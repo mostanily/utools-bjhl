@@ -1,4 +1,4 @@
-import { allLaohenSkill, allLaohen } from './consts/laohenConsts.ts'
+import { allLaohenSkill, allLaohen, getSpeLink } from './consts/laohenConsts.ts'
 import {
     rarityName,
     rarityEnName,
@@ -144,5 +144,14 @@ export default class Laohen {
      */
     static getLaohenSkillImg(laohenSkillEnum: number) {
         return 'img/laohen/skill/' + laohenSkillEnum + '.png';
+    }
+
+    /**
+     * 返回烙痕特质突破等级关联的角色特性文案
+     * @param charName 角色名字
+     * @param hxSkillName 烙痕唤醒技能名字
+     */
+    static getLaohenSpeLink(charName: string, hxSkillName: string) {
+        return getSpeLink(charName, hxSkillName);
     }
 }

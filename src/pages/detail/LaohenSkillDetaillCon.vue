@@ -37,6 +37,25 @@
                             :key="index" class="laohen-skill-take-effect">{{ getJobName(effectEnum) }}</span>
                     </td>
                 </tr>
+                <tr v-if="checkHasKey(getLaohenSkillDetaill(moveCurrLaohenSkillEnum), 'linkChar')">
+                    <th>核心关联</th>
+                    <td>
+                        <div class="laohen-skill-resourse">
+                            <img :alt="'UI 头像缩略图 职业 ' + allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].job + '.png'" 
+                                :src="getJobTypeImg(allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].job, 1)"
+                                decoding="async" loading="lazy" width="20" height="20"
+                                :srcset="getJobTypeImg(allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].job, 1.5) + ' 1.5x,' + getJobTypeImg(allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].job, 2) + ' 2x'"
+                                data-file-width="64" data-file-height="64">
+                            <img :alt="'Ui 元素 ' + charAttr[allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].attr] + '.png'"
+                                :src="getCharAttrImg(charAttr[allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].attr], 1, true)" decoding="async" loading="lazy"
+                                width="20" height="20"
+                                :srcset="getCharAttrImg(charAttr[allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].attr], 1.5, true) + ' 1.5x,' + getCharAttrImg(charAttr[allChar[getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar].attr], 2) + ' 2x'"
+                                data-file-width="76" data-file-height="76">
+                            <router-link style="color:#646cff;" :to="{ name: 'detail', params: { name: getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar } }" :title="'同调者/' + getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar">{{ getLaohenSkillDetaill(moveCurrLaohenSkillEnum).linkChar }}
+                            </router-link>
+                        </div>
+                    </td>
+                </tr>
                 <tr>
                     <th>技能描述</th>
                     <td>
@@ -75,7 +94,9 @@ export default defineComponent({
     },
     data() {
         return {
-            laohenSkillTypeName: window.$laohen.laohenSkillTypeName
+            laohenSkillTypeName: window.$laohen.laohenSkillTypeName,
+            allChar: window.$commonUtil.allChar,
+            charAttr: window.$commonUtil.charAttr,
         }
     },
     methods: {
@@ -85,6 +106,15 @@ export default defineComponent({
          */
         getLaohenSkillDetaill(laohenSkillEnum) {
             return window.$laohen.getLaohenSkillDetaill(laohenSkillEnum);
+        },
+        checkHasKey(Obj, key) {
+            return Object.keys(Obj).includes(key)
+        },
+        getJobTypeImg(jobName, xType) {
+            return window.$commonUtil.getJobTypeImg(jobName, xType)
+        },
+        getCharAttrImg(attrName, xType, isOriginal) {
+            return window.$commonUtil.getCharAttrImg(attrName, xType, isOriginal)
         },
         /**
          * 获取烙痕详情
