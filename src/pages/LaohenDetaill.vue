@@ -46,6 +46,24 @@
                         <td colspan="1">获取途径：{{
                             getLaohenResourseName(getLaohenDetail($route.params.name).extraData.resourse) }}
                         </td>
+                        <td></td>
+                        <td v-if="checkHasKey(getLaohenDetail($route.params.name).extraData, 'skillLink')">
+                            <div class="laohen-skill-resourse">
+                                技能同调：
+                                <img :alt="'UI 头像缩略图 职业 ' + allChar[getLaohenDetail($route.params.name).extraData.skillLink].job + '.png'" 
+                                    :src="getJobTypeImg(allChar[getLaohenDetail($route.params.name).extraData.skillLink].job, 1)"
+                                    decoding="async" loading="lazy" width="20" height="20"
+                                    :srcset="getJobTypeImg(allChar[getLaohenDetail($route.params.name).extraData.skillLink].job, 1.5) + ' 1.5x,' + getJobTypeImg(allChar[getLaohenDetail($route.params.name).extraData.skillLink].job, 2) + ' 2x'"
+                                    data-file-width="64" data-file-height="64">
+                                <img :alt="'Ui 元素 ' + charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr] + '.png'"
+                                    :src="getCharAttrImg(charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr], 1, true)" decoding="async" loading="lazy"
+                                    width="20" height="20"
+                                    :srcset="getCharAttrImg(charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr], 1.5, true) + ' 1.5x,' + getCharAttrImg(charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr], 2) + ' 2x'"
+                                    data-file-width="76" data-file-height="76">
+                                <router-link style="color:#646cff;" :to="{ name: 'detail', params: { name: getLaohenDetail($route.params.name).extraData.skillLink } }" :title="'同调者/' + getLaohenDetail($route.params.name).extraData.skillLink">{{ getLaohenDetail($route.params.name).extraData.skillLink }}
+                                </router-link>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -129,12 +147,23 @@ export default defineComponent({
         return {
             rarityEnName: window.$laohen.rarityEnName,
             attrName: window.$laohen.attrName,
-            mouseCurrLaohenSkillEnum: -1
+            mouseCurrLaohenSkillEnum: -1,
+            allChar: window.$commonUtil.allChar,
+            charAttr: window.$commonUtil.charAttr,
         }
     },
     methods: {
         initDefLaohenSkillEnum(defEnum) {
             this.mouseCurrLaohenSkillEnum = defEnum
+        },
+        checkHasKey(Obj, key) {
+            return Object.keys(Obj).includes(key)
+        },
+        getJobTypeImg(jobName, xType) {
+            return window.$commonUtil.getJobTypeImg(jobName, xType)
+        },
+        getCharAttrImg(attrName, xType, isOriginal) {
+            return window.$commonUtil.getCharAttrImg(attrName, xType, isOriginal)
         },
         /**
          * 获取筛选条件对应的属性图片

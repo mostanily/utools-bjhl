@@ -12300,7 +12300,8 @@ const allLaohen = [
         "id": LaohenNameEnum.双重引力,
         "extraData": {
             "illust": LaohenIllust.阿尼鸭Anya, //画师,
-            "resourse": LaohenResourse.寻迹潜航
+            "resourse": LaohenResourse.寻迹潜航,
+            "skillLink": "司危"
         },
         "mxSkill": [
             MXLaohenEnum.正义守护,
@@ -14681,7 +14682,8 @@ const allLaohen = [
         "id": LaohenNameEnum.堕入星尘,
         "extraData": {
             "illust": LaohenIllust.AurogonShanghai, //画师,
-            "resourse": LaohenResourse.定向潜航
+            "resourse": LaohenResourse.定向潜航,
+            "skillLink": "言雀"
         },
         "mxSkill": [
             MXLaohenEnum.能力催化,
