@@ -22,7 +22,7 @@
             <div class="board">
                 <div v-for="(row, i) in board" :key="i" class="row">
                     <div v-for="(cell, j) in row" :key="j" class="cell" @click="handleClick(i, j)">
-                        <div :class="{ 'piece': true, 'black': cell === 1, 'white': cell === 2 }"></div>
+                        <div :class="{ 'piece': true, 'black': cell === 1, 'white': cell === 2, 'last-move': lastMove?.row === i && lastMove?.col === j }"></div>
                     </div>
                 </div>
             </div>
@@ -54,6 +54,9 @@ const gameOver = ref(false);
 const winner = ref(null)
 const winnerName = ref("玩家")
 
+// 添加最后落子位置跟踪
+const lastMove = ref(null);
+
 // 评估函数参数
 const patterns = {
     FIVE: 100000,
@@ -75,10 +78,10 @@ const status = computed(() => {
 // 优先级控制系统（防止音效重叠）
 let currentPriority = 0;
 // 音频对象初始化
-const moveSound = new Audio('/sounds/click.wav');//玩家落子声音
-const aiSound = new Audio('/sounds/click_ai.wav');//ai落子声音
-const winSound = new Audio('/sounds/win.wav');//玩家胜利声音
-const aiWinSound = new Audio('/sounds/loser.wav');//ai胜利声音（玩家失败声音）
+const moveSound = new Audio('img/sounds/click.wav');//玩家落子声音
+const aiSound = new Audio('img/sounds/click_ai.wav');//ai落子声音
+const winSound = new Audio('img/sounds/win.wav');//玩家胜利声音
+const aiWinSound = new Audio('img/sounds/loser.wav');//ai胜利声音（玩家失败声音）
 
 // 预加载音效
 onMounted(() => {
@@ -253,6 +256,7 @@ const evaluatePattern = (count, block, space) => {
 // 落子并检查胜利
 const placeStone = (row, col, player) => {
     board[row][col] = player;
+    lastMove.value = { row, col }; // 记录最后落子位置
 };
 
 const checkWin = (row, col, player) => {
@@ -356,5 +360,16 @@ const handleLevelChange = () => {
 button {
     margin-top: 20px;
     padding: 10px 20px;
+}
+
+.piece.last-move {
+    box-shadow: 0 0 0 2px red;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 2px red; }
+    50% { box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.5); }
+    100% { box-shadow: 0 0 0 2px red; }
 }
 </style>

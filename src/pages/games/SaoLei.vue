@@ -6,6 +6,7 @@
         </h1>
     </div>
     <hr>
+    <div class="status">{{ status }}</div>
     <div class="board">
         <div class="config-item">
             点击“开始”按钮后开始游戏
@@ -20,6 +21,9 @@
         </div>
         <div class="config-item" style="font-size: 12px;">
            提示：当前难度存在雷数量：<span> {{ currentLevel.boomCount }}</span>枚
+        </div>
+        <div class="config-item" style="font-size: 12px;">
+           提示：当前已经标记雷（🚩）数量：<span> {{ currFlagCount }}</span>枚
         </div>
         <div class="config-item">
             用时： <strong>{{ costTime }}</strong>
@@ -57,6 +61,8 @@ export default defineComponent({
                 { name: '大师', rowsindex: 30, columnsindex: 30, boomCount: 95 },
                 { name: '王者', rowsindex: 36, columnsindex: 36, boomCount: 120 }
             ],
+            winSound: new Audio('img/sounds/win.wav'),//玩家胜利声音
+            aiWinSound: new Audio('img/sounds/loser.wav'),//ai胜利声音（玩家失败声音）
             cells: new Array,
             randoms: new Array,
             rightsZero: new Array,
@@ -70,13 +76,40 @@ export default defineComponent({
             rowsindex: 0,
             columnsindex: 0,
             boomCount: 0,
-            end: 0
+            end: 0,
+            currFlagCount: 0,//当前已经标记雷的数量，不验证被标记的方块是否存在雷，仅做标记使用
+            status: '游戏还未开始',
         }
     },
     mounted() {
-        this.initGame()
+        this.initAudio();
+        this.initGame();
     },
     methods: {
+        initAudio() {
+            [this.winSound, this.aiWinSound].forEach(sound => {
+                sound.preload = 'auto';
+                sound.volume = 0.5; // 默认音量
+            });
+        },
+        //玩家胜利的音乐
+        playVictorySound() {
+            try {
+                this.winSound.currentTime = 0;
+                this.winSound.play();
+            } catch (error) {
+                console.log('胜利音效播放被阻止');
+            }
+        },
+        //玩家失败的音乐
+        playAiVictorySound(){
+            try {
+                this.aiWinSound.currentTime = 0;
+                this.aiWinSound.play();
+            } catch (error) {
+                console.log('失败音效播放被阻止');
+            }
+        },
         handleLevelChange() {
             // console.log(this.currentLevel)
             this.resetGame();
@@ -85,9 +118,11 @@ export default defineComponent({
             this.gameStatus = "start";
             this.startTimer();
             this.initGame();
+            this.status = "游戏已经开始了";
         },
         resetGame() {
             this.gameStatus = "stop";
+            this.status = "游戏还未开始";
             this.stopTimer();
             this.resetTimer();
             this.initGame();
@@ -122,6 +157,7 @@ export default defineComponent({
             if (cell.style === 'flag') {
                 this.cells[i][j] = { style: 'unClicked', clicked: false, text: '', value: cell.value };
             } else {
+                this.currFlagCount += 1;
                 this.cells[i][j] = { style: 'flag', clicked: false, text: '🚩', value: cell.value };
                 this.ifWin();
             }
@@ -179,8 +215,10 @@ export default defineComponent({
         finishGame() {
             this.gameStatus = 'stop';
             setTimeout(() => {
+                this.status = "很遗憾，你失败了，挖到了地雷！";
                 this.stopTimer();
-                alert('Game Over');
+                this.playAiVictorySound();
+                //alert('Game Over');
                 this.showAllBoom();
                 // initGame();
             }, 50)
@@ -188,8 +226,10 @@ export default defineComponent({
         winGame() {
             this.gameStatus = 'stop';
             setTimeout(() => {
+                this.status = "恭喜，你成功了，成功探出所有雷！";
                 this.stopTimer();
-                alert('You Win');
+                this.playVictorySound();
+                //alert('You Win');
                 // initGame();
             }, 50)
         },
@@ -206,7 +246,7 @@ export default defineComponent({
             }
         },
         initGame() {
-            console.log('initGame')
+            //console.log('initGame')
             this.rowsindex = this.currentLevel.rowsindex;
             this.columnsindex = this.currentLevel.columnsindex;
             this.boomCount = this.currentLevel.boomCount;
@@ -214,6 +254,8 @@ export default defineComponent({
                 return this.rowsindex * this.columnsindex - 1;
             })
             this.end = endData.value
+            this.flagCount = 0
+            this.status = "游戏还未开始"
 
             this.cells = new Array;
             this.randoms = new Array;
@@ -298,6 +340,12 @@ export default defineComponent({
 
 body {
     padding: 20px;
+}
+
+.status {
+    text-align: center;
+    margin: 20px;
+    font-size: 24px;
 }
 
 .container {

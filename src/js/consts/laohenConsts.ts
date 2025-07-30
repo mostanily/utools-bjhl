@@ -712,6 +712,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.幻想彼境,
                 LaohenNameEnum.无罪之徒,
                 LaohenNameEnum.堕入星尘,
+                LaohenNameEnum.荣与罪,
                 LaohenNameEnum.雨中愿
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -933,6 +934,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.烟尘往事,
                 LaohenNameEnum.雪轻日暖,
                 LaohenNameEnum.最强召唤师,
+                LaohenNameEnum.荣与罪,
                 LaohenNameEnum.雨中愿,
                 LaohenNameEnum.旧巷
             ], //枚举LaohenNameEnum.(x)
@@ -1319,6 +1321,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.血露薇绝密,
                 LaohenNameEnum.藏锋,
                 LaohenNameEnum.燎夜余尘,
+                LaohenNameEnum.荣与罪,
                 LaohenNameEnum.旖旎夜色,
                 LaohenNameEnum.千本之门,
             ], //枚举LaohenNameEnum.(x)
@@ -1566,6 +1569,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.形与神,
                 LaohenNameEnum.于火光中蛋生,
                 LaohenNameEnum.一枕酣甜,
+                LaohenNameEnum.荣与罪,
                 LaohenNameEnum.不期而遇,
                 LaohenNameEnum.落日残迹
             ], //枚举LaohenNameEnum.(x)
@@ -1877,6 +1881,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.同行,
                 LaohenNameEnum.棺中鸟,
+                LaohenNameEnum.荣与罪,
                 LaohenNameEnum.未晞,
                 LaohenNameEnum.打成一片,
                 LaohenNameEnum.大隐于市
@@ -3406,7 +3411,7 @@ const allLaohenSkill = [
         "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者
         ], //职业名称
         "useSkill": [
-            10,
+            120,
             90,
             90
         ],
@@ -4525,7 +4530,8 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.潮湿前路,
-                LaohenNameEnum.火热手感
+                LaohenNameEnum.火热手感,
+                LaohenNameEnum.荣与罪,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -5029,7 +5035,7 @@ const allLaohenSkill = [
         "takeEffect": [JobTypeName.游徒, JobTypeName.筑术师
         ], //职业名称
         "useSkill": [
-            10,
+            120,
             90,
             90
         ],
@@ -11938,6 +11944,41 @@ const allLaohenSkill = [
             "刻印攻击。该效果持续45秒，重复触发刷新持续时间"
         ]
     },
+    {
+        "name": "炎雷激励", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": true,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.炎雷激励,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            200,
+            200,
+            200
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.荣与罪], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "炎元素或雷元素同调者施放主动技能后，场上所有同调者获得2层",
+            speSkillCon("[激励]"),
+            "，通过该效果获得的",
+            speSkillCon("[激励]"),
+            "不能超过",
+            speSkillCon("4（等级1时）"),
+            "/",
+            speSkillCon("7（等级2时）"),
+            "/",
+            speSkillCon("10（等级3时）"),
+            speSkillCon("(增伤乘区·激励)", SkillColorEnum.injuries),
+            "层"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.激励)
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -14696,6 +14737,27 @@ const allLaohen = [
         ], //慢巡技能
         "hxSkill": [
             MXLaohenEnum.雷霆同辉
+        ], //唤醒技能
+    },
+    {
+        "name": "荣与罪",
+        "rarity": LaohenRarity.sr, //稀有度
+        "type": LaohenAttrType.防御,
+        "id": LaohenNameEnum.荣与罪,
+        "extraData": {
+            "illust": LaohenIllust.BITE, //画师,
+            "resourse": LaohenResourse.叶脉联结计划
+        },
+        "mxSkill": [
+            MXLaohenEnum.职业联动菱形,
+            MXLaohenEnum.大力出奇迹,
+            MXLaohenEnum.核心充能菱形β型,
+            MXLaohenEnum.自动瞄准系统方块α型,
+            MXLaohenEnum.铁杵磨成针菱形,
+            MXLaohenEnum.星河奔腾方块
+        ], //慢巡技能
+        "hxSkill": [
+            MXLaohenEnum.炎雷激励
         ], //唤醒技能
     },
 ]

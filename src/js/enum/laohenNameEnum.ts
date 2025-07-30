@@ -330,6 +330,7 @@ enum MXLaohenEnum {
     元素之境,
     炎雷同灼,
     雷霆同辉,
+    炎雷激励,
 }
 
 /**
@@ -465,6 +466,7 @@ enum LaohenNameEnum {
     失罪夜,
     燎夜余尘,
     堕入星尘,
+    荣与罪,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

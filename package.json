@@ -16,6 +16,7 @@
     "@qc2168/vite-plugin-utools": "^1.5.1",
     "axios": "^1.7.7",
     "html2canvas": "^1.4.1",
+    "pinia": "^3.0.3",
     "vue": "^3.5.5",
     "vue-router": "4",
     "vue-scrollto": "^2.20.0",
