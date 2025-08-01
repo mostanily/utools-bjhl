@@ -1,12 +1,12 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.蚀核强攻], "attr": "shi", "star": "6",
     "nameEn": "SOLBYRD VON LUMINBERG", "tag": ["输出", "爆发"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
-    "cv": "谢添天", "openDate": "2024年09月19日", "resourse": ["定向共鸣·飞鸟也栖"]
+    "cv": "谢添天", "openDate": "2024年09月19日", "resourse": ["定向共鸣·飞鸟也栖"], "laohenLink":LaohenNameEnum.棺中鸟
 }
 
 const Skill = [
@@ -18,9 +18,27 @@ const Skill = [
             "type": "主动技能",//技能类型，主动、被动、自定等
             "skillTab": [["指令冷却", "25秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
             "tab": ["伤害", "格挡条破坏3"],//技能标签
+            "sizeLevel": [
+                ["1600%"],
+                ["1840%"],
+                ["2080%"],
+                ["2320%"],
+                ["2560%"],
+                ["2800%"],
+                ["3040%"],
+                ["3280%"],
+                ["3520%"],
+                ["3680%"],
+                ["3840%"],
+                ["4000%"],
+                ["4160%"],
+                ["4320%"],
+                ["4480%"]
+            ],
             "content": [
                 "向十字区域快速冲锋并生成针刺，对选中区域的敌人造成",
-                speSkillCon("4000%最终攻击的蚀元素伤害"),
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的蚀元素伤害"),
                 "，并以",
                 speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
                 "将区域内的敌人拉向中心点，并为终端附加",
@@ -41,13 +59,31 @@ const Skill = [
             "type": "主动技能",
             "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
             "tab": ["伤害", "自身增益", "负面状态", "格挡条破坏3"],
+            "sizeLevel": [
+                ["600%","800%"],
+                ["690%","920%"],
+                ["780%","1040%"],
+                ["870%","1160%"],
+                ["960%","1280%"],
+                ["1050%","1400%"],
+                ["1140%","1520%"],
+                ["1230%","1640%"],
+                ["1320%","1760%"],
+                ["1380%","1840%"],
+                ["1440%","1920%"],
+                ["1500%","2000%"],
+                ["1560%","2080%"],
+                ["1620%","2160%"],
+                ["1680%","2240%"]
+            ],
             "content": [
                 "被动：每隔",
                 speSkillCon("15"),
                 "秒，明月尘进入「刃血」状态，对自身周围",
                 speSkillCon("400"),
                 "范围的敌人造成",
-                speSkillCon("1500%最终攻击的蚀元素伤害"),
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的蚀元素伤害"),
                 "，该状态下攻击速度提高",
                 speSkillCon("40%"),
                 speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
@@ -66,7 +102,8 @@ const Skill = [
                 "主动：在自身周围划定",
                 speSkillCon("600"),
                 "范围的研判区域，对范围内的敌人造成",
-                speSkillCon("2000%最终攻击的蚀元素伤害"),
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的蚀元素伤害"),
                 "，并为终端附加",
                 speSkillCon("15点蚀爆值"),
                 "，并附带破坏",
@@ -104,11 +141,19 @@ const Skill = [
             "type": "异核技能",
             "skillTab": [["释放条件", "100血之祭坛"]],
             "tab": ["伤害", "格挡条破坏3"],
+            "sizeLevel": [
+                ["24%","3000%"],
+                ["28%","3500%"],
+                ["32%","4000%"],
+                ["36%","4500%"],
+                ["38%","4750%"],
+                ["40%","5000%"]
+            ],
             "content": [
                 "对自身周围",
                 speSkillCon("750"),
                 "范围内的敌人造成其当前生命值",
-                speSkillCon("40%"),
+                speSkillCon("", 0, -1, 0),
                 "的",
                 speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害),
                 "，首领单位受到的该伤害减少",
@@ -118,7 +163,8 @@ const Skill = [
                 "并额外对自身周围",
                 speSkillCon("750"),
                 "范围内的敌人造成",
-                speSkillCon("5000%最终攻击的蚀元素伤害"),
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的蚀元素伤害"),
                 "，为终端附加",
                 speSkillCon("25点蚀爆值"),
                 "。"

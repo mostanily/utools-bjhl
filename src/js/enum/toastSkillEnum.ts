@@ -69,6 +69,8 @@ enum ToastSkillEnum {
     雷之界域,
     爆燃反应,
     电解反应,
+    翦羽,
+    目标减益乘区目标基础减伤降低,
 }
 
 /**
@@ -105,6 +107,7 @@ enum LaohenToastSkillEnum {
     同调,
     屏障破碎,
     雷之界域,
+    属性乘区暴击伤害,
 }
 
 export { ToastSkillEnum, LaohenToastSkillEnum }

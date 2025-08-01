@@ -11,6 +11,7 @@ import { 唐路遥 } from "./唐路遥";
 import { 豹富 } from "./豹富";
 import { 尤尼 } from "./尤尼";
 import { 昊苍 } from "./昊苍";
+import { 织雪 } from "./织雪.ts";
 import { 百里屠苏 } from "./百里屠苏";
 import { 米达斯 } from "./米达斯";
 import { 十手卫 } from "./十手卫";
@@ -84,6 +85,7 @@ export default class AllCharHelper {
     static 豹富 = 豹富;
     static 尤尼 = 尤尼;
     static 昊苍 = 昊苍;
+    static 织雪 = 织雪;
     static 百里屠苏 = 百里屠苏;
     static 米达斯 = 米达斯;
     static 十手卫 = 十手卫;

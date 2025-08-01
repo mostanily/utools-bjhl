@@ -884,6 +884,10 @@ const roleConfig = {
         "rarity": "6",
         "name": "昊苍"
     },
+    "609": {
+        "rarity": "6",
+        "name": "织雪"
+    },
     "610": {
         "rarity": "6",
         "name": "乐无异"
@@ -1433,6 +1437,10 @@ const laohenConfig = {
     },
     "2049": {
         "name": "形与神",
+        "rarity": "3"
+    },
+    "2053": {
+        "name": "局外人",
         "rarity": "3"
     },
     "2054": {

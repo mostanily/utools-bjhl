@@ -331,6 +331,9 @@ enum MXLaohenEnum {
     炎雷同灼,
     雷霆同辉,
     炎雷激励,
+    共振弱化,
+    炽痕共鸣,
+    余烬增辉,
 }
 
 /**
@@ -467,6 +470,8 @@ enum LaohenNameEnum {
     燎夜余尘,
     堕入星尘,
     荣与罪,
+    局外人,
+    事无出世间,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
