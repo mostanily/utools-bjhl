@@ -242,19 +242,8 @@ export default {
             let todayTimestamp = Math.floor(new Date(todayDateZero).getTime() / 1000);
 
             let diffTime = todayTimestamp - startTimestamp
-            let yearTime = 24 * 3600 * 360//一年按360天来处理
-            return Math.floor(diffTime / yearTime)
-        }
-        /**
-         * 判断当前处于哪一个时间节点，因为本地数据库一次性存储数据最大为1M，所以根据时间节点对数据库进行拆分，每年新增一个数据库id
-         */
-        const currDateWhere = (nickName) => {
-            let yearCount = currYearCount()
-            //根据年次数返回特定的数据库id
-            if (yearCount > 0) {
-                return { laohen: `laohen${nickName}${yearCount}`, role: `role${nickName}${yearCount}` }
-            }
-            return { laohen: `laohen${nickName}`, role: `role${nickName}` }
+            let yearTime = 24 * 3600 * 365//一年按365天来处理
+            return Math.floor(diffTime / yearTime)//向下取整
         }
 
         /**
@@ -266,38 +255,39 @@ export default {
                 currNickName = ""
             }
             let lastUpdateTime = window.utools.dbStorage.getItem(`lastUpdateTime-${currNickName}`)
+            let needQueryYear = 2024
             if (lastUpdateTime != null) {
-                lastUpdateTime = lastUpdateTime - 30 * 24 * 3600
+                let date = new Date(Number(lastUpdateTime) * 1000)
+                needQueryYear = date.getFullYear()
             }
+            //新版本强制更新数据
+            let mustUpVer = window.utools.dbStorage.getItem(`mustUpVer-${currNickName}`)
+            if ( mustUpVer !== "1" ) {
+                needQueryYear = 2024
+            }
+            
             const initBJ = window.utools.ubrowser.goto('https://seed.qq.com/act/a20240905record/index.html')
                 .devTools("right")
                 .viewport(1280, 900)
-                .evaluate((lastUpTime) => {
+                .evaluate((needQueryYear) => {
                     // let queryPoolConfigUrl = "https://seed.qq.com/act/a20240905record/pc/json/pool.json";
                     // let queryRoleConfigUrl = "https://seed.qq.com/act/a20240905record/pc/json/concordant.json";
                     // let queryCardConfigUrl = "https://seed.qq.com/act/a20240905record/pc/json/soldering_mark.json";
 
                     let queryDataUrl = "https://comm.ams.game.qq.com/ide/";
                     let currentCookies = document.cookie;
-                    console.log(`上次更新时间：${lastUpTime}`)
 
-                    return queryAllCardData(lastUpTime)
+                    return queryAllCardData()
 
                     //return "烙痕数据"
 
                     // 查询所有烙痕数据
-                    async function queryAllCardData(lastUpTime) {
-                        let defStartDate = '2024-01-01 00:00:00';
+                    async function queryAllCardData() {
+                        let defStartDate = needQueryYear.toString() + '-01-01 00:00:00';
                         let currentDate = new Date();
                         let currentTimestamp = Math.floor(Date.now() / 1000)
                         console.log(`当前时间：${currentDate} - ${currentTimestamp}`);
-
-                        if (lastUpTime !== null) {
-                            let date = new Date(Number(lastUpTime) * 1000)
-                            let lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 00:00:00`
-                            defStartDate = lastDate
-
-                        }
+                        
                         console.log(`开始查询日期：${defStartDate}`)
 
                         let startDate = new Date(defStartDate);
@@ -365,28 +355,21 @@ export default {
                         console.log("-------------------烙痕池有效数据总条数 end ---------------------")
                         return cardRecodes
                     }
-                }, lastUpdateTime)
-                .evaluate((lastUpTime) => {
+                }, needQueryYear)
+                .evaluate((needQueryYear) => {
                     let queryDataUrl = "https://comm.ams.game.qq.com/ide/";
                     let currentCookies = document.cookie;
 
-                    return queryAllRoleData(lastUpTime)
+                    return queryAllRoleData()
 
                     //return "角色数据"
 
                     //查询所有角色信息
-                    async function queryAllRoleData(lastUpTime) {
-                        let defStartDate = '2024-01-01 00:00:00';
+                    async function queryAllRoleData() {
+                        let defStartDate = needQueryYear.toString() + '-01-01 00:00:00';
                         let currentDate = new Date();
                         let currentTimestamp = Math.floor(Date.now() / 1000)
                         console.log(`当前时间：${currentDate} - ${currentTimestamp}`);
-                        let todayZero = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}T00:00:00`
-
-                        if (lastUpTime !== null) {
-                            let date = new Date(Number(lastUpTime) * 1000)
-                            let lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 00:00:00`
-                            defStartDate = lastDate
-                        }
 
                         let startDate = new Date(defStartDate);
                         let startTimestamp = Math.floor(startDate.getTime() / 1000);
@@ -454,14 +437,14 @@ export default {
                         console.log("-------------------角色池有效数据总条数 end ---------------------")
                         return roleRecodes
                     }
-                }, lastUpdateTime)
+                }, needQueryYear)
                 .evaluate(() => {
                     return document.getElementById("nickName").textContent
                 })
                 .run({ width: 1280, height: 900 });
 
             initBJ.then((data) => {
-                console.log(data)
+                //console.log(data)
                 if (data.length === 4) {
                     if (data[2]) {
                         let saveDBNickName = {}
@@ -485,72 +468,27 @@ export default {
                             window.utools.db.put(saveDBNickName)
                         }
                     }
-
-                    let dbIdNameData = currDateWhere(data[2])
-                    console.log(`ID名称(烙痕-角色)：${dbIdNameData.laohen}-${dbIdNameData.role}`)
+                    //当前游戏周年数
+                    const yearCount = currYearCount()
+                    const idByNickNames = initDBIdsByNickNames(data[2], yearCount)
                     let hasUpOrAdd = false
+                    let laohenUpOrAdd = false
+                    let roleUpOrAdd = false
                     //根据evaluate请求顺序，第一个为烙痕数据，第二个为角色数据
-                    if (Object.keys(data[0]).length > 0) {
-                        hasUpOrAdd = true
-                        let idName = dbIdNameData.laohen
-                        let saveLaohenData = {}
-                        saveLaohenData._id = idName
-                        //数据库中数据格式： { _id: 'laohen', data: {"20241010":[{},{}]} }
-                        //在存在多个id数据源时
-                        //本地数据库存储的最后一条数据的日期一定比上一次请求记录的时间小
-                        //官方提供的抽卡数据一定是完整的，不存在同一天的数据却会被分割在两个请求里面
-                        //故新请求到的数据一定跟本地的数据是不存在重复数据的
-                        let dbLaohenData = window.utools.db.get(idName)
-                        let laohenNewData = {}
-                        //为null的情况，则表明是首次请求，直接把请求的数据直接赋值给变量即可
-                        if (dbLaohenData) {
-                            saveLaohenData._rev = dbLaohenData._rev
-                            //如果存在已经保存的数据，则将新请求到的数据保存到本地数据库中
-                            //先把数据库中的数据重新赋值给变量，再把新请求数据遍历分别添加新请求到的数据
-                            laohenNewData = dbLaohenData.data
-                            for (let newDate in data[0]) {
-                                if (laohenNewData.hasOwnProperty(newDate)) {
-                                    continue
-                                }
-                                laohenNewData.newDate = data[0][newDate]
-                            }
-                        } else {
-                            laohenNewData = data[0]
-                        }
-                        saveLaohenData.data = laohenNewData
-                        console.log(`新增或更新烙痕数据：`)
-                        console.log(saveLaohenData)
-                        window.utools.db.put(saveLaohenData)
+                    if( Object.keys(data[0]).length > 0 ){
+                        laohenUpOrAdd = saveBJDataToDB(idByNickNames.laohen, data[0])
                     }
-                    if (Object.keys(data[1]).length > 0) {
-                        hasUpOrAdd = true
-                        let idName = dbIdNameData.role
-                        let saveRoleData = {}
-                        saveRoleData._id = idName
-                        let dbRoleData = window.utools.db.get(idName)
-                        let roleNewData = {}
-                        if (dbRoleData) {
-                            saveRoleData._rev = dbRoleData._rev
-                            roleNewData = dbRoleData.data
-                            for (let newDate in data[1]) {
-                                if (roleNewData.hasOwnProperty(newDate)) {
-                                    continue
-                                }
-                                roleNewData.newDate = data[1][newDate]
-                            }
-                        } else {
-                            roleNewData = data[1]
-                        }
-                        saveRoleData.data = roleNewData
-                        console.log(`新增或更新角色数据：`)
-                        console.log(saveRoleData)
-                        window.utools.db.put(saveRoleData)
+                    if( Object.keys(data[1]).length > 0 ){
+                        roleUpOrAdd = saveBJDataToDB(idByNickNames.role, data[1])
                     }
+                    hasUpOrAdd = laohenUpOrAdd || roleUpOrAdd
+
                     //同时记录查询时间，方便下次再更新时，使用此时间作为开始时间
                     if (hasUpOrAdd) {
                         let currentDate = new Date();
                         let currentTimestamp = Math.floor(Date.now() / 1000)
                         window.utools.dbStorage.setItem(`lastUpdateTime-${data[2]}`, currentTimestamp)
+                        window.utools.dbStorage.setItem(`mustUpVer-${data[2]}`, "1")
                         alert("数据更新成功！")
                     }
                 }
@@ -558,6 +496,94 @@ export default {
             }).catch(error => {
                 console.error(error)
             })
+        }
+
+        /**
+         * 将游戏抽卡数据保存到utools本地数据库中（按照周年数自动拆分原始数据，因为utools每一份数据最大支持1M）
+         * @param idByNickName 当前带保存的数据需要的数据库ID集合
+         * @param BJData 官网抽卡数据（烙痕、角色），格式：{"20241010":[{time:x,poolId:x,tid:x},{}],...}
+         */
+        const saveBJDataToDB = (idByNickName, BJData) => {
+            //将数据根据周年数拆分，将同年的数据分在一起
+            const allDataByYear = {
+                "2024": { "yearCount": 0,"data":new Object},
+                "2025": { "yearCount": 1,"data":new Object},
+                "2026": { "yearCount": 2,"data":new Object},
+                "2027": { "yearCount": 3,"data":new Object},
+                "2028": { "yearCount": 4,"data":new Object},
+                "2029": { "yearCount": 5,"data":new Object},
+                "2030": { "yearCount": 6,"data":new Object},
+                "2031": { "yearCount": 7,"data":new Object},
+                "2032": { "yearCount": 8,"data":new Object},
+                "2033": { "yearCount": 9,"data":new Object},
+                "2034": { "yearCount": 10,"data":new Object},
+                "2035": { "yearCount": 11,"data":new Object},
+                "2036": { "yearCount": 12,"data":new Object},
+                "2037": { "yearCount": 13,"data":new Object},
+                "2038": { "yearCount": 14,"data":new Object},
+                "2039": { "yearCount": 15,"data":new Object},
+                "2040": { "yearCount": 16,"data":new Object},
+                "2041": { "yearCount": 17,"data":new Object},
+                "2042": { "yearCount": 18,"data":new Object},
+                "2043": { "yearCount": 19,"data":new Object},
+                "2044": { "yearCount": 20,"data":new Object},
+            }
+
+            //将官网的抽卡数据按照年整合数据
+            for (let date in BJData) {
+                const currYear = date.substring(0, 4);//2025
+                allDataByYear[currYear]["data"][date] = BJData[date]
+            }
+
+            let hasUpOrAdd = false//本次请求是否有更新内容
+            //整合数据，将最新的数据分别保存到对应的本地数据库中
+            for (let year in allDataByYear) {
+                let currYearDateLen = Object.keys(allDataByYear[year]["data"]).length
+                let currYearCount = allDataByYear[year].yearCount
+                if (currYearDateLen > 0) {
+                    let saveLaohenData = {}
+                    saveLaohenData._id = idByNickName[currYearCount]
+                    const dbLaohenData = window.utools.db.get(idByNickName[currYearCount])
+                    let needSave = true
+                    if (dbLaohenData) {
+                        //如果当前年已经存在旧数据了，则判断数据条数与官网抽卡对应年数据条数是否相等
+                        //如果不等，则需要进行重新赋值，否则不需要再次保存
+                        if (Object.keys(dbLaohenData.data).length !== currYearDateLen) {
+                            saveLaohenData._rev = dbLaohenData._rev
+                            saveLaohenData.data = allDataByYear[year]["data"]
+                        } else {
+                            needSave = false
+                        }
+                    } else {
+                        //不存在旧数据，则表示是首次查询，直接将对应年份的数据保存
+                        saveLaohenData.data = allDataByYear[year]["data"]
+                    }
+                    if (needSave) {
+                        hasUpOrAdd = true
+                        window.utools.db.put(saveLaohenData)
+                    }
+                }
+            }
+            return hasUpOrAdd
+        }
+
+        /**
+         * 初始化保存到本地数据需要用的数据库ID集合
+         * @param nickName 当前查询的用户昵称
+         * @param yearCount 当前周年数（当前修改于1.5周年，因此此值一定是大于0的）
+         */
+        const initDBIdsByNickNames = (nickName, yearCount) => {
+            const idByNickNames = { "laohen": new Array, "role": new Array }
+            for (let i = 0; i <= yearCount; i++) {
+                if (i === 0) {
+                    idByNickNames.laohen.push(`laohen${nickName}`)
+                    idByNickNames.role.push(`role${nickName}`)
+                } else {
+                    idByNickNames.laohen.push(`laohen${nickName}${i}`)
+                    idByNickNames.role.push(`role${nickName}${i}`)
+                }
+            }
+            return idByNickNames
         }
 
         /**

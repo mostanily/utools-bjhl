@@ -1,6 +1,6 @@
 import { charAttr, allChar, allCharSkill, allCharTea } from './consts/charConsts.ts';
 import { colorConfig, rapportFormula } from './consts/simpleConsts.ts';
-import { poolConfig, roleConfig, laohenConfig} from './consts/chouConfig.ts';
+import ConfigHelper from './config/ConfigHelper.ts';
 
 /**
  * 角色通用类
@@ -11,9 +11,9 @@ export default class CommonUtil {
     static allChar = allChar
     static allCharSkill = allCharSkill
     static allCharTea = allCharTea
-    static poolConfig = poolConfig
-    static roleConfig = roleConfig
-    static laohenConfig = laohenConfig
+    static poolConfig = ConfigHelper.poolConfig
+    static roleConfig = ConfigHelper.roleConfig
+    static laohenConfig = ConfigHelper.laohenConfig
     static rapportFormula = rapportFormula
 
     /**
