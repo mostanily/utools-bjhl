@@ -6632,6 +6632,7 @@ const allLaohenSkill = [
             240,
             240
         ],
+        "linkChar": "红玉",
         "sourseLaohen": {
             "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [LaohenNameEnum.失途之日
@@ -6913,6 +6914,7 @@ const allLaohenSkill = [
             240,
             300
         ],
+        "linkChar": "言御",
         "sourseLaohen": {
             "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [LaohenNameEnum.潮湿前路

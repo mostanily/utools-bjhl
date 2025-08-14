@@ -1,12 +1,13 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.刺骨寒意], "attr": "shuang", "star": "6",
     "nameEn": "BOREAS", "tag": ["支援", "治疗", "控场"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "梁达伟", "openDate": "2024年03月14日", "resourse": ["定向共鸣·夜幕下的本相", "常态共鸣·森罗万象"]
+    "cv": "梁达伟", "openDate": "2024年03月14日",
+    "resourse": ["定向共鸣·夜幕下的本相", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.潮湿前路
 }
 
 const Skill = [

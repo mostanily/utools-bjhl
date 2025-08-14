@@ -16,6 +16,29 @@ const rapportFormula = [
 const rarityName = ["白", "金", "红"];//对应r,sr,ssr
 const rarityEnName = ["R", "SR", "SSR"];
 
+//可改造技能名称
+const canChangeSkill = [
+    "职业联动·改",
+    "元素专攻·β型·改",
+    "元素专攻·α型·改",
+    "星河奔腾·改"
+];
+
+const beforeChangeSkill = [
+    [
+        "职业联动·方块", "职业联动·三角", "职业联动·菱形"
+    ],
+    [
+        "元素专攻·方块·β型", "元素专攻·三角·β型", "元素专攻·菱形·β型"
+    ],
+    [
+        "元素专攻·方块·α型", "元素专攻·三角·α型", "元素专攻·菱形·α型"
+    ],
+    [
+        "星河奔腾·方块", "星河奔腾·三角", "星河奔腾·菱形"
+    ]
+]
+
 //职业名称映射
 const jobNames = [
     "所有同调者",
@@ -91,6 +114,8 @@ export {
     rapportFormula,
     rarityName,
     rarityEnName,
+    canChangeSkill,
+    beforeChangeSkill,
     jobNames,
     IllustNames,
     LaohenResourseName,

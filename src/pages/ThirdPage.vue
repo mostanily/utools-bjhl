@@ -61,7 +61,7 @@
                                 }}个</span></div>
                     </div>
                 </div>
-                <hr>
+                <hr class="common-summary">
                 <div class="common-summary">
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;font-weight: bold;">烙痕</div>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <hr>
+            <hr class="common-summary">
             <ul class="resp-tabs-list clearfix" style="margin:10px 0 0">
                 <li :class="{ 'bili-list-style': true, 'active': 1 === currentActiveIndex }" @click="setActiveClass(1)">
                     <span class="tab-panel">
@@ -120,11 +120,17 @@
             </ul>
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 1 === currentActiveIndex, 'display-none': 1 !== currentActiveIndex }">
-                <h3>UP池角色总抽数：{{ currRoleData.up.total }}</h3>
-                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="' (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量'">⁽﹖⁾</span>：{{
-                    currRoleData.up.noWaiRadio }}</h3>
-                <h3>当期已垫抽数（限定）：{{ currRoleData.up.lastDian }}</h3>
-                <hr>
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>UP池角色总抽数：{{ currRoleData.up.total }}</h3>
+                        <h3>UP池综合不歪率<span class="show-tips"
+                                v-tooltip="' (6星数量+(?1)-2*(6星数量-限定6星数量))/限定6星数量'">⁽﹖⁾</span>：{{
+                                    currRoleData.up.noWaiRadio }}</h3>
+                        <h3>当期已垫抽数（限定）：{{ currRoleData.up.lastDian }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;"></div>
+                </div>
+                <hr class="common-summary">
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池6星数量（+歪）：{{ currRoleData.up.data.length }}</h3>
@@ -141,7 +147,7 @@
                             currRoleData.up.realUpRadio }}</h3>
                     </div>
                 </div>
-                <hr>
+                <hr class="common-summary">
                 <div v-for="(ssr, index) in currRoleData.up.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
@@ -149,19 +155,44 @@
             </div>
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 2 === currentActiveIndex, 'display-none': 2 !== currentActiveIndex }">
-                <h3>常驻池角色总抽数：{{ currRoleData.changzhu.total }}</h3>
-                <h3>常驻池6星数量：{{ currRoleData.changzhu.data.length }}</h3>
-                <h3>常驻池6星平均耗抽<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{
-                    currRoleData.changzhu.oneEach }}</h3>
-                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'UP池烙痕总抽数/限定池SSR数量'">⁽﹖⁾</span>：{{
-                    currRoleData.changzhu.radio }}</h3>
-                <h3>当期已垫抽数（常驻）：{{ currRoleData.changzhu.lastDian }}</h3>
-                <hr>
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>常驻池角色总抽数：{{ currRoleData.changzhu.total }}</h3>
+                        <h3>当期已垫抽数（常驻）：{{ currRoleData.changzhu.lastDian }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <h3>“识海甄录”池角色总抽数：{{ currRoleData.shihai.total }}</h3>
+                        <h3>当期“识海甄录”已垫抽数：{{ currRoleData.shihai.lastDian }}</h3>
+                    </div>
+                </div>
+                <hr class="common-summary">
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>常驻池6星数量：{{ currRoleData.changzhu.data.length }}</h3>
+                        <h3>常驻池6星平均耗抽<span class="show-tips" v-tooltip="'常驻池6星总抽数/常驻池6星数量'">⁽﹖⁾</span>：{{
+                            currRoleData.changzhu.oneEach }}</h3>
+                        <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池6星数量/常驻池6星总抽数'">⁽﹖⁾</span>：{{
+                            currRoleData.changzhu.radio }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <h3>“识海甄录”池6星数量：{{ currRoleData.shihai.data.length }}</h3>
+                        <h3>“识海甄录”池6星平均耗抽<span class="show-tips" v-tooltip="'“识海甄录”池6星总抽数/“识海甄录”池6星数量'">⁽﹖⁾</span>：{{
+                            currRoleData.shihai.oneEach }}</h3>
+                        <h3>“识海甄录”池综合概率<span class="show-tips" v-tooltip="'“识海甄录”池6星数量/“识海甄录”池6星总抽数'">⁽﹖⁾</span>：{{
+                            currRoleData.shihai.radio }}</h3>
+                    </div>
+                </div>
+                <hr class="common-summary">
                 <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
                 </div>
-                <hr>
+                <hr class="common-summary">
+                <div v-for="(ssr, index) in currRoleData.shihai.data" :key="index"
+                    style="width: 100%;float: left;margin: 5px 0px;">
+                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                </div>
+                <hr class="common-summary">
                 <div v-for="(ssr, index) in currRoleData.changzhu.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
@@ -169,11 +200,17 @@
             </div>
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 3 === currentActiveIndex, 'display-none': 3 !== currentActiveIndex }">
-                <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
-                <h3>UP池综合不歪率<span class="show-tips" v-tooltip="'(SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量'">⁽﹖⁾</span>：{{
-                    currLaohenData.up.noWaiRadio }}</h3>
-                <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
-                <hr>
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>UP池烙痕总抽数：{{ currLaohenData.up.total }}</h3>
+                        <h3>UP池综合不歪率<span class="show-tips"
+                                v-tooltip="'(SSR数量+(?1)-2*(SSR数量-限定SSR数量))/限定SSR数量'">⁽﹖⁾</span>：{{
+                                    currLaohenData.up.noWaiRadio }}</h3>
+                        <h3>当期已垫抽数（限定）：{{ currLaohenData.up.lastDian }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;"></div>
+                </div>
+                <hr class="common-summary">
                 <div style="width: 100%;">
                     <div style="float:left;width:49%;">
                         <h3>UP池SSR数量（+歪）：{{ currLaohenData.up.data.length }}</h3>
@@ -190,7 +227,7 @@
                             currLaohenData.up.realUpRadio }}</h3>
                     </div>
                 </div>
-                <hr>
+                <hr class="common-summary">
                 <div v-for="(ssr, index) in currLaohenData.up.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
@@ -198,19 +235,30 @@
             </div>
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 4 === currentActiveIndex, 'display-none': 4 !== currentActiveIndex }">
-                <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
-                <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
-                <h3>常驻池SSR平均耗抽<span class="show-tips" v-tooltip="'常驻池烙痕总抽数/常驻池SSR数量'">⁽﹖⁾</span>：{{
-                    currLaohenData.changzhu.oneEach }}</h3>
-                <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池SSR数量/常驻池烙痕总抽数'">⁽﹖⁾</span>：{{
-                    currLaohenData.changzhu.radio }}</h3>
-                <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
-                <hr>
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>常驻池烙痕总抽数：{{ currLaohenData.changzhu.total }}</h3>
+                        <h3>当期已垫抽数（常驻）：{{ currLaohenData.changzhu.lastDian }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;"></div>
+                </div>
+                <hr class="common-summary">
+                <div style="width: 100%;">
+                    <div style="float:left;width:49%;">
+                        <h3>常驻池SSR数量：{{ currLaohenData.changzhu.data.length }}</h3>
+                        <h3>常驻池SSR平均耗抽<span class="show-tips" v-tooltip="'常驻池烙痕总抽数/常驻池SSR数量'">⁽﹖⁾</span>：{{
+                            currLaohenData.changzhu.oneEach }}</h3>
+                        <h3>常驻池综合概率<span class="show-tips" v-tooltip="'常驻池SSR数量/常驻池烙痕总抽数'">⁽﹖⁾</span>：{{
+                            currLaohenData.changzhu.radio }}</h3>
+                    </div>
+                    <div style="float:left;width:50%;"></div>
+                </div>
+                <hr class="common-summary">
                 <div v-for="(ssr, index) in currLaohenData.sureSixRolePool" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
                 </div>
-                <hr>
+                <hr class="common-summary">
                 <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
                     <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
@@ -262,10 +310,10 @@ export default {
             }
             //新版本强制更新数据
             let mustUpVer = window.utools.dbStorage.getItem(`mustUpVer-${currNickName}`)
-            if ( mustUpVer !== "1" ) {
+            if (mustUpVer !== "1") {
                 needQueryYear = 2024
             }
-            
+
             const initBJ = window.utools.ubrowser.goto('https://seed.qq.com/act/a20240905record/index.html')
                 .devTools("right")
                 .viewport(1280, 900)
@@ -287,7 +335,7 @@ export default {
                         let currentDate = new Date();
                         let currentTimestamp = Math.floor(Date.now() / 1000)
                         console.log(`当前时间：${currentDate} - ${currentTimestamp}`);
-                        
+
                         console.log(`开始查询日期：${defStartDate}`)
 
                         let startDate = new Date(defStartDate);
@@ -475,10 +523,10 @@ export default {
                     let laohenUpOrAdd = false
                     let roleUpOrAdd = false
                     //根据evaluate请求顺序，第一个为烙痕数据，第二个为角色数据
-                    if( Object.keys(data[0]).length > 0 ){
+                    if (Object.keys(data[0]).length > 0) {
                         laohenUpOrAdd = saveBJDataToDB(idByNickNames.laohen, data[0])
                     }
-                    if( Object.keys(data[1]).length > 0 ){
+                    if (Object.keys(data[1]).length > 0) {
                         roleUpOrAdd = saveBJDataToDB(idByNickNames.role, data[1])
                     }
                     hasUpOrAdd = laohenUpOrAdd || roleUpOrAdd
@@ -506,27 +554,27 @@ export default {
         const saveBJDataToDB = (idByNickName, BJData) => {
             //将数据根据周年数拆分，将同年的数据分在一起
             const allDataByYear = {
-                "2024": { "yearCount": 0,"data":new Object},
-                "2025": { "yearCount": 1,"data":new Object},
-                "2026": { "yearCount": 2,"data":new Object},
-                "2027": { "yearCount": 3,"data":new Object},
-                "2028": { "yearCount": 4,"data":new Object},
-                "2029": { "yearCount": 5,"data":new Object},
-                "2030": { "yearCount": 6,"data":new Object},
-                "2031": { "yearCount": 7,"data":new Object},
-                "2032": { "yearCount": 8,"data":new Object},
-                "2033": { "yearCount": 9,"data":new Object},
-                "2034": { "yearCount": 10,"data":new Object},
-                "2035": { "yearCount": 11,"data":new Object},
-                "2036": { "yearCount": 12,"data":new Object},
-                "2037": { "yearCount": 13,"data":new Object},
-                "2038": { "yearCount": 14,"data":new Object},
-                "2039": { "yearCount": 15,"data":new Object},
-                "2040": { "yearCount": 16,"data":new Object},
-                "2041": { "yearCount": 17,"data":new Object},
-                "2042": { "yearCount": 18,"data":new Object},
-                "2043": { "yearCount": 19,"data":new Object},
-                "2044": { "yearCount": 20,"data":new Object},
+                "2024": { "yearCount": 0, "data": new Object },
+                "2025": { "yearCount": 1, "data": new Object },
+                "2026": { "yearCount": 2, "data": new Object },
+                "2027": { "yearCount": 3, "data": new Object },
+                "2028": { "yearCount": 4, "data": new Object },
+                "2029": { "yearCount": 5, "data": new Object },
+                "2030": { "yearCount": 6, "data": new Object },
+                "2031": { "yearCount": 7, "data": new Object },
+                "2032": { "yearCount": 8, "data": new Object },
+                "2033": { "yearCount": 9, "data": new Object },
+                "2034": { "yearCount": 10, "data": new Object },
+                "2035": { "yearCount": 11, "data": new Object },
+                "2036": { "yearCount": 12, "data": new Object },
+                "2037": { "yearCount": 13, "data": new Object },
+                "2038": { "yearCount": 14, "data": new Object },
+                "2039": { "yearCount": 15, "data": new Object },
+                "2040": { "yearCount": 16, "data": new Object },
+                "2041": { "yearCount": 17, "data": new Object },
+                "2042": { "yearCount": 18, "data": new Object },
+                "2043": { "yearCount": 19, "data": new Object },
+                "2044": { "yearCount": 20, "data": new Object },
             }
 
             //将官网的抽卡数据按照年整合数据
@@ -675,6 +723,13 @@ export default {
                     radio: '--',
                     lastDian: 0
                 },
+                shihai: {
+                    data: new Array,
+                    oneEach: '0',
+                    radio: '--',
+                    total: 0,
+                    lastDian: 0
+                },
                 hasSureSixPool: false,
                 sureSixRolePool: new Array
             },
@@ -749,6 +804,13 @@ export default {
                     total: 0,
                     oneEach: '0',
                     radio: '--',
+                    lastDian: 0
+                },
+                shihai: {
+                    data: new Array,
+                    oneEach: '0',
+                    radio: '--',
+                    total: 0,
                     lastDian: 0
                 },
                 hasSureSixPool: false,
@@ -926,6 +988,12 @@ export default {
                 this.currRoleData.changzhu.oneEach = (this.currRoleData.changzhu.total / this.currRoleData.changzhu.data.length).toFixed(3)
                 this.currRoleData.changzhu.lastDian = rData.changzhuDianCount
                 this.allRolePoolData = rData.allData//角色卡池所有抽卡情况
+                //识海甄录卡池
+                this.currRoleData.shihai.data = computed(() => { return [...rData.shihaiData].reverse() }).value
+                this.currRoleData.shihai.total = rData.shihaiTotalCount
+                this.currRoleData.shihai.radio = ((this.currRoleData.shihai.data.length * 100) / this.currRoleData.shihai.total).toFixed(3) + '%'
+                this.currRoleData.shihai.oneEach = (this.currRoleData.shihai.total / this.currRoleData.shihai.data.length).toFixed(3)
+                this.currRoleData.shihai.lastDian = rData.shihaiDianCount
             }
         },
         /**
@@ -940,10 +1008,11 @@ export default {
             //console.log(pool)
             //console.log(laohenOrRoleData)
             const needCheckRarity = isRole ? '6' : '3'
-            let allData = new Array//所有6星或者ssr
+            let allData = new Array//所有6星或者ssr（不含识海甄录卡池的角色数据）
             let changzhuData = new Array//常驻卡池
             let upWithNoWaiData = new Array//不算歪的UP池
             let upData = new Array//限定UP卡池
+            let shihaiData = new Array//识海甄录卡池
             let allPoolData = {}//所有抽卡汇总（UP+常驻+友情）
             let sureSixRolePool = new Array//十连必出6星礼包卡池抽到的6星角色
             //烙痕或角色通用数据结构：{poolId:{type:'',name:''},...}
@@ -954,6 +1023,8 @@ export default {
             let ssrCount = 0//ssr数量
             let changzhuDianCount = 0//常驻池垫
             let upDianCount = 0//UP池垫
+            let shihaiDianCount = 0//识海甄录池垫(poolId=5001)
+            let shihaiTotalCount = 0//识海甄录总抽数
             let hasSureSixPool = false//是否包含商城68R角色十连必出6星礼包卡池（poolId=101）
             for (let date in laohenOrRoleData) {
                 const laohenList = laohenOrRoleData[date]
@@ -993,7 +1064,11 @@ export default {
                     if (isUp) {
                         upTotalCount++
                     } else {
-                        changzhuTotalCount++
+                        if (poolId === '5001') {
+                            shihaiTotalCount++
+                        } else {
+                            changzhuTotalCount++
+                        }
                     }
                     //判断是否是角色常驻UP池
                     if (Object.keys(pool[poolId]).includes("limit")) {
@@ -1010,7 +1085,8 @@ export default {
                     //totalCount++
                     //获取ssr或者6星
                     if (ssrLaohenWithPool.rarity === needCheckRarity) {
-                        ssrLaohenWithPool.dian = isUp ? upDianCount : changzhuDianCount
+                        ssrLaohenWithPool.dian = isUp ? upDianCount :
+                            (poolId === '5001' ? shihaiDianCount : changzhuDianCount)
                         ssrCount++
                         if (isUp) {
                             upData.push(ssrLaohenWithPool)
@@ -1020,15 +1096,27 @@ export default {
                             }
                             upDianCount = 0
                         } else {
-                            changzhuData.push(ssrLaohenWithPool)
-                            changzhuDianCount = 0
+                            if (poolId === '5001') {
+                                shihaiDianCount = 0
+                                shihaiData.push(ssrLaohenWithPool)
+                            } else {
+                                changzhuDianCount = 0
+                                changzhuData.push(ssrLaohenWithPool)
+                            }
                         }
-                        allData.push(ssrLaohenWithPool)
+                        if (poolId !== '5001') {
+                            allData.push(ssrLaohenWithPool)
+                        }
                     } else {
                         if (isUp) {
                             upDianCount++
                         } else {
                             changzhuDianCount++
+                        }
+                        //识海甄录为单独卡池，也需要单独剔除，卡池id为5001
+                        if (poolId === '5001') {
+                            changzhuDianCount--
+                            shihaiDianCount++
                         }
                         //去除友情的抽数，卡池id为100
                         if (poolId === '100') {
@@ -1037,6 +1125,10 @@ export default {
                             totalCount--
                             changzhuTotalCount--
                         }
+                    }
+                    //总抽数去除识海甄录卡池数据
+                    if (poolId === '5001') {
+                        totalCount--
                     }
                 }
             }
@@ -1050,9 +1142,12 @@ export default {
                 sureSixRolePool: sureSixRolePool,
                 totalCount: hasSureSixPool ? totalCount - 10 * sureSixRolePool.length : totalCount,
                 upTotalCount: upTotalCount,
-                changzhuTotalCount: changzhuTotalCount,
                 upDianCount: upDianCount,
-                changzhuDianCount: changzhuDianCount
+                changzhuTotalCount: changzhuTotalCount,
+                changzhuDianCount: changzhuDianCount,
+                shihaiData: shihaiData,
+                shihaiTotalCount: shihaiTotalCount,
+                shihaiDianCount: shihaiDianCount
             }
         },
         /**

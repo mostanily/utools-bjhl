@@ -1,12 +1,13 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.利刃三角β型, MXLaohenEnum.狂风卷袭], "attr": "feng", "star": "6",
     "nameEn": "SCARLETT", "tag": ["输出", "击退", "拦截"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
-    "cv": "蔡娜", "openDate": "2024年02月01日", "resourse": ["定向共鸣·玉照长夜·陈酒新酌", "常态共鸣·森罗万象"]
+    "cv": "蔡娜", "openDate": "2024年02月01日", 
+    "resourse": ["定向共鸣·玉照长夜·陈酒新酌", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.失途之日
 }
 
 const Skill = [
