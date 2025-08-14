@@ -10,81 +10,76 @@ import {
     LaohenSkillTypeName
 } from './consts/simpleConsts.ts'
 
-class InitLaohenSkill {
-    laohenskill
+class DefaultSourceLH {
+    烙痕漫巡技能;
+    烙痕唤醒技能;
+    队长刻印技能;
     constructor() {
-        this.laohenskill = allLaohenSkill
-        const tempCanChangeSkill = {
-            "职业联动改": { "ids": new Array, "烙痕漫巡技能": new Array, "烙痕唤醒技能": new Array, "队长刻印技能": new Array },
-            "元素专攻β型改": { "ids": new Array, "烙痕漫巡技能": new Array, "烙痕唤醒技能": new Array, "队长刻印技能": new Array },
-            "元素专攻α型改": { "ids": new Array, "烙痕漫巡技能": new Array, "烙痕唤醒技能": new Array, "队长刻印技能": new Array },
-            "星河奔腾改": { "ids": new Array, "烙痕漫巡技能": new Array, "烙痕唤醒技能": new Array, "队长刻印技能": new Array }
+        this.烙痕漫巡技能 = new Array;
+        this.烙痕唤醒技能 = new Array;
+        this.队长刻印技能 = new Array;
+    }
+}
+
+class DefaultSkillObj extends DefaultSourceLH {
+    ids;
+    constructor() {
+        super();
+        this.ids = new Array;
+    }
+}
+
+class DefaultNeedChangeSkillData {
+    name;
+    sourseLaohen;
+    constructor() {
+        this.name = ''
+        this.sourseLaohen = new DefaultSourceLH();
+    }
+}
+
+class InitLaohenSkill {
+    laohenskill;
+    canChangeSkillSet;
+    constructor() {
+        this.laohenskill = allLaohenSkill;
+        this.canChangeSkillSet = {
+            "职业联动改": new DefaultSkillObj(),
+            "元素专攻β型改": new DefaultSkillObj(),
+            "元素专攻α型改": new DefaultSkillObj(),
+            "星河奔腾改": new DefaultSkillObj()
         };
         for (let key in allLaohenSkill) {
             const currSkill = allLaohenSkill[key]
-            if (beforeChangeSkill[0].includes(currSkill.name)) {
-                this.laohenskill[key].takeEffect = [0]
-                tempCanChangeSkill.职业联动改.ids.push(key)
-                tempCanChangeSkill.职业联动改.烙痕漫巡技能 = [...tempCanChangeSkill.职业联动改.烙痕漫巡技能,
-                ...currSkill.sourseLaohen.烙痕漫巡技能]
-                tempCanChangeSkill.职业联动改.烙痕唤醒技能 = [...tempCanChangeSkill.职业联动改.烙痕唤醒技能,
-                ...currSkill.sourseLaohen.烙痕唤醒技能]
-                tempCanChangeSkill.职业联动改.队长刻印技能 = [...tempCanChangeSkill.职业联动改.队长刻印技能,
-                ...currSkill.sourseLaohen.队长刻印技能]
-            } else if (beforeChangeSkill[1].includes(currSkill.name)) {
-                this.laohenskill[key].takeEffect = [0]
-                tempCanChangeSkill.元素专攻β型改.ids.push(key)
-                tempCanChangeSkill.元素专攻β型改.烙痕漫巡技能 = [...tempCanChangeSkill.元素专攻β型改.烙痕漫巡技能,
-                ...currSkill.sourseLaohen.烙痕漫巡技能]
-                tempCanChangeSkill.元素专攻β型改.烙痕唤醒技能 = [...tempCanChangeSkill.元素专攻β型改.烙痕唤醒技能,
-                ...currSkill.sourseLaohen.烙痕唤醒技能]
-                tempCanChangeSkill.元素专攻β型改.队长刻印技能 = [...tempCanChangeSkill.元素专攻β型改.队长刻印技能,
-                ...currSkill.sourseLaohen.队长刻印技能]
-            } else if (beforeChangeSkill[2].includes(currSkill.name)) {
-                this.laohenskill[key].takeEffect = [0]
-                tempCanChangeSkill.元素专攻α型改.ids.push(key)
-                tempCanChangeSkill.元素专攻α型改.烙痕漫巡技能 = [...tempCanChangeSkill.元素专攻α型改.烙痕漫巡技能,
-                ...currSkill.sourseLaohen.烙痕漫巡技能]
-                tempCanChangeSkill.元素专攻α型改.烙痕唤醒技能 = [...tempCanChangeSkill.元素专攻α型改.烙痕唤醒技能,
-                ...currSkill.sourseLaohen.烙痕唤醒技能]
-                tempCanChangeSkill.元素专攻α型改.队长刻印技能 = [...tempCanChangeSkill.元素专攻α型改.队长刻印技能,
-                ...currSkill.sourseLaohen.队长刻印技能]
-            } else if (beforeChangeSkill[3].includes(currSkill.name)) {
-                this.laohenskill[key].takeEffect = [0]
-                tempCanChangeSkill.星河奔腾改.ids.push(key)
-                tempCanChangeSkill.星河奔腾改.烙痕漫巡技能 = [...tempCanChangeSkill.星河奔腾改.烙痕漫巡技能,
-                ...currSkill.sourseLaohen.烙痕漫巡技能]
-                tempCanChangeSkill.星河奔腾改.烙痕唤醒技能 = [...tempCanChangeSkill.星河奔腾改.烙痕唤醒技能,
-                ...currSkill.sourseLaohen.烙痕唤醒技能]
-                tempCanChangeSkill.星河奔腾改.队长刻印技能 = [...tempCanChangeSkill.星河奔腾改.队长刻印技能,
-                ...currSkill.sourseLaohen.队长刻印技能]
-            }
+            let dataObj = new DefaultNeedChangeSkillData()
+            dataObj.name = currSkill.name
+            dataObj.sourseLaohen.烙痕漫巡技能 = currSkill.sourseLaohen.烙痕漫巡技能
+            dataObj.sourseLaohen.烙痕唤醒技能 = currSkill.sourseLaohen.烙痕唤醒技能
+            dataObj.sourseLaohen.队长刻印技能 = currSkill.sourseLaohen.队长刻印技能
+            let currIndex = Number(key)
+            this.initCanChangeSkill(currIndex, 0, this.canChangeSkillSet.职业联动改, dataObj)
+            this.initCanChangeSkill(currIndex, 1, this.canChangeSkillSet.元素专攻β型改, dataObj)
+            this.initCanChangeSkill(currIndex, 2, this.canChangeSkillSet.元素专攻α型改, dataObj)
+            this.initCanChangeSkill(currIndex, 3, this.canChangeSkillSet.星河奔腾改, dataObj)
         }
-        
-        for (let id in tempCanChangeSkill.职业联动改.ids) {
-            const needChangeSkill = tempCanChangeSkill.职业联动改
-            this.laohenskill[needChangeSkill.ids[id]].name = canChangeSkill[0]
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕漫巡技能 = needChangeSkill.烙痕漫巡技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕唤醒技能 = needChangeSkill.烙痕唤醒技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.队长刻印技能 = needChangeSkill.队长刻印技能
+
+        this.resetChangeSkill(this.canChangeSkillSet.职业联动改, 0)
+        this.resetChangeSkill(this.canChangeSkillSet.元素专攻β型改, 1)
+        this.resetChangeSkill(this.canChangeSkillSet.元素专攻α型改, 2)
+        this.resetChangeSkill(this.canChangeSkillSet.星河奔腾改, 3)
+    }
+    initCanChangeSkill(key: number, changeSkillIndex: number, needChangeSkill: DefaultSkillObj, dataObj: DefaultNeedChangeSkillData) {
+        if (beforeChangeSkill[changeSkillIndex].includes(dataObj.name)) {
+            this.laohenskill[key].takeEffect = [0]
+            needChangeSkill.ids.push(key)
+            needChangeSkill.烙痕漫巡技能 = [...needChangeSkill.烙痕漫巡技能, ...dataObj.sourseLaohen.烙痕漫巡技能]
+            needChangeSkill.烙痕唤醒技能 = [...needChangeSkill.烙痕唤醒技能, ...dataObj.sourseLaohen.烙痕唤醒技能]
+            needChangeSkill.队长刻印技能 = [...needChangeSkill.队长刻印技能, ...dataObj.sourseLaohen.队长刻印技能]
         }
-        for (let id in tempCanChangeSkill.元素专攻β型改.ids) {
-            const needChangeSkill = tempCanChangeSkill.元素专攻β型改
-            this.laohenskill[needChangeSkill.ids[id]].name = canChangeSkill[1]
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕漫巡技能 = needChangeSkill.烙痕漫巡技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕唤醒技能 = needChangeSkill.烙痕唤醒技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.队长刻印技能 = needChangeSkill.队长刻印技能
-        }
-        for (let id in tempCanChangeSkill.元素专攻α型改.ids) {
-            const needChangeSkill = tempCanChangeSkill.元素专攻α型改
-            this.laohenskill[needChangeSkill.ids[id]].name = canChangeSkill[2]
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕漫巡技能 = needChangeSkill.烙痕漫巡技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕唤醒技能 = needChangeSkill.烙痕唤醒技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.队长刻印技能 = needChangeSkill.队长刻印技能
-        }
-        for (let id in tempCanChangeSkill.星河奔腾改.ids) {
-            const needChangeSkill = tempCanChangeSkill.星河奔腾改
-            this.laohenskill[needChangeSkill.ids[id]].name = canChangeSkill[3]
+    }
+    resetChangeSkill(needChangeSkill: DefaultSkillObj, changeSkillIndex: number) {
+        for (let id in needChangeSkill.ids) {
+            this.laohenskill[needChangeSkill.ids[id]].name = canChangeSkill[changeSkillIndex]
             this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕漫巡技能 = needChangeSkill.烙痕漫巡技能
             this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕唤醒技能 = needChangeSkill.烙痕唤醒技能
             this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.队长刻印技能 = needChangeSkill.队长刻印技能
