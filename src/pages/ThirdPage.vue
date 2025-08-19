@@ -41,24 +41,24 @@
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;font-weight: bold;">角色</div>
                         <div class="summary-item"><span class="item-detail">{{ currRoleData.mix.radio
-                                }}</span><br><span>综合概率</span></div>
+                        }}</span><br><span>综合概率</span></div>
                         <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneEach
-                                }}抽</span><br><span>每6星角色</span></div>
+                        }}抽</span><br><span>每6星角色</span></div>
                         <div class="summary-item"><span class="item-detail">{{ currRoleData.up.noWaiRadio
-                                }}</span><br><span>角色不歪率</span></div>
+                        }}</span><br><span>角色不歪率</span></div>
                         <div class="summary-item"><span class="item-detail">{{ currRoleData.up.oneUpEach
-                                }}抽</span><br><span>每UP角色</span></div>
+                        }}抽</span><br><span>每UP角色</span></div>
                     </div>
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;"></div>
                         <div class="summary-item">总抽数：<span class="item-detail">{{ currRoleData.mix.total }}抽</span>
                         </div>
                         <div class="summary-item">6星：<span class="item-detail">{{ currRoleData.mix.data.length
-                                }}个</span></div>
+                        }}个</span></div>
                         <div class="summary-item">UP抽数：<span class="item-detail">{{ currRoleData.up.total }}抽</span>
                         </div>
                         <div class="summary-item">限定6星：<span class="item-detail">{{ currRoleData.up.noWaiData.length
-                                }}个</span></div>
+                        }}个</span></div>
                     </div>
                 </div>
                 <hr class="common-summary">
@@ -66,24 +66,24 @@
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;font-weight: bold;">烙痕</div>
                         <div class="summary-item"><span class="item-detail">{{ currLaohenData.mix.radio
-                                }}</span><br><span>综合概率</span></div>
+                        }}</span><br><span>综合概率</span></div>
                         <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneEach
-                                }}抽</span><br><span>每SSR烙痕</span></div>
+                        }}抽</span><br><span>每SSR烙痕</span></div>
                         <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.noWaiRadio
-                                }}</span><br><span>烙痕不歪率</span></div>
+                        }}</span><br><span>烙痕不歪率</span></div>
                         <div class="summary-item"><span class="item-detail">{{ currLaohenData.up.oneUpEach
-                                }}抽</span><br><span>每UP烙痕</span></div>
+                        }}抽</span><br><span>每UP烙痕</span></div>
                     </div>
                     <div style="width: 100%;position: relative;">
                         <div class="summary-item" style="line-height: 42px;"></div>
                         <div class="summary-item">总抽数：<span class="item-detail">{{ currLaohenData.mix.total }}抽</span>
                         </div>
                         <div class="summary-item">SSR：<span class="item-detail">{{ currLaohenData.mix.data.length
-                                }}个</span></div>
+                        }}个</span></div>
                         <div class="summary-item">UP抽数：<span class="item-detail">{{ currLaohenData.up.total }}抽</span>
                         </div>
                         <div class="summary-item">限定SSR：<span class="item-detail">{{ currLaohenData.up.noWaiData.length
-                                }}个</span></div>
+                        }}个</span></div>
                     </div>
                 </div>
             </div>
@@ -118,6 +118,25 @@
                     </span>
                 </li>
             </ul>
+            <hr class="common-summary">
+            <ul class="resp-tabs-list clearfix" style="margin:10px 0 0">
+                <li :class="{ 'bili-list-style': true, 'active': 1 === showTypeActiveIndex }"
+                    @click="setShowTypeActiveClass(1)">
+                    <span class="tab-panel">
+                        <div style="display:flex;align-items:center;">
+                            <div style="padding:0px 2px;font-size:13px;">常规展示</div>
+                        </div>
+                    </span>
+                </li>
+                <li :class="{ 'bili-list-style': true, 'active': 2 === showTypeActiveIndex }"
+                    @click="setShowTypeActiveClass(2)">
+                    <span class="tab-panel">
+                        <div style="display:flex;align-items:center;">
+                            <div style="padding:0px 2px;font-size:13px;">简略展示</div>
+                        </div>
+                    </span>
+                </li>
+            </ul>
             <div
                 :class="{ 'resp-tab-content': true, 'display-block': 1 === currentActiveIndex, 'display-none': 1 !== currentActiveIndex }">
                 <div style="width: 100%;">
@@ -148,9 +167,22 @@
                     </div>
                 </div>
                 <hr class="common-summary">
-                <div v-for="(ssr, index) in currRoleData.up.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                <div style="width: 100%;">
+                    <div
+                        :class="{ 'display-block': 1 !== showTypeActiveIndex, 'display-none': 1 === showTypeActiveIndex }">
+                        <div v-for="(eachPool, poolName) in currRoleData.up.dataWithPoolName" :key="poolName"
+                            class="par-div">
+                            <h3 class="title-card-name">{{ eachPool[0].poolName }}</h3>
+                            <OtherBar :laohenEnumToName="laohenEnumToName" :eachPool="eachPool" :isRole="1"></OtherBar>
+                        </div>
+                    </div>
+                    <div
+                        :class="{ 'display-block': 1 === showTypeActiveIndex, 'display-none': 1 !== showTypeActiveIndex }">
+                        <div v-for="(ssr, index) in currRoleData.up.data" :key="index"
+                            style="width: 100%;float: left;margin: 5px 0px;">
+                            <ProgressBar :laohenEnumToName="laohenEnumToName" :ssr="ssr" :isRole="1"></ProgressBar>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div
@@ -185,17 +217,43 @@
                 <hr class="common-summary">
                 <div v-for="(ssr, index) in currRoleData.sureSixRolePool" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                    <ProgressBar :laohenEnumToName="laohenEnumToName" :ssr="ssr" :isRole="1"></ProgressBar>
                 </div>
                 <hr class="common-summary">
-                <div v-for="(ssr, index) in currRoleData.shihai.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                <div style="width: 100%;">
+                    <div
+                        :class="{ 'display-block': 1 !== showTypeActiveIndex, 'display-none': 1 === showTypeActiveIndex }">
+                        <div v-for="(eachPool, poolName) in currRoleData.shihai.dataWithPoolName" :key="poolName"
+                            class="par-div">
+                            <h3 class="title-card-name">{{ eachPool[0].poolName }}</h3>
+                            <OtherBar :laohenEnumToName="laohenEnumToName" :eachPool="eachPool" :isRole="1"></OtherBar>
+                        </div>
+                    </div>
+                    <div
+                        :class="{ 'display-block': 1 === showTypeActiveIndex, 'display-none': 1 !== showTypeActiveIndex }">
+                        <div v-for="(ssr, index) in currRoleData.shihai.data" :key="index"
+                            style="width: 100%;float: left;margin: 5px 0px;">
+                            <ProgressBar :laohenEnumToName="laohenEnumToName" :ssr="ssr" :isRole="1"></ProgressBar>
+                        </div>
+                    </div>
                 </div>
                 <hr class="common-summary">
-                <div v-for="(ssr, index) in currRoleData.changzhu.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="1"></ProgressBar>
+                <div style="width: 100%;">
+                    <div
+                        :class="{ 'display-block': 1 !== showTypeActiveIndex, 'display-none': 1 === showTypeActiveIndex }">
+                        <div v-for="(eachPool, poolName) in currRoleData.changzhu.dataWithPoolName" :key="poolName"
+                            class="par-div">
+                            <h3 class="title-card-name">{{ eachPool[0].poolName }}</h3>
+                            <OtherBar :laohenEnumToName="laohenEnumToName" :eachPool="eachPool" :isRole="1"></OtherBar>
+                        </div>
+                    </div>
+                    <div
+                        :class="{ 'display-block': 1 === showTypeActiveIndex, 'display-none': 1 !== showTypeActiveIndex }">
+                        <div v-for="(ssr, index) in currRoleData.changzhu.data" :key="index"
+                            style="width: 100%;float: left;margin: 5px 0px;">
+                            <ProgressBar :laohenEnumToName="laohenEnumToName" :ssr="ssr" :isRole="1"></ProgressBar>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div
@@ -228,9 +286,22 @@
                     </div>
                 </div>
                 <hr class="common-summary">
-                <div v-for="(ssr, index) in currLaohenData.up.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
+                <div style="width: 100%;">
+                    <div
+                        :class="{ 'display-block': 1 !== showTypeActiveIndex, 'display-none': 1 === showTypeActiveIndex }">
+                        <div v-for="(eachPool, poolName) in currLaohenData.up.dataWithPoolName" :key="poolName"
+                            class="par-div">
+                            <h3 class="title-card-name">{{ eachPool[0].poolName }}</h3>
+                            <OtherBar :laohenEnumToName="laohenEnumToName" :eachPool="eachPool" :isRole="0"></OtherBar>
+                        </div>
+                    </div>
+                    <div
+                        :class="{ 'display-block': 1 === showTypeActiveIndex, 'display-none': 1 !== showTypeActiveIndex }">
+                        <div v-for="(ssr, index) in currLaohenData.up.data" :key="index"
+                            style="width: 100%;float: left;margin: 5px 0px;">
+                            <ProgressBar :laohenEnumToName="laohenEnumToName" :ssr="ssr" :isRole="0"></ProgressBar>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div
@@ -256,25 +327,40 @@
                 <hr class="common-summary">
                 <div v-for="(ssr, index) in currLaohenData.sureSixRolePool" :key="index"
                     style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
+                    <ProgressBar :laohenEnumToName="laohenEnumToName" :ssr="ssr" :isRole="0"></ProgressBar>
                 </div>
                 <hr class="common-summary">
-                <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
-                    style="width: 100%;float: left;margin: 5px 0px;">
-                    <ProgressBar :ssr="ssr" :isRole="0"></ProgressBar>
+                <div style="width: 100%;">
+                    <div
+                        :class="{ 'display-block': 1 !== showTypeActiveIndex, 'display-none': 1 === showTypeActiveIndex }">
+                        <div v-for="(eachPool, poolName) in currLaohenData.changzhu.dataWithPoolName" :key="poolName"
+                            class="par-div">
+                            <h3 class="title-card-name">{{ eachPool[0].poolName }}</h3>
+                            <OtherBar :laohenEnumToName="laohenEnumToName" :eachPool="eachPool" :isRole="0"></OtherBar>
+                        </div>
+                    </div>
+                    <div
+                        :class="{ 'display-block': 1 === showTypeActiveIndex, 'display-none': 1 !== showTypeActiveIndex }">
+                        <div v-for="(ssr, index) in currLaohenData.changzhu.data" :key="index"
+                            style="width: 100%;float: left;margin: 5px 0px;">
+                            <ProgressBar :laohenEnumToName="laohenEnumToName" :ssr="ssr" :isRole="0"></ProgressBar>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <button v-scroll-to="{ element: 'body', offset: -30 }" style="position: fixed;right: 10px;bottom: 10px;">Top ⇧</button>
     </div>
 </template>
 <script>
 import { computed } from 'vue';
 import html2canvas from 'html2canvas';
 import ProgressBar from './components/ProgressBar.vue';
+import OtherBar from './components/OtherBar.vue'
 
 export default {
     components: {
-        ProgressBar
+        ProgressBar, OtherBar
     },
     setup() {
         /**
@@ -663,9 +749,12 @@ export default {
     },
     data() {
         return {
+            allLaohen: window.$laohen.allLaohen,
             currentActiveIndex: 1,
+            showTypeActiveIndex: 1,
             hisNick: new Array,
             nickActiveIndex: -1,
+            laohenEnumToName: new Array,
             currLaohenData: {
                 mix: {
                     data: new Array,
@@ -677,6 +766,7 @@ export default {
                 up: {
                     data: new Array,
                     noWaiData: new Array,
+                    dataWithPoolName: new Object,
                     total: 0,
                     oneEach: '0',
                     oneUpEach: '0',//每获取一个UP角色的平均抽数
@@ -688,6 +778,7 @@ export default {
                 changzhu: {
                     hasSureSixPool: false,
                     data: new Array,
+                    dataWithPoolName: new Object,
                     total: 0,
                     oneEach: '0',
                     radio: '--',
@@ -706,6 +797,7 @@ export default {
                 },
                 up: {
                     data: new Array,
+                    dataWithPoolName: new Object,
                     noWaiData: new Array,
                     total: 0,
                     oneEach: '0',
@@ -718,6 +810,7 @@ export default {
                 changzhu: {
                     hasSureSixPool: false,
                     data: new Array,
+                    dataWithPoolName: new Object,
                     total: 0,
                     oneEach: '0',
                     radio: '--',
@@ -725,6 +818,7 @@ export default {
                 },
                 shihai: {
                     data: new Array,
+                    dataWithPoolName: new Object,
                     oneEach: '0',
                     radio: '--',
                     total: 0,
@@ -741,14 +835,19 @@ export default {
         setActiveClass(index) {
             this.currentActiveIndex = index
         },
+        setShowTypeActiveClass(index) {
+            this.showTypeActiveIndex = index
+        },
         setNickActiveIndex(index) {
             this.nickActiveIndex = index
             this.getBjData()
         },
         initData() {
             this.currentActiveIndex = 1
+            this.showTypeActiveIndex = 1
             this.hisNick = new Array
             this.nickActiveIndex = -1
+            this.laohenEnumToName = new Array
             this.currLaohenData = {
                 mix: {
                     data: new Array,
@@ -759,6 +858,7 @@ export default {
                 },//混池
                 up: {
                     data: new Array,
+                    dataWithPoolName: new Object,
                     noWaiData: new Array,
                     total: 0,
                     oneEach: '0',
@@ -771,6 +871,7 @@ export default {
                 changzhu: {
                     hasSureSixPool: false,
                     data: new Array,
+                    dataWithPoolName: new Object,
                     total: 0,
                     oneEach: '0',
                     radio: '--',
@@ -789,6 +890,7 @@ export default {
                 },
                 up: {
                     data: new Array,
+                    dataWithPoolName: new Object,
                     noWaiData: new Array,
                     total: 0,
                     oneEach: '0',
@@ -801,6 +903,7 @@ export default {
                 changzhu: {
                     hasSureSixPool: false,
                     data: new Array,
+                    dataWithPoolName: new Object,
                     total: 0,
                     oneEach: '0',
                     radio: '--',
@@ -808,6 +911,7 @@ export default {
                 },
                 shihai: {
                     data: new Array,
+                    dataWithPoolName: new Object,
                     oneEach: '0',
                     radio: '--',
                     total: 0,
@@ -818,6 +922,12 @@ export default {
             }
             this.allLaohenPoolData = {}
             this.allRolePoolData = {}
+            this.initLaohenList()
+        },
+        initLaohenList() {
+            for (let index in this.allLaohen) {
+                this.laohenEnumToName.push(this.allLaohen[index].name)
+            }
         },
         getAllDBIdNames() {
             const yearCount = this.currYearCount()
@@ -939,6 +1049,7 @@ export default {
                 this.currLaohenData.up.oneEach = (lData.upTotalCount / this.currLaohenData.up.data.length).toFixed(3)
                 this.currLaohenData.up.oneUpEach = (lData.upTotalCount / this.currLaohenData.up.noWaiData.length).toFixed(3)
                 this.currLaohenData.up.lastDian = lData.upDianCount
+                this.currLaohenData.up.dataWithPoolName = this.initDataWithPoolName(this.currLaohenData.up.data)
 
                 this.currLaohenData.hasSureSixPool = lData.hasSureSixPool
                 this.currLaohenData.sureSixRolePool = lData.sureSixRolePool
@@ -948,6 +1059,7 @@ export default {
                 this.currLaohenData.changzhu.radio = ((this.currLaohenData.changzhu.data.length * 100) / lData.changzhuTotalCount).toFixed(3) + '%'
                 this.currLaohenData.changzhu.oneEach = (lData.changzhuTotalCount / this.currLaohenData.changzhu.data.length).toFixed(3)
                 this.currLaohenData.changzhu.lastDian = lData.changzhuDianCount
+                this.currLaohenData.changzhu.dataWithPoolName = this.initDataWithPoolName(this.currLaohenData.changzhu.data)
                 this.allLaohenPoolData = lData.allData//烙痕卡池所有抽卡情况
             }
 
@@ -978,6 +1090,7 @@ export default {
                 this.currRoleData.up.oneEach = (rData.upTotalCount / this.currRoleData.up.data.length).toFixed(3)
                 this.currRoleData.up.oneUpEach = (rData.upTotalCount / this.currRoleData.up.noWaiData.length).toFixed(3)
                 this.currRoleData.up.lastDian = rData.upDianCount
+                this.currRoleData.up.dataWithPoolName = this.initDataWithPoolName(this.currRoleData.up.data)
 
                 this.currRoleData.hasSureSixPool = rData.hasSureSixPool
                 this.currRoleData.sureSixRolePool = rData.sureSixRolePool
@@ -987,6 +1100,7 @@ export default {
                 this.currRoleData.changzhu.radio = ((this.currRoleData.changzhu.data.length * 100) / this.currRoleData.changzhu.total).toFixed(3) + '%'
                 this.currRoleData.changzhu.oneEach = (this.currRoleData.changzhu.total / this.currRoleData.changzhu.data.length).toFixed(3)
                 this.currRoleData.changzhu.lastDian = rData.changzhuDianCount
+                this.currRoleData.changzhu.dataWithPoolName = this.initDataWithPoolName(this.currRoleData.changzhu.data)
                 this.allRolePoolData = rData.allData//角色卡池所有抽卡情况
                 //识海甄录卡池
                 this.currRoleData.shihai.data = computed(() => { return [...rData.shihaiData].reverse() }).value
@@ -994,7 +1108,20 @@ export default {
                 this.currRoleData.shihai.radio = ((this.currRoleData.shihai.data.length * 100) / this.currRoleData.shihai.total).toFixed(3) + '%'
                 this.currRoleData.shihai.oneEach = (this.currRoleData.shihai.total / this.currRoleData.shihai.data.length).toFixed(3)
                 this.currRoleData.shihai.lastDian = rData.shihaiDianCount
+                this.currRoleData.shihai.dataWithPoolName = this.initDataWithPoolName(this.currRoleData.shihai.data)
             }
+        },
+        initDataWithPoolName(allData) {
+            let allDataWithPoolName = new Object
+            for (let index in allData) {
+                const onePoolData = allData[index]
+                let tempArr = new Array
+                if (!Object.keys(allDataWithPoolName).includes(onePoolData.poolName)) {
+                    allDataWithPoolName[onePoolData.poolName] = new Array
+                }
+                allDataWithPoolName[onePoolData.poolName].push(onePoolData)
+            }
+            return allDataWithPoolName
         },
         /**
          * 处理卡池数据
@@ -1278,5 +1405,15 @@ p>button {
     display: flex;
     padding-right: 5px;
     width: 100%;
+}
+
+.par-div {
+    float: left;
+    margin: 5px 3px;
+}
+
+.title-card-name {
+    text-align: center;
+    background-color: blanchedalmond;
 }
 </style>

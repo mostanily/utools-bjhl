@@ -30,34 +30,25 @@ export default {
         return { progressClass }
     },
     name: 'ProgressBar',
-    props: ["ssr", "isRole"],
+    props: ["ssr", "isRole", "laohenEnumToName"],
     data() {
         return {
             allLaohen: window.$laohen.allLaohen,
-            laohenEnumToName: new Array,
             waiStr: ''
         }
     },
-    mounted() {
-        this.initLaohenList()
-    },
     methods: {
-        initLaohenList() {
-            for (let index in this.allLaohen) {
-                this.laohenEnumToName.push(this.allLaohen[index].name)
-            }
-        },
         checkIsWai(ssr) {
             if (ssr.mustGet === true) {
                 return ssr.desc
             }
             if (ssr.up && ssr.name !== ssr.up) {
                 if (ssr.dian > 30) {
-                    return "【歪】"
+                    return "「歪」"
                 } else if (ssr.dian >= 8 && ssr.dian <= 30) {
-                    return "【「小歪，不亏」】"
+                    return "「小歪，不亏」"
                 }
-                return "【「歪的好」】"
+                return "「歪的好」"
             }
         },
         /**
@@ -74,7 +65,7 @@ export default {
          * @param laohenEnum 烙痕对应的枚举值
          */
         getLaohenBg(laohenEnum) {
-            return window.$laohen.getLaohenBg(this.laohenEnumToName.indexOf(laohenEnum))
+            return window.$laohen.getLaohenBg(this.$props.laohenEnumToName.indexOf(laohenEnum))
         }
     }
 }
