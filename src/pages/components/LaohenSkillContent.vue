@@ -10,6 +10,20 @@
             </span>
         </template>
     </div>
+    <div v-if="checkHasKey(skillDetail, 'changeDetail')">
+        <hr style="margin:8px 0;">
+        <b style="color: orangered;">技能·改</b>
+        <br>
+        <template v-for="(con, index) in skillDetail.changeDetail" :key="index">
+            <span v-if="typeof con === 'string'">
+                <template v-if="con === ''"><br></template>
+                {{ con }}
+            </span>
+            <span v-else :style="'color: ' + getSkillNumColor(con.color)">
+                {{ con.desc }}
+            </span>
+        </template>
+    </div>
     <div>
         <template v-if="skillDetail.speSkillToast">
             <div v-for="(eachSpeCon, index) in skillDetail.speSkillToast" :key="index">
@@ -46,7 +60,10 @@ export default defineComponent({
     methods: {
         getSkillNumColor(colorEnum) {
             return window.$commonUtil.getSkillNumColor(colorEnum)
-        }
+        },
+        checkHasKey(Obj, key) {
+            return Object.keys(Obj).includes(key)
+        },
     }
 })
 </script>

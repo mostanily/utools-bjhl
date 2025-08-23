@@ -80,6 +80,7 @@ enum LaohenIllust {
     鲛猫,
     鲸谜,
     llmia咻,
+    小藻,
 }
 
 //职业名称

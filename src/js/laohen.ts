@@ -47,7 +47,12 @@ class InitLaohenSkill {
             "职业联动改": new DefaultSkillObj(),
             "元素专攻β型改": new DefaultSkillObj(),
             "元素专攻α型改": new DefaultSkillObj(),
-            "星河奔腾改": new DefaultSkillObj()
+            "星河奔腾改": new DefaultSkillObj(),
+            "暴风骤雨β型改": new DefaultSkillObj(),
+            "暴风骤雨α型改": new DefaultSkillObj(),
+            "元素逆转改": new DefaultSkillObj(),
+            "落后就要挨打改": new DefaultSkillObj(),
+            "风力加剧改": new DefaultSkillObj(),
         };
         for (let key in allLaohenSkill) {
             const currSkill = allLaohenSkill[key]
@@ -61,12 +66,22 @@ class InitLaohenSkill {
             this.initCanChangeSkill(currIndex, 1, this.canChangeSkillSet.元素专攻β型改, dataObj)
             this.initCanChangeSkill(currIndex, 2, this.canChangeSkillSet.元素专攻α型改, dataObj)
             this.initCanChangeSkill(currIndex, 3, this.canChangeSkillSet.星河奔腾改, dataObj)
+            this.initCanChangeSkill(currIndex, 4, this.canChangeSkillSet.暴风骤雨β型改, dataObj)
+            this.initCanChangeSkill(currIndex, 5, this.canChangeSkillSet.暴风骤雨α型改, dataObj)
+            this.initCanChangeSkill(currIndex, 6, this.canChangeSkillSet.元素逆转改, dataObj)
+            this.initCanChangeSkill(currIndex, 7, this.canChangeSkillSet.落后就要挨打改, dataObj)
+            this.initCanChangeSkill(currIndex, 8, this.canChangeSkillSet.风力加剧改, dataObj)
         }
 
         this.resetChangeSkill(this.canChangeSkillSet.职业联动改, 0)
         this.resetChangeSkill(this.canChangeSkillSet.元素专攻β型改, 1)
         this.resetChangeSkill(this.canChangeSkillSet.元素专攻α型改, 2)
         this.resetChangeSkill(this.canChangeSkillSet.星河奔腾改, 3)
+        this.resetChangeSkill(this.canChangeSkillSet.暴风骤雨β型改, 4)
+        this.resetChangeSkill(this.canChangeSkillSet.暴风骤雨α型改, 5)
+        this.resetChangeSkill(this.canChangeSkillSet.元素逆转改, 6)
+        this.resetChangeSkill(this.canChangeSkillSet.落后就要挨打改, 7)
+        this.resetChangeSkill(this.canChangeSkillSet.风力加剧改, 8)
     }
     initCanChangeSkill(key: number, changeSkillIndex: number, needChangeSkill: DefaultSkillObj, dataObj: DefaultNeedChangeSkillData) {
         if (beforeChangeSkill[changeSkillIndex].includes(dataObj.name)) {
@@ -79,10 +94,11 @@ class InitLaohenSkill {
     }
     resetChangeSkill(needChangeSkill: DefaultSkillObj, changeSkillIndex: number) {
         for (let id in needChangeSkill.ids) {
-            this.laohenskill[needChangeSkill.ids[id]].name = canChangeSkill[changeSkillIndex]
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕漫巡技能 = needChangeSkill.烙痕漫巡技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.烙痕唤醒技能 = needChangeSkill.烙痕唤醒技能
-            this.laohenskill[needChangeSkill.ids[id]].sourseLaohen.队长刻印技能 = needChangeSkill.队长刻印技能
+            const currId = needChangeSkill.ids[id]
+            this.laohenskill[currId].name = canChangeSkill[changeSkillIndex]
+            this.laohenskill[currId].sourseLaohen.烙痕漫巡技能 = needChangeSkill.烙痕漫巡技能
+            this.laohenskill[currId].sourseLaohen.烙痕唤醒技能 = needChangeSkill.烙痕唤醒技能
+            this.laohenskill[currId].sourseLaohen.队长刻印技能 = needChangeSkill.队长刻印技能
         }
     }
 }

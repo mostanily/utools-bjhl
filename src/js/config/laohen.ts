@@ -403,6 +403,10 @@ export const laohenConfig = {
         "name": "堕入星尘",
         "rarity": "3"
     },
+    "2041": {
+        "name": "洗出汪外",
+        "rarity": "3"
+    },
     "2042": {
         "name": "沙中金火",
         "rarity": "3"

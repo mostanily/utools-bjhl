@@ -785,6 +785,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.幻想彼境,
                 LaohenNameEnum.幕影重重,
@@ -1229,6 +1230,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.残照,
                 LaohenNameEnum.同行,
                 LaohenNameEnum.野风,
@@ -1314,6 +1316,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.残照,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.谎言之下,
@@ -1879,6 +1882,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.同行,
                 LaohenNameEnum.棺中鸟,
@@ -3503,6 +3507,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.底线大作战,
                 LaohenNameEnum.燎夜余尘,
@@ -4942,6 +4947,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.野风,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.事无出世间,
@@ -6635,8 +6641,7 @@ const allLaohenSkill = [
         "linkChar": "红玉",
         "sourseLaohen": {
             "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
-            "烙痕唤醒技能": [LaohenNameEnum.失途之日
-            ], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.失途之日], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
                 "岚岚"
             ] //角色名称
@@ -6654,6 +6659,34 @@ const allLaohenSkill = [
             "层；当场上风元素的同调者人数少于2名时，移除所有同调者通过该方式获得的",
             speSkillCon("【激励】"),
             "层数"
+        ],
+        "changeDetail": [
+            "场上风元素同调者人数达到2名时，每6秒提升所有同调者1层",
+            speSkillCon("【激励】"),
+            "",
+            "达到3名时，每4.5秒提升所有同调者1层",
+            speSkillCon("【激励】"),
+            "",
+            "达到4名时，每3秒提升所有同调者1层",
+            speSkillCon("【激励】"),
+            "",
+            "达到5名时及以上时，每1秒提升所有同调者1层",
+            speSkillCon("【激励】"),
+            "",
+            "场上风元素游徒计入该效果人数时额外计入1名，该",
+            speSkillCon("【激励】"),
+            "最多提升",
+            speSkillCon("4（等级1时"),
+            "/",
+            speSkillCon("7（等级2时"),
+            "/",
+            speSkillCon("10（等级3时"),
+            speSkillCon("（增伤乘区·激励）", SkillColorEnum.injuries),
+            "层且每层该",
+            speSkillCon("【激励】"),
+            "提高风元素同调者2.5%",
+            speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+            "暴击"
         ],
         "speSkillToast": [
             speLaohenSkillCon(LaohenToastSkillEnum.激励)
@@ -11335,6 +11368,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [
+                LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.泅游,
                 LaohenNameEnum.局外人,
             ], //枚举LaohenNameEnum.(x)
@@ -12102,6 +12136,36 @@ const allLaohenSkill = [
         ],
         "speSkillToast": [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区主动技能回复速度)
+        ]
+    },
+    {
+        "name": "炽炎同频", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.炽炎同频,
+        "takeEffect": [JobTypeName.轻卫, JobTypeName.铁御, JobTypeName.尖锋], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.洗出汪外], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "同调者施放异核技能时，场上同调者刻印攻击提高20%",
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "，若场上同调者为炎元素，则再提高",
+            speSkillCon("10%（等级1时）"),
+            "/",
+            speSkillCon("20%（等级2时）"),
+            "/",
+            speSkillCon("30%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "刻印攻击。该效果持续45秒，重复触发刷新持续时间"
         ]
     },
 ]
@@ -13737,6 +13801,7 @@ const allLaohen = [
     AllLaohenHelper.荣与罪,
     AllLaohenHelper.局外人,
     AllLaohenHelper.事无出世间,
+    AllLaohenHelper.洗出汪外,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }

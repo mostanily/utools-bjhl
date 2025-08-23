@@ -56,6 +56,7 @@ import { 堕入星尘 } from './堕入星尘'
 import { 荣与罪 } from './荣与罪'
 import { 局外人 } from './局外人'
 import { 事无出世间 } from './事无出世间'
+import { 洗出汪外 } from './洗出汪外'
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -116,4 +117,5 @@ export default class AllLaohenHelper {
     static 荣与罪 = 荣与罪
     static 局外人 = 局外人
     static 事无出世间 = 事无出世间
+    static 洗出汪外 = 洗出汪外
 }

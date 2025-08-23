@@ -1,6 +1,6 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
@@ -313,6 +313,11 @@ const Skill = [
                     speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火)
                 ],//一花特性
                 [
+                    "施放异核技能【业火重明】后，清空指令冷却时间。Ⅲ解封后，",
+                    speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火),
+                    "的忽略基础减伤效果可对自身所有伤害生效"
+                ],//二花特性
+                [
                     "场上每有一名炎元素同调者（包含自己），百里屠苏造成的伤害提高",
                     speSkillCon("6%"),
                     speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
@@ -334,6 +339,99 @@ const Skill = [
                 "暴击伤害且初始获得15层",
                 speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火),
                 "，解封第Ⅲ重能力所需累积消耗的生命值降低一半"
+            ]
+        }
+    },
+    {
+        "name": "技能同调",
+        "aliasNum": "技能同调",
+        "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+        "unlock": LaohenNameEnum.洗出汪外,//该技能解锁条件，拥有对应的烙痕ID
+        "detail": {
+            "name": "戮魂",
+            "aliasNum": "1",
+            "maxLevel": 15,
+            "type": "主动技能",
+            "skillTab": [["指令冷却", "15秒"], ["次数", "6"]],
+            "tab": ["炎区域", "自身增益", "伤害", "对空", "屏障破坏", "格挡条破坏2"],
+            "sizeLevel": [
+                ["1600%", "600%", "1800%"],
+                ["1840%", "690%", "2070%"],
+                ["2080%", "780%", "2340%"],
+                ["2320%", "870%", "2610%"],
+                ["2560%", "960%", "2880%"],
+                ["2800%", "1050%", "3150%"],
+                ["3040%", "1140%", "3420%"],
+                ["3280%", "1230%", "3690%"],
+                ["3520%", "1320%", "3960%"],
+                ["3680%", "1380%", "4140%"],
+                ["3840%", "1440%", "4320%"],
+                ["4000%", "1500%", "4500%"],
+                ["4160%", "1560%", "4680%"],
+                ["4320%", "1620%", "4860%"],
+                ["4480%", "1680%", "5040%"]
+            ],
+            "content": [
+                speSkillCon("【戮魂】技能形态", SkillColorEnum.injuries),
+                "",
+                "非重明状态下可使用",
+                "",
+                "首次施放后，改变全场天气，炎属性伤害有概率生成炎元素区域，持续",
+                speSkillCon("120"),
+                "秒。施放技能时",
+                speSkillCon("[损耗]", SkillColorEnum.normal, ToastSkillEnum.损耗),
+                "自身",
+                speSkillCon("50%"),
+                "当前生命值，获得相当于",
+                speSkillCon("50%"),
+                "最大生命值的护盾和",
+                speSkillCon("10"),
+                "层",
+                speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火),
+                "；自身和「梦中身」对指定半径",
+                speSkillCon("250"),
+                "范围的区域施放大量飞剑，对范围内所有目标造成总计",
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的炎元素伤害"),
+                "，并破坏目标",
+                speSkillCon("2段格挡条"),
+                "",
+                "",
+                speSkillCon("【戮魂·重明】技能形态", SkillColorEnum.injuries),
+                "",
+                "重明状态下可使用，该技能可攻击空中目标",
+                "",
+                "朝指定半径",
+                speSkillCon("400"),
+                "范围的区域施放飞剑，对范围内的所有目标造成总计",
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的炎元素伤害"),
+                "，最终巨剑坠落，摧毁范围内所有敌方屏障并造成",
+                speSkillCon("", 0, -1, 2),
+                speSkillCon("最终攻击的炎元素伤害"),
+                "，同时破坏目标",
+                speSkillCon("3段格挡条"),
+                "",
+                speSkillCon("【戮魂】", SkillColorEnum.injuries),
+                "的可使用技能次数与",
+                speSkillCon("【戮魂·重明】", SkillColorEnum.injuries),
+                "独立计算"
+            ],
+            "specialContent":[
+                [
+                    "百里屠苏的自动技能和异核技能受到体质加成的部分会额外受到所有攻击加成，【戮魂】和【戮魂·重明】对敌人造成伤害后，敌人受到的伤害提高40%",
+                    speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                    "，持续40秒"
+                ],//特质Ⅱ级解锁
+                [
+                    "自身的暴击伤害超过200%后，【戮魂】和【戮魂·重明】的伤害在暴击时提高，提高增幅取决于暴击伤害超过200%的数值。每超过1%，提升该增幅2%",
+                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                    "，该增幅最多不超过240%",
+                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                    "。",
+                    "",
+                    "当自身在场时，场上炎元素同调者主动技能回复速度提高40%"
+                ],//特质Ⅴ级解锁
             ]
         }
     }

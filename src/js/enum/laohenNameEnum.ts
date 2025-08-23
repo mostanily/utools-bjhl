@@ -334,6 +334,7 @@ enum MXLaohenEnum {
     共振弱化,
     炽痕共鸣,
     余烬增辉,
+    炽炎同频,
 }
 
 /**
@@ -472,6 +473,7 @@ enum LaohenNameEnum {
     荣与罪,
     局外人,
     事无出世间,
+    洗出汪外,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
