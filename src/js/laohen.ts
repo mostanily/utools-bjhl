@@ -1,107 +1,13 @@
-import { allLaohenSkill, allLaohen, getSpeLink } from './consts/laohenConsts.ts'
+import { allLaohen, getSpeLink } from './consts/laohenConsts.ts'
 import {
     rarityName,
     rarityEnName,
-    canChangeSkill,
-    beforeChangeSkill,
     jobNames,
     IllustNames,
     LaohenResourseName,
     LaohenSkillTypeName
 } from './consts/simpleConsts.ts'
-
-class DefaultSourceLH {
-    烙痕漫巡技能;
-    烙痕唤醒技能;
-    队长刻印技能;
-    constructor() {
-        this.烙痕漫巡技能 = new Array;
-        this.烙痕唤醒技能 = new Array;
-        this.队长刻印技能 = new Array;
-    }
-}
-
-class DefaultSkillObj extends DefaultSourceLH {
-    ids;
-    constructor() {
-        super();
-        this.ids = new Array;
-    }
-}
-
-class DefaultNeedChangeSkillData {
-    name;
-    sourseLaohen;
-    constructor() {
-        this.name = ''
-        this.sourseLaohen = new DefaultSourceLH();
-    }
-}
-
-class InitLaohenSkill {
-    laohenskill;
-    canChangeSkillSet;
-    constructor() {
-        this.laohenskill = allLaohenSkill;
-        this.canChangeSkillSet = {
-            "职业联动改": new DefaultSkillObj(),
-            "元素专攻β型改": new DefaultSkillObj(),
-            "元素专攻α型改": new DefaultSkillObj(),
-            "星河奔腾改": new DefaultSkillObj(),
-            "暴风骤雨β型改": new DefaultSkillObj(),
-            "暴风骤雨α型改": new DefaultSkillObj(),
-            "元素逆转改": new DefaultSkillObj(),
-            "落后就要挨打改": new DefaultSkillObj(),
-            "风力加剧改": new DefaultSkillObj(),
-        };
-        for (let key in allLaohenSkill) {
-            const currSkill = allLaohenSkill[key]
-            let dataObj = new DefaultNeedChangeSkillData()
-            dataObj.name = currSkill.name
-            dataObj.sourseLaohen.烙痕漫巡技能 = currSkill.sourseLaohen.烙痕漫巡技能
-            dataObj.sourseLaohen.烙痕唤醒技能 = currSkill.sourseLaohen.烙痕唤醒技能
-            dataObj.sourseLaohen.队长刻印技能 = currSkill.sourseLaohen.队长刻印技能
-            let currIndex = Number(key)
-            this.initCanChangeSkill(currIndex, 0, this.canChangeSkillSet.职业联动改, dataObj)
-            this.initCanChangeSkill(currIndex, 1, this.canChangeSkillSet.元素专攻β型改, dataObj)
-            this.initCanChangeSkill(currIndex, 2, this.canChangeSkillSet.元素专攻α型改, dataObj)
-            this.initCanChangeSkill(currIndex, 3, this.canChangeSkillSet.星河奔腾改, dataObj)
-            this.initCanChangeSkill(currIndex, 4, this.canChangeSkillSet.暴风骤雨β型改, dataObj)
-            this.initCanChangeSkill(currIndex, 5, this.canChangeSkillSet.暴风骤雨α型改, dataObj)
-            this.initCanChangeSkill(currIndex, 6, this.canChangeSkillSet.元素逆转改, dataObj)
-            this.initCanChangeSkill(currIndex, 7, this.canChangeSkillSet.落后就要挨打改, dataObj)
-            this.initCanChangeSkill(currIndex, 8, this.canChangeSkillSet.风力加剧改, dataObj)
-        }
-
-        this.resetChangeSkill(this.canChangeSkillSet.职业联动改, 0)
-        this.resetChangeSkill(this.canChangeSkillSet.元素专攻β型改, 1)
-        this.resetChangeSkill(this.canChangeSkillSet.元素专攻α型改, 2)
-        this.resetChangeSkill(this.canChangeSkillSet.星河奔腾改, 3)
-        this.resetChangeSkill(this.canChangeSkillSet.暴风骤雨β型改, 4)
-        this.resetChangeSkill(this.canChangeSkillSet.暴风骤雨α型改, 5)
-        this.resetChangeSkill(this.canChangeSkillSet.元素逆转改, 6)
-        this.resetChangeSkill(this.canChangeSkillSet.落后就要挨打改, 7)
-        this.resetChangeSkill(this.canChangeSkillSet.风力加剧改, 8)
-    }
-    initCanChangeSkill(key: number, changeSkillIndex: number, needChangeSkill: DefaultSkillObj, dataObj: DefaultNeedChangeSkillData) {
-        if (beforeChangeSkill[changeSkillIndex].includes(dataObj.name)) {
-            this.laohenskill[key].takeEffect = [0]
-            needChangeSkill.ids.push(key)
-            needChangeSkill.烙痕漫巡技能 = [...needChangeSkill.烙痕漫巡技能, ...dataObj.sourseLaohen.烙痕漫巡技能]
-            needChangeSkill.烙痕唤醒技能 = [...needChangeSkill.烙痕唤醒技能, ...dataObj.sourseLaohen.烙痕唤醒技能]
-            needChangeSkill.队长刻印技能 = [...needChangeSkill.队长刻印技能, ...dataObj.sourseLaohen.队长刻印技能]
-        }
-    }
-    resetChangeSkill(needChangeSkill: DefaultSkillObj, changeSkillIndex: number) {
-        for (let id in needChangeSkill.ids) {
-            const currId = needChangeSkill.ids[id]
-            this.laohenskill[currId].name = canChangeSkill[changeSkillIndex]
-            this.laohenskill[currId].sourseLaohen.烙痕漫巡技能 = needChangeSkill.烙痕漫巡技能
-            this.laohenskill[currId].sourseLaohen.烙痕唤醒技能 = needChangeSkill.烙痕唤醒技能
-            this.laohenskill[currId].sourseLaohen.队长刻印技能 = needChangeSkill.队长刻印技能
-        }
-    }
-}
+import { InitLaohenSkill } from './consts/changeSkillConst'
 
 export default class Laohen {
     static rarityName = rarityName

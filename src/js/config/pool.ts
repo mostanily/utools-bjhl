@@ -631,7 +631,7 @@ export const poolConfig = {
     },
     "66": {
         "type": "1",
-        "name": "云端来信",
+        "name": "云端来信·二",
         "up": "言雀"
     },
     "67": {
@@ -651,7 +651,7 @@ export const poolConfig = {
     },
     "70": {
         "type": "1",
-        "name": "岁暮重明",
+        "name": "岁暮重明·二",
         "up": "百里屠苏"
     },
     "71": {

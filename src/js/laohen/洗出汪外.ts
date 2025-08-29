@@ -8,7 +8,8 @@ export const 洗出汪外 = {
     "id": LaohenNameEnum.洗出汪外,
     "extraData": {
         "illust": LaohenIllust.小藻, //画师,
-        "resourse": LaohenResourse.定向潜航
+        "resourse": LaohenResourse.定向潜航,
+        "skillLink": "百里屠苏"
     },
     "mxSkill": [
         MXLaohenEnum.职业联动方块,

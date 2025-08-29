@@ -1772,6 +1772,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.玄学,
                 LaohenNameEnum.繁花蜃影,
                 LaohenNameEnum.余兴节目,
+                LaohenNameEnum.难渡,
                 LaohenNameEnum.打成一片,
                 LaohenNameEnum.街市清晨,
             ], //枚举LaohenNameEnum.(x)
@@ -2019,6 +2020,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.晓梦迷花,
                 LaohenNameEnum.恶土之花,
                 LaohenNameEnum.问天,
+                LaohenNameEnum.难渡,
                 LaohenNameEnum.生死在握
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -2376,6 +2378,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.参商形影,
                 LaohenNameEnum.火热手感,
                 LaohenNameEnum.调和清凉,
+                LaohenNameEnum.难渡,
                 LaohenNameEnum.记录一夏,
                 LaohenNameEnum.假日余暇,
                 LaohenNameEnum.交换惊喜,
@@ -2547,6 +2550,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.噩梦,
                 LaohenNameEnum.血露薇绝密,
                 LaohenNameEnum.局外人,
+                LaohenNameEnum.难渡,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -4430,7 +4434,8 @@ const allLaohenSkill = [
                 LaohenNameEnum.野风,
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.奢梦,
-                LaohenNameEnum.CATvsDOG
+                LaohenNameEnum.CATvsDOG,
+                LaohenNameEnum.难渡,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
@@ -6650,11 +6655,11 @@ const allLaohenSkill = [
             "场上风元素的同调者人数达到2名或以上时，每6秒提升所有同调者1层",
             speSkillCon("【激励】"),
             "，最多提升",
-            speSkillCon("4（等级1时"),
+            speSkillCon("4（等级1时）"),
             "/",
-            speSkillCon("7（等级2时"),
+            speSkillCon("7（等级2时）"),
             "/",
-            speSkillCon("10（等级3时"),
+            speSkillCon("10（等级3时）"),
             speSkillCon("（增伤乘区·激励）", SkillColorEnum.injuries),
             "层；当场上风元素的同调者人数少于2名时，移除所有同调者通过该方式获得的",
             speSkillCon("【激励】"),
@@ -6676,11 +6681,11 @@ const allLaohenSkill = [
             "场上风元素游徒计入该效果人数时额外计入1名，该",
             speSkillCon("【激励】"),
             "最多提升",
-            speSkillCon("4（等级1时"),
+            speSkillCon("4（等级1时）"),
             "/",
-            speSkillCon("7（等级2时"),
+            speSkillCon("7（等级2时）"),
             "/",
-            speSkillCon("10（等级3时"),
+            speSkillCon("10（等级3时）"),
             speSkillCon("（增伤乘区·激励）", SkillColorEnum.injuries),
             "层且每层该",
             speSkillCon("【激励】"),
@@ -9591,6 +9596,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.局外人,
                 LaohenNameEnum.新醅,
                 LaohenNameEnum.问天,
+                LaohenNameEnum.难渡,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
@@ -12168,6 +12174,41 @@ const allLaohenSkill = [
             "刻印攻击。该效果持续45秒，重复触发刷新持续时间"
         ]
     },
+    {
+        "name": "同频激励", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": true,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.同频激励,
+        "takeEffect": [JobTypeName.铁御, JobTypeName.轻卫, JobTypeName.尖锋], //职业名称
+        "useSkill": [
+            200,
+            200,
+            200
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.难渡], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "施放主动技能或异核技能后，场上所有同调者获得2层",
+            speSkillCon("[激励]"),
+            "，通过该效果获得的",
+            speSkillCon("[激励]"),
+            "不能超过",
+            speSkillCon("4（等级1时）"),
+            "/",
+            speSkillCon("7（等级2时）"),
+            "/",
+            speSkillCon("10（等级3时）"),
+            speSkillCon("(增伤乘区·激励)", SkillColorEnum.injuries),
+            "层"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.激励)
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -13802,6 +13843,7 @@ const allLaohen = [
     AllLaohenHelper.局外人,
     AllLaohenHelper.事无出世间,
     AllLaohenHelper.洗出汪外,
+    AllLaohenHelper.难渡,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }
