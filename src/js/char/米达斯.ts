@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.物理异能], "attr": "wuli", "star": "6",
@@ -35,7 +35,9 @@ const Skill = [
                 speSkillCon("10"),
                 speSkillCon("秒", SkillColorEnum.injuries),
                 "",
-                "当「灾影」处于「祸引」状态时，可以施放1次。",
+                "当「灾影」处于",
+                speSkillConWithImg(SkillDescStatusImg.米达斯祸引),
+                "「祸引」状态时，可以施放1次。",
                 "",
                 "「灾影」对目标区域",
                 speSkillCon("300"),
@@ -92,7 +94,9 @@ const Skill = [
                 "，并清空指令冷却时间。",
                 "",
                 "",
-                "使「灾影」进入持续18秒的「祸引」状态：可以施放1次「暗噬·归巢」，且「灾影」造成的所有伤害暴击时伤害提高",
+                "使「灾影」进入持续18秒的",
+                speSkillConWithImg(SkillDescStatusImg.米达斯祸引),
+                "「祸引」状态：可以施放1次「暗噬·归巢」，且「灾影」造成的所有伤害暴击时伤害提高",
                 speSkillCon("25%"),
                 speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
                 "。"

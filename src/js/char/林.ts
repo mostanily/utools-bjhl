@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.核心充能方块α型, MXLaohenEnum.炎域强袭], "attr": "yan", "star": "6",
@@ -48,8 +48,11 @@ const Skill = [
                 speSkillCon("30%"),
                 "，最大生命值提高",
                 speSkillCon("80%"),
-                "，且每次普通攻击触发“熔毁”。",
+                "，且每次普通攻击触发",
+                speSkillConWithImg(SkillDescStatusImg.林熔毁),
+                "“熔毁”。",
                 "",
+                speSkillConWithImg(SkillDescStatusImg.林熔毁),
                 "“熔毁”：每次施放普通攻击消耗自身最大生命值",
                 speSkillCon("4%"),
                 "可额外对当前主目标周围",
@@ -138,7 +141,9 @@ const Skill = [
                 "秒，切换攻击姿态或离场后上述效果消失",
                 "",
                 speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
-                "：持续时间内无法施放，攻击姿态结束时触发自动技能，自身“熔毁”每次触发提高",
+                "：持续时间内无法施放，攻击姿态结束时触发自动技能，自身",
+                speSkillConWithImg(SkillDescStatusImg.林熔毁),
+                "“熔毁”每次触发提高",
                 speSkillCon("10%"),
                 speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
                 "自动技能伤害，该效果可叠加"

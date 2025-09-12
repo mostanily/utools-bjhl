@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.饱和式救援, MXLaohenEnum.先破后立], "attr": "yan", "star": "6",
@@ -281,6 +281,7 @@ const Skill = [
                     "",
                     "整场战斗过程中，当本体累积减少的生命值达到最大生命值的一定比率时，会依次解封自身能力",
                     "",
+                    speSkillConWithImg(SkillDescStatusImg.百里屠苏解封一),
                     "Ⅰ：比率达到",
                     speSkillCon("50%"),
                     "时解封，获得",
@@ -288,6 +289,7 @@ const Skill = [
                     speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
                     "暴击率提升",
                     "",
+                    speSkillConWithImg(SkillDescStatusImg.百里屠苏解封二),
                     "Ⅱ：比率达到",
                     speSkillCon("100%"),
                     "时解封，获得",
@@ -297,6 +299,7 @@ const Skill = [
                     speSkillCon("50"),
                     "秒，仅非重明状态可以触发，每场战斗最多触发一次",
                     "",
+                    speSkillConWithImg(SkillDescStatusImg.百里屠苏解封三),
                     "Ⅲ：比率达到",
                     speSkillCon("150%"),
                     "时解封，【毁殇】【毁殇·重明】造成伤害时，自身每有1层",
@@ -313,7 +316,9 @@ const Skill = [
                     speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火)
                 ],//一花特性
                 [
-                    "施放异核技能【业火重明】后，清空指令冷却时间。Ⅲ解封后，",
+                    "施放异核技能【业火重明】后，清空指令冷却时间。",
+                    speSkillConWithImg(SkillDescStatusImg.百里屠苏解封三),
+                    "Ⅲ解封后，",
                     speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火),
                     "的忽略基础减伤效果可对自身所有伤害生效"
                 ],//二花特性
@@ -338,7 +343,9 @@ const Skill = [
                 speSkillCon("（属性乘区·暴击伤害）"),
                 "暴击伤害且初始获得15层",
                 speSkillCon("[石中火]", SkillColorEnum.normal, ToastSkillEnum.石中火),
-                "，解封第Ⅲ重能力所需累积消耗的生命值降低一半"
+                "，解封",
+                speSkillConWithImg(SkillDescStatusImg.百里屠苏解封三),
+                "所需累积消耗的生命值降低一半"
             ]
         }
     },

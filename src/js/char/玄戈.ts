@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.铁杵磨成针三角, MXLaohenEnum.连破留痕], "attr": "wuli", "star": "6",
@@ -31,6 +31,7 @@ const Skill = [
                 "【连击】：获得",
                 speSkillCon("2"),
                 "个",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                 speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                 "",
                 "",
@@ -71,11 +72,15 @@ const Skill = [
                 "，且获得",
                 speSkillCon("1"),
                 "个",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                 speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                 "",
-                "当玄戈在增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的友方同调者使用主动技能时，玄戈会触发【璨星】效果，获得",
+                "当玄戈在增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的友方同调者使用主动技能时，玄戈会触发",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星增益),
+                "效果，获得",
                 speSkillCon("2"),
                 "个",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                 speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星)
             ]
         }
@@ -96,6 +101,7 @@ const Skill = [
                 "，可以摧毁范围内的投射物，且获得",
                 speSkillCon("3"),
                 "个",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                 speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                 "",
                 "技能释放结束后，受到伤害的敌人在接下来的",
@@ -120,9 +126,11 @@ const Skill = [
             "specialContent": [
                 [
                     "自身施放【御厄】、【纵略黑白】和【抑扬话事】可获得",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                     speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                     "",
                     "当获得",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                     speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                     "数量达到",
                     speSkillCon("5"),
@@ -131,12 +139,15 @@ const Skill = [
                     "次【荡厄】后，恢复到【御厄】技能形态",
                     "",
                     "当获得",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                     speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                     "数量大于",
                     speSkillCon("5"),
                     "个时，会保留剩余的",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                     speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                     "，保留的",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                     speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                     "的数量上限是",
                     speSkillCon("5"),
@@ -155,6 +166,7 @@ const Skill = [
                     "秒，且释放异核技能【抑扬话事】额外获得",
                     speSkillCon("2"),
                     "个",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                     speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
                     "。【御厄】、【荡厄】造成的伤害提高",
                     speSkillCon("30%"),
@@ -164,9 +176,12 @@ const Skill = [
                     "【御厄】、【荡厄】造成伤害时忽略敌人减伤",
                     speSkillCon("40%"),
                     speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
-                    "。当玄戈在【纵略黑白】增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的队友使用主动技能时，玄戈触发【璨星】效果时，会额外获得",
+                    "。当玄戈在【纵略黑白】增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的队友使用主动技能时，玄戈触发",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星增益),
+                    "效果时，会额外获得",
                     speSkillCon("2"),
                     "个",
+                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                     speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星)
                 ]//三花特性
             ]

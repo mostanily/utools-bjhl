@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.澜盾凝锋], "attr": "shui", "star": "6",
@@ -202,7 +202,10 @@ const Skill = [
                     "",
                     "当谛卡拥有的护盾量大于最大生命值的",
                     speSkillCon("60%"),
-                    "时，谛卡处于「饱食」。当谛卡处于「饱食」",
+                    "时，谛卡处于「饱食」",
+                    speSkillConWithImg(SkillDescStatusImg.谛卡饱食),
+                    "。当谛卡处于「饱食」",
+                    speSkillConWithImg(SkillDescStatusImg.谛卡饱食),
                     "时，使场上同调者造成的伤害提高",
                     speSkillCon("18%"),
                     speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),

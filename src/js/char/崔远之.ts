@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.利刃三角α型, MXLaohenEnum.狙击], "attr": "lei", "star": "6",
@@ -97,7 +97,9 @@ const Skill = [
                 speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
                 "",
                 speSkillCon("10"),
-                "秒后获得强化，攻击力提升",
+                "秒后获得",
+                speSkillConWithImg(SkillDescStatusImg.崔远之鬼枪强化),
+                "强化，攻击力提升",
                 speSkillCon("40%"),
                 speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
                 "，专精值提升",

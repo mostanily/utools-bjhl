@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.冻结延长], "attr": "shuang", "star": "5",
@@ -19,7 +19,9 @@ const Skill = [
             "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
             "tab": ["回复"],//技能标签
             "content": [
-                "对全体友方同调者进行「持续治疗」，每秒治疗目标",
+                "对全体友方同调者进行",
+                speSkillConWithImg(SkillDescStatusImg.阳铃持续治疗),
+                "「持续治疗」，每秒治疗目标",
                 speSkillCon("68%治愈力"),
                 "的生命值，持续",
                 speSkillCon("15"),

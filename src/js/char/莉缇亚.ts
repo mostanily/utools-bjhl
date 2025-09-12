@@ -1,6 +1,6 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.人形特攻β型, MXLaohenEnum.源源不断], "attr": "lei", "star": "5",
@@ -23,11 +23,15 @@ const Skill = [
                 "",
                 "向目标区域挥洒10枚金币，每枚金币都会对途中触碰到的敌人造成",
                 speSkillCon("275%专精的雷元素伤害"),
-                "，随后召回场上所有金币，再次对途中触碰到的敌人造成",
+                "，随后召回场上所有",
+                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
+                "金币，再次对途中触碰到的敌人造成",
                 speSkillCon("275%专精的雷元素伤害"),
                 "",
                 "累计召回",
                 speSkillCon("30"),
+                "枚",
+                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
                 "金币后获得强化：挥洒的金币数量增加",
                 speSkillCon("5"),
                 "枚"
@@ -55,7 +59,9 @@ const Skill = [
                 "",
                 "主动技能【闪金回响】累计召回",
                 speSkillCon("75"),
-                "枚金币后获得强化：吟唱时间缩短",
+                "枚",
+                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
+                "金币后获得强化：吟唱时间缩短",
                 speSkillCon("3"),
                 "秒，掉落金币增加到",
                 speSkillCon("5"),
@@ -82,7 +88,9 @@ const Skill = [
                 "",
                 "主动技能【闪金回响】累计召回",
                 speSkillCon("130"),
-                "枚金币后获得强化：掉落金币数量翻倍"
+                "枚",
+                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
+                "金币后获得强化：掉落金币数量翻倍"
             ]
         }
     },

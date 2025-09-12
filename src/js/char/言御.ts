@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.刺骨寒意], "attr": "shuang", "star": "6",
@@ -21,19 +21,24 @@ const Skill = [
             "tab": ["回复"],//技能标签
             "content": [
                 "回收全体友方同调者当前的",
+                speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                 speSkillCon("[冰点协议]", SkillColorEnum.normal, ToastSkillEnum.冰点协议),
                 "，分摊给全体友方同调者转化为护盾（将计入友方同调者各自的受治疗加成效果影响）",
                 "",
                 "为全体友方同调者额外施加",
+                speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                 speSkillCon("[冰点协议]", SkillColorEnum.normal, ToastSkillEnum.冰点协议),
                 "，伤害抵挡量相当于言御自身",
                 speSkillCon("1000%治愈力"),
                 "",
                 "若施加",
+                speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                 speSkillCon("[冰点协议]", SkillColorEnum.normal, ToastSkillEnum.冰点协议),
                 "后，友方同调者目标生命值低于100%，则将转化",
+                speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                 speSkillCon("[冰点协议]", SkillColorEnum.normal, ToastSkillEnum.冰点协议),
                 "治疗生命值（每点",
+                speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                 speSkillCon("[冰点协议]", SkillColorEnum.normal, ToastSkillEnum.冰点协议),
                 "回复的生命值将计入友方同调者各自的受治疗加成效果影响）"
             ]//满级技能内容描述
@@ -52,6 +57,7 @@ const Skill = [
                 "：每隔",
                 speSkillCon("10"),
                 "秒，为全体友方同调者施加",
+                speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                 speSkillCon("[冰点协议]", SkillColorEnum.normal, ToastSkillEnum.冰点协议),
                 "，伤害抵挡量相当于言御自身",
                 speSkillCon("163%治愈力"),
@@ -95,6 +101,7 @@ const Skill = [
                 "言御最终攻击力（该伤害效果视作异核技能伤害）",
                 "",
                 "为全体友方同调者施加",
+                speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                 speSkillCon("[冰点协议]", SkillColorEnum.normal, ToastSkillEnum.冰点协议),
                 "，伤害抵挡量相当于言御自身",
                 speSkillCon("900%治愈力"),
@@ -145,6 +152,7 @@ const Skill = [
                     speSkillCon("言御可为友方同调者施加「冰点协议」：", SkillColorEnum.injuries),
                     "",
                     "为友方同调者抵御伤害，施加伤害抵挡量时，将不计入目标的受治疗加成（同调者身上存在的",
+                    speSkillConWithImg(SkillDescStatusImg.言御冰点协议),
                     speSkillCon("「冰点协议」", SkillColorEnum.injuries),
                     "最大不超过言御最大生命值的2倍）",
                     "",

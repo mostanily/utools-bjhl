@@ -62,6 +62,7 @@ import { 拉波 } from "./拉波";
 import { 伊琅相思 } from "./伊琅相思";
 import { 北洛 } from "./北洛";
 import { 岑缨 } from "./岑缨";
+import { 逸虚 } from "./逸虚";
 import { 言雀 } from "./言雀";
 import { 晴雪 } from "./晴雪";
 import { 瓦卡莎 } from "./瓦卡莎";
@@ -136,6 +137,7 @@ export default class AllCharHelper {
     static 伊琅相思 = 伊琅相思;
     static 北洛 = 北洛;
     static 岑缨 = 岑缨;
+    static 逸虚 = 逸虚;
     static 言雀 = 言雀;
     static 晴雪 = 晴雪;
     static 瓦卡莎 = 瓦卡莎;

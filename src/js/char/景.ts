@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.元素专攻方块β型, MXLaohenEnum.雷域和源], "attr": "lei", "star": "6",
@@ -21,7 +21,9 @@ const Skill = [
             "content": [
                 "进入持续",
                 speSkillCon("35"),
-                "秒的「守誓」状态并对自身周围",
+                "秒的",
+                speSkillConWithImg(SkillDescStatusImg.景守誓),
+                "「守誓」状态并对自身周围",
                 speSkillCon("500"),
                 "半径造成",
                 speSkillCon("2000%最终攻击的雷元素伤害"),
@@ -54,7 +56,9 @@ const Skill = [
                 speSkillCon("1600%最终攻击的雷元素伤害"),
                 "",
                 "",
-                "主动技能：仅在「守誓」状态下可施放，对半径",
+                "主动技能：仅在",
+                speSkillConWithImg(SkillDescStatusImg.景守誓),
+                "「守誓」状态下可施放，对半径",
                 speSkillCon("300"),
                 "范围造成",
                 speSkillCon("4000%最终攻击的雷元素伤害"),
@@ -88,7 +92,9 @@ const Skill = [
                 speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
                 "",
                 speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
-                "：「守誓」状态下自身普通攻击时，消耗1层",
+                "：",
+                speSkillConWithImg(SkillDescStatusImg.景守誓),
+                "「守誓」状态下自身普通攻击时，消耗1层",
                 speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
                 "对目标及周围半径",
                 speSkillCon("250"),

@@ -121,6 +121,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.遇见宝石海,
                 LaohenNameEnum.幕影重重,
                 LaohenNameEnum.最强召唤师,
+                LaohenNameEnum.记虚,
                 LaohenNameEnum.芳年未及,
                 LaohenNameEnum.度晴波
             ],
@@ -880,6 +881,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.幻想彼境,
+                LaohenNameEnum.记虚,
                 LaohenNameEnum.旧友无多,
                 LaohenNameEnum.形与神,
                 LaohenNameEnum.寂静昨日,
@@ -940,6 +942,7 @@ const allLaohenSkill = [
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
+                "逸虚",
                 "阿棘"
             ] //角色名称
         },
@@ -1518,8 +1521,7 @@ const allLaohenSkill = [
         "isJL": false,
         "rarity": LaohenRarity.r, //稀有度，共3种（r，sr，ssr）
         "id": MXLaohenEnum.昂扬斗志菱形β型,
-        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者
-        ], //职业名称
+        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者], //职业名称
         "useSkill": [
             120,
             90,
@@ -1528,6 +1530,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.幕影重重,
+                LaohenNameEnum.记虚,
                 LaohenNameEnum.流光竞夜,
                 LaohenNameEnum.团圆,
                 LaohenNameEnum.雨中愿,
@@ -2854,8 +2857,7 @@ const allLaohenSkill = [
         "isJL": false,
         "rarity": LaohenRarity.r, //稀有度，共3种（r，sr，ssr）
         "id": MXLaohenEnum.坚定意志菱形β型,
-        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者
-        ], //职业名称
+        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者], //职业名称
         "useSkill": [
             120,
             90,
@@ -2863,6 +2865,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.记虚,
                 LaohenNameEnum.沙中金火,
                 LaohenNameEnum.逐光者,
                 LaohenNameEnum.噩梦,
@@ -3204,6 +3207,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.记虚,
                 LaohenNameEnum.噩梦,
                 LaohenNameEnum.无罪之徒,
                 LaohenNameEnum.瞳中困影,
@@ -3549,6 +3553,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.记虚,
                 LaohenNameEnum.底线大作战,
                 LaohenNameEnum.烟尘往事,
                 LaohenNameEnum.一枕酣甜,
@@ -5836,6 +5841,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.记虚,
                 LaohenNameEnum.代号百草,
                 LaohenNameEnum.记录一夏,
                 LaohenNameEnum.团圆
@@ -12209,6 +12215,71 @@ const allLaohenSkill = [
             speLaohenSkillCon(LaohenToastSkillEnum.激励)
         ]
     },
+    {
+        "name": "战术施放", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.战术施放,
+        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": ["逸虚"] //角色名称
+        },
+        "detail": [
+            "同调者施放异核技能时，提升自身15%",
+            speSkillCon("(属性乘区·暴击率)"),
+            "暴击率和",
+            speSkillCon("20%（等级1时）"),
+            "/",
+            speSkillCon("35%（等级2时）"),
+            "/",
+            speSkillCon("50%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "刻印攻击力，持续45秒，重复触发刷新持续时间"
+        ]
+    },
+    {
+        "name": "召唤增幅", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.召唤增幅,
+        "takeEffect": [JobTypeName.战术家, JobTypeName.护佑者], //职业名称
+        "linkChar": "逸虚",
+        "useSkill": [
+            180,
+            240,
+            300
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.记虚], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "同调者造成召唤物伤害后，提升自身10%",
+            speSkillCon("(属性乘区·额外攻击力加成)", SkillColorEnum.injuries),
+            "额外攻击力和5.0%",
+            speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
+            "暴击伤害，持续12秒，重复施加该效果时将会刷新效果的持续时间。效果可叠加",
+            speSkillCon("2（等级1时）"),
+            "/",
+            speSkillCon("4（等级2时）"),
+            "/",
+            speSkillCon("6（等级3时）"),
+            "层",
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区额外攻击力加成)
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -13844,6 +13915,7 @@ const allLaohen = [
     AllLaohenHelper.事无出世间,
     AllLaohenHelper.洗出汪外,
     AllLaohenHelper.难渡,
+    AllLaohenHelper.记虚,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }

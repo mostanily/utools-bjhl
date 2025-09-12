@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.铁杵磨成针菱形, MXLaohenEnum.霜汐共振], "attr": "shuang", "star": "6",
@@ -40,6 +40,7 @@ const Skill = [
                 speSkillCon("", 0, -1, 0),
                 speSkillCon("最终攻击的霜元素伤害"),
                 "。如果敌人处于",
+                speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                 speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                 "范围内，则额外触发一次持续",
                 speSkillCon("3"),
@@ -84,6 +85,7 @@ const Skill = [
                 speSkillCon("", 0, -1, 0),
                 speSkillCon("(属性乘区·主动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
                 "，且场上",
+                speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                 speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                 "造成伤害时使目标基础减伤降低",
                 speSkillCon("40%"),
@@ -97,6 +99,7 @@ const Skill = [
                 "，最多可以达到",
                 speSkillCon("55%"),
                 "。",
+                speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                 speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                 "重叠时，伤害可以叠加，融甲效果不可叠加。",
                 "",
@@ -113,8 +116,10 @@ const Skill = [
                 "，并形成",
                 speSkillCon("250"),
                 "范围的",
+                speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                 speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                 "。当",
+                speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                 speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                 "存在时，每秒对区域内的敌人造成",
                 speSkillCon("", 0, -1, 2),
@@ -147,6 +152,7 @@ const Skill = [
                 "，并形成",
                 speSkillCon("500"),
                 "范围",
+                speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                 speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                 "",
                 "在潮湿环境下，直接形成霜元素区域",
@@ -171,24 +177,29 @@ const Skill = [
                     "施放【直磨】、【锤刻之手】时，能够在场上形成持续",
                     speSkillCon("15"),
                     "秒的",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "，最多可以同时存在",
                     speSkillCon("3"),
                     "个。每次产生",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "的时候，回复",
                     speSkillCon("3"),
                     "秒异核充能。敌人在进入",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "时，会触发持续",
                     speSkillCon("3"),
                     "秒的",
                     speSkillCon("[冻结状态]", SkillColorEnum.normal, ToastSkillEnum.冻结状态),
                     "（如果敌人是空中单位，进入",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "时会被击落后再触发此效果）。",
                     "",
                     "当拉波离场或重伤时，场上所有的",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "消失。"
                 ],//零花本体特性
@@ -198,8 +209,10 @@ const Skill = [
                     "名以上的水或霜元素同调者（包含自己），会直接在场上产生一个",
                     speSkillCon("300"),
                     "范围的",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "（优先精英及首领目标）。",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "区域内的敌人受到的伤害提高",
                     speSkillCon("30%"),
@@ -207,8 +220,10 @@ const Skill = [
                 ],//一花特性
                 [
                     "每次产生",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "回复的异核充能翻倍。当场上存在",
+                    speSkillConWithImg(SkillDescStatusImg.拉波重塑空间),
                     speSkillCon("[重塑空间]", SkillColorEnum.normal, ToastSkillEnum.重塑空间),
                     "时，场上同调者额外攻击提高",
                     speSkillCon("45%"),

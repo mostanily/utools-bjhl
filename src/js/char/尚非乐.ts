@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.强攻对空, MXLaohenEnum.信号干扰三角], "attr": "feng", "star": "5",
@@ -102,7 +102,9 @@ const Skill = [
             ],//普通攻击
             "specialContent": [
                 [
-                    "每次造成伤害时获得1层强化：基础攻击速度提升",
+                    "每次造成伤害时获得1层",
+                    speSkillConWithImg(SkillDescStatusImg.尚非乐强化),
+                    "强化：基础攻击速度提升",
                     speSkillCon("1%"),
                     speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
                     "，持续",

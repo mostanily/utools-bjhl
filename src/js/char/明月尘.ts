@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.蚀核强攻], "attr": "shi", "star": "6",
@@ -79,7 +79,9 @@ const Skill = [
             "content": [
                 "被动：每隔",
                 speSkillCon("15"),
-                "秒，明月尘进入「刃血」状态，对自身周围",
+                "秒，明月尘进入",
+                speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
+                "「刃血」状态，对自身周围",
                 speSkillCon("400"),
                 "范围的敌人造成",
                 speSkillCon("", 0, -1, 0),
@@ -97,7 +99,10 @@ const Skill = [
                 speSkillCon("1"),
                 "秒），持续",
                 speSkillCon("15"),
-                "秒。 明月尘在「刃血」状态下，可以使用一次主动技能【善恶研判】",
+                "秒。 明月尘在",
+                speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
+                "「刃血」状态下，可以使用一次主动技能【善恶研判】",
+                "",
                 "",
                 "主动：在自身周围划定",
                 speSkillCon("600"),
@@ -207,7 +212,9 @@ const Skill = [
                     speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
                     "的能量上限提高至",
                     speSkillCon("200"),
-                    "点，「刃血」状态下，持续回复的",
+                    "点，",
+                    speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
+                    "「刃血」状态下，持续回复的",
                     speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
                     "能量每次额外提高",
                     speSkillCon("4"),

@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.庇佑, MXLaohenEnum.束缚蚀力], "attr": "shi", "star": "5",
@@ -82,7 +82,9 @@ const Skill = [
             "skillTab": [["充能时间", "80秒"]],
             "tab": ["自身增益"],
             "content": [
-                "回复全部生命和技能使用次数，前3次施放依次激活强化效果：",
+                "回复全部生命和技能使用次数，前3次施放依次激活",
+                speSkillConWithImg(SkillDescStatusImg.凤无梦技能强化),
+                "强化效果：",
                 "",
                 "【I】普通攻击的攻击速度提升",
                 speSkillCon("30%"),

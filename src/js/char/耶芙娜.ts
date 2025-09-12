@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.冻结精通], "attr": "shuang", "star": "6",
@@ -55,7 +55,9 @@ const Skill = [
                 "，有效半径增加",
                 speSkillCon("50%"),
                 "",
-                "霜龙卷每次造成伤害时，使自身获得「雪域」状态：专精值提升",
+                "霜龙卷每次造成伤害时，使自身获得",
+                speSkillConWithImg(SkillDescStatusImg.耶芙娜雪域),
+                "「雪域」状态：专精值提升",
                 speSkillCon("10%"),
                 speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
                 "，持续",

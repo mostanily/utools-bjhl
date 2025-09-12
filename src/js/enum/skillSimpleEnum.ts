@@ -95,6 +95,38 @@ enum JobTypeName {
     战术家
 }
 
+//技能描述中特殊技能状态图片
+enum SkillDescStatusImg {
+    逸虚物理,
+    逸虚风,
+    林熔毁,
+    昊苍坎尼斯,
+    百里屠苏解封一,
+    百里屠苏解封二,
+    百里屠苏解封三,
+    米达斯祸引,
+    明月尘刃血,
+    景守誓,
+    耶芙娜雪域,
+    玄戈璨星,
+    玄戈璨星增益,
+    崔远之鬼枪强化,
+    凤无梦技能强化,
+    卡洛琳爆裂试剂,
+    卡洛琳吉速汤药,
+    莉缇亚金币,
+    尚非乐强化,
+    谛卡饱食,
+    珑蚀,
+    珑非蚀,
+    言御冰点协议,
+    芙蕖舞台攻,
+    芙蕖舞台疗,
+    阳铃持续治疗,
+    元桃桃治疗模式,
+    拉波重塑空间,
+}
+
 export {
     SkillColorEnum,
     LaohenRarity,
@@ -102,5 +134,6 @@ export {
     LaohenAttrType,
     LaohenResourse,
     LaohenIllust,
-    JobTypeName
+    JobTypeName,
+    SkillDescStatusImg
 }

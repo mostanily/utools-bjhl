@@ -336,6 +336,8 @@ enum MXLaohenEnum {
     余烬增辉,
     炽炎同频,
     同频激励,
+    战术施放,
+    召唤增幅,
 }
 
 /**
@@ -476,6 +478,7 @@ enum LaohenNameEnum {
     事无出世间,
     洗出汪外,
     难渡,
+    记虚,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

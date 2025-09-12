@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.化险为夷, MXLaohenEnum.烈焰暴击], "attr": "yan", "star": "6",
@@ -54,6 +54,7 @@ const Skill = [
                 "",
                 speSkillCon("【血脉印记】技能形态", SkillColorEnum.injuries),
                 "",
+                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
                 "「坎尼斯」状态下可使用",
                 "",
                 "向目标位置扔出武器，对半径",
@@ -116,6 +117,7 @@ const Skill = [
                 "",
                 speSkillCon("【呼啸】技能形态", SkillColorEnum.injuries),
                 "",
+                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
                 "「坎尼斯」状态下可使用",
                 "",
                 "自身暴击率提升",
@@ -147,7 +149,9 @@ const Skill = [
                 ["3000%"],
             ],
             "content": [
-                "从人形状态切换到「坎尼斯」状态",
+                "从人形状态切换到",
+                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+                "「坎尼斯」状态",
                 "",
                 "对自身半径",
                 speSkillCon("600"),
@@ -156,13 +160,17 @@ const Skill = [
                 speSkillCon("最终攻击的炎元素伤害"),
                 "，并根据命中敌方数量回复自身生命值，每命中一名敌方单位，回复自身",
                 speSkillCon("8%最大生命值"),
-                "，随后切换到「坎尼斯」形态，普通攻击变为炎元素伤害，",
+                "，随后切换到",
+                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+                "「坎尼斯」形态，普通攻击变为炎元素伤害，",
                 speSkillCon("攻击速度：0.67次每秒"),
                 "，持续",
                 speSkillCon("30"),
                 "秒，每次发生暴击都会延长自身",
                 speSkillCon("2"),
-                "秒「坎尼斯」形态的持续时间",
+                "秒",
+                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+                "「坎尼斯」形态的持续时间",
                 "",
                 "使用后立即激活自动技能【呼啸】"
             ]
@@ -179,6 +187,7 @@ const Skill = [
                 "攻击面前的目标造成",
                 speSkillCon("200%最终攻击的物理伤害"),
                 "",
+                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
                 "「坎尼斯」状态下的第三段普通攻击将挥出远程剑气，对沿途的敌人造成炎元素伤害；该状态下普通攻击命中目标有几率（同自身当前暴击率）触发犬爪幻影追击，造成",
                 speSkillCon("100%最终攻击的炎元素伤害"),
                 "，伤害随目标当前生命值百分比提升（最高提升100%）并回复自身",
@@ -194,8 +203,11 @@ const Skill = [
                     "人形：不攻击时，5秒后，进入格挡姿态，受到的伤害减免",
                     speSkillCon("80%"),
                     speSkillCon("（减伤乘区·受伤害减少）", SkillColorEnum.injuries),
+                    "",
+                    speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
                     "「坎尼斯」形态：基础减伤增加",
-                    speSkillCon("12%~20%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+                    speSkillCon("12%~20%"),
+                    speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
                     speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
                     "；不攻击时，5秒后，下一次普通攻击将造成范围炎元素伤害，并在路径上留下炎元素区域"
                 ],//零花本体特性

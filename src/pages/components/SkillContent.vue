@@ -13,6 +13,9 @@
                         <Toast :toastCon="con" :showToastIndex="index" :currIndex="currentIndex"></Toast>
                     </span>
                 </span>
+                <template v-else-if="con.isImg">
+                    <img class="img-in-text" :src="con.desc" alt="状态图标" width="40" height="40">
+                </template>
                 <span v-else :style="'color: ' + getSkillNumColor(con.color)">
                     {{ setSkillCon(con, detailSkillArr) }}
                 </span>
@@ -54,3 +57,9 @@ export default defineComponent({
     }
 })
 </script>
+<style scoped>
+.img-in-text {
+    vertical-align: text-top;
+    width: 1.4em;
+}
+</style>

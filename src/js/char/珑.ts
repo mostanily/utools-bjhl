@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.碎易蚀影], "attr": "shi", "star": "6",
@@ -97,6 +97,7 @@ const Skill = [
                 speSkillCon("15"),
                 "秒（珑重伤或离场时，此效果消失）",
                 "",
+                speSkillConWithImg(SkillDescStatusImg.珑蚀),
                 "蚀元素队长：提高",
                 speSkillCon("40%"),
                 speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
@@ -106,6 +107,7 @@ const Skill = [
                 speSkillCon("[同调者攻击速度]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击速度),
                 speSkillCon("(属性乘区·攻击速度)", SkillColorEnum.injuries),
                 "",
+                speSkillConWithImg(SkillDescStatusImg.珑非蚀),
                 "非蚀元素队长：提高",
                 speSkillCon("25%"),
                 speSkillCon("[同调者攻击]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击),

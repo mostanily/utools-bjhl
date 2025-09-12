@@ -1,6 +1,6 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.暴风骤雨三角α型, MXLaohenEnum.蚀入骨髓], "attr": "shi", "star": "5",
@@ -37,7 +37,9 @@ const Skill = [
                 speSkillCon("20"),
                 "秒",
                 "",
-                "每次炼制永久提升【爆裂试剂】强度：爆裂试剂伤害提升",
+                "每次炼制永久提升",
+                speSkillConWithImg(SkillDescStatusImg.卡洛琳爆裂试剂),
+                "【爆裂试剂】强度：爆裂试剂伤害提升",
                 speSkillCon("10%"),
                 speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
                 "，最多提升",
@@ -61,7 +63,9 @@ const Skill = [
                 speSkillCon("3"),
                 "秒最多触发1次）",
                 "",
-                "每次炼制永久提升【吉速汤药】强度：提升1%最大生命值回复，最多提升",
+                "每次炼制永久提升",
+                speSkillConWithImg(SkillDescStatusImg.卡洛琳吉速汤药),
+                "【吉速汤药】强度：提升1%最大生命值回复，最多提升",
                 speSkillCon("5"),
                 "次"
             ]//满级技能内容描述

@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.沉浸舞台], "attr": "shui", "star": "5",
@@ -19,7 +19,9 @@ const Skill = [
             "skillTab": [["指令冷却", "10秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
             "tab": ["自身增益", "友方增益"],//技能标签
             "content": [
-                "切换舞台效果，使所有同调者提升",
+                "切换",
+                speSkillConWithImg(SkillDescStatusImg.芙蕖舞台攻),
+                "舞台效果，使所有同调者提升",
                 speSkillCon("20%"),
                 speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
                 speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
@@ -29,6 +31,9 @@ const Skill = [
                 speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精),
                 "，同时使指令冷却的回复速度和自动技能的充能速度加快",
                 speSkillCon("50%"),
+                speSkillCon("(属性乘区·主动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
+                "；",
+                speSkillCon("(属性乘区·自动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区自动技能回复速度),
                 "，持续",
                 speSkillCon("20"),
                 "秒",
@@ -52,7 +57,9 @@ const Skill = [
                 speSkillCon("125%治愈力"),
                 "的生命值",
                 "",
-                "主动：切换舞台效果，被动治疗同调者生命值的间隔降低一半，并为目标额外增加",
+                "主动：切换",
+                speSkillConWithImg(SkillDescStatusImg.芙蕖舞台疗),
+                "舞台效果，被动治疗同调者生命值的间隔降低一半，并为目标额外增加",
                 speSkillCon("9%~15%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
                 speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
                 speSkillCon("[同调者基础减伤]", SkillColorEnum.normal, ToastSkillEnum.同调者基础减伤),
