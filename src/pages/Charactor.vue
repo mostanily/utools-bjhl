@@ -33,18 +33,46 @@
     <div class="BOX-1-1">
         <div class="BOX-title-1">角色图鉴</div>
         <div class="main-line-wrap">
+            <ul class="resp-tabs-list clearfix" style="margin:10px 0 0">
+                <li :class="{ 'bili-list-style': true, 'active': 1 === showTypeActiveIndex }"
+                    @click="setShowTypeActiveClass(1)">
+                    <span class="tab-panel">
+                        <div style="display:flex;align-items:center;">
+                            <div class="job-name-item">按职业</div>
+                        </div>
+                    </span>
+                </li>
+                <li :class="{ 'bili-list-style': true, 'active': 2 === showTypeActiveIndex }"
+                    @click="setShowTypeActiveClass(2)">
+                    <span class="tab-panel">
+                        <div style="display:flex;align-items:center;">
+                            <div class="job-name-item">按元素</div>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+            <hr class="common-summary">
             <div class="resp-tabs">
                 <ul class="resp-tabs-list clearfix" style="margin:10px 0 0">
                     <li v-for="jobType in jobTypes" :key="jobType.id"
                         :class="{ 'bili-list-style': true, 'active': jobType.id === currentActiveIndex }"
                         @click="setActiveClass(jobType.id)">
-                        <span class="tab-panel">
+                        <span v-if="1 === showTypeActiveIndex" class="tab-panel">
                             <div style="display:flex;align-items:center;">
                                 <div style="display: flex;"><img :alt="jobType.altName"
                                         :src="getJobTypeImg(jobType.jobName, 1)" decoding="async" width="24" height="24"
                                         :srcset="getJobTypeImg(jobType.jobName, 1.5) + ' 1.5x, ' + getJobTypeImg(jobType.jobName, 2) + ' 2x'"
                                         data-file-width="64" data-file-height="64"></div>
                                 <div class="job-name-item">{{ jobType.jobName }}</div>
+                            </div>
+                        </span>
+                        <span v-if="2 === showTypeActiveIndex" class="tab-panel">
+                            <div style="display:flex;align-items:center;">
+                                <div style="display: flex;"><img :alt="'UI 头像缩略图 元素 ' + jobType.attrName + '.png'"
+                                        :src="getCharAttrImg(jobType.attrName, 1)" decoding="async" width="24" height="24"
+                                        :srcset="getCharAttrImg(jobType.attrName, 1.5) + ' 1.5x'"
+                                        data-file-width="64" data-file-height="64"></div>
+                                <div class="job-name-item">{{ jobType.attrName }}</div>
                             </div>
                         </span>
                     </li>
@@ -54,43 +82,9 @@
                         :class="{ 'resp-tab-content': true, 'display-block': jobType.id === currentActiveIndex, 'display-none': jobType.id !== currentActiveIndex }">
                         <div class="character-wrapper-main">
                             <div v-if="jobType.id === 1" style="display: none;"></div>
-                            <div v-for="(charName, index) in jobType.charLists" :key="index" class="character-box-home">
-                                <div>
-                                    <router-link :to="{ name: 'detail', params: { name: charName } }"
-                                        :title="'同调者/' + charName">
-                                        <img :alt="'角色 ' + charName + ' 头像.png'" :src="getCharImg(charName, 1)"
-                                            decoding="async" width="80" height="96"
-                                            :srcset="getCharImg(charName, 1.5) + ' 1.5x, ' + getCharImg(charName, 2) + ' 2x'"
-                                            data-file-width="181" data-file-height="218">
-                                    </router-link>
-                                </div>
-                                <div style="position:absolute;top:-3px;">
-                                    <router-link :to="{ name: 'detail', params: { name: charName } }"
-                                        :title="'同调者/' + charName">
-                                        <img :alt="'UI 头像缩略图 元素 ' + charAttr[char[charName].attr] + '.png'"
-                                            :src="getCharAttrImg(char[charName].attr, 1)" decoding="async" width="80"
-                                            height="30" :srcset="getCharAttrImg(char[charName].attr, 1.5) + ' 1.5x'"
-                                            data-file-width="108" data-file-height="40"></router-link>
-                                </div>
-                                <div style="position:absolute;top:-4px;left:-4px;">
-                                    <router-link :to="{ name: 'detail', params: { name: charName } }"
-                                        :title="'同调者/' + charName">
-                                        <img :alt="'UI 头像缩略图 职业 ' + char[charName].job + '.png'"
-                                            :src="getJobTypeImg(char[charName].job, 1)" decoding="async" width="30"
-                                            height="30"
-                                            :srcset="getJobTypeImg(char[charName].job, 1) + ' 1.5x, ' + getJobTypeImg(char[charName].job, 1) + ' 2x'"
-                                            data-file-width="64" data-file-height="64"></router-link>
-                                </div>
-                                <div style="position:absolute;bottom:0;">
-                                    <router-link :to="{ name: 'detail', params: { name: charName } }"
-                                        :title="'同调者/' + charName">
-                                        <img :alt="'UI 头像缩略图 星级 ' + char[charName].star + '星.png'"
-                                            :src="getCharStarImg(char[charName].star, 1)" decoding="async" width="80"
-                                            height="3"
-                                            :srcset="getCharStarImg(char[charName].star, 1.5) + ' 1.5x, ' + getCharStarImg(char[charName].star, 2) + ' 2x'"
-                                            data-file-width="146" data-file-height="5"></router-link>
-                                </div>
-                                <div class="character-name-home">{{ charName }}</div>
+                            <div v-for="(charName, index) in (1 === showTypeActiveIndex ? jobType.charLists : allAttrToChar[jobType.attrName])" 
+                                :key="index" class="character-box-home">
+                                <single-char :charName="charName"></single-char>
                             </div>
                         </div>
                     </div>
@@ -101,7 +95,11 @@
 </template>
 
 <script>
+import SingleChar from './components/SingleChar.vue'
 export default {
+    components: {
+        SingleChar
+    },
     data() {
         return {
             jobTypes: [
@@ -109,42 +107,49 @@ export default {
                     id: 1,
                     altName: "UI 头像缩略图 职业 铁御.png",
                     jobName: "铁御",
+                    attrName: "炎",
                     charLists: []
                 },
                 {
                     id: 2,
                     altName: "UI 头像缩略图 职业 轻卫.png",
                     jobName: "轻卫",
+                    attrName: "水",
                     charLists: []
                 },
                 {
                     id: 3,
                     altName: "UI 头像缩略图 职业 尖锋.png",
                     jobName: "尖锋",
+                    attrName: "雷",
                     charLists: []
                 },
                 {
                     id: 4,
                     altName: "UI 头像缩略图 职业 游徒.png",
                     jobName: "游徒",
+                    attrName: "霜",
                     charLists: []
                 },
                 {
                     id: 5,
                     altName: "UI 头像缩略图 职业 筑术师.png",
                     jobName: "筑术师",
+                    attrName: "风",
                     charLists: []
                 },
                 {
                     id: 6,
                     altName: "UI 头像缩略图 职业 护佑者.png",
                     jobName: "护佑者",
+                    attrName: "蚀",
                     charLists: []
                 },
                 {
                     id: 7,
                     altName: "UI 头像缩略图 职业 战术家.png",
                     jobName: "战术家",
+                    attrName: "物理",
                     charLists: []
                 }
             ],
@@ -159,7 +164,17 @@ export default {
                 "护佑者": [],
                 "战术家": []
             },
-            currentActiveIndex: 1
+            allAttrToChar: {
+                "炎": [],
+                "水": [],
+                "雷": [],
+                "霜": [],
+                "风": [],
+                "蚀": [],
+                "物理": []
+            },
+            currentActiveIndex: 1,
+            showTypeActiveIndex: 1
         }
     },
     mounted() {
@@ -171,7 +186,9 @@ export default {
             for (let charName in this.char) {
                 const value = this.char[charName];
                 const job = value.job;
+                const attrName = this.charAttr[value.attr];
                 this.allJobTypeToChar[job] = [...this.allJobTypeToChar[job], charName]
+                this.allAttrToChar[attrName] = [...this.allAttrToChar[attrName], charName]
             }
             for (var i = 0; i < this.jobTypes.length; i++) {
                 const value = this.jobTypes[i];
@@ -179,21 +196,18 @@ export default {
                 this.jobTypes[i].charLists = this.allJobTypeToChar[jobName];
             }
         },
-        getCharImg(charName, xType) {
-            return window.$commonUtil.getCharImg(charName, xType)
-        },
-        getCharAttrImg(attrName, xType) {
-            return window.$commonUtil.getCharAttrImg(this.charAttr[attrName], xType)
-        },
-        getCharStarImg(star, xType) {
-            return window.$commonUtil.getCharStarImg(star, xType)
-        },
         getJobTypeImg(jobName, xType) {
             return window.$commonUtil.getJobTypeImg(jobName, xType)
         },
+        getCharAttrImg(attrName, xType) {
+            return window.$commonUtil.getCharAttrImg(attrName, xType, true)
+        },
         setActiveClass(index) {
             this.currentActiveIndex = index
-        }
+        },
+        setShowTypeActiveClass(index) {
+            this.showTypeActiveIndex = index
+        },
     }
 }
 </script>
@@ -287,6 +301,11 @@ export default {
     color: #4299e0;
 }
 
+.common-summary {
+    width: 100%;
+    float: left;
+}
+
 .resp-tabs-list li.active .tab-panel,
 .tab-panel:hover {
     font-family: "Source Han Sans CN";
@@ -352,18 +371,6 @@ li {
     display: inline-block;
     width: 80px;
     position: relative;
-}
-
-.character-name-home {
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    right: 0;
-    width: 80px;
-    margin: auto;
-    color: #fff;
-    text-align: center;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000, 2px 2px 4px #000;
 }
 
 a {
