@@ -338,6 +338,7 @@ enum MXLaohenEnum {
     同频激励,
     战术施放,
     召唤增幅,
+    风雪交加,
 }
 
 /**
@@ -479,6 +480,7 @@ enum LaohenNameEnum {
     洗出汪外,
     难渡,
     记虚,
+    全息邂逅,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

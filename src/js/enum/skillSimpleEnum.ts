@@ -4,6 +4,7 @@ enum SkillColorEnum {
     injuries,//其他伤害乘区（增伤，减伤，减抗等等）
     orange,//雷元素
     bing,//霜元素
+    feng,//风元素
 }
 
 //烙痕稀有度
@@ -125,6 +126,9 @@ enum SkillDescStatusImg {
     阳铃持续治疗,
     元桃桃治疗模式,
     拉波重塑空间,
+    风晴雪协同装置,
+    风晴雪巡视装置,
+    风晴雪供能装置
 }
 
 export {

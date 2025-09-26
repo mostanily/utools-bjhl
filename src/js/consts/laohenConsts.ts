@@ -639,6 +639,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.月光下的告解,
                 LaohenNameEnum.同行,
                 LaohenNameEnum.泅游,
+                LaohenNameEnum.全息邂逅,
                 LaohenNameEnum.神迹,
                 LaohenNameEnum.芳年未及,
                 LaohenNameEnum.街市清晨,
@@ -2743,6 +2744,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.逐光者,
+                LaohenNameEnum.全息邂逅,
                 LaohenNameEnum.向新世界去,
                 LaohenNameEnum.血露薇绝密,
                 LaohenNameEnum.繁花蜃影,
@@ -4022,6 +4024,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.全息邂逅,
                 LaohenNameEnum.旧友无多,
                 LaohenNameEnum.默,
                 LaohenNameEnum.度晴波,
@@ -4362,6 +4365,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.全息邂逅,
                 LaohenNameEnum.魇境边界,
                 LaohenNameEnum.空,
                 LaohenNameEnum.失罪夜,
@@ -4587,6 +4591,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.泅游,
                 LaohenNameEnum.暗涌轮廓,
+                LaohenNameEnum.全息邂逅,
                 LaohenNameEnum.神迹,
                 LaohenNameEnum.魇境边界,
                 LaohenNameEnum.天狼,
@@ -5066,6 +5071,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.全息邂逅,
                 LaohenNameEnum.神迹,
                 LaohenNameEnum.欢声萦回,
                 LaohenNameEnum.如在镜中,
@@ -11157,6 +11163,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [
+                LaohenNameEnum.全息邂逅,
                 LaohenNameEnum.神迹,
                 LaohenNameEnum.失罪夜,
                 LaohenNameEnum.问天
@@ -12278,6 +12285,37 @@ const allLaohenSkill = [
         ],
         "speSkillToast": [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区额外攻击力加成)
+        ]
+    },
+    {
+        "name": "风雪交加", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.风雪交加,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.全息邂逅], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "霜或风元素同调者施展主动技能后，自身刻印攻击力提高",
+            speSkillCon("20%（等级1时）"),
+            "/",
+            speSkillCon("35%（等级2时）"),
+            "/",
+            speSkillCon("50%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "，持续25秒，重复触发刷新持续时间",
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加)
         ]
     },
 ]
@@ -13916,6 +13954,7 @@ const allLaohen = [
     AllLaohenHelper.洗出汪外,
     AllLaohenHelper.难渡,
     AllLaohenHelper.记虚,
+    AllLaohenHelper.全息邂逅,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }

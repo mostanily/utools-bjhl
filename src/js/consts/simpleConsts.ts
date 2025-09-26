@@ -3,7 +3,8 @@ const colorConfig = [
     "#358DE7",
     "#ED7000",
     "#DAB886",
-    "#96C3D6"
+    "#96C3D6",
+    "#74C9AA"
 ];
 //茶憩加成计算公式基础比例
 const rapportFormula = [

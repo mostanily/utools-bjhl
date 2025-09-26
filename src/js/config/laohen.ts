@@ -439,6 +439,10 @@ export const laohenConfig = {
         "name": "失罪夜",
         "rarity": "3"
     },
+    "2058": {
+        "name": "全息邂逅",
+        "rarity": "3"
+    },
     "2801": {
         "name": "馆中遗影",
         "rarity": "3"

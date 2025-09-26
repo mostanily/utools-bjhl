@@ -59,6 +59,7 @@ import { 事无出世间 } from './事无出世间'
 import { 洗出汪外 } from './洗出汪外'
 import { 难渡 } from './难渡'
 import { 记虚 } from './记虚'
+import { 全息邂逅 } from './全息邂逅'
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -122,4 +123,5 @@ export default class AllLaohenHelper {
     static 洗出汪外 = 洗出汪外
     static 难渡 = 难渡
     static 记虚 = 记虚
+    static 全息邂逅 = 全息邂逅
 }

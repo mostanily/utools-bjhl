@@ -111,6 +111,7 @@ enum LaohenToastSkillEnum {
     屏障破碎,
     雷之界域,
     属性乘区暴击伤害,
+    属性乘区刻印攻击百分比增加,
 }
 
 export { ToastSkillEnum, LaohenToastSkillEnum }
