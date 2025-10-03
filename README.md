@@ -3,7 +3,12 @@
 
 白荆回廊Wiki自用，主要包含角色、烙痕、技能、茶憩等方面数据
 
-> 项目自带抽卡统计分析功能
+> 项目自带抽卡统计分析功能，卡池数据现在改为从线上获取（2025-10-04），对应的令牌与接口路由配置在项目此文件中`src\js\config\SubKey.ts`，如果此文件不存在，则可以自建，内容需要替换为自己申请的key，下面为该文件具体内容。
+
+```bash
+export const supKey = "xxxxxx"
+export const supUrl = "https://xxx.supabase.co"
+```
 
 ## ✨ 特性
 

@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.原生特攻α型, MXLaohenEnum.熊熊燃烧], "attr": "yan", "star": "5",
@@ -29,6 +29,7 @@ const Skill = [
                 "施放后装填",
                 speSkillCon("6"),
                 "枚",
+                speSkillConWithImg(SkillDescStatusImg.罗咤弹药),
                 speSkillCon("[弹药]", SkillColorEnum.normal, ToastSkillEnum.弹药)
             ]//满级技能内容描述
         }
@@ -46,6 +47,8 @@ const Skill = [
                 speSkillCon("15"),
                 "秒装填",
                 speSkillCon("6"),
+                "枚",
+                speSkillConWithImg(SkillDescStatusImg.罗咤弹药),
                 speSkillCon("[弹药]", SkillColorEnum.normal, ToastSkillEnum.弹药),
                 "",
                 "主动：切换普通攻击的攻击模式",
@@ -106,6 +109,7 @@ const Skill = [
                 "施放后装填",
                 speSkillCon("8"),
                 "枚",
+                speSkillConWithImg(SkillDescStatusImg.罗咤弹药),
                 speSkillCon("[弹药]", SkillColorEnum.normal, ToastSkillEnum.弹药)
             ]
         }
@@ -129,6 +133,7 @@ const Skill = [
             "specialContent": [
                 [
                     "可向武器中装填",
+                    speSkillConWithImg(SkillDescStatusImg.罗咤弹药),
                     speSkillCon("[弹药]", SkillColorEnum.normal, ToastSkillEnum.弹药),
                     "，当存在",
                     speSkillCon("[弹药]", SkillColorEnum.normal, ToastSkillEnum.弹药),

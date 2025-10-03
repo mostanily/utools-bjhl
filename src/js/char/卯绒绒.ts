@@ -1,6 +1,6 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.核心充能三角α型, MXLaohenEnum.主场扩大], "attr": "shui", "star": "6",
@@ -24,6 +24,7 @@ const Skill = [
                 speSkillCon("2500%最终攻击的水元素伤害"),
                 "，并拦截敌方投射物",
                 "",
+                speSkillConWithImg(SkillDescStatusImg.卯绒绒蓄水充盈),
                 speSkillCon("「蓄水充盈」状态下额外效果", SkillColorEnum.injuries),
                 "",
                 "施放技能期间获得额外",
@@ -51,6 +52,7 @@ const Skill = [
                 "名敌人造成",
                 speSkillCon("1125%最终攻击的水元素伤害"),
                 "",
+                speSkillConWithImg(SkillDescStatusImg.卯绒绒蓄水充盈),
                 speSkillCon("仅「蓄水充盈」状态下可主动施放：", SkillColorEnum.injuries),
                 "",
                 "主动：选择目标点施放，有效半径扩大至",
@@ -92,11 +94,17 @@ const Skill = [
             ],//普通攻击
             "specialContent": [
                 [
-                    "战斗开始时进入「蓄水充盈」状态，该状态下技能【大角出场】【抖包袱】获得增强，并在主动施放后失去「蓄水充盈」状态",
+                    "战斗开始时进入",
+                    speSkillConWithImg(SkillDescStatusImg.卯绒绒蓄水充盈),
+                    "「蓄水充盈」状态，该状态下技能【大角出场】【抖包袱】获得增强，并在主动施放后失去",
+                    speSkillConWithImg(SkillDescStatusImg.卯绒绒蓄水充盈),
+                    "「蓄水充盈」状态",
                     "",
                     "每隔",
                     speSkillCon("30"),
-                    "秒可重新获得「蓄水充盈」状态"
+                    "秒可重新获得",
+                    speSkillConWithImg(SkillDescStatusImg.卯绒绒蓄水充盈),
+                    "「蓄水充盈」状态"
                 ],//零花本体特性
                 [
                     "自身处于水元素区域时，专精提升",

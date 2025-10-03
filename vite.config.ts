@@ -5,6 +5,7 @@ import pkg from './package.json'
 import electron from 'vite-plugin-electron'
 import { rmSync } from 'node:fs'
 import { notBundle } from 'vite-plugin-electron/plugin'
+import topLevelAwait from 'vite-plugin-top-level-await';
 
 
 
@@ -18,7 +19,7 @@ export default defineConfig(({ command, mode }) => {
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG
   return {
     base: './',
-    plugins: [vue(),
+    plugins: [vue(),topLevelAwait(),
     utools({
       entry: [
         { entry: 'utools/preload.js' }
@@ -43,6 +44,7 @@ export default defineConfig(({ command, mode }) => {
         },
         vite: {
           build: {
+            target: 'esnext',
             sourcemap,
             minify: isBuild,
             outDir: 'dist-electron/main',
@@ -70,6 +72,7 @@ export default defineConfig(({ command, mode }) => {
         },
         vite: {
           build: {
+            target: 'esnext',
             chunkSizeWarningLimit: 1500,
             sourcemap: sourcemap ? 'inline' : undefined, // #332
             minify: isBuild,

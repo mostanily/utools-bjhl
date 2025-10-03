@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.利刃三角α型, MXLaohenEnum.雷核释力], "attr": "lei", "star": "6",
@@ -25,6 +25,7 @@ const Skill = [
                 speSkillCon("300%最终攻击的雷元素伤害"),
                 "",
                 "技能施放结束后提高1级自身",
+                speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
                 speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
                 "强度"
             ]//满级技能内容描述
@@ -52,6 +53,7 @@ const Skill = [
                 "），缇诗离场或重伤时该效果消失",
                 "",
                 "技能施放结束后提高1级自身",
+                speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
                 speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
                 "强度，并回复1次",
                 speSkillCon("【元能突变】", SkillColorEnum.injuries),
@@ -121,6 +123,7 @@ const Skill = [
                     "时可以施放【再生序列】",
                     "",
                     "通过主动技能可提升自身",
+                    speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
                     speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
                     "强度，达到强度Ⅲ后不再提升",
                     "",
@@ -141,6 +144,7 @@ const Skill = [
                     "登场时异核充能",
                     speSkillCon("30"),
                     "秒，且",
+                    speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
                     speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
                     "强度Ⅲ级后自身所有伤害忽略目标基础减伤",
                     speSkillCon("30%"),
@@ -150,6 +154,7 @@ const Skill = [
                     "异核充能时间减少",
                     speSkillCon("15"),
                     "秒，",
+                    speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
                     speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
                     "强度Ⅲ后，主动技能伤害提高",
                     speSkillCon("30%"),

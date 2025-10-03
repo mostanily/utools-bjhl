@@ -1,3 +1,4 @@
 dist/
 upx/
 node_modules/
+src/js/config/SubKey.ts

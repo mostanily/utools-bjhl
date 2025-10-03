@@ -8,7 +8,8 @@ export const 全息邂逅 = {
     "id": LaohenNameEnum.全息邂逅,
     "extraData": {
         "illust": LaohenIllust.乔瑟夫乔尊尊, //画师,
-        "resourse": LaohenResourse.定向潜航
+        "resourse": LaohenResourse.定向潜航,
+        "skillLink": "风晴雪"
     },
     "mxSkill": [
         MXLaohenEnum.精神振奋,

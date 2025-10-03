@@ -1,7 +1,7 @@
-import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
-import { speSkillCon } from '../consts/SkillCon.ts';
+import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.核心充能三角β型, MXLaohenEnum.水陷抗涣], "attr": "shui", "star": "6",
@@ -28,6 +28,7 @@ const Skill = [
                 "，并在目标点留下",
                 speSkillCon("1"),
                 "个",
+                speSkillConWithImg(SkillDescStatusImg.余音切分音),
                 speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                 "",
                 "每次释放【纯净声源】后，提高自身自动技能回复速度",
@@ -61,6 +62,7 @@ const Skill = [
                 "，并在目标点附近留下",
                 speSkillCon("1"),
                 "个",
+                speSkillConWithImg(SkillDescStatusImg.余音切分音),
                 speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                 "",
                 "",
@@ -69,6 +71,7 @@ const Skill = [
                 "可以消耗场上存在的",
                 speSkillCon("4"),
                 "个",
+                speSkillConWithImg(SkillDescStatusImg.余音切分音),
                 speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                 "在指定位置形成持续",
                 speSkillCon("10"),
@@ -129,7 +132,10 @@ const Skill = [
                 "",
                 "技能释放完毕后，余音接下来的",
                 speSkillCon("5"),
-                "次普通攻击会在目标处产生1个",
+                "次",
+                speSkillConWithImg(SkillDescStatusImg.余音普通攻击),
+                "普通攻击会在目标处产生1个",
+                speSkillConWithImg(SkillDescStatusImg.余音切分音),
                 speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音)
             ]
         }
@@ -150,25 +156,32 @@ const Skill = [
             "specialContent": [
                 [
                     "释放技能可以在场上形成",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "，",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "生成时会产生",
                     speSkillCon("100"),
                     "范围的水元素区域，场上最多可以同时存在",
                     speSkillCon("8"),
                     "个",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "。每产生",
                     speSkillCon("4"),
                     "个",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "，回复1次【纯净声源】技能次数。",
                     "",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "数量达到一定程度时，可以消耗",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "，主动释放【定音乐轨】。（区域切换、同调者切换至后备队或重伤时，场上所有的",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "消失）"
                 ],//零花本体特性
@@ -179,8 +192,10 @@ const Skill = [
                     "。入场时，直接在自身周围产生",
                     speSkillCon("3"),
                     "个",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "，且释放【定音乐轨】消耗的",
+                    speSkillConWithImg(SkillDescStatusImg.余音切分音),
                     speSkillCon("[切分音]", SkillColorEnum.normal, ToastSkillEnum.切分音),
                     "数量降低至",
                     speSkillCon("3"),

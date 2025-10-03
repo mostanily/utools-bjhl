@@ -356,7 +356,8 @@
 import { computed } from 'vue';
 import html2canvas from 'html2canvas';
 import ProgressBar from './components/ProgressBar.vue';
-import OtherBar from './components/OtherBar.vue'
+import OtherBar from './components/OtherBar.vue';
+import initSupData from '../js/config/database.ts';
 
 export default {
     components: {
@@ -1002,7 +1003,7 @@ export default {
             }
             return newDBData
         },
-        getBjData() {
+        async getBjData() {
             if (this.nickActiveIndex == -1) {
                 this.initData()
             }
@@ -1010,9 +1011,10 @@ export default {
             if (hisNicks) {
                 this.hisNick = hisNicks.data
             }
-            const pool = window.$commonUtil.poolConfig
-            const role = window.$commonUtil.roleConfig
-            const laohen = window.$commonUtil.laohenConfig
+            const ConfigHelper = await initSupData();
+            const pool = ConfigHelper.poolConfig
+            const role = ConfigHelper.roleConfig
+            const laohen = ConfigHelper.laohenConfig
             // console.log(`卡池配置（卡池-角色-烙痕）`)
             // console.log(pool)
             // console.log(role)
@@ -1177,7 +1179,7 @@ export default {
                     }
                     allPoolData[poolId].push(ssrLaohenWithPool)
                     //过滤掉十连必出卡池
-                    if (Object.keys(pool[poolId]).includes("mustGet")) {
+                    if (Object.keys(pool[poolId]).includes("mustGet") && pool[poolId].mustGet) {
                         hasSureSixPool = true
                         ssrLaohenWithPool.desc = pool[poolId].desc
                         ssrLaohenWithPool.mustGet = true
@@ -1198,7 +1200,7 @@ export default {
                         }
                     }
                     //判断是否是角色常驻UP池
-                    if (Object.keys(pool[poolId]).includes("limit")) {
+                    if (Object.keys(pool[poolId]).includes("limit") && pool[poolId].limit.length > 0) {
                         let changzhuUpLimit = pool[poolId].limit
                         for (let czUpIndex in changzhuUpLimit) {
                             let limitUpData = changzhuUpLimit[czUpIndex]
