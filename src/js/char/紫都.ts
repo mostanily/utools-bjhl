@@ -1,6 +1,6 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
@@ -18,10 +18,28 @@ const Skill = [
             "type": "主动技能",//技能类型，主动、被动、自定等
             "skillTab": [["指令冷却", "25秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
             "tab": ["回复", "持续施法"],//技能标签
+            "sizeLevel": [
+                ["40%"],
+                ["46%"],
+                ["52%"],
+                ["58%"],
+                ["64%"],
+                ["70%"],
+                ["76%"],
+                ["82%"],
+                ["88%"],
+                ["92%"],
+                ["96%"],
+                ["100%"],
+                ["104%"],
+                ["108%"],
+                ["112%"]
+            ],
             "content": [
                 "持续对生命值百分比最低的",
                 speSkillCon("3"),
                 "名友方同调者进行治疗，每秒治疗目标",
+                speSkillCon("", 0, -1, 0),
                 speSkillCon("100%治愈力"),
                 "的生命值，持续15秒"
             ]//满级技能内容描述
@@ -35,17 +53,37 @@ const Skill = [
             "type": "自动技能",
             "skillTab": [["施放冷却", "15秒"]],
             "tab": ["伤害", "友方增益", "回复"],
+            "sizeLevel": [
+                ["150%", "550%"],
+                ["173%", "633%"],
+                ["195%", "715%"],
+                ["217%", "798%"],
+                ["240%", "880%"],
+                ["263%", "963%"],
+                ["285%", "1045%"],
+                ["308%", "1128%"],
+                ["330%", "1210%"],
+                ["345%", "1265%"],
+                ["360%", "1320%"],
+                ["375%", "1375%"],
+                ["390%", "1430%"],
+                ["405%", "1485%"],
+                ["420%", "1540%"]
+            ],
             "content": [
                 "朝当前生命最低的友方同调者释放鹿蜀幻影，治疗沿途所有友方同调者",
-                speSkillCon("375%治愈力"),
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("治愈力"),
                 "的生命值并增加",
-                speSkillCon("4.8%~8%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+                speSkillCon("4.8%~8%"),
+                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
                 speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
                 speSkillCon("[同调者基础减伤]", SkillColorEnum.normal, ToastSkillEnum.同调者基础减伤),
                 "，持续",
                 speSkillCon("8"),
                 "秒，同时对沿途所有敌人造成",
-                speSkillCon("1375%最终攻击的风元素伤害")
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的风元素伤害")
             ]
         }
     },
@@ -57,14 +95,25 @@ const Skill = [
             "type": "异核技能",
             "skillTab": [["充能时间", "90秒"]],
             "tab": ["伤害", "友方增益", "自身增益", "回复"],
+            "sizeLevel": [
+                ["1200%", "210%"],
+                ["1400%", "245%"],
+                ["1600%", "280%"],
+                ["1800%", "315%"],
+                ["1900%", "333%"],
+                ["2000%", "350%"]
+            ],
             "content": [
                 "对全场敌人造成",
-                speSkillCon("2000%最终攻击的风元素伤害"),
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的风元素伤害"),
                 speSkillCon("20"),
                 "秒的复苏状态，每秒治疗目标",
-                speSkillCon("350%治愈力"),
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("治愈力"),
                 "的生命值，提升全体同调者",
-                speSkillCon("18%~30%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+                speSkillCon("18%~30%"),
+                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
                 speSkillCon("（属性乘区·元素抗性提高）", SkillColorEnum.injuries),
                 "全元素抗性"
             ]
@@ -89,7 +138,8 @@ const Skill = [
                     speSkillCon("20%"),
                     speSkillCon("（治疗乘区·独立治疗）", SkillColorEnum.injuries),
                     "，并增加目标",
-                    speSkillCon("3%~5%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+                    speSkillCon("3%~5%"),
+                    speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
                     speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
                     "基础减伤，持续",
                     speSkillCon("5"),
@@ -100,7 +150,8 @@ const Skill = [
                 ],//一花特性
                 [
                     "编入队伍时，提升全队",
-                    speSkillCon("6%~10%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+                    speSkillCon("6%~10%"),
+                    speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
                     speSkillCon("（属性乘区·元素抗性提高）", SkillColorEnum.injuries),
                     "全元素抗性"
                 ]//三花特性
@@ -121,6 +172,69 @@ const Skill = [
                 speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
                 speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精),
                 "，持续10秒，该效果最多叠加2层"
+            ]
+        }
+    },
+    {
+        "name": "技能同调",
+        "aliasNum": "技能同调",
+        "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+        "unlock": LaohenNameEnum.光风之下,//该技能解锁条件，拥有对应的烙痕ID
+        "detail": {
+            "name": "唤灵为影",
+            "aliasNum": "1",
+            "maxLevel": 15,
+            "type": "主动技能",
+            "skillTab": [["指令冷却", "25秒"], ["次数", "5"]],
+            "tab": ["自身增益", "伤害", "友方增益"],
+            "sizeLevel": [
+                ["14%", "1200%"],
+                ["17%", "1380%"],
+                ["19%", "1560%"],
+                ["21%", "1740%"],
+                ["23%", "1920%"],
+                ["25%", "2100%"],
+                ["27%", "2280%"],
+                ["30%", "2460%"],
+                ["32%", "2640%"],
+                ["33%", "2760%"],
+                ["35%", "2880%"],
+                ["36%", "3000%"],
+                ["37%", "3120%"],
+                ["39%", "3240%"],
+                ["40%", "3360%"]
+            ],
+            "content": [
+                speSkillCon("选择该技能同调后，职业切换为战术家；专精增伤转化率提升为100%，专精治愈转化率降低为80%", SkillColorEnum.injuries),
+                "",
+                "对自身及施放时除自身外最终攻击力最低的",
+                speSkillCon("1"),
+                "名友方同调者施加「漫歌」效果，持续",
+                speSkillCon("25"),
+                "秒（当紫都重伤或离场后，此效果消失）：",
+                "",
+                "「漫歌」：获得",
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
+                speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+                "，并按照",
+                speSkillCon("100%"),
+                "比例同步场上攻击力最高同调者的攻击力。",
+                "",
+                "拥有「漫歌」效果的同调者在第1/7/15秒会对紫都的当前攻击目标施放一只鹿蜀幻影，对路径上敌人造成",
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的风元素伤害"),
+                "（视为紫都造成的伤害）"
+            ],
+            "specialContent": [
+                [
+                    "【唤灵为影】施加「漫歌」效果对自身和除自身外最终攻击力最低的2名友方同调者施加，拥有「漫歌」效果的同调者每次施放鹿蜀幻影时回复5秒异核充能。"
+                ],//特质Ⅱ级解锁
+                [
+                    "「漫歌」对场上所有同调者施加，场上每出现一只鹿蜀幻影，鹿蜀幻影的伤害提升10%",
+                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                    "，持续30秒，最多叠加24层。"
+                ],//特质Ⅴ级解锁
             ]
         }
     }

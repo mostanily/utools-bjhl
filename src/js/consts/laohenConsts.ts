@@ -118,6 +118,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.光风之下,
                 LaohenNameEnum.遇见宝石海,
                 LaohenNameEnum.幕影重重,
                 LaohenNameEnum.最强召唤师,
@@ -713,6 +714,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.幻想彼境,
                 LaohenNameEnum.无罪之徒,
                 LaohenNameEnum.堕入星尘,
+                LaohenNameEnum.越界,
                 LaohenNameEnum.荣与罪,
                 LaohenNameEnum.雨中愿
             ], //枚举LaohenNameEnum.(x)
@@ -797,6 +799,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.千灯无间,
                 LaohenNameEnum.雪轻日暖,
+                LaohenNameEnum.越界,
                 LaohenNameEnum.泡影,
                 LaohenNameEnum.奢梦,
                 LaohenNameEnum.意外邂逅,
@@ -834,6 +837,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.光风之下,
                 LaohenNameEnum.幻想彼境,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.萌火直出,
@@ -929,6 +933,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.光风之下,
                 LaohenNameEnum.幻想彼境,
                 LaohenNameEnum.沙中金火,
                 LaohenNameEnum.萌火直出,
@@ -937,6 +942,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.烟尘往事,
                 LaohenNameEnum.雪轻日暖,
                 LaohenNameEnum.最强召唤师,
+                LaohenNameEnum.越界,
                 LaohenNameEnum.荣与罪,
                 LaohenNameEnum.雨中愿,
                 LaohenNameEnum.旧巷
@@ -1414,6 +1420,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.残照,
                 LaohenNameEnum.天陷,
                 LaohenNameEnum.沙中金火,
+                LaohenNameEnum.越界,
                 LaohenNameEnum.精准控分,
                 LaohenNameEnum.余兴节目,
                 LaohenNameEnum.假日余暇,
@@ -2264,6 +2271,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.光风之下,
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.Feat,
                 LaohenNameEnum.棺中鸟,
@@ -3438,8 +3446,10 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.光风之下,
                 LaohenNameEnum.无罪之徒,
                 LaohenNameEnum.堕入星尘,
+                LaohenNameEnum.越界,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
@@ -4831,6 +4841,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.光风之下,
                 LaohenNameEnum.沙中金火,
                 LaohenNameEnum.暗巷漆影,
                 LaohenNameEnum.千灯无间,
@@ -5150,6 +5161,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.未晞,
                 LaohenNameEnum.雪轻日暖,
                 LaohenNameEnum.最好吃的朋友,
+                LaohenNameEnum.越界,
                 LaohenNameEnum.余兴节目,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -12318,6 +12330,102 @@ const allLaohenSkill = [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加)
         ]
     },
+    {
+        "name": "千嶂风鸣", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.千嶂风鸣,
+        "takeEffect": [JobTypeName.护佑者, JobTypeName.战术家], //职业名称
+        "useSkill": [
+            240,
+            240,
+            240
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.光风之下], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "风元素同调者施展主动技能后，场上同调者额外攻击力提高",
+            speSkillCon("10%（等级1时）"),
+            "/",
+            speSkillCon("20%（等级2时）"),
+            "/",
+            speSkillCon("30%（等级3时）"),
+            speSkillCon("(属性乘区·额外攻击力加成)", SkillColorEnum.injuries),
+            "，若场上同调者为风元素则再额外提高15%",
+            speSkillCon("(属性乘区·额外攻击力加成)", SkillColorEnum.injuries),
+            "。该效果持续45秒，重复触发刷新持续时间。"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区额外攻击力加成)
+        ]
+    },
+    {
+        "name": "元素领袖·风", //技能名称
+        "skillType": LaohenSkillType.常规技能,
+        "isJL": false,
+        "rarity": LaohenRarity.r, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.元素领袖风,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            120,
+            90,
+            90
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.光风之下], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "当编队队长是风元素同调者时，全队提升",
+            speSkillCon("10％（等级1时）"),
+            "/",
+            speSkillCon("18％（等级2时）"),
+            "/",
+            speSkillCon("25％（等级3时）"),
+            speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
+            "额外伤害",
+        ]
+    },
+    {
+        "name": "风力共能", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": true,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.风力共能,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            200,
+            200,
+            200
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.越界], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "同调者施放风元素主动伤害技能时，场上所有同调者获得2层",
+            speSkillCon("[激励]"),
+            "。整场战斗首次触发该效果时额外获得2层，通过该效果获得的",
+            speSkillCon("[激励]"),
+            "不能超过",
+            speSkillCon("4（等级1时）"),
+            "/",
+            speSkillCon("7（等级2时）"),
+            "/",
+            speSkillCon("10（等级3时）"),
+            speSkillCon("(增伤乘区·激励)", SkillColorEnum.injuries),
+            "层"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.激励)
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -12351,94 +12459,10 @@ const allLaohen = [
     AllLaohenHelper.瞳中困影,
     AllLaohenHelper.潮湿前路,
     AllLaohenHelper.天狼,
-    {
-        "name": "寂静昨日",
-        "rarity": LaohenRarity.ssr, //稀有度
-        "type": LaohenAttrType.专精,
-        "id": LaohenNameEnum.寂静昨日,
-        "extraData": {
-            "illust": LaohenIllust.AurogonShanghai, //画师,
-            "resourse": LaohenResourse.主线
-        },
-        "mxSkill": [
-            MXLaohenEnum.护盾赐福,
-            MXLaohenEnum.失控元素,
-            MXLaohenEnum.异种特攻β型,
-            MXLaohenEnum.对空特攻β型,
-            MXLaohenEnum.势如破竹对精英,
-            MXLaohenEnum.坚定意志菱形β型,
-            MXLaohenEnum.伤害赐福菱形β型
-        ], //慢巡技能
-        "hxSkill": [
-            MXLaohenEnum.水汽弥漫
-        ], //唤醒技能
-    },
-    {
-        "name": "馆中遗影",
-        "rarity": LaohenRarity.ssr, //稀有度
-        "type": LaohenAttrType.专精,
-        "id": LaohenNameEnum.馆中遗影,
-        "extraData": {
-            "illust": LaohenIllust.Juanmao, //画师,
-            "resourse": LaohenResourse.活动
-        },
-        "mxSkill": [
-            MXLaohenEnum.能力催化,
-            MXLaohenEnum.快步流星,
-            MXLaohenEnum.核心充能方块β型,
-            MXLaohenEnum.昂扬斗志方块β型,
-            MXLaohenEnum.落井下石,
-            MXLaohenEnum.伤害赐福菱形β型,
-            MXLaohenEnum.针对打击菱形
-        ], //慢巡技能
-        "hxSkill": [
-            MXLaohenEnum.影盾
-        ], //唤醒技能
-    },
-    {
-        "name": "于火光中「蛋」生",
-        "rarity": LaohenRarity.ssr, //稀有度
-        "type": LaohenAttrType.专精,
-        "id": LaohenNameEnum.于火光中蛋生,
-        "extraData": {
-            "illust": LaohenIllust.Noir, //画师,
-            "resourse": LaohenResourse.定向潜航
-        },
-        "mxSkill": [
-            MXLaohenEnum.主场优势,
-            MXLaohenEnum.护盾灌注,
-            MXLaohenEnum.乘人之危对空,
-            MXLaohenEnum.元素半衰期,
-            MXLaohenEnum.核心充能菱形α型,
-            MXLaohenEnum.铁杵磨成针菱形,
-            MXLaohenEnum.及时援助菱形α型
-        ], //慢巡技能
-        "hxSkill": [
-            MXLaohenEnum.战术强化
-        ], //唤醒技能
-    },
-    {
-        "name": "藏锋",
-        "rarity": LaohenRarity.ssr, //稀有度
-        "type": LaohenAttrType.专精,
-        "id": LaohenNameEnum.藏锋,
-        "extraData": {
-            "illust": LaohenIllust.iii303, //画师,
-            "resourse": LaohenResourse.寻迹潜航
-        },
-        "mxSkill": [
-            MXLaohenEnum.复仇者之怒,
-            MXLaohenEnum.治愈加速,
-            MXLaohenEnum.对空特攻α型,
-            MXLaohenEnum.乘人之危对地,
-            MXLaohenEnum.一线生机,
-            MXLaohenEnum.自动瞄准系统方块α型,
-            MXLaohenEnum.暴风骤雨三角α型
-        ], //慢巡技能
-        "hxSkill": [
-            MXLaohenEnum.蚀力渗透
-        ], //唤醒技能
-    },
+    AllLaohenHelper.寂静昨日,
+    AllLaohenHelper.馆中遗影,
+    AllLaohenHelper.于火光中蛋生,
+    AllLaohenHelper.藏锋,
     {
         "name": "暗巷漆影",
         "rarity": LaohenRarity.ssr, //稀有度
@@ -13955,6 +13979,8 @@ const allLaohen = [
     AllLaohenHelper.难渡,
     AllLaohenHelper.记虚,
     AllLaohenHelper.全息邂逅,
+    AllLaohenHelper.光风之下,
+    AllLaohenHelper.越界
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }

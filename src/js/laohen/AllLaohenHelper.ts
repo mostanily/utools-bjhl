@@ -28,7 +28,7 @@ import { 晓梦迷花 } from './晓梦迷花'
 import { 瞳中困影 } from './瞳中困影'
 import { 潮湿前路 } from './潮湿前路'
 import { 天狼 } from './天狼'
-
+import { 藏锋 } from './藏锋'
 import { 未晞 } from './未晞'
 import { 千灯无间 } from './千灯无间'
 import { 浊雨 } from './浊雨'
@@ -60,6 +60,11 @@ import { 洗出汪外 } from './洗出汪外'
 import { 难渡 } from './难渡'
 import { 记虚 } from './记虚'
 import { 全息邂逅 } from './全息邂逅'
+import { 光风之下 } from './光风之下'
+import { 越界 } from './越界'
+import { 寂静昨日 } from './寂静昨日'
+import { 馆中遗影 } from './馆中遗影'
+import { 于火光中蛋生 } from './于火光中蛋生'
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -92,7 +97,7 @@ export default class AllLaohenHelper {
     static 瞳中困影 = 瞳中困影
     static 潮湿前路 = 潮湿前路
     static 天狼 = 天狼
-
+    static 藏锋 = 藏锋
     static 未晞 = 未晞
     static 千灯无间 = 千灯无间
     static 浊雨 = 浊雨
@@ -124,4 +129,9 @@ export default class AllLaohenHelper {
     static 难渡 = 难渡
     static 记虚 = 记虚
     static 全息邂逅 = 全息邂逅
+    static 光风之下 = 光风之下
+    static 越界 = 越界
+    static 寂静昨日 = 寂静昨日
+    static 馆中遗影 = 馆中遗影
+    static 于火光中蛋生 = 于火光中蛋生
 }

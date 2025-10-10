@@ -339,6 +339,9 @@ enum MXLaohenEnum {
     战术施放,
     召唤增幅,
     风雪交加,
+    千嶂风鸣,
+    元素领袖风,
+    风力共能,
 }
 
 /**
@@ -481,6 +484,8 @@ enum LaohenNameEnum {
     难渡,
     记虚,
     全息邂逅,
+    光风之下,
+    越界,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
