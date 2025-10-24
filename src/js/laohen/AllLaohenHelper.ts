@@ -65,6 +65,7 @@ import { 越界 } from './越界'
 import { 寂静昨日 } from './寂静昨日'
 import { 馆中遗影 } from './馆中遗影'
 import { 于火光中蛋生 } from './于火光中蛋生'
+import { 为伍 } from './为伍'
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -134,4 +135,5 @@ export default class AllLaohenHelper {
     static 寂静昨日 = 寂静昨日
     static 馆中遗影 = 馆中遗影
     static 于火光中蛋生 = 于火光中蛋生
+    static 为伍 = 为伍
 }

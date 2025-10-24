@@ -342,6 +342,8 @@ enum MXLaohenEnum {
     千嶂风鸣,
     元素领袖风,
     风力共能,
+    暗影伏击,
+    蚀渊异能,
 }
 
 /**
@@ -486,6 +488,7 @@ enum LaohenNameEnum {
     全息邂逅,
     光风之下,
     越界,
+    为伍,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

@@ -287,6 +287,10 @@ export const roleConfig = {
         "rarity": "6",
         "name": "谛卡"
     },
+    "653": {
+        "rarity": "6",
+        "name": "红珠小姐"
+    },
     "656": {
         "rarity": "6",
         "name": "逸虚"

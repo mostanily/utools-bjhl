@@ -57,6 +57,7 @@ import { 苏筱 } from "./苏筱";
 import { 阳铃 } from "./阳铃";
 import { 长谣 } from "./长谣";
 import { 元桃桃 } from "./元桃桃";
+import { 红珠小姐 } from './红珠小姐';
 import { 提提亚 } from "./提提亚";
 import { 拉波 } from "./拉波";
 import { 伊琅相思 } from "./伊琅相思";
@@ -132,6 +133,7 @@ export default class AllCharHelper {
     static 阳铃 = 阳铃;
     static 长谣 = 长谣;
     static 元桃桃 = 元桃桃;
+    static 红珠小姐 = 红珠小姐;
     static 提提亚 = 提提亚;
     static 拉波 = 拉波;
     static 伊琅相思 = 伊琅相思;

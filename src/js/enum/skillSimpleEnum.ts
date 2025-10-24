@@ -83,6 +83,7 @@ enum LaohenIllust {
     llmia咻,
     小藻,
     kana酱,
+    沢马Haru,
 }
 
 //职业名称

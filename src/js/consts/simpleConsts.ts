@@ -110,7 +110,8 @@ const IllustNames = [
     "鲸谜",
     "llmia咻",
     "小藻",
-    "kana酱"
+    "kana酱",
+    "沢马Haru"
 ]
 
 /**

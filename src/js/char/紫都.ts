@@ -163,7 +163,7 @@ const Skill = [
         "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
         "detail": {
             "content": [
-                "踏风小调】的鹿蜀幻影使命中的友方同调者提高",
+                "【踏风小调】的鹿蜀幻影使命中的友方同调者提高",
                 speSkillCon("20%"),
                 speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
                 speSkillCon("[同调者攻击速度]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击速度),

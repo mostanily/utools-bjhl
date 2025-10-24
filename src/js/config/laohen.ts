@@ -419,6 +419,10 @@ export const laohenConfig = {
         "name": "「默」",
         "rarity": "3"
     },
+    "2046": {
+        "name": "光风之下",
+        "rarity": "3"
+    },
     "2047": {
         "name": "记虚",
         "rarity": "3"
@@ -441,6 +445,10 @@ export const laohenConfig = {
     },
     "2058": {
         "name": "全息邂逅",
+        "rarity": "3"
+    },
+    "2059": {
+        "name": "为伍",
         "rarity": "3"
     },
     "2801": {
