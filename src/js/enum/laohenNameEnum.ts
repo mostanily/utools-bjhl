@@ -344,6 +344,7 @@ enum MXLaohenEnum {
     风力共能,
     暗影伏击,
     蚀渊异能,
+    物能协同,
 }
 
 /**
@@ -489,6 +490,7 @@ enum LaohenNameEnum {
     光风之下,
     越界,
     为伍,
+    明日暄风,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
