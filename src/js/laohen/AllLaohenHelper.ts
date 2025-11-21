@@ -67,6 +67,8 @@ import { 馆中遗影 } from './馆中遗影'
 import { 于火光中蛋生 } from './于火光中蛋生'
 import { 为伍 } from './为伍'
 import { 明日暄风 } from './明日暄风'
+import { 无刃之刃 } from './无刃之刃'
+import { 如长夜振翅 } from './如长夜振翅'
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -138,4 +140,6 @@ export default class AllLaohenHelper {
     static 于火光中蛋生 = 于火光中蛋生
     static 为伍 = 为伍
     static 明日暄风 = 明日暄风
+    static 无刃之刃 = 无刃之刃
+    static 如长夜振翅 = 如长夜振翅
 }

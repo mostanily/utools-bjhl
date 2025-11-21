@@ -345,6 +345,8 @@ enum MXLaohenEnum {
     暗影伏击,
     蚀渊异能,
     物能协同,
+    瞬狱雷光,
+    蚀能协奏,
 }
 
 /**
@@ -491,6 +493,8 @@ enum LaohenNameEnum {
     越界,
     为伍,
     明日暄风,
+    无刃之刃,
+    如长夜振翅,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

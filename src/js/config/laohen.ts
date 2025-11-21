@@ -419,6 +419,10 @@ export const laohenConfig = {
         "name": "「默」",
         "rarity": "3"
     },
+    "2045": {
+        "name": "无刃之刃",
+        "rarity": "3"
+    },
     "2046": {
         "name": "光风之下",
         "rarity": "3"
