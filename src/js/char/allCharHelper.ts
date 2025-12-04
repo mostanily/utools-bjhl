@@ -37,6 +37,7 @@ import { 雪长夏 } from "./雪长夏";
 import { 狄砚 } from "./狄砚";
 import { 艾摩诃 } from "./艾摩诃";
 import { 卯绒绒 } from "./卯绒绒";
+import { 旒珠 } from "./旒珠";
 import { 龙和 } from "./龙和";
 import { 余音 } from "./余音";
 import { 瞳 } from "./瞳";
@@ -113,6 +114,7 @@ export default class AllCharHelper {
     static 狄砚 = 狄砚;
     static 艾摩诃 = 艾摩诃;
     static 卯绒绒 = 卯绒绒;
+    static 旒珠 = 旒珠;
     static 龙和 = 龙和;
     static 余音 = 余音;
     static 瞳 = 瞳;

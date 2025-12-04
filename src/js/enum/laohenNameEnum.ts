@@ -347,6 +347,8 @@ enum MXLaohenEnum {
     物能协同,
     瞬狱雷光,
     蚀能协奏,
+    元素锋刃,
+    风化噬能,
 }
 
 /**
@@ -495,6 +497,7 @@ enum LaohenNameEnum {
     明日暄风,
     无刃之刃,
     如长夜振翅,
+    烟霞在侧,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
