@@ -6,6 +6,7 @@ export const 天狼 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.天狼,
+    "tacgie": "5/5b/hkkwgnm3ivwn09c5t3tx6z8ma0dwzm7.png",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

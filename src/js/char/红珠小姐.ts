@@ -6,8 +6,18 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.暗影伏击], "attr": "shi", "star": "6",
     "nameEn": "MRS.GEM", "tag": ["输出", "召唤", "群攻"], "originWorld": "森罗、克图尔特", "orginChar": "原创",
-    "cv": "", "openDate": "2025年10月23日", 
-    "resourse": ["定向共鸣·血色丝序"], "laohenLink":LaohenNameEnum.为伍
+    "cv": "", "openDate": "2025年10月23日",
+    "resourse": ["定向共鸣·血色丝序"], "laohenLink": LaohenNameEnum.为伍,
+    "introText": "嗯？您这次前来，恐怕不是为了商讨西陵重工与白荆科技的合作事宜吧——小先知是为红珠而来吗？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "6/65/jv5w9jxiyis6u96tv4o1jppwcxrbfdo.png",
+            "a/a5/8g7uvlp5ziz4o47ntlso4c2234y02o7.png",
+            "f/f3/j6fqmcbptekaeeh8dcdjg2q50i2my89.png"
+        ],
+    }
 }
 
 const Skill = [

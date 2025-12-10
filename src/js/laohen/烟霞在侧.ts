@@ -6,6 +6,7 @@ export const 烟霞在侧 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.烟霞在侧,
+    "tacgie": "3/35/pm3av2fp6z7dkpxrcmdqe27ktbduwud.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

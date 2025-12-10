@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.利刃三角α型, MXLaohenEnum.狙击], "attr": "lei", "star": "6",
     "nameEn": "HASSEL", "tag": ["输出", "爆发"], "originWorld": "黑曜", "orginChar": "古剑奇谭网络版",
-    "cv": "夏磊", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
+    "cv": "夏磊", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
+    "introText": "监督阁下，幸会。在下崔远之，相信你已经听过我的恶名了。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "a/ab/h1n52vd5ui4lw9akfgha9t9fanf7owy.png",
+            "f/f3/3apl24xn0vlxsg09l0300ddq24n16ck.png",
+            "7/75/6ofhqb2vxf8ykj04mg9xddl93afpvu3.png"
+        ],
+    }
 }
 
 const Skill = [

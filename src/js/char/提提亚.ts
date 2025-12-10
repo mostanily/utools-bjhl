@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形β型, MXLaohenEnum.元素跃威], "attr": "shui", "star": "6",
     "nameEn": "TITIA", "tag": ["支援", "元素区域"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "郭贝", "openDate": "2024年07月18日", "resourse": ["定向共鸣·本真枷锁"]
+    "cv": "郭贝", "openDate": "2024年07月18日", "resourse": ["定向共鸣·本真枷锁"],
+    "introText": "嗨~执行官大人，好久不见……咳咳，狱警编号M469，提提亚，奉刑狱长之命为您效劳！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "c/cd/0iv5f7stlbffmvxk3pw2txej2wp2oki.png",
+            "7/73/b5xdfk3vm5t5z4uezos0gyvgdxkrxna.png",
+            "4/40/0czm0vc17zmcr90wmwirolvocks8hev.png"
+        ],
+    }
 }
 
 const Skill = [

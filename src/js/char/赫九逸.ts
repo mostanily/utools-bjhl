@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.生生不息菱形, MXLaohenEnum.针对削弱], "attr": "wuli", "star": "4",
     "nameEn": "GAUYA", "tag": ["指挥", "拉拽"], "originWorld": "黑曜", "orginChar": "原创",
-    "cv": "泽勋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "泽勋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "我是赫九逸，来自黑曜，接下来的日子暂时叨扰了。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "b/b9/0i3ct5otyl55olhiar04noddqe58tfl.png",
+            "4/4c/1ze3somyrp76dgfs6kz7uacgghycvhr.png"
+        ],
+    }
 }
 
 const Skill = [

@@ -6,6 +6,7 @@ export const 芳年未及 = {
     "rarity": LaohenRarity.sr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.芳年未及,
+    "tacgie": "3/35/ets2rbv5z38wtzetbutr0linlt1ko1k.png",
     "extraData": {
         "illust": LaohenIllust.墨秃, //画师,
         "resourse": LaohenResourse.叶脉联结计划

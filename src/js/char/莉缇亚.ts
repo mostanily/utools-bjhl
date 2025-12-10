@@ -5,7 +5,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.人形特攻β型, MXLaohenEnum.源源不断], "attr": "lei", "star": "5",
     "nameEn": "LYDIA", "tag": ["群攻", "输出"], "originWorld": "黎威尔", "orginChar": "原创",
-    "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "初次见面，我叫莉缇亚，是名商人，希望今后合作愉快。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "b/bc/na1eykftk8we4fx4yi8167wayglghfo.png",
+            "e/e1/2hgkwfunvxh7qyx5ju1cztkt98skuhz.png",
+            "e/e1/n14on5c004rw7chgubd5xl26887axcm.png"
+        ],
+    }
 }
 
 const Skill = [

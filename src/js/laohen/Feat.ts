@@ -6,6 +6,7 @@ export const Feat = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.Feat,
+    "tacgie": "8/88/ghzo60amvpbavz94y5t95hhdg3yiwuu.png",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.活动

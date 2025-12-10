@@ -6,7 +6,26 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.饱和式救援, MXLaohenEnum.先破后立], "attr": "yan", "star": "6",
     "nameEn": "BAILITUSU", "tag": ["破盾", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
-    "cv": "陈家恒", "openDate": "2024年02月01日", "resourse": ["定向共鸣·岁暮重明", "常态共鸣·森罗万象"]
+    "cv": "陈家恒", "openDate": "2024年02月01日", "resourse": ["定向共鸣·岁暮重明", "常态共鸣·森罗万象"],
+    "introText": "百里屠苏。报到。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "0/02/eyv9ooez17e8f1xdtfu57vy3gza177k.png",
+            "a/a8/3i7rf6sc67zep1lxq6jswaxzq2nurn3.png",
+            "4/47/fobaw1ui7syjz1a66zrdwl63pz5zhtf.png"
+        ],
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["笑春生"],
+            "imgs": [
+                "f/fb/srv7av4r6yp71pjuty1tzit47kk5u0p.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [
@@ -424,7 +443,7 @@ const Skill = [
                 speSkillCon("【戮魂·重明】", SkillColorEnum.injuries),
                 "独立计算"
             ],
-            "specialContent":[
+            "specialContent": [
                 [
                     "百里屠苏的自动技能和异核技能受到体质加成的部分会额外受到所有攻击加成，【戮魂】和【戮魂·重明】对敌人造成伤害后，敌人受到的伤害提高40%",
                     speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),

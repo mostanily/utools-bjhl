@@ -6,6 +6,7 @@ export const 失罪夜 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.失罪夜,
+    "tacgie": "e/e5/p0yog4crohpn56zhjckwjlskec1wzfh.png",
     "extraData": {
         "illust": LaohenIllust.当雨作金泽, //画师,
         "resourse": LaohenResourse.定向潜航

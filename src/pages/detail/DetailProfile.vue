@@ -2,7 +2,7 @@
     <div>
         <table class="wikitable" style="width:100%;margin:0;text-align:center;">
             <tbody>
-                <tr>
+                <!-- <tr>
                     <th style="width:100px;">姓名
                     </th>
                     <td>{{ $route.params.name }}
@@ -52,14 +52,14 @@
                     <td><a :title="char[$route.params.name].originWorld">{{
                         char[$route.params.name].originWorld }}</a>
                     </td>
-                </tr>
+                </tr> -->
                 <!-- <tr>
                     <th>CV
                     </th>
                     <td>{{ char[$route.params.name].cv }}
                     </td>
                 </tr> -->
-                <tr>
+                <!-- <tr>
                     <th>原型来源
                     </th>
                     <td><a rel="nofollow" class="external text" target="_blank">{{
@@ -80,7 +80,7 @@
                             {{ item }}<br>
                         </template>
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <th>队长刻印技能</th>
                     <td>
@@ -113,7 +113,7 @@
                 <tr v-if="checkHasKey(char[$route.params.name], 'laohenLink')" class="laohen-link">
                     <th>核心关联</th>
                     <td>
-                        <div class="divsort" style="display:flex;border-radius:3px;padding:3px;width:fit-content;min-width:100%;">
+                        <div class="divsort" style="display:flex;border-radius:3px;padding:3px;width:fit-content;min-width:100%;justify-content: center;">
                             <div style="width:192px;height:76px;margin-right:3px;position:relative;">
                                 <div style="position:relative;width:192px;">
                                     <router-link :title="'记忆烙痕/' + getLaohenDetail(char[$route.params.name].laohenLink).name"
@@ -170,14 +170,14 @@
                             </div>
                         </div>
                         <hr style="margin:5px 0;background:#9FA9AF;">
-                        <div style="margin-bottom:20px;"><b>图鉴解锁：</b>
-                            <skill-content :skillArr="getLaohenSpeLink($route.params.name, char[$route.params.name].laohenLink)[0]"></skill-content>
+                        <div style="margin-bottom:20px;text-align: center;"><b>图鉴解锁：</b>
+                            <skill-content style="text-align: center;" :skillArr="getLaohenSpeLink($route.params.name, char[$route.params.name].laohenLink)[0]"></skill-content>
                         </div>
-                        <div style="margin-bottom:20px;"><b>特质Ⅱ级解锁：</b>
-                            <skill-content :skillArr="getLaohenSpeLink($route.params.name, char[$route.params.name].laohenLink)[1]"></skill-content>
+                        <div style="margin-bottom:20px;text-align: center;"><b>特质Ⅱ级解锁：</b>
+                            <skill-content style="text-align: center;" :skillArr="getLaohenSpeLink($route.params.name, char[$route.params.name].laohenLink)[1]"></skill-content>
                         </div>
-                        <div style="margin-bottom:20px;"><b>特质Ⅴ级解锁：</b>
-                            <skill-content :skillArr="getLaohenSpeLink($route.params.name, char[$route.params.name].laohenLink)[2]"></skill-content>
+                        <div style="margin-bottom:20px;text-align: center;"><b>特质Ⅴ级解锁：</b>
+                            <skill-content style="text-align: center;" :skillArr="getLaohenSpeLink($route.params.name, char[$route.params.name].laohenLink)[2]"></skill-content>
                         </div>
                     </td>
                 </tr>

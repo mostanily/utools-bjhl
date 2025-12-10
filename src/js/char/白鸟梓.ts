@@ -5,7 +5,28 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.强攻对精英, MXLaohenEnum.致命弱点], "attr": "feng", "star": "5",
     "nameEn": "SHIRATORI AZUSA", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "翁媛", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "翁媛", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "血露薇白鸟梓——参上！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "c/c0/duhz6w0ks9sry3c1jf1labuo8oouokk.png",
+            "5/52/gceeodt3634aqlnagw77t1kwj3mu50w.png",
+            "0/0b/rg23jn85oi0ug8my76vck44wrh86m7o.png"
+        ],
+    },
+    "extraTacgie": [
+        {
+            "name": "旧装",
+            "listNames": ["立绘", "S4立绘", "3D"],
+            "imgs": [
+                "d/d0/b8381n1stlhjwlecojsy9o343e4e6d8.png",
+                "2/2d/9j423frzryx0hnovg6x8ny20uf7z778.png",
+                "8/87/c7ou9nc99uiuvquwbyizup254opdtws.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

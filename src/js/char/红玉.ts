@@ -6,8 +6,18 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.利刃三角β型, MXLaohenEnum.狂风卷袭], "attr": "feng", "star": "6",
     "nameEn": "SCARLETT", "tag": ["输出", "击退", "拦截"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
-    "cv": "蔡娜", "openDate": "2024年02月01日", 
-    "resourse": ["定向共鸣·玉照长夜·陈酒新酌", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.失途之日
+    "cv": "蔡娜", "openDate": "2024年02月01日",
+    "resourse": ["定向共鸣·玉照长夜·陈酒新酌", "常态共鸣·森罗万象"], "laohenLink": LaohenNameEnum.失途之日,
+    "introText": "作为长期合作伙伴，我们已经是老相识了，不过这里还是正式一些——海临特殊事件处理小队队长，红玉，幸会了监督。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "e/ef/7p0ajdjxqmwkgrm3mfzyrzncs1da1vw.png",
+            "0/00/or3g4z3dtzlxg0khxebfyczjy3kiux8.png",
+            "0/0a/3sj3evzj49wdnp8hgkxsnwxydbg6zbw.png"
+        ],
+    }
 }
 
 const Skill = [

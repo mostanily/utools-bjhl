@@ -6,6 +6,7 @@ export const 谎言之下 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.谎言之下,
+    "tacgie": "9/90/6wok31ul2hv8l97rfx4mjzj9fhqudd8.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

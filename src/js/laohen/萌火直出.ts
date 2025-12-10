@@ -6,6 +6,7 @@ export const 萌火直出 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.萌火直出,
+    "tacgie": "5/52/5q674fesbp8yylt4rhogzthpcriwlm2.png",
     "extraData": {
         "illust": LaohenIllust.墨秃, //画师,
         "resourse": LaohenResourse.活动

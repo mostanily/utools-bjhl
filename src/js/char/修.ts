@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.乘人之危对地, MXLaohenEnum.物理专精], "attr": "wuli", "star": "5",
     "nameEn": "SHU", "tag": ["防护", "控场"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "刘北辰", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "刘北辰", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "魁主近侍——修，代表血露薇与贵司接洽，愿我们合作愉快。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "5/55/mkgsxwqlhlrq88nnslcnmx45k1bcezn.png",
+            "4/46/eoaukdczqp8jevof7q0o81ni3pt53ye.png",
+            "c/c3/6a32ztq307waknrc27btqrmynngva07.png"
+        ]
+    }
 }
 
 const Skill = [

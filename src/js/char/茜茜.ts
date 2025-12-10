@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.利刃三角β型, MXLaohenEnum.蚀刻连携], "attr": "shi", "star": "6",
     "nameEn": "SISSI", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "", "openDate": "2025年04月17日", "resourse": ["定向共鸣·柙中独白"]
+    "cv": "", "openDate": "2025年04月17日", "resourse": ["定向共鸣·柙中独白"],
+    "introText": "我是……茜茜……嘿嘿，我们真的再见了呀。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "a/a5/mqa6y6ixjcehxh6ytlifdp1jjez4eun.png",
+            "6/6d/39yau7pu1ywymwpg159jcovn0219sgh.png",
+            "7/7f/9msu045em7lreb33rc69wjbf5ghqbry.png"
+        ]
+    }
 }
 
 const Skill = [

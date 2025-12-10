@@ -6,7 +6,26 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.沉浸舞台], "attr": "shui", "star": "5",
     "nameEn": "FREDA", "tag": ["治疗", "支援"], "originWorld": "艾达", "orginChar": "古剑奇谭一",
-    "cv": "陈奕雯", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "陈奕雯", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "为每一位观众而努力——你好，我是来自偶像组合Binary Star的芙、芙蕖……啊，怎么在这么重要的地方失误了……",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "7/75/mjc6wqosvaqa3x1xdsj9hxmxd8k6t8s.png",
+            "2/28/75qnes1owxsz8htdi9w442cm3vbtpva.png",
+            "3/31/456rpyw822bqsr8zx2wbsk6ej6zhixa.png"
+        ],
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["白沙珊瑚"],
+            "imgs": [
+                "6/69/n4t1xm0id86x5phz90ia3by9o7mjglh.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

@@ -6,7 +6,26 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.蚀核强攻], "attr": "shi", "star": "6",
     "nameEn": "SOLBYRD VON LUMINBERG", "tag": ["输出", "爆发"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
-    "cv": "谢添天", "openDate": "2024年09月19日", "resourse": ["定向共鸣·飞鸟也栖"], "laohenLink":LaohenNameEnum.棺中鸟
+    "cv": "谢添天", "openDate": "2024年09月19日", "resourse": ["定向共鸣·飞鸟也栖"], "laohenLink":LaohenNameEnum.棺中鸟,
+    "introText": "恶鬼王、索尔伯德，或者……明月尘。上次与你这样交谈，似乎已是千年以前了。如今也该改一改称呼。<br>那么，许久未见，监督阁下。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "6/63/df3h6r4bh4xhxaywa5u01wme7rf5nzg.png",
+            "e/e0/9e77kg457x96vstczhqwxlq3qh0lis1.png",
+            "e/eb/7iojbaju3eg43u88xte72wv3w5cenl3.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["雪夜与赞美诗"],
+            "imgs": [
+                "3/3a/5fj8wwxs9vz6ftyzq700u7byl5hs3dg.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.屏障水], "attr": "shui", "star": "6",
     "nameEn": "LONGQING", "tag": ["治疗", "屏障"], "originWorld": "海错", "orginChar": "原创",
-    "cv": "翁媛", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
+    "cv": "翁媛", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
+    "introText": "您好，我是龙晴，金鳞族的族长，非常感谢您能暂时收留我，如果有任何需要我帮忙的地方直接告诉我就好了。<br>什么？想听听我在海错的见闻？该从哪里说起好呢……",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "1/1f/klhybrly99vzdedjne2o5vjkjqhs543.png",
+            "8/8d/4t4e8mlkbbpt7e6qz0w8e4ys0jdpzb6.png",
+            "b/b8/c1oyiec05355qtdz5z5uo0i285owfu6.png"
+        ]
+    }
 }
 
 const Skill = [

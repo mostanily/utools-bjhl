@@ -6,6 +6,7 @@ export const 光阴间隙 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.光阴间隙,
+    "tacgie": "0/08/1yfeudeznqgr1pv6lp71ganp6dpej8p.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

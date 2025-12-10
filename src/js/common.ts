@@ -47,6 +47,21 @@ export default class CommonUtil {
         }
     }
     /**
+     * 获取角色所属元素图标（方形且更大的尺寸）
+     * @param {string} attrName 元素名称，如：火
+     * @param {number} xType 头像尺寸类型，共有 2.5,3,3.5三种类型
+     * @returns 
+     */
+    static getCharAttrImgV2(attrName: string, xType: number) {
+        if (xType === 2.5) {
+            return 'img/charAttr/single/2.5x/45px-Ui_元素_' + attrName + '.png';
+        } else if (xType === 3) {
+            return 'img/charAttr/single/3x/68px-Ui_元素_' + attrName + '.png';
+        } else {
+            return 'img/charAttr/single/3.5x/76px-Ui_元素_' + attrName + '.png'
+        }
+    }
+    /**
      * 获取角色所属星级图标
      * @param {number} star 角色所属星级，如：6
      * @param {number} xType 头像尺寸类型，共有 1,1.5,2三种类型
@@ -59,6 +74,19 @@ export default class CommonUtil {
             return 'img/charStar/1.5x/120px-UI_头像缩略图_星级_' + star + '星.png';
         } else {
             return 'img/charStar/2x/140px-UI_头像缩略图_星级_' + star + '星.png';
+        }
+    }
+    /**
+     * 获取角色所属星级图标(横版格式，更大的尺寸)
+     * @param {number} star 角色所属星级，如：6
+     * @param {number} xType 头像尺寸类型，共有 1,1.5两种类型
+     * @returns 
+     */
+    static getCharStarImgV2(star: number, xType: number) {
+        if (xType === 1) {
+            return 'img/charStar/star/1x/' + star + '星.png';
+        } else {
+            return 'img/charStar/star/1.5x/' + star + '星.png';
         }
     }
     /**

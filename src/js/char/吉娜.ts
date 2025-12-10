@@ -5,7 +5,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.人形特攻α型, MXLaohenEnum.灵感激活], "attr": "shi", "star": "5",
     "nameEn": "GINA", "tag": ["输出", "爆发"], "originWorld": "特默里恩", "orginChar": "原创",
-    "cv": "降温", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "降温", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "吉娜。那只大狗说，你这里特别喜欢“收留”我这种怪物……嘶，别过来！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "e/e5/585yaxljysv9a0kkkf6nmlpxuylh9c7.png",
+            "3/3e/mbqpv55cjuwi6vgw8qi2r4iclk6dx5o.png",
+            "0/09/2e98gyqjc7eledg6110dvn0zv3mmutw.png"
+        ],
+    }
 }
 
 const Skill = [

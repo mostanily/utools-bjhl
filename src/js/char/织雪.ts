@@ -7,7 +7,18 @@ const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.暴风骤雨方块α型, MXLaohenEnum.共振弱化], "attr": "yan", "star": "6",
     "nameEn": "ORIYUKI", "tag": ["输出", "爆发", "元素区域"], "originWorld": "未知", "orginChar": "原创",
     "cv": "", "openDate": "2025年07月31日", 
-    "resourse": ["定向共鸣·裁梦刀"], "laohenLink":LaohenNameEnum.局外人
+    "resourse": ["定向共鸣·裁梦刀"], "laohenLink":LaohenNameEnum.局外人,
+    "introText": "没想到有机会看到小监督为了我露出这么惊讶的表情，看来我做得很值嘛~唔，感觉这种特殊的再会都需要一个正式的自我介绍——你好，织雪，我的名字。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames":["立绘", "S4立绘", "S6立绘", "3D"],
+        "imgs": [
+            "e/e5/f2ehj3btxt3kmkm2kr8q30tcj69irov.png",
+            "a/a5/sm6kcry0hpdbq6dd2cbi0wqt3xm806g.png",
+            "9/97/k9fdn3jdbhqve8lqcouc8aow9t1e0kl.png",
+            "9/95/1shu9zj7nn8sjd4ok1izz7uz8k5zise.png"
+        ],
+    }
 }
 
 const Skill = [

@@ -6,7 +6,26 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.强攻对地方块, MXLaohenEnum.驭风之力], "attr": "feng", "star": "6",
     "nameEn": "MAMORU", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "", "openDate": "2025年02月13日", "resourse": ["定向共鸣·至暗至明"]
+    "cv": "", "openDate": "2025年02月13日", "resourse": ["定向共鸣·至暗至明"],
+    "introText": "怎么看见我这副表情，放轻松小监督，咱们之间就用不着互相自我介绍了吧。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "2/22/q4os15qoa6551igi7eml8nn0bdgjjxd.png",
+            "b/be/4goyqjumnlbx0sxvnnhtp8wbegxn5xj.png",
+            "4/4b/dkc2h5qt1f2ww1sylhhusrdy12p5udw.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["苍烟客"],
+            "imgs": [
+                "a/a2/8oaqce0xnu71q8e84mu4z5j084q64d4.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

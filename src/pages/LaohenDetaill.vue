@@ -11,66 +11,14 @@
             <h2>
                 <span class="mw-headline" id="基础信息">基础信息</span>
             </h2>
-            <table class="wikitable" style="margin:0;">
-                <tbody>
-                    <tr>
-                        <td>
-                            <div style="display:flex;align-items:center; text-align:center;word-break:keep-all;">
-                                <img :alt="rarityEnName[getLaohenDetail($route.params.name).rarity] + '.png'"
-                                    :src="getLaohenAttrRarity(getLaohenDetail($route.params.name).rarity, 1)"
-                                    decoding="async" loading="lazy" width="40" height="40"
-                                    :srcset="getLaohenAttrRarity(getLaohenDetail($route.params.name).rarity, 1.5) + ' 1.5x,' + getLaohenAttrRarity(getLaohenDetail($route.params.name).rarity, 2) + ' 2x'"
-                                    data-file-width="128" data-file-height="128" style="margin: 0px;">
-                                {{ getLaohenDetail($route.params.name).name }}
-                            </div>
-                        </td>
-                        <td>
-                            <div class="center">
-                                <div class="floatnone"><img
-                                        :alt="'烙痕 ' + attrName[getLaohenDetail($route.params.name).type] + '.png'"
-                                        :src="getLaohenAttrImg(attrName[getLaohenDetail($route.params.name).type])"
-                                        decoding="async" loading="lazy" width="40" height="40" data-file-width="86"
-                                        data-file-height="86"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                style="display: inline-block;text-align:center;border-style: solid;border-color:#32363f;border-width: 1px;padding:0px;">
-                                <span style="background-color:#ffffff;color:#32363f;"> illust </span>
-                                <div style="display: inline-block;background-color:#32363f;color:#939da7;height:100%;">
-                                     {{ getLaohenIllust(getLaohenDetail($route.params.name).extraData.illust) }} </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="1">获取途径：{{
-                            getLaohenResourseName(getLaohenDetail($route.params.name).extraData.resourse) }}
-                        </td>
-                        <td></td>
-                        <td v-if="checkHasKey(getLaohenDetail($route.params.name).extraData, 'skillLink')">
-                            <div class="laohen-skill-resourse">
-                                技能同调：
-                                <img :alt="'UI 头像缩略图 职业 ' + allChar[getLaohenDetail($route.params.name).extraData.skillLink].job + '.png'" 
-                                    :src="getJobTypeImg(allChar[getLaohenDetail($route.params.name).extraData.skillLink].job, 1)"
-                                    decoding="async" loading="lazy" width="20" height="20"
-                                    :srcset="getJobTypeImg(allChar[getLaohenDetail($route.params.name).extraData.skillLink].job, 1.5) + ' 1.5x,' + getJobTypeImg(allChar[getLaohenDetail($route.params.name).extraData.skillLink].job, 2) + ' 2x'"
-                                    data-file-width="64" data-file-height="64">
-                                <img :alt="'Ui 元素 ' + charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr] + '.png'"
-                                    :src="getCharAttrImg(charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr], 1, true)" decoding="async" loading="lazy"
-                                    width="20" height="20"
-                                    :srcset="getCharAttrImg(charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr], 1.5, true) + ' 1.5x,' + getCharAttrImg(charAttr[allChar[getLaohenDetail($route.params.name).extraData.skillLink].attr], 2) + ' 2x'"
-                                    data-file-width="76" data-file-height="76">
-                                <router-link style="color:#646cff;" :to="{ name: 'detail', params: { name: getLaohenDetail($route.params.name).extraData.skillLink } }" :title="'同调者/' + getLaohenDetail($route.params.name).extraData.skillLink">{{ getLaohenDetail($route.params.name).extraData.skillLink }}
-                                </router-link>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><br></p>
+            <LaohenTachie></LaohenTachie>
             <hr>
             <div class="tabber tabberlive">
-                <div class="half-skill"
+                <ul class="tabbernav">
+                    <li :class="{'tabberactive': hxIndex === 1}" @click="setHxIndex(1)"><a title="初见" data-hash="初见" style="cursor: pointer;">初见</a></li><wbr>
+                    <li :class="{'tabberactive': hxIndex === 2}" @click="setHxIndex(2)"><a title="烙痕技能" data-hash="烙痕技能" style="cursor: pointer;">烙痕技能</a></li><wbr>
+                </ul>
+                <div :class="{'half-skill': true, 'display-block': hxIndex === 2, 'display-none': hxIndex !== 2}"
                     style="border: 1px solid #525c66;border-top: none;border-bottom: none;border-left: none;">
                     <h3>漫巡技能：</h3>
                     <div class="tabbertab" title="漫巡技能" data-hash="漫巡技能" style="">
@@ -130,7 +78,10 @@
                         <p class="mw-empty-elt"></p>
                     </div>
                 </div>
-                <LaohenNav :moveCurrLaohenSkillEnum="mouseCurrLaohenSkillEnum"></LaohenNav>
+                <div :class="{'half-skill': true, 'display-block': hxIndex === 2, 'display-none': hxIndex !== 2}">
+                    <LaohenSkillDetaillCon :moveCurrLaohenSkillEnum="mouseCurrLaohenSkillEnum"></LaohenSkillDetaillCon>
+                </div>
+                <LaohenNav></LaohenNav>
             </div>
         </div>
     </div>
@@ -138,10 +89,12 @@
 <script>
 import { defineComponent } from 'vue';
 import LaohenNav from './detail/LaohenNav.vue';
+import LaohenTachie from './components/LaohenTachie.vue';
+import LaohenSkillDetaillCon from './detail/LaohenSkillDetaillCon.vue';
 
 export default defineComponent({
     components: {
-        LaohenNav
+        LaohenNav, LaohenTachie, LaohenSkillDetaillCon
     },
     data() {
         return {
@@ -150,27 +103,12 @@ export default defineComponent({
             mouseCurrLaohenSkillEnum: -1,
             allChar: window.$commonUtil.allChar,
             charAttr: window.$commonUtil.charAttr,
+            hxIndex: 1
         }
     },
     methods: {
-        initDefLaohenSkillEnum(defEnum) {
-            this.mouseCurrLaohenSkillEnum = defEnum
-        },
-        checkHasKey(Obj, key) {
-            return Object.keys(Obj).includes(key)
-        },
-        getJobTypeImg(jobName, xType) {
-            return window.$commonUtil.getJobTypeImg(jobName, xType)
-        },
-        getCharAttrImg(attrName, xType, isOriginal) {
-            return window.$commonUtil.getCharAttrImg(attrName, xType, isOriginal)
-        },
-        /**
-         * 获取筛选条件对应的属性图片
-         * @param attr 烙痕属性值（体质、防御等）
-         */
-        getLaohenAttrImg(attrName) {
-            return window.$laohen.getLaohenAttrImg(attrName)
+        setHxIndex (index) {
+            this.hxIndex = index
         },
         /**
          * 获取烙痕详情
@@ -179,42 +117,13 @@ export default defineComponent({
         getLaohenDetail(laohenEnum) {
             return window.$laohen.getLaohenDetail(laohenEnum)
         },
-        /**
-         * 获取烙痕稀有度对应的图片
-         * @param rarityEnum 
-         * @param xType 
-         */
-        getLaohenAttrRarity(rarityEnum, xType) {
-            const enName = this.rarityEnName[rarityEnum]
-            if (xType === 1) {
-                return 'img/laohen/attr/1x/40px-' + enName + '.png';
-            } else if (xType === 1.5) {
-                return 'img/laohen/attr/1.5x/60px-' + enName + '.png';
-            }
-            return 'img/laohen/attr/2x/80px-' + enName + '.png';
-        },
+        
         /**
          * 获取烙痕卡面稀有度背景图片
          * @param rarityEnum 烙痕稀有度对应的枚举值
          */
         getLaohenBgNavRarityImg(rarityEnum) {
             return window.$laohen.getLaohenBgNavRarityImg(rarityEnum, true)
-        },
-        /**
-         * 获取画师名称
-         * @param illustEnum 画师枚举值，LaohenIllust.(x)
-         * @returns 
-         */
-        getLaohenIllust(illustEnum) {
-            return window.$laohen.getLaohenIllust(illustEnum)
-        },
-        /**
-         * 获取烙痕来源名称
-         * @param resourseEnum 来源枚举值
-         * @returns 
-         */
-        getLaohenResourseName(resourseEnum) {
-            return window.$laohen.getLaohenResourseName(resourseEnum)
         },
         /**
          * 获取烙痕技能详情
@@ -235,6 +144,13 @@ export default defineComponent({
 </script>
 
 <style>
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}
 .seed-breadcrumb {
     display: flex;
     flex-wrap: wrap;

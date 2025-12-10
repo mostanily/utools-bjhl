@@ -6,6 +6,7 @@ export const 沙中金火 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.沙中金火,
+    "tacgie": "2/2b/sffdm4hvr2lrd5o5bj0fah2vef6csps.png",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

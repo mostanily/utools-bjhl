@@ -6,6 +6,7 @@ export const 空 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.空,
+    "tacgie": "1/1a/oucfyb3qhags81fmgv3pmazwn9w0pmm.png",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.寻迹潜航

@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.核心充能三角β型, MXLaohenEnum.核心蚀解], "attr": "shi", "star": "6",
     "nameEn": "LEILANI", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "王晓彤", "openDate": "2024年06月27日", "resourse": ["定向共鸣·沉默的誓言"]
+    "cv": "王晓彤", "openDate": "2024年06月27日", "resourse": ["定向共鸣·沉默的誓言"],
+    "introText": "仓库管理员鸢已返岗，现正式向您报到，我回来了，监督。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "a/ab/awfybjp0w4czwq6jx5e031q5jjwrbr4.png",
+            "a/a9/m3gsczgbsxdf0y4bpxpnr1xe4dhqoq4.png",
+            "8/81/h9cub1svbom3i2iokf4qgn8ew3330nc.png"
+        ]
+    }
 }
 
 const Skill = [

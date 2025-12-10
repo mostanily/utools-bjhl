@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.原生特攻α型, MXLaohenEnum.熊熊燃烧], "attr": "yan", "star": "5",
     "nameEn": "ROAR", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "古剑奇谭网络版",
-    "cv": "叶知秋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "叶知秋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "Hey，我叫罗咤，天鹿专属枪械师，但是玄戈扣光了我的研究经费，所以我决定跳槽，欢迎你成为我的新老板。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "4/48/64vk2485ss5xcl7l8fzbuw2xft7htqt.png",
+            "f/f1/noiewyo70ffmaxwteopdz01s1s0frye.png",
+            "5/57/svwa2kck9qmr2ppy1kc4wh5jf0mbtrl.png"
+        ]
+    }
 }
 
 const Skill = [

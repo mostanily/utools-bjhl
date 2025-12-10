@@ -6,7 +6,26 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.铁杵磨成针三角, MXLaohenEnum.连破留痕], "attr": "wuli", "star": "6",
     "nameEn": "LIONEL", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭三",
-    "cv": "夏磊", "openDate": "2025年01月02日", "resourse": ["定向潜航·灼金格言"]
+    "cv": "夏磊", "openDate": "2025年01月02日", "resourse": ["定向潜航·灼金格言"],
+    "introText": "天鹿，玄戈。如同之前所说，前来与白荆科技达成合作。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "a/a6/jcycazfrqn7ep4shbbmo5hipw078p4b.png",
+            "4/49/4vu6ne740up1805l2lrfglvj1b5cj52.png",
+            "6/6d/8ovclaem8grp8m8ztbadhex4omfqweh.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["苦锈"],
+            "imgs": [
+                "1/1f/hyrp8c0usv9kmdogrzgt40koimyz6gw.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

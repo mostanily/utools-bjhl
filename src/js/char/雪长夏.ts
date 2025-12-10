@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.铁杵磨成针三角, MXLaohenEnum.超频引雷], "attr": "lei", "star": "5",
     "nameEn": "SORLEY", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "三石", "openDate": "2024年03月28日", "resourse": ["定向共鸣·飞雪初晴", "定向共鸣·王牌机械师", "常态共鸣"]
+    "cv": "三石", "openDate": "2024年03月28日", "resourse": ["定向共鸣·飞雪初晴", "定向共鸣·王牌机械师", "常态共鸣"],
+    "introText": "我叫雪长夏，是个做游戏的。监督……你喜欢什么类型的游戏？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "3/38/4zerzufuas5ipeka2vjkr16an9bqyd9.png",
+            "b/b5/i2zlgb4aevtpih4419rksmn4mnq55g4.png",
+            "c/cb/h0o9m0pwbzmw88guto1w2t6yd7lanzn.png"
+        ]
+    }
 }
 
 const Skill = [

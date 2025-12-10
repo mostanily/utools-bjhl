@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "铁御", "skill": [MXLaohenEnum.生机盎然方块α型, MXLaohenEnum.祝福区域], "attr": "yan", "star": "6",
     "nameEn": "MOHONGXIU", "tag": ["防护", "控场", "元素区域"], "originWorld": "森罗", "orginChar": "古剑奇谭网络版",
-    "cv": "张安琪", "openDate": "2024年01月12日", "resourse": ["常态共鸣", "常态共鸣·森罗万象"]
+    "cv": "张安琪", "openDate": "2024年01月12日", "resourse": ["常态共鸣", "常态共鸣·森罗万象"],
+    "introText": "九旻基地，“星海”独立营——莫红袖报到。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "e/e9/fsolzczes9u9zs0wi52b6xqp9vyca2h.png",
+            "a/af/cfl4dnbxd150jxhwlr5wr5ovg7miynn.png",
+            "e/e1/ses3ytsxhnmyydablqts5fo06pkkxwh.png"
+        ]
+    }
 }
 
 const Skill = [

@@ -6,6 +6,7 @@ export const 记虚 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.记虚,
+    "tacgie": "2/2f/75842zmz37iek3rtdgyfapnyxkq4r2e.png",
     "extraData": {
         "illust": LaohenIllust.kan, //画师,
         "resourse": LaohenResourse.定向潜航

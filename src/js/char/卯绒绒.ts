@@ -5,7 +5,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.核心充能三角α型, MXLaohenEnum.主场扩大], "attr": "shui", "star": "6",
     "nameEn": "FURAY&FURNEY", "tag": ["群攻", "元素区域"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
-    "cv": "二娇、杨鸥", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
+    "cv": "二娇、杨鸥", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
+    "introText": "卯卯：您好我叫涂卯卯！绒绒快来，我找到新场子啦！<br>绒绒：嘿嘿，那个，出场费请结一下……",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "5/5b/2qcvgwlc87jc10cc7ll6dn08xwkj23o.png",
+            "c/c1/osbwmqg8k9psorab7pjf903609jkwy0.png",
+            "9/9a/7iusia9bdlk91wpuianntgbv2t804c2.png"
+        ]
+    }
 }
 
 const Skill = [

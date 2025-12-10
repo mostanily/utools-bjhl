@@ -6,6 +6,7 @@ export const 明日暄风 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.明日暄风,
+    "tacgie": "3/3e/7808n8urhq42e4h6ehc53byieyevvoq.png",
     "extraData": {
         "illust": LaohenIllust.东河, //画师,
         "resourse": LaohenResourse.定向潜航,

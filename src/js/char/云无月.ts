@@ -6,7 +6,26 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.大敌当前, MXLaohenEnum.蚀之激励], "attr": "shi", "star": "6",
     "nameEn": "LORELLE", "tag": ["防护", "输出"], "originWorld": "森罗", "orginChar": "古剑奇谭三",
-    "cv": "冯骏骅", "openDate": "2024年01月12日", "resourse": ["常态共鸣·森罗万象", "常态共鸣"]
+    "cv": "冯骏骅", "openDate": "2024年01月12日", "resourse": ["常态共鸣·森罗万象", "常态共鸣"],
+    "introText": "云无月，依照约定，我会在这里停留一段时间，需要协助时，可以直接联系我。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "b/bd/tmmtyf4tc088841e6aiqbf6qnit6eut.png",
+            "0/07/8ny18yddtccho8pksu856mw9enk8vwe.png",
+            "e/eb/i52o3ygjkilh5mfbiwflsk2nz7ke5ft.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["独家幕后"],
+            "imgs": [
+                "b/b6/7a82chtzbacbepqfldyyj0kr7mi6pa8.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

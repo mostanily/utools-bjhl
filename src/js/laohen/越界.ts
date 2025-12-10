@@ -6,6 +6,7 @@ export const 越界 = {
     "rarity": LaohenRarity.sr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.越界,
+    "tacgie": "b/b2/9qunzt4netmhcop74xjhgxpuzv1z7qr.png",
     "extraData": {
         "illust": LaohenIllust.当雨作金泽, //画师,
         "resourse": LaohenResourse.叶脉联结计划

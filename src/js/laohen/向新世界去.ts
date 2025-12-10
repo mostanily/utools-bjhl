@@ -6,6 +6,7 @@ export const 向新世界去 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.向新世界去,
+    "tacgie": "3/36/6fu33fc9n1gautqzz5da0irf3gzfbnt.png",
     "extraData": {
         "illust": LaohenIllust.乙配, //画师,
         "resourse": LaohenResourse.活动

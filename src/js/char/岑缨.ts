@@ -6,7 +6,26 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形α型, MXLaohenEnum.左膀右臂菱形], "attr": "wuli", "star": "6",
     "nameEn": "CENYING", "tag": ["输出", "召唤", "拦截"], "originWorld": "森罗", "orginChar": "古剑奇谭三",
-    "cv": "龟娘", "openDate": "2024年01月18日", "resourse": ["定向共鸣·游光澄明", "常态共鸣·森罗万象"]
+    "cv": "龟娘", "openDate": "2024年01月18日", "resourse": ["定向共鸣·游光澄明", "常态共鸣·森罗万象"],
+    "introText": "你好，我叫岑缨，是博物学会科考队的成员。听说白荆科技在研究Ｘ能源和异化核心时发生了很多趣事，可以讲给我听听吗？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "b/b0/707n20qiaikyu9f4x4ogjdjm8eqc8v4.png",
+            "7/76/5wi9srx4mwr7zqckm4z0qpw8401jeb4.png",
+            "b/ba/nvpltr1zywba2tddngokdq587l76e1a.png"
+        ],
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["浸花影"],
+            "imgs": [
+                "7/7e/bo3no3b27fuky4r1uzu6m7oifsygpnf.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

@@ -5,7 +5,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.暴风骤雨三角α型, MXLaohenEnum.蚀入骨髓], "attr": "shi", "star": "5",
     "nameEn": "CAROLINE", "tag": ["治疗", "爆发"], "originWorld": "特默里恩", "orginChar": "原创",
-    "cv": "苏婉", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "苏婉", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "监督你好，我是卡洛琳，欧阳先生说你对我的吉速汤药很感兴趣……嗯~推荐信上就是我，有什么问题吗？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "2/23/53d5p2rjllamhmedazq3z2vgp0opgko.png",
+            "7/7c/4zxemjmpmebzm3xc0wzkjwb1ps6mrbu.png",
+            "0/06/5ytbkco01qgbcn680c81q6us9nikr4z.png"
+        ],
+    }
 }
 
 const Skill = [

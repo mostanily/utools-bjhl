@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形α型, MXLaohenEnum.风刃侵蚀], "attr": "feng", "star": "6",
     "nameEn": "ELPIS", "tag": ["召唤", "输出", "支援"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭一",
-    "cv": "朱雀橙", "openDate": "2024年08月29日", "resourse": ["定向共鸣·晴空龙吟"]
+    "cv": "朱雀橙", "openDate": "2024年08月29日", "resourse": ["定向共鸣·晴空龙吟"],
+    "introText": "你的朋友，晴雪。这么多年过去，我们都还是老样子，真好。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "a/ae/83kr5olnds1hhs050ovkm6nh4d9ed98.png",
+            "2/25/fb7wbvopbyazablqf9fkbcf7izdm32l.png",
+            "f/fb/2vwrvb8i8akesda3wp5xdabxg47ak78.png"
+        ]
+    }
 }
 
 const Skill = [

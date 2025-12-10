@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.庇佑, MXLaohenEnum.怒霆共鸣], "attr": "lei", "star": "6",
     "nameEn": "SOLSTICE", "tag": ["输出", "元素区域", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "", "openDate": "2025年06月19日", "resourse": ["定向共鸣·第三种诘问"], "laohenLink":LaohenNameEnum.失罪夜
+    "cv": "", "openDate": "2025年06月19日", "resourse": ["定向共鸣·第三种诘问"], "laohenLink":LaohenNameEnum.失罪夜,
+    "introText": "又见面了，执行官，虽然我也还没完全适应这副模样，但或许我们应该重新认识一下，御雀通信，司旸，合作愉快。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "5/56/7u8n2z3r9ahybb4bsxw9lvrf14tsqny.png",
+            "4/48/8xhsl3ad49bqkp6i4vjie4jwhya3sy5.png",
+            "e/ee/nccl4xgc0c111cwlphhaor77oo730t0.png"
+        ]
+    }
 }
 
 const Skill = [

@@ -6,6 +6,7 @@ export const 于火光中蛋生 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.于火光中蛋生,
+    "tacgie": "7/78/okcxncgi7licn1tebid0tkp70jryv8n.png",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.定向潜航

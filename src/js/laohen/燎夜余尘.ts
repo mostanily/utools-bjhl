@@ -6,6 +6,7 @@ export const 燎夜余尘 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.燎夜余尘,
+    "tacgie": "5/51/1jvb3ub5yepquaihgd7e27b975dt8c5.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

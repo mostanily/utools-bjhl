@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.冻结延长], "attr": "shuang", "star": "5",
     "nameEn": "NOLA", "tag": ["治疗", "控场"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
-    "cv": "叶知秋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "叶知秋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "这里是见习召唤师阳铃，感谢您愿意成为我的临时监护人！那个……我可以叫您老师吗？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "7/76/lcoqigwy85bnri6lseewxzx5zzvda1v.png",
+            "9/98/r7bf6pnvqlj0a8pjweymz7py0ci5hzw.png",
+            "2/28/17ngp7wly1paebniyz4ftzfss2nnm27.png"
+        ]
+    }
 }
 
 const Skill = [

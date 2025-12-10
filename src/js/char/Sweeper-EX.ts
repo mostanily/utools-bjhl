@@ -6,7 +6,34 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.生生不息方块, MXLaohenEnum.绝处逢生], "attr": "wuli", "star": "1",
     "nameEn": "SWEEPER-EX", "tag": ["输出"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "吴磊", "openDate": "2024年01月12日", "resourse": ["成就奖励"]
+    "cv": "吴磊", "openDate": "2024年01月12日", "resourse": ["成就奖励"],
+    "introText": "初始化已完成。<br>Hi~Sweeper-EX竭诚为您服务，有什么能帮您哒？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "b/b2/2lryb74c2q8khqfylxelartv695mkme.png",
+            "0/02/fbmfhaqg5lfswpx321ea0zt5c18qzhx.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "1000%甜心",
+            "listNames": ["立绘", "3D"],
+            "imgs": [
+                "a/af/a4nocnpy9kjy6r37hew099xz151223w.png",
+                "6/6a/ixw5h1rvqk5mwjl5zj4qgjl6btaw934.png"
+            ]
+        },
+        {
+            "name": "Sunny!Honey!",
+            "listNames": ["立绘", "3D"],
+            "imgs": [
+                "a/a9/0fwyd65wft3yroj7ja8fxr9rm47pkbs.png",
+                "c/cd/bvdyarz120c7hym5m4bvywryi1thk97.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

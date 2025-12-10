@@ -7,7 +7,26 @@ const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.刺骨寒意], "attr": "shuang", "star": "6",
     "nameEn": "BOREAS", "tag": ["支援", "治疗", "控场"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "梁达伟", "openDate": "2024年03月14日",
-    "resourse": ["定向共鸣·夜幕下的本相", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.潮湿前路
+    "resourse": ["定向共鸣·夜幕下的本相", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.潮湿前路,
+    "introText": "御雀通信负责人，言御，感谢贵司的慷慨投资……相信今后，我们会有很多见面的机会。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "6/62/5emx1do10ihkwxvh1u07784wvv2yldd.png",
+            "f/f0/ldqtzl1stpo9k5ydmwe39zdxb5lv7nh.png",
+            "4/44/ijmelkmae81qjsqownhi92ln0fi9nrx.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["无栖"],
+            "imgs": [
+                "c/c2/abrgmutewrl65v80t3o1u9df58g063t.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

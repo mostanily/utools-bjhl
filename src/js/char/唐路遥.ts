@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.战斗反射], "attr": "wuli", "star": "4",
     "nameEn": "RODNEY", "tag": ["输出", "防护"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "马正阳", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "马正阳", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "你好我是唐路遥，鹿路运输——稍等一下，我接个电话。什么，北洛又被开罚单了？不是说好了这趟让紫——什么？！<br>算了算了，等我过来处理吧……",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "4/42/evfgrmlntltxvkuvlm0p5r5jdl1s28h.png",
+            "6/61/rok1ns8lp3rm7zxo7s55b51z9n73851.png"
+        ]
+    }
 }
 
 const Skill = [

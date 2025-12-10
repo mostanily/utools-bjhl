@@ -5,7 +5,16 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.因祸得福], "attr": "shui", "star": "4",
     "nameEn": "BUBBLES", "tag": ["治疗", "输出"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "富贵", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "富贵", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "铛铛！元桃桃大人来也！异化核心是无支……无支什么来着？哎呀，想不起来了，总之很厉害就是了！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "0/07/knwuahj493irvivpkh21dbbhrxhh11v.png",
+            "8/86/5xpi4l1bp6f22w0hqpcolfkjhc174bk.png"
+        ]
+    }
 }
 
 const Skill = [

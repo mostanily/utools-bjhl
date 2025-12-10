@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.锻炼治疗], "attr": "wuli", "star": "5",
     "nameEn": "SUXIAO", "tag": ["治疗", "屏障"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "Vila", "openDate": "2024年01月12日", "resourse": ["主线初始赠送"]
+    "cv": "Vila", "openDate": "2024年01月12日", "resourse": ["主线初始赠送"],
+    "introText": "白荆科技实习生苏筱前来报到！请多指教~",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "6/65/pz0lsmc0oyv2m35tl5rrm9ry05gpeut.png",
+            "e/ef/caxytbt8b00dfp94v1wvghqb83lgxq3.png",
+            "c/cf/omm4m73rop4c724qtnujn4oh8rsg1m3.png"
+        ]
+    }
 }
 
 const Skill = [

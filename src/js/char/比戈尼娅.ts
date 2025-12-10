@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.核心充能方块β型, MXLaohenEnum.冰霜共鸣], "attr": "shuang", "star": "5",
     "nameEn": "BEGONIA", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭网络版",
-    "cv": "冯骏骅", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "冯骏骅", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "比戈尼娅。现在，你想从哪里开始认识我？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "1/10/pwj4z8p4m4ico2zp6n755a4vdpx2n8i.png",
+            "4/4a/r9wor50yt2nv439q7eg704uvq3iyhxx.png",
+            "c/c1/k5f1a15632hcll5hfgope7elstphf67.png"
+        ],
+    }
 }
 
 const Skill = [

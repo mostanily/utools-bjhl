@@ -6,6 +6,7 @@ export const 夕阳挽歌 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.夕阳挽歌,
+    "tacgie": "e/ee/jthjoo86ajq4vjx067usjn39cxsikay.png",
     "extraData": {
         "illust": LaohenIllust.竹墨繁漪, //画师,
         "resourse": LaohenResourse.寻迹潜航

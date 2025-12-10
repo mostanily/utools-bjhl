@@ -6,6 +6,7 @@ export const 神迹 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.神迹,
+    "tacgie": "a/a2/285utyrrbnh4sstyckv2tw7mjlzbjlo.png",
     "extraData": {
         "illust": LaohenIllust.竹墨繁漪, //画师,
         "resourse": LaohenResourse.定向潜航

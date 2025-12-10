@@ -6,7 +6,26 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.强攻对地方块, MXLaohenEnum.愈伤澜起], "attr": "shui", "star": "6",
     "nameEn": "UNI", "tag": ["输出", "元素区域"], "originWorld": "斯奈菲尔", "orginChar": "原创",
-    "cv": "豆奶", "openDate": "2024年05月30日", "resourse": ["定向共鸣·再见孤蓝之海", "常态共鸣·异世交汇"]
+    "cv": "豆奶", "openDate": "2024年05月30日", "resourse": ["定向共鸣·再见孤蓝之海", "常态共鸣·异世交汇"],
+    "introText": "如果你需要，我当然可以找一个委婉正当的借口作为我来这里的理由，但是所有人都清楚：我是为你而来的，水手小姐。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "2/22/ndcbn1ydercg4l8kecuoci0ma3hdpl2.png",
+            "f/f7/lqa2gzz2aj59xp6kd9aubp9i8skerup.png",
+            "1/19/h6psro7fh8x8pebs2x99ic3fcbcs9re.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["第一课"],
+            "imgs": [
+                "7/7c/04ntzy543wqbuibt9kvpjxwdwpmbo71.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

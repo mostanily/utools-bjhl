@@ -6,6 +6,7 @@ export const 为伍 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.为伍,
+    "tacgie": "4/4a/cjmek7qijsslpkahr2g992d7ncvjgfx.png",
     "extraData": {
         "illust": LaohenIllust.沢马Haru, //画师,
         "resourse": LaohenResourse.定向潜航

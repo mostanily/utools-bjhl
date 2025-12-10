@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.利刃三角β型, MXLaohenEnum.风化噬能], "attr": "feng", "star": "6",
     "nameEn": "LIUZHU", "tag": ["群攻", "输出"], "originWorld": "黑曜", "orginChar": "古剑奇谭网络版",
-    "cv": "", "openDate": "2025年12月04日", "resourse": ["定向共鸣·旒珠"], "laohenLink":LaohenNameEnum.烟霞在侧
+    "cv": "", "openDate": "2025年12月04日", "resourse": ["定向共鸣·旒珠"], "laohenLink":LaohenNameEnum.烟霞在侧,
+    "introText": "执行官小姐，幸会，你可能曾在某段故事中听说过我，不过这里没有一叶城的城主，只有旒珠。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "3/36/dorersdm8q358npi5no9n29s3wh3k4b.png",
+            "d/d1/871r9of5s7pabm4pf6dnhkdebihw5yo.png",
+            "c/c9/ajcyip8l7t1g4la3jd93xqh3m6yxtav.png"
+        ]
+    }
 }
 
 const Skill = [

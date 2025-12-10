@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.自动瞄准系统三角α型, MXLaohenEnum.炽锋叠势], "attr": "yan", "star": "6",
     "nameEn": "LONG HE", "tag": ["输出", "群攻", "元素区域"], "originWorld": "海错", "orginChar": "原创",
-    "cv": "", "openDate": "2025年03月06日", "resourse": ["定向潜航·潮生流火"]
+    "cv": "", "openDate": "2025年03月06日", "resourse": ["定向潜航·潮生流火"],
+    "introText": "金鳞族，龙和。你就是监督？我妹妹龙晴承蒙你照拂了。有什么用得上我的地方，你只管说，我必全力相助。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "5/52/nkrd5iepofe1qgu39t8fj5mmvx8syhg.png",
+            "3/3f/kgualcx3jd6qbmtoqyc3bci0tee6u6b.png",
+            "1/11/es1e4sh667fyvwegwwub7n38zvb02wv.png"
+        ]
+    }
 }
 
 const Skill = [

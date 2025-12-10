@@ -6,6 +6,7 @@ export const 幕影重重 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.幕影重重,
+    "tacgie": "2/2b/rbp6nrd4mzklnxqsl1q95qn4cc2w28w.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.狩猎时刻对地, MXLaohenEnum.左膀右臂三角], "attr": "wuli", "star": "6",
     "nameEn": "TONG", "tag": ["召唤", "输出"], "originWorld": "森罗", "orginChar": "古剑奇谭二",
-    "cv": "刘北辰", "openDate": "2024年01月12日", "resourse": ["常态共鸣·森罗万象", "常态共鸣"]
+    "cv": "刘北辰", "openDate": "2024年01月12日", "resourse": ["常态共鸣·森罗万象", "常态共鸣"],
+    "introText": "我是瞳。你的事曲观玄已经跟我说了，选题可以直接放我桌上。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "e/e4/mt6xb5wukcwwdcy7ai9ii0sgkpio2se.png",
+            "d/d2/tolkh60fwm52veg81cmpjqxeuaid0ex.png",
+            "a/a8/dlcuvio2v2pz97kekr26piqnt7y5hif.png"
+        ]
+    }
 }
 
 const Skill = [

@@ -6,6 +6,7 @@ export const 野风 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.野风,
+    "tacgie": "5/59/i803mkipis2ozzga8557izrh9aaq0jo.png",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

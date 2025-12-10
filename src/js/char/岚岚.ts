@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.对空特攻α型, MXLaohenEnum.风力加剧], "attr": "feng", "star": "4",
     "nameEn": "LANLAN", "tag": ["击退", "拦截"], "originWorld": "乌瑞亚", "orginChar": "原创",
-    "cv": "张昱", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "张昱", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "………………<br>啊，我忘记自己现在能说话了——监督你好啊，我是岚岚。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "2/27/m4j0p1vtqhtkyhspbxwsfsu6vbn6to0.png",
+            "9/9a/5dj3btxyk43h1m3lh9pzsujs09pii0h.png",
+        ],
+    }
 }
 
 const Skill = [

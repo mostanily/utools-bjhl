@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.核心充能三角β型, MXLaohenEnum.水陷抗涣], "attr": "shui", "star": "6",
     "nameEn": "COG", "tag": ["输出", "群攻", "屏障"], "originWorld": "艾达", "orginChar": "原创",
-    "cv": "", "openDate": "2025年01月23日", "resourse": ["定向潜航·无心人"]
+    "cv": "", "openDate": "2025年01月23日", "resourse": ["定向潜航·无心人"],
+    "introText": "余音，白荆科技γ小队队长、数据分析师、情报专家……不必要的头衔太多了，我更愿意称呼自己为一枚诞生自艾达的万能齿轮。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "c/c6/bt7f9w5i3vyczgk9xbgj15yttcvn2qj.png",
+            "4/4d/tl3udsp8pkqrt6b3otcmitf8zlu2h3q.png",
+            "b/bc/rchcxb0tyu29jw6tcbgyhee0jb18k00.png"
+        ]
+    }
 }
 
 const Skill = [

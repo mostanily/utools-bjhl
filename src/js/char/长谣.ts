@@ -5,7 +5,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.落井下石, MXLaohenEnum.润物无声], "attr": "shui", "star": "4",
     "nameEn": "CHANGYAO", "tag": ["治疗", "控场"], "originWorld": "海错", "orginChar": "原创",
-    "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "你好，我叫长谣，歌谣的谣！你就是监督吗？跟苏姐姐说的一样好认。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "6/69/99qxnraeqlnbld0xdvfcoroqnk1h8is.png",
+            "e/ed/ayuxexhlylno9p1mtswoujl7aekvmml.png"
+        ]
+    }
 }
 
 const Skill = [

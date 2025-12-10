@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.风之庇佑], "attr": "feng", "star": "6",
     "nameEn": "ZODIVIN AZURE", "tag": ["治疗", "支援"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
-    "cv": "洪海天", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
+    "cv": "洪海天", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
+    "introText": "我是辛西亚的族长——紫都，嗯……暂住的地方小鹿有些多，介意我以后常来吗？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "3/30/7f0d50twd24z1orbclbvvyshhzyabyg.png",
+            "0/01/myzblexjwqt99xrdtqh7x6axchoxj4z.png",
+            "f/fb/baz5fxtqowhkvwh832tsiv1atix80co.png"
+        ]
+    }
 }
 
 const Skill = [

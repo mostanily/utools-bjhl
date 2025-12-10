@@ -7,7 +7,26 @@ const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.高压雷击], "attr": "lei", "star": "6",
     "nameEn": "SKYLAR", "tag": ["控场", "输出"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "筱筝", "openDate": "2024年02月29日", 
-    "resourse": ["定向共鸣·云端来信", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.幻想彼境
+    "resourse": ["定向共鸣·云端来信", "常态共鸣·森罗万象"], "laohenLink":LaohenNameEnum.幻想彼境,
+    "introText": "需要自我介绍……？唔，我是言雀，它是大米……诶大米饭！不可以飞到这个人头上啦！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "5/59/1d6klam1avh2zue7woyerqgsbwo69lj.png",
+            "6/60/1ifmtxc2n3cj12qcmrg13iql4rj8tne.png",
+            "3/33/bw96d7rkftke6bp80gsc1gixlgqjtgr.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["头号粉丝"],
+            "imgs": [
+                "e/e4/e574o3mex1hdf0omrp410845o6tdz05.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

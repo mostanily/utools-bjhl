@@ -6,7 +6,26 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.势如破竹对空, MXLaohenEnum.战术强化], "attr": "wuli", "star": "6",
     "nameEn": "LUKE", "tag": ["输出", "召唤", "屏障"], "originWorld": "黑曜", "orginChar": "古剑奇谭三",
-    "cv": "张沛", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
+    "cv": "张沛", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
+    "introText": "北洛，鹿路运输配送员，听说你最近需要人手，唐路遥让我过来帮个忙。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "f/f8/o3qtoz7b8ptdx7k0yowa621yvpbltzt.png",
+            "5/52/im697ztyfi322pbim6gy57n7xhmgetx.png",
+            "8/82/7et00txk9mnys8ben053fbtc6lkqaiv.png"
+        ],
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["终点线"],
+            "imgs": [
+                "a/a8/n2t00i1hecfoz580qsxz4z9kgsp64n5.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

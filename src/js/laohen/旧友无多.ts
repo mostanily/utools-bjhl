@@ -6,6 +6,7 @@ export const 旧友无多 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.旧友无多,
+    "tacgie": "5/5e/r9s5fsjl8ly0lbpchhk42jkp5lgklwf.png",
     "extraData": {
         "illust": LaohenIllust.印巴巴, //画师,
         "resourse": LaohenResourse.寻迹潜航

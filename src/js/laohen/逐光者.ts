@@ -6,6 +6,7 @@ export const 逐光者 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.逐光者,
+    "tacgie": "0/09/33hdi3g200s9nhe1pd3rqu0j45j2gpq.png",
     "extraData": {
         "illust": LaohenIllust.和子君, //画师,
         "resourse": LaohenResourse.寻迹潜航

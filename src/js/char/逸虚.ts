@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.核心充能菱形β型, MXLaohenEnum.战术施放], "attr": "wuli", "star": "6",
     "nameEn": "EVANES", "tag": ["召唤", "爆发", "支援"], "originWorld": "黑曜", "orginChar": "古剑奇谭网络版",
-    "cv": "", "openDate": "2025年09月11日", "resourse": ["定向共鸣·虚构叙实"], "laohenLink":LaohenNameEnum.记虚
+    "cv": "", "openDate": "2025年09月11日", "resourse": ["定向共鸣·虚构叙实"], "laohenLink":LaohenNameEnum.记虚,
+    "introText": "逸虚，私家侦探，最擅长把秘密变成证据。好久不见啊，监督，你应该没忘记我这张足以上头条的帅脸吧？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "0/01/igg5wcgxxfwia1avrxobd0r7hyjan6q.png",
+            "3/36/248iig882yqyl4hh7y8u47bvof5j5a0.png",
+            "5/5d/chmn6rj8km7zgn7g009lwzhc2z2j9uy.png"
+        ]
+    }
 }
 
 const Skill = [

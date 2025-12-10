@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.核心充能方块α型, MXLaohenEnum.炎域强袭], "attr": "yan", "star": "6",
     "nameEn": "LYNN", "tag": ["防护", "输出", "元素区域"], "originWorld": "黑曜", "orginChar": "原创",
-    "cv": "孟阳", "openDate": "2024年12月12日", "resourse": ["定向潜航·渊火伏明"]
+    "cv": "孟阳", "openDate": "2024年12月12日", "resourse": ["定向潜航·渊火伏明"],
+    "introText": "你就是在担保文件上签字的监督？……林，有过很多身份，现在……只是个受监管的人。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "7/78/o1pwvnxvkmedkai5aiiaysplrgp659o.png",
+            "7/79/pwg5px14fa7llqer1oyf4chphbud2dl.png",
+            "c/c5/3l48ghn17m3fkgulom0po6rl9c5f5im.png"
+        ],
+    }
 }
 
 const Skill = [

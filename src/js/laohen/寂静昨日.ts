@@ -6,6 +6,7 @@ export const 寂静昨日 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.寂静昨日,
+    "tacgie": "5/55/ii1vfi8hsslcf8hg0cjkp4mywx3fhf4.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

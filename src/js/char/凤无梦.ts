@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.庇佑, MXLaohenEnum.束缚蚀力], "attr": "shi", "star": "5",
     "nameEn": "VIDAR", "tag": ["输出", "召唤"], "originWorld": "特默里恩", "orginChar": "古剑奇谭网络版",
-    "cv": "刘十四", "openDate": "2024年01月18日", "resourse": ["定向共鸣·游光澄明", "常态共鸣"]
+    "cv": "刘十四", "openDate": "2024年01月18日", "resourse": ["定向共鸣·游光澄明", "常态共鸣"],
+    "introText": "人偶师，凤无梦……向您问好。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "7/75/m3kwswlq6u5kyo3b1em49a5exnt7vi3.png",
+            "c/c2/j5wc99zd9lyljz20rwztp78oco9rco7.png",
+            "6/67/2gry4yjzzk2nc7pflz07z2j6dnz1ovj.png"
+        ],
+    }
 }
 
 const Skill = [

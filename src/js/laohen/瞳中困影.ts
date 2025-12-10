@@ -6,6 +6,7 @@ export const 瞳中困影 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.瞳中困影,
+    "tacgie": "7/72/qx051rz5poh2cq7c1fjib18dpxdwib5.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.活动

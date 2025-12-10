@@ -6,7 +6,26 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.碎易蚀影], "attr": "shi", "star": "6",
     "nameEn": "LONG", "tag": ["支援", "治疗"], "originWorld": "黑曜", "orginChar": "原创",
-    "cv": "缇安", "openDate": "2024年11月21日", "resourse": ["定向潜航·振玉知微"]
+    "cv": "缇安", "openDate": "2024年11月21日", "resourse": ["定向潜航·振玉知微"],
+    "introText": "你好呀小执行官~我来履行赌约了。珑，记住这个名字，以后我们还会有很多相处的时间。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "b/b7/awdt4rz9edif9d6cnvq096yz0k9c19x.png",
+            "a/af/hh9r313czrhihs59ix5b0n4o67u6kf5.png",
+            "c/c8/p3wkdc5teo5n1h2317wvhmp35ul6e24.png"
+        ]
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["自性无瑕"],
+            "imgs": [
+                "2/2e/02z4uuexideycb1i3jxwa29hrjwmmsp.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

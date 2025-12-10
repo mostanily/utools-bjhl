@@ -6,6 +6,7 @@ export const 无刃之刃 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.无刃之刃,
+    "tacgie": "4/40/sl83jyhtkc1unflva49leiyyix2se3p.png",
     "extraData": {
         "illust": LaohenIllust.当雨作金泽, //画师,
         "resourse": LaohenResourse.定向潜航,

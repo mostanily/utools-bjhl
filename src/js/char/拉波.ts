@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.铁杵磨成针菱形, MXLaohenEnum.霜汐共振], "attr": "shuang", "star": "6",
     "nameEn": "LABOLAS", "tag": ["输出", "控场"], "originWorld": "特默里恩", "orginChar": "原创",
-    "cv": "", "openDate": "2025年05月08日", "resourse": ["定向共鸣·二分的狂徒"]
+    "cv": "", "openDate": "2025年05月08日", "resourse": ["定向共鸣·二分的狂徒"],
+    "introText": "拉波，拉波劳斯·克莱蒂尼。好久不见，监督，想我了吗？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "0/05/tsqin0vgqu938h4y22pqxo1hxw3m3ml.png",
+            "3/3b/lk4frxssgp9mqvzh3x0u0hh6afcviqf.png",
+            "e/e6/kpxdsnky4pbndlrnom8xfqf1d0rw4sk.png"
+        ],
+    }
 }
 
 const Skill = [

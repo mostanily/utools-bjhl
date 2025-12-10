@@ -6,6 +6,7 @@ export const 暗涌轮廓 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.暗涌轮廓,
+    "tacgie": "7/77/lbqbn4nbaxg7utmtyl6mue12nlddcoj.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.活动

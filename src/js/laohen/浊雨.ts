@@ -6,6 +6,7 @@ export const 浊雨 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.浊雨,
+    "tacgie": "b/bd/5epfq200fha1goa9pwljo7fh2zxode9.png",
     "extraData": {
         "illust": LaohenIllust.YGeriAn, //画师,
         "resourse": LaohenResourse.活动

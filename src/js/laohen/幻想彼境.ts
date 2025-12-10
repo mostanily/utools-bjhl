@@ -6,6 +6,7 @@ export const 幻想彼境 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.幻想彼境,
+    "tacgie": "5/5a/be6q097mv7zn38hx5cwqqtx68mw5f8b.png",
     "extraData": {
         "illust": LaohenIllust.印巴巴, //画师,
         "resourse": LaohenResourse.定向潜航

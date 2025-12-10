@@ -6,6 +6,7 @@ export const 噩梦 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.噩梦,
+    "tacgie": "9/9d/bukkgjpo3epssu8ykwqhdcmj9c4ru3t.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.乘人之危对精英, MXLaohenEnum.如火如荼], "attr": "yan", "star": "5",
     "nameEn": "REID", "tag": ["输出", "群攻"], "originWorld": "海错", "orginChar": "古剑奇谭网络版",
-    "cv": "胡良伟", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "胡良伟", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "Hello我是无咎！无咎的无，啾啾的咎，我姐派我来这好好伺候金主大——诶你别走啊你还没告诉我金主在哪呢——",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "6/69/jwuvukd82lmxrugj0bc5u5l90qklalv.png",
+            "a/a8/iypcd0sbx6g31ohc2k5yk5mlac36m41.png",
+            "8/8b/d0yjyniy2i4jtr5zn4c8usrdcenlcmt.png"
+        ]
+    }
 }
 
 const Skill = [

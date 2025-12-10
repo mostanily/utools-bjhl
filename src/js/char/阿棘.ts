@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.核心充能菱形β型, MXLaohenEnum.蚀力渗透], "attr": "shi", "star": "5",
     "nameEn": "ACEO", "tag": ["控场", "生存"], "originWorld": "乌瑞亚", "orginChar": "原创",
-    "cv": "时音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "时音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "您、您好，我是阿棘，请不要盯着我看…我一紧张的就容易…啊啊啊对不起！！！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "d/de/jbr91qnpmfnfg8a7pkcdaxmvwr73380.png",
+            "c/c6/6578xm33lxbtjf4qdwzo9kvg663u0uj.png",
+            "9/90/838at9luki45qzaqjavtgs2re3qzifh.png"
+        ],
+    }
 }
 
 const Skill = [

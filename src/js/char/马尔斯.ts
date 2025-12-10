@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.核心充能方块α型, MXLaohenEnum.无畏者], "attr": "lei", "star": "4",
     "nameEn": "MARS", "tag": ["破盾", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "不一", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "不一", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "西陵重工，马尔斯。既然要合作，有什么要求你可以直接向我提。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "e/ec/bpul9njcst0dx7nxpljlgltsdhfqkkc.png",
+            "0/02/8q0068kaixx9exwb75q2e5mn33c6t9q.png",
+        ]
+    }
 }
 
 const Skill = [

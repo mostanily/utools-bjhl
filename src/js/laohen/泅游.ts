@@ -6,6 +6,7 @@ export const 泅游 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.泅游,
+    "tacgie": "c/c8/qxv76wkv8wrjm84kwhfhq2l7ljbv5y5.png",
     "extraData": {
         "illust": LaohenIllust.laxy, //画师,
         "resourse": LaohenResourse.定向潜航

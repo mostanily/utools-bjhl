@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.润物无声], "attr": "shui", "star": "1",
     "nameEn": "RICHEST", "tag": ["防护", "支援"], "originWorld": "海错", "orginChar": "原创",
-    "cv": "夏磊", "openDate": "2024年01月12日", "resourse": ["成就奖励"]
+    "cv": "夏磊", "openDate": "2024年01月12日", "resourse": ["成就奖励"],
+    "introText": "嗨，你就是监督吧，我是豹富，筱筱小姐让我来找你报到……等一下，我好像压到什么东西了……哪里来的一张兑奖券？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "a/ae/flrvirn408cl9b294ci068n08fudtc6.png",
+            "4/4e/cc7vegiolpb60f969mxaz06h1t1mqrl.png"
+        ]
+    }
 }
 
 const Skill = [

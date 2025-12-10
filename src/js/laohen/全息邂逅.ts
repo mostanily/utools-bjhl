@@ -6,6 +6,7 @@ export const 全息邂逅 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.全息邂逅,
+    "tacgie": "8/84/1vsofafk5ler2qrs2qfjxva6dpj2smf.png",
     "extraData": {
         "illust": LaohenIllust.乔瑟夫乔尊尊, //画师,
         "resourse": LaohenResourse.定向潜航,

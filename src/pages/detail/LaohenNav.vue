@@ -1,7 +1,4 @@
 <template>
-    <div class="half-skill">
-        <LaohenSkillDetaillCon :moveCurrLaohenSkillEnum="moveCurrLaohenSkillEnum"></LaohenSkillDetaillCon>
-    </div>
     <div style="width: 100%;float: left;">
         <h2><span></span><span class="mw-headline" id="烙痕导航">烙痕导航</span></h2>
         <div class="character-navi-color-wrapper">
@@ -51,7 +48,6 @@ import { defineComponent, computed } from 'vue';
 import LaohenSkillDetaillCon from './LaohenSkillDetaillCon.vue';
 
 export default defineComponent({
-    props: ["moveCurrLaohenSkillEnum"],
     components: {
         LaohenSkillDetaillCon
     },

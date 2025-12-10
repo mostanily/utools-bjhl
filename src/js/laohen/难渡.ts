@@ -6,6 +6,7 @@ export const 难渡 = {
     "rarity": LaohenRarity.sr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.难渡,
+    "tacgie": "9/95/76s2mkzurudjywi3cksbnxo9678ewjy.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.叶脉联结计划

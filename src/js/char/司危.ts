@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.机械特攻α型, MXLaohenEnum.连击精通], "attr": "lei", "star": "5",
     "nameEn": "PRIS", "tag": ["输出"], "originWorld": "艾达", "orginChar": "古剑奇谭三",
-    "cv": "醋醋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "醋醋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "司危，出厂编号MSP-03790231-004，偶像组合Binary Star成员之一，请多指教就不用了，现在是非营业时间。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "8/81/ltspyvla3nd79n7z7qcrbyb8k6mom06.png",
+            "1/18/8h5ogfepde1uke391ji9tonirygg0x3.png",
+            "9/9e/4olncfq3emhatlqbvbe1xt407v1fqce.png"
+        ]
+    }
 }
 
 const Skill = [

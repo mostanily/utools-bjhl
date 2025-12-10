@@ -6,7 +6,26 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.化险为夷, MXLaohenEnum.烈焰暴击], "attr": "yan", "star": "6",
     "nameEn": "CATULUS", "tag": ["爆发", "元素区域"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
-    "cv": "孙晔", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
+    "cv": "孙晔", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
+    "introText": "海临中央警局特殊事件处理小队R.E.D.，昊苍，哈哈，咱们这就算认识喽。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "b/bb/eusfr3z5n2bkt4a6f2lsbgpuwbcrci0.png",
+            "e/e0/5899t5lh1vlmac82m13elpshr0j31xy.png",
+            "0/01/pvvestsnroxmu3qkemcvbt6v2728t1c.png"
+        ],
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["海谣"],
+            "imgs": [
+                "2/23/jhgtf9ug47gmo7ku8ucoyybua6xwlv8.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

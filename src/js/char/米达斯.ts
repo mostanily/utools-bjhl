@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.物理异能], "attr": "wuli", "star": "6",
     "nameEn": "MIDAS", "tag": ["输出", "召唤"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "刘雨轩", "openDate": "2024年10月31日", "resourse": ["定向共鸣·荒土悲歌"]
+    "cv": "刘雨轩", "openDate": "2024年10月31日", "resourse": ["定向共鸣·荒土悲歌"],
+    "introText": "好久不见，监督小姐，如果没有你的帮助，我恐怕连站在这的机会也不会有……米达斯·奈格尔图，向您表达最诚挚的谢意。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "7/7d/6fxc73ynwbe6ovkeszhyg9bnxxopglh.png",
+            "4/4e/r5gb1gynn1qsnbvi4kw5r6xsauekthf.png",
+            "1/13/gwx3x4oewcauy3z9001vyzjtu0evf20.png"
+        ]
+    }
 }
 
 const Skill = [

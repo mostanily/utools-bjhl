@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.大敌当前, MXLaohenEnum.影刻方阵], "attr": "wuli", "star": "6",
     "nameEn": "WEN LIU", "tag": ["群攻", "输出", "生存"], "originWorld": "海错", "orginChar": "古剑奇谭二",
-    "cv": "", "openDate": "2025年03月27日", "resourse": ["定向共鸣·瑞金游方"]
+    "cv": "", "openDate": "2025年03月27日", "resourse": ["定向共鸣·瑞金游方"],
+    "introText": "海错，温留。你就是那什么执行官？嗯？原来你也听过老子的名号，倒还算有见识。你说，我和清和，哪个名头更响？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "5/58/0qft5p4ilkimtiuqym7yr35k6bprgrv.png",
+            "c/c1/jvawyyti8ha1zyt384fyyfdgbeuo8sc.png",
+            "d/d8/ta77n4w1geap6yrwmyzg1s1893l4vsc.png"
+        ]
+    }
 }
 
 const Skill = [

@@ -6,6 +6,7 @@ export const 晓梦迷花 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.晓梦迷花,
+    "tacgie": "1/1c/60lhyldsomchcq569p6y9b72jhpuso1.png",
     "extraData": {
         "illust": LaohenIllust.YGeriAn, //画师,
         "resourse": LaohenResourse.定向潜航

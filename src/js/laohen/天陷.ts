@@ -6,6 +6,7 @@ export const 天陷 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.天陷,
+    "tacgie": "7/72/kp147j2kbonhcmubj8urzwbu0sbvud3.png",
     "extraData": {
         "illust": LaohenIllust.波波, //画师,
         "resourse": LaohenResourse.寻迹潜航

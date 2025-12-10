@@ -6,6 +6,7 @@ export const 失途之日 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.失途之日,
+    "tacgie": "3/37/m8fho2pxfp74x2uqgkqsv9ja4nwpqrc.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

@@ -6,6 +6,7 @@ export const 事无出世间 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.事无出世间,
+    "tacgie": "6/6d/pcxxwjut0rci9tctvwlfjy9z9e99n2w.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

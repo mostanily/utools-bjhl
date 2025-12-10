@@ -5,7 +5,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.特殊减伤对地, MXLaohenEnum.雷霆万钧], "attr": "lei", "star": "4",
     "nameEn": "MARGARET·LIU", "tag": ["治疗", "屏障"], "originWorld": "特默里恩", "orginChar": "古剑奇谭三",
-    "cv": "洪海天", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "洪海天", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "我，深渊的凝视者，秘之集会的先驱，驱散黑暗的雷电天使，世界意志的传颂人——刘兄，前来拯救这个世界！啊？不需要拯救吗？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "0/02/5aelrhvbjkvmpufkl2ptk8tpx3v9oam.png",
+            "2/2f/scm1ckij9ql4gc9qflz9bu2sdvx1b11.png",
+        ],
+    }
 }
 
 const Skill = [

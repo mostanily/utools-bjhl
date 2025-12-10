@@ -6,6 +6,7 @@ export const 执愿 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.执愿,
+    "tacgie": "8/83/5gbswmrdjd0lmuep2idxjyfax434t4p.png",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.活动

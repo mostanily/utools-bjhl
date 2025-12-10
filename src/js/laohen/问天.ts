@@ -6,6 +6,7 @@ export const 问天 = {
     "rarity": LaohenRarity.sr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.问天,
+    "tacgie": "3/3c/53a1k2b8vtzwv8t9ecgeqk46wfgnt1p.png",
     "extraData": {
         "illust": LaohenIllust.和子君, //画师,
         "resourse": LaohenResourse.叶脉联结计划

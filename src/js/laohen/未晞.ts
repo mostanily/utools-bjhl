@@ -6,6 +6,7 @@ export const 未晞 = {
     "rarity": LaohenRarity.sr, //稀有度
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.未晞,
+    "tacgie": "d/d7/1mkdjpty8rkp8405ef15myrwrttn3vr.png",
     "extraData": {
         "illust": LaohenIllust.乙配, //画师,
         "resourse": LaohenResourse.叶脉联结计划

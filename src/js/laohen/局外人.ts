@@ -6,6 +6,7 @@ export const 局外人 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.局外人,
+    "tacgie": "0/02/cpgsa624uu7bqu07sj4svbgjimy71nt.png",
     "extraData": {
         "illust": LaohenIllust.乙配, //画师,
         "resourse": LaohenResourse.定向潜航

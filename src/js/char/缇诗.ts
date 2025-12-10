@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.利刃三角α型, MXLaohenEnum.雷核释力], "attr": "lei", "star": "6",
     "nameEn": "TISHI", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "虫虫", "openDate": "2024年10月10日", "resourse": ["定向共鸣·凡我之至"]
+    "cv": "虫虫", "openDate": "2024年10月10日", "resourse": ["定向共鸣·凡我之至"],
+    "introText": "你可以继续称呼我为C-V-018，但是我更喜欢缇诗这个名字。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "f/fa/cb0lsztrzh48h6mhi4w3cs080k7l5w1.png",
+            "a/a1/l6g0xxw0t1uukd2bicc8opcdycd9hzj.png",
+            "8/84/5hxc0z67byrwn062s5y0ztdhrobvn2v.png"
+        ]
+    }
 }
 
 const Skill = [

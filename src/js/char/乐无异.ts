@@ -6,7 +6,26 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "轻卫", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.卸劲化能], "attr": "lei", "star": "6",
     "nameEn": "KYLIN", "tag": ["防护", "输出", "屏障"], "originWorld": "森罗", "orginChar": "古剑奇谭二",
-    "cv": "赵毅", "openDate": "2024年04月18日", "resourse": ["常态共鸣·森罗万象", "定向共鸣·王牌机械师"]
+    "cv": "赵毅", "openDate": "2024年04月18日", "resourse": ["常态共鸣·森罗万象", "定向共鸣·王牌机械师"],
+    "introText": "我叫乐无异，是个机械师，你就叫我无异好了。你以后要是有什么机器坏了需要修都可以来找我，不用客气！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "4/47/pwami01yicelhgwbn68p9kfutz7ekf1.png",
+            "a/a2/db8uzhil570pfkbkjo927cl0g548lyg.png",
+            "c/ca/sh8iagbpnw2ngdkd4kei5h87e1hq5n7.png"
+        ],
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["万里彼苍"],
+            "imgs": [
+                "1/13/p7mhs05yvxd7qvbr3kzixh8ry12hj6w.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

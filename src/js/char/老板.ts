@@ -5,7 +5,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.昂扬斗志菱形α型, MXLaohenEnum.意志永存], "attr": "wuli", "star": "1",
     "nameEn": "BOSS", "tag": ["充能", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "", "openDate": "2024年01月12日", "resourse": ["成就奖励"]
+    "cv": "", "openDate": "2024年01月12日", "resourse": ["成就奖励"],
+    "introText": "喵嗷！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "d/d9/b1be90b3b4u0hnas7bzw2tpa619jwtb.png",
+            "5/53/g8zmshszdo3ny3dj21qvfpqxhgp99pr.png",
+        ],
+    }
 }
 
 const Skill = [

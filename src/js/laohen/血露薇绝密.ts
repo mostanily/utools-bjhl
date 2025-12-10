@@ -6,6 +6,7 @@ export const 血露薇绝密 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.血露薇绝密,
+    "tacgie": "d/d3/2h25umr07esihi14s4xg18m1lmmmrb1.png",
     "extraData": {
         "illust": LaohenIllust.min, //画师,
         "resourse": LaohenResourse.寻迹潜航

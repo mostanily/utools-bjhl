@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.澜盾凝锋], "attr": "shui", "star": "6",
     "nameEn": "TIKKA", "tag": ["支援", "治疗"], "originWorld": "乌瑞亚", "orginChar": "原创",
-    "cv": "", "openDate": "2025年05月29日", "resourse": ["定向潜航·是，主厨！"]
+    "cv": "", "openDate": "2025年05月29日", "resourse": ["定向潜航·是，主厨！"],
+    "introText": "很高兴为您服务，我是谛卡，来自乌瑞亚的厨师。尊敬的客人，我听到您敲响点餐铃了。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "9/9a/mwkdeg0dvt4bu35wvdkh77plr3p89cu.png",
+            "1/1f/2ltpfo47qiij8p5q1vj09puj3y139kt.png",
+            "1/13/fxtdj5lbe3rjoqiv7409ec09317qixy.png"
+        ],
+    }
 }
 
 const Skill = [
@@ -43,7 +53,7 @@ const Skill = [
                 "形态，回复所有【易食无忧】技能次数，且攻击模式改变：",
                 speSkillCon("攻击速度：0.40次每秒"),
                 "，每次对目标造成",
-                speSkillCon("", 0 , -1, 0),
+                speSkillCon("", 0, -1, 0),
                 speSkillCon("最终攻击的水元素伤害"),
                 "（在此攻击模式下，不再产生水元素区域）",
                 "",
@@ -130,7 +140,7 @@ const Skill = [
         "detail": {
             "type": "异核技能",
             "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "回复","友方增益", "负面状态",  "对空"],
+            "tab": ["伤害", "回复", "友方增益", "负面状态", "对空"],
             "sizeLevel": [
                 ["9%", "18%", "90%", "360%"],
                 ["11%", "21%", "105%", "420%"],
@@ -163,7 +173,7 @@ const Skill = [
                 "的生命值，且在获得回复效果时，拥有护盾的同调者每次施放普通攻击时，额外对当前目标造成单体",
                 speSkillCon("", 0, -1, 3),
                 speSkillCon("最终攻击的水元素伤害"),
-                "（伤害视为该同调者造成的伤害）"    
+                "（伤害视为该同调者造成的伤害）"
             ]
         }
     },

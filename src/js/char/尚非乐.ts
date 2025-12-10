@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.强攻对空, MXLaohenEnum.信号干扰三角], "attr": "feng", "star": "5",
     "nameEn": "HIRUNDO", "tag": ["群攻", "拦截"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
-    "cv": "王燕华", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "王燕华", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "咚咚咚——请问是白荆科技的监督大人吗？我是隔壁博物附小的尚非乐，听了昊苍哥哥推荐，专门来你家蹭饭哒！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "2/2b/jsmzm0i8e31tyz215ebjb0yjassrbw0.png",
+            "f/f8/mgceo6s7io25cc7yyeqhb3llddornr2.png",
+            "a/a8/8mnnyjwcu99pngbbeelghp1qcg451yj.png"
+        ]
+    }
 }
 
 const Skill = [

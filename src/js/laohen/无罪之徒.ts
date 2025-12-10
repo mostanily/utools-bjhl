@@ -6,6 +6,7 @@ export const 无罪之徒 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.无罪之徒,
+    "tacgie": "d/da/5nfyxqezwsul56m84xes81xh2dekv2f.png",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

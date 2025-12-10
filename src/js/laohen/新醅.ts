@@ -6,6 +6,7 @@ export const 新醅 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.新醅,
+    "tacgie": "2/25/8ysrsxz67eo6eliqxgv6b9cl6ysec0c.png",
     "extraData": {
         "illust": LaohenIllust.木昆昆, //画师,
         "resourse": LaohenResourse.定向潜航

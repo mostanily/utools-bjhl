@@ -6,6 +6,7 @@ export const 因果历然 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.因果历然,
+    "tacgie": "3/31/e5zdnzyfit40jlhymrsg2o6bj0j6oju.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

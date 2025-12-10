@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.针对打击三角, MXLaohenEnum.同步强化], "attr": "wuli", "star": "4",
     "nameEn": "DIYAN", "tag": ["群攻", "支援", "拦截"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "苏婉", "openDate": "2024年01月12日", "resourse": ["主线S0-1赠送", "常态共鸣"]
+    "cv": "苏婉", "openDate": "2024年01月12日", "resourse": ["主线S0-1赠送", "常态共鸣"],
+    "introText": "您好监督，我是狄砚，承蒙信任，从今天开始担任α小队队长，请您多多指教。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "7/70/gp8qifibpk8rs43vbcs5t45ue4d7wwz.png",
+            "2/2b/8mupzv86zpiuxgd533gaqixq44l27dg.png"
+        ],
+    }
 }
 
 const Skill = [

@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形α型, MXLaohenEnum.针对削弱], "attr": "yan", "star": "5",
     "nameEn": "XIANGLING", "tag": ["输出", "拉拽"], "originWorld": "艾达", "orginChar": "古剑奇谭一",
-    "cv": "阎萌萌", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "阎萌萌", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "我、我叫襄铃，他们说可以来这里找监督，他会让襄铃留在技术组……什么、你就是？原来监督是个人类么……",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "1/12/g7isxa6y6ze2hzobo79iprl47l5cd17.png",
+            "9/9d/cmn9qv5mhqdwdu71r4f3tciah6n5ue9.png",
+            "6/62/5p2omg5dhoxy76mwq10w4ecb540c9db.png"
+        ]
+    }
 }
 
 const Skill = [

@@ -6,6 +6,7 @@ export const 角色扮演 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.角色扮演,
+    "tacgie": "9/98/pzqofsqw5klfrnde7zsojfdz77dgp6t.png",
     "extraData": {
         "illust": LaohenIllust.木昆昆, //画师,
         "resourse": LaohenResourse.活动

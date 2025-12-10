@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "铁御", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.绝处逢生], "attr": "yan", "star": "4",
     "nameEn": "INFA", "tag": ["防护", "支援"], "originWorld": "黑曜", "orginChar": "原创",
-    "cv": "张昱", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "张昱", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "你好，我是焰响，听说你愿意暂时收留我们，多谢多谢，好人一生平安！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "3/30/5j55n7zmsb2rel6pssjyfa1agjqaqlz.png",
+            "a/a1/9njz57mp4fiyc6f6oj02yocz3xiv9ls.png"
+        ]
+    }
 }
 
 const Skill = [

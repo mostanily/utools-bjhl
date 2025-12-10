@@ -6,6 +6,7 @@ export const 洗出汪外 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.洗出汪外,
+    "tacgie": "9/9c/gr5deifz499tg6p5re4j7sj6th5ces0.png",
     "extraData": {
         "illust": LaohenIllust.小藻, //画师,
         "resourse": LaohenResourse.定向潜航,

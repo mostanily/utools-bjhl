@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形α型, MXLaohenEnum.隐匿回响], "attr": "yan", "star": "6",
     "nameEn": "Thea", "tag": ["群攻", "生存"], "originWorld": "夜摩", "orginChar": "古剑奇谭网络版",
-    "cv": "龟娘", "openDate": "2024年05月09日", "resourse": ["定向共鸣·走向彼岸"], "laohenLink":LaohenNameEnum.光阴间隙
+    "cv": "龟娘", "openDate": "2024年05月09日", "resourse": ["定向共鸣·走向彼岸"], "laohenLink":LaohenNameEnum.光阴间隙,
+    "introText": "夜摩国女王，伊琅相思。现在正在适应另一些全新的身份——譬如，成为你们的一员，加入这个世界。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "d/dd/bgm55nxobsfu9wto8f9nmyjqg7rvck2.png",
+            "b/b4/rvyizwrn2o1chqut3qjkpbf666bzcex.png",
+            "c/ce/n67vyz47xh03t5zm21fkqvtlyuxeyxy.png"
+        ]
+    }
 }
 
 const Skill = [

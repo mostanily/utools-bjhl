@@ -6,6 +6,7 @@ export const 荣与罪 = {
     "rarity": LaohenRarity.sr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.荣与罪,
+    "tacgie": "0/0b/tbm0n4oi61vhnessgb94eu8d2rvsk1d.png",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.叶脉联结计划

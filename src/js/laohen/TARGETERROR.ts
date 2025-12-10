@@ -6,6 +6,7 @@ export const TARGETERROR = {
     "rarity": LaohenRarity.sr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.TARGETERROR,
+    "tacgie": "7/73/jr7tfregrrslo5dnco47a1xw6qzvg8w.png",
     "extraData": {
         "illust": LaohenIllust.laxy, //画师,
         "resourse": LaohenResourse.叶脉联结计划

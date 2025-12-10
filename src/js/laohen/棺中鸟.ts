@@ -6,6 +6,7 @@ export const 棺中鸟 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.棺中鸟,
+    "tacgie": "1/14/6sxu3s7gt7253wbbtkyrgbjvlmyov89.png",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

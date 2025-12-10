@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "铁御", "skill": [MXLaohenEnum.生机盎然方块β型, MXLaohenEnum.荆棘之志], "attr": "lei", "star": "5",
     "nameEn": "YUQI", "tag": ["防护", "反伤"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭二",
-    "cv": "斑马", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "斑马", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "吾乃匠人族族长禺期，听闻此处技艺颇为有趣，特来一探。你的自我介绍就免了，只需告诉吾工坊在哪即可。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "2/27/h0zuzb9nokakkdmuo9jo1cd8lgqk8rl.png",
+            "a/ae/9unprseqzva175h6nm9drmbwstwxuy9.png",
+            "e/eb/t8mljonf2763tnoz44ige1ibp5chvc0.png"
+        ]
+    }
 }
 
 const Skill = [

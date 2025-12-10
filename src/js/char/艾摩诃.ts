@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "游徒", "skill": [MXLaohenEnum.特殊减伤对空, MXLaohenEnum.隐匿其中], "attr": "lei", "star": "4",
     "nameEn": "EMAHA", "tag": ["输出", "生存"], "originWorld": "夜摩", "orginChar": "原创",
-    "cv": "鹏小胖", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "鹏小胖", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "艾摩诃，夜摩国女王陛下亲卫。在找到回去的方法之前，听候您的调遣……请问你们这里吃饭的地方在哪？",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "1/1f/kehp2lvycdanr8siqxk72m390kkn6ih.png",
+            "a/a9/nl7mnejxmd4486jvf0fd8x8sd0umd68.png"
+        ]
+    }
 }
 
 const Skill = [

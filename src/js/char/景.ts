@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.元素专攻方块β型, MXLaohenEnum.雷域和源], "attr": "lei", "star": "6",
     "nameEn": "JING·GLIT·JUSTICE", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "张若瑜", "openDate": "2024年08月08日", "resourse": ["定向共鸣·荣耀俯首"]
+    "cv": "张若瑜", "openDate": "2024年08月08日", "resourse": ["定向共鸣·荣耀俯首"],
+    "introText": "很抱歉，作为乐园岛的管理者，乔司迪必须永远保持中立——所以站在这里的，是景。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "3/35/4o3p7z193vo3f3f6kq46tgfrai3hpfh.png",
+            "9/9f/smkn3hw6125nigqeioyr12py5b9dmtk.png",
+            "1/1e/ozmcrp06ynwnzezptblnbkcjj5wfa9a.png"
+        ],
+    }
 }
 
 const Skill = [

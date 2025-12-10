@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "铁御", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.坚毅不屈], "attr": "shui", "star": "4",
     "nameEn": "TIANRUO", "tag": ["治疗", "屏障"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "风袖", "openDate": "2024年01月12日", "resourse": ["精神深潜教学", "常态共鸣"]
+    "cv": "风袖", "openDate": "2024年01月12日", "resourse": ["精神深潜教学", "常态共鸣"],
+    "introText": "初次见面，我是田偌，隶属于海临中央警局特殊事件处理小队R.E.D.，主要负责信息采集和急救工作，很荣幸能够协助您。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "e/e3/3h0qy21ogqrefj8kzdrorndnl9nfjlc.png",
+            "7/76/it81ccmmk0hxn8wq3m8ysm65shu6i4w.png"
+        ]
+    }
 }
 
 const Skill = [

@@ -6,6 +6,7 @@ export const 残照 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.残照,
+    "tacgie": "1/10/twfuajberx05jifsmq30ebhwt21m0sv.png",
     "extraData": {
         "illust": LaohenIllust.灼忘, //画师,
         "resourse": LaohenResourse.寻迹潜航

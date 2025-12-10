@@ -6,6 +6,7 @@ export const 形与神 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.形与神,
+    "tacgie": "a/ae/4ys2if0pjio103hvvu5eoh2utkuw6l6.png",
     "extraData": {
         "illust": LaohenIllust.llmia咻, //画师,
         "resourse": LaohenResourse.定向潜航

@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.冻结精通], "attr": "shuang", "star": "6",
     "nameEn": "IVANA", "tag": ["输出", "群攻"], "originWorld": "斯奈菲尔", "orginChar": "原创",
-    "cv": "杨梦露", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"]
+    "cv": "杨梦露", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
+    "introText": "监督……是吗？很抱歉来到这里这么久，都没能正式问候您。<br>鉴于我早已被剥夺王女之衔，您唤我耶芙娜便可——别紧张，对于从宝石中脱身这件事，我和您一样惊讶。",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "8/8e/mfjvogfdtz3raguv87amqjjdcoo5vbc.png",
+            "8/89/3fmjzs47jqklty2rs2ljtj9lpm91ipa.png",
+            "c/c4/s8locn525l2z2tfodejchckd6xsjv32.png"
+        ]
+    }
 }
 
 const Skill = [

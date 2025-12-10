@@ -6,7 +6,17 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.等待时机], "attr": "shui", "star": "5",
     "nameEn": "SAMBHEKA", "tag": ["击退", "元素区域"], "originWorld": "夜摩", "orginChar": "原创",
-    "cv": "灯果", "openDate": "2024年01月12日", "resourse": ["常态共鸣"]
+    "cv": "灯果", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
+    "introText": "瓦卡莎，来自夜摩的祈雨祭司……有什么事等我睡醒了再说吧……",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "2/25/te81dt5lsftarqwggluzxz87dqtxfvj.png",
+            "f/f0/66u501xqkyvddt1c7h6vjq8lxccva9o.png",
+            "2/20/jnultzjcznq5ouqt2o93ouabukxrjph.png"
+        ]
+    }
 }
 
 const Skill = [

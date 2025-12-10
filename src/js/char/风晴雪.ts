@@ -6,7 +6,17 @@ import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "筑术师", "skill": [MXLaohenEnum.强攻对地, MXLaohenEnum.霜天], "attr": "shuang", "star": "6",
     "nameEn": "FENG JR.", "tag": ["召唤", "输出"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
-    "cv": "朱雀橙", "openDate": "2024年03月28日", "resourse": ["定向共鸣·飞雪初晴", "常态共鸣·森罗万象"]
+    "cv": "朱雀橙", "openDate": "2024年03月28日", "resourse": ["定向共鸣·飞雪初晴", "常态共鸣·森罗万象"],
+    "introText": "前雇佣兵，“腾蛇”。或者你也可以叫我风晴雪，还记得吗？我们见过的~",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "S4立绘", "3D"],
+        "imgs": [
+            "8/8a/t13wt4m3sgzyv6gsjb0361kjpwvxqd6.png",
+            "1/13/gs8l9mukd3ixn3lk34f3z60bcqq5i61.png",
+            "f/fe/ee5m53novxql3abezzp9xnljua46hm5.png"
+        ],
+    }
 }
 
 const Skill = [

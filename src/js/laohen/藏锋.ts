@@ -6,6 +6,7 @@ export const 藏锋 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.藏锋,
+    "tacgie": "e/e2/58xmj8wypb6wir5fp1ntlj7hfkuvj2m.png",
     "extraData": {
         "illust": LaohenIllust.iii303, //画师,
         "resourse": LaohenResourse.寻迹潜航

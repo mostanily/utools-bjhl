@@ -6,6 +6,7 @@ export const 默 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.默,
+    "tacgie": "4/4c/4idg1i6hvysrknngns2c4xz1mvalsag.png",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

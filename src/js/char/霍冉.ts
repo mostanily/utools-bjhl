@@ -6,7 +6,16 @@ import { speSkillCon } from '../consts/SkillCon.ts';
 const Desc = {
     "job": "尖锋", "skill": [MXLaohenEnum.自动瞄准系统方块α型, MXLaohenEnum.破碎打击], "attr": "yan", "star": "4",
     "nameEn": "HUORAN", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
-    "cv": "小巫", "openDate": "2024年01月12日", "resourse": ["主线S0-3赠送", "常态共鸣"]
+    "cv": "小巫", "openDate": "2024年01月12日", "resourse": ["主线S0-3赠送", "常态共鸣"],
+    "introText": "这地儿是你的？不错不错我喜欢！忘了介绍，我叫霍冉，以后有事直说，姐罩着你！",
+    "tacgie": {
+        "name": "初始外装",
+        "listNames": ["立绘", "3D"],
+        "imgs": [
+            "2/20/ph3u0mv9u8881tb6s8dgh09znbrexs4.png",
+            "9/9a/mrysatce9wyh492kp42g7pyakocz3g4.png"
+        ],
+    }
 }
 
 const Skill = [

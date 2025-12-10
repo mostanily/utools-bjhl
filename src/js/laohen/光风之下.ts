@@ -6,6 +6,7 @@ export const 光风之下 = {
     "rarity": LaohenRarity.ssr, //稀有度
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.光风之下,
+    "tacgie": "b/bb/axqf11dbjb7dsatgo7we7ixpa4plbio.png",
     "extraData": {
         "illust": LaohenIllust.kana酱, //画师,
         "resourse": LaohenResourse.定向潜航,
