@@ -1,10 +1,16 @@
 <template>
     <div class="enlarge" :data-img="'记忆烙痕_' + getLaohenDetail($route.params.name).name + '_立绘.png'" data-height="auto"
-        style="text-align:center;display:flex;"><img
-            :alt="'记忆烙痕 ' + getLaohenDetail($route.params.name).name + ' 立绘.png'"
-            :src="'https://patchwiki.biligame.com/images/bjhl/' + getLaohenDetail($route.params.name).tacgie"
-            decoding="async" loading="lazy" width="1562" height="722" class="enlarge-img" data-file-width="1562"
-            data-file-height="722">
+        style="text-align:center;display:flex;">
+        <photo-provider>
+            <photo-consumer :src="'https://patchwiki.biligame.com/images/bjhl/' + getLaohenDetail($route.params.name).tacgie" 
+                :intro="'记忆烙痕_' + getLaohenDetail($route.params.name).name + '_立绘'" 
+                :download-name="'记忆烙痕_' + getLaohenDetail($route.params.name).name + '_立绘'">
+                <img :alt="'记忆烙痕 ' + getLaohenDetail($route.params.name).name + ' 立绘.png'"
+                    :src="'https://patchwiki.biligame.com/images/bjhl/' + getLaohenDetail($route.params.name).tacgie"
+                    decoding="async" loading="lazy" width="1562" height="722" class="enlarge-img" data-file-width="1562"
+                    data-file-height="722">
+            </photo-consumer>
+        </photo-provider>
     </div>
     <div class="hidden-xs">
         <table class="wikitable" style="width:100%;margin:8px 0;">

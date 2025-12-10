@@ -11,8 +11,14 @@
             <p class="mw-empty-elt"></p>
             <div class="enlarge" :data-img="'角色_' + tacgieObj.listNames[index] + '.png'" data-height="100%"
                 style="max-height:100%;text-align:center;display:flex;">
-                <img class="enlarge-img" ref="tachie" :alt="'角色 ' + tacgieObj.listNames[index] + '.png'"
-                    :src="'https://patchwiki.biligame.com/images/bjhl/' + tacgiePath" decoding="async" loading="lazy">
+                <photo-provider>
+                    <photo-consumer :src="'https://patchwiki.biligame.com/images/bjhl/' + tacgiePath" 
+                        :intro="$route.params.name + '_'+ tacgieObj.name + '_' + tacgieObj.listNames[index]" 
+                        :download-name="'角色_' + $route.params.name + '_' + tacgieObj.listNames[index] + '.png'">
+                        <img class="enlarge-img" ref="tachie" :alt="'角色_' + $route.params.name + '_' + tacgieObj.listNames[index] + '.png'"
+                            :src="'https://patchwiki.biligame.com/images/bjhl/' + tacgiePath" decoding="async" loading="lazy">
+                    </photo-consumer>
+                </photo-provider>
             </div>
             <p class="mw-empty-elt"></p>
         </div>
@@ -158,7 +164,7 @@ ul.tabbernav li a {
     height: auto;
     max-height: 100%;
     object-fit: scale-down;
-    /* aspect-ratio: 1287/724; */
+    aspect-ratio: 305/172;
 }
 
 .mw-hide-empty-elt .mw-parser-output .mw-empty-elt {

@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import VueScrollTo from 'vue-scrollto'
 //import { createPinia } from 'pinia'
+import PhotoPreview from 'vue3-photo-preview'
+import 'vue3-photo-preview/dist/index.css';
 import './style.css'
 import App from './App.vue'
 
@@ -11,6 +13,8 @@ const app = createApp(App)
 //app.use(createPinia())
 app.use(router)
 app.use(VueScrollTo)
+
+app.use(PhotoPreview)
 
 app.directive('tooltip', {
     beforeMount(el, binding) {
