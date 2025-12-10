@@ -141,6 +141,25 @@ export default class Laohen {
     }
 
     /**
+     * 获取烙痕图鉴列表稀有度图片
+     * @param rarityEnum 烙痕稀有度对应的枚举值
+     * @returns 
+     */
+    static getLaohenListRarityImg(rarityEnum: number) {
+        const enName = rarityEnName[rarityEnum]
+        return 'img/laohen/attr/list/' + enName + '.png'
+    }
+
+    /**
+     * 获取烙痕图鉴列表属性背景图
+     * @param attrEnum 烙痕对应属性的枚举值
+     * @returns 
+     */
+    static getLaohenListAttrImg(attrEnum: number) {
+        return 'img/laohen/attr/list/' + Laohen.attrName[attrEnum] + '.png';
+    }
+
+    /**
      * 获取烙痕技能对应的图片
      * @param laohenSkillEnum 
      */

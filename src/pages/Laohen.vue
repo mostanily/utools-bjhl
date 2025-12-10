@@ -7,6 +7,19 @@
     <hr>
     <div id="mw-content-text" class="mw-body-content mw-content-ltr">
         <div class="mw-parser-output">
+            <div class="map-dh">
+                <div class="map-dh-left">展示模式</div>
+                <div class="map-dh-right">
+                    <p>
+                        <a :class="{'mw-selflink selflink': listShouTypeIndex === 1}" style="cursor: pointer;" @click="setListShouTypeIndex(1)">
+                            <span class="map-dh-an">&nbsp;记忆烙痕图鉴</span>
+                        </a>
+                        <a :class="{'mw-selflink selflink': listShouTypeIndex === 2}" style="cursor: pointer;" @click="setListShouTypeIndex(2)">
+                            <span class="map-dh-an">&nbsp;记忆烙痕一览(技能)</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
             <table class="wikitable" style="width:100%">
                 <tbody>
                     <tr>
@@ -14,8 +27,8 @@
                         </th>
                         <td>
                             <li v-for="(rarity, index) in rarityEnName" :key="index"
-                                @click="setSortFiled('rarity', index)" class="btn btn-default cardSelectOption" 
-                                :style="sortField.rarity.includes(index) ? 'background-color: silver;color: #000;' : ''" 
+                                @click="setSortFiled('rarity', index)" class="btn btn-default cardSelectOption"
+                                :style="sortField.rarity.includes(index) ? 'background-color: silver;color: #000;' : ''"
                                 role="button" :data-option="'1|' + rarity" data-group="1">{{ rarity }}
                             </li>
                         </td>
@@ -24,7 +37,7 @@
                         <th colspan="2" width="8%">属性
                         </th>
                         <td>
-                            <li v-for="(attr, index) in attrName" :key="index" @click="setSortFiled('type', index)" 
+                            <li v-for="(attr, index) in attrName" :key="index" @click="setSortFiled('type', index)"
                                 :style="sortField.type.includes(index) ? 'background-color: silver;color: #000;' : ''"
                                 class="btn btn-default cardSelectOption" role="button" :data-option="'2|' + attr"
                                 data-group="2">
@@ -63,7 +76,8 @@
                 <LaohenSkillToast :rightX="needRightX" :mouseCurrLaohenSkillEnum="currLaohenSkillEnum">
                 </LaohenSkillToast>
             </div>
-            <div id="CardSelectTr" style="display:flex;flex-direction:column;gap:4px;">
+            <LaohenBgList v-if="listShouTypeIndex === 1" :currAllLaohen="allLaohen"></LaohenBgList>
+            <div v-if="listShouTypeIndex === 2" style="display:flex;flex-direction:column;gap:4px;">
                 <div v-for="(laohen, index) in allLaohen" :key="index" class="divsort"
                     style="display:flex;border-radius:3px;padding:3px;width:fit-content;min-width:100%;">
                     <div style="width:192px;height:76px;margin-right:3px;position:relative;">
@@ -160,16 +174,18 @@
                 </div>
             </div>
         </div>
-        <button v-scroll-to="{ element: 'body', offset: -30 }" style="position: fixed;right: 10px;bottom: 10px;">Top ⇧</button>
+        <button v-scroll-to="{ element: 'body', offset: -30 }" style="position: fixed;right: 10px;bottom: 10px;">Top
+            ⇧</button>
     </div>
 </template>
 <script>
 import { computed, defineComponent, ref } from 'vue';
 import LaohenSkillToast from './components/LaohenSkillToast.vue';
+import LaohenBgList from './components/LaohenBgList.vue';
 
 export default defineComponent({
     components: {
-        LaohenSkillToast
+        LaohenSkillToast, LaohenBgList
     },
     data() {
         return {
@@ -180,6 +196,7 @@ export default defineComponent({
             allLaohen: new Array,
             originLaohen: window.$laohen.allLaohen,
             currLaohenSkillEnum: -1,
+            listShouTypeIndex: 1,
             needRightX: 0,
             sortField: {
                 rarity: new Array,
@@ -275,6 +292,9 @@ export default defineComponent({
                 this.needRightX = 0
             }
         },
+        setListShouTypeIndex(index) {
+            this.listShouTypeIndex = index
+        },
         /**
          * 获取筛选条件对应的属性图片
          * @param attrName 烙痕属性值（体质、防御等）
@@ -354,6 +374,81 @@ a:hover {
     .client-js #mw-content-text {
         margin-top: 2em;
     }
+}
+
+.map-dh {
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0px;
+    background: #fff;
+    display: table;
+    border-radius: 4px;
+    border: 1px solid #4299e0;
+}
+
+.map-dh-left {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    background: #4299e0;
+    color: #fff;
+    text-align: center;
+}
+
+.map-dh-right {
+    display: table-cell;
+    vertical-align: middle;
+    width: calc(100% - 100px);
+    padding: 10px;
+}
+
+.mw-parser-output p {
+    word-break: break-word;
+}
+
+.map-dh-an {
+    float: left;
+    width: 240px;
+    color: #4299e0 !important;
+    background: #e1e5ea;
+    padding: 3px 10px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-th:before {
+    content: "\f00a";
+}
+
+a.mw-selflink {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: inherit;
+}
+
+.fa-align-justify:before {
+    content: "\f039";
+}
+
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .mw-content-ltr {
