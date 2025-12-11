@@ -43,7 +43,7 @@ export default defineComponent({
          * @param laohenEnum 烙痕对应的枚举值
          */
         getLaohenBg(laohenEnum) {
-            return window.$laohen.getLaohenBg(laohenEnum)
+            return window.$laohen.getLaohenBg(laohenEnum, true)
         },
         /**
          * 获取烙痕卡面稀有度背景图片

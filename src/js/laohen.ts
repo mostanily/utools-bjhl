@@ -136,8 +136,8 @@ export default class Laohen {
      * 获取烙痕版面图片
      * @param laohenEnum 烙痕对应的枚举值
      */
-    static getLaohenBg(laohenEnum: number) {
-        return 'img/laohen/bg/' + laohenEnum + '.png';
+    static getLaohenBg(laohenEnum: number, withList: boolean = false) {
+        return withList ? 'img/laohen/bg_list/' + laohenEnum + '.png' : 'img/laohen/bg/' + laohenEnum + '.png';
     }
 
     /**

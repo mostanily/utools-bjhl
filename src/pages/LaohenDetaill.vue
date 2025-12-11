@@ -15,8 +15,13 @@
             <hr>
             <div class="tabber tabberlive">
                 <ul class="tabbernav">
-                    <li :class="{'tabberactive': hxIndex === 1}" @click="setHxIndex(1)"><a title="初见" data-hash="初见" style="cursor: pointer;">初见</a></li><wbr>
-                    <li :class="{'tabberactive': hxIndex === 2}" @click="setHxIndex(2)"><a title="烙痕技能" data-hash="烙痕技能" style="cursor: pointer;">烙痕技能</a></li><wbr>
+                    <li :class="{'tabberactive': hxIndex === 1}" @click="setHxIndex(1)">
+                        <a title="初见" data-hash="初见" style="cursor: pointer;">初见</a></li><wbr>
+                    <li :class="{'tabberactive': hxIndex === 2}" @click="setHxIndex(2)">
+                        <a title="烙痕技能" data-hash="烙痕技能" style="cursor: pointer;">烙痕技能</a></li><wbr>
+                    <li v-if="checkHasKey(getLaohenDetail($route.params.name).extraData, 'skillLink')" 
+                        :class="{'tabberactive': hxIndex === 3}" @click="setHxIndex(3)">
+                        <a title="技能同调" data-hash="技能同调" style="cursor: pointer;">技能同调</a></li><wbr>  
                 </ul>
                 <div :class="{'half-skill': true, 'display-block': hxIndex === 2, 'display-none': hxIndex !== 2}"
                     style="border: 1px solid #525c66;border-top: none;border-bottom: none;border-left: none;">
@@ -81,6 +86,11 @@
                 <div :class="{'half-skill': true, 'display-block': hxIndex === 2, 'display-none': hxIndex !== 2}">
                     <LaohenSkillDetaillCon :moveCurrLaohenSkillEnum="mouseCurrLaohenSkillEnum"></LaohenSkillDetaillCon>
                 </div>
+                <div style="margin-top: 4px;color:#717880;">
+                    <SkillLinkCon v-if="checkHasKey(getLaohenDetail($route.params.name).extraData, 'skillLink') && hxIndex === 3" 
+                        :skill="getSkillLinkConByName(getLaohenDetail($route.params.name).extraData.skillLink)" 
+                        :charName="getLaohenDetail($route.params.name).extraData.skillLink"></SkillLinkCon>
+                </div>
                 <LaohenNav></LaohenNav>
             </div>
         </div>
@@ -91,10 +101,11 @@ import { defineComponent } from 'vue';
 import LaohenNav from './detail/LaohenNav.vue';
 import LaohenTachie from './components/LaohenTachie.vue';
 import LaohenSkillDetaillCon from './detail/LaohenSkillDetaillCon.vue';
+import SkillLinkCon from './components/SkillLinkCon.vue';
 
 export default defineComponent({
     components: {
-        LaohenNav, LaohenTachie, LaohenSkillDetaillCon
+        LaohenNav, LaohenTachie, LaohenSkillDetaillCon, SkillLinkCon
     },
     data() {
         return {
@@ -103,12 +114,23 @@ export default defineComponent({
             mouseCurrLaohenSkillEnum: -1,
             allChar: window.$commonUtil.allChar,
             charAttr: window.$commonUtil.charAttr,
+            allSkill: window.$commonUtil.allCharSkill,
             hxIndex: 1
         }
     },
     methods: {
         setHxIndex (index) {
             this.hxIndex = index
+        },
+        checkHasKey(Obj, key) {
+            return Object.keys(Obj).includes(key)
+        },
+        /**
+         * 获取技能同调的技能内容（一般为配置的最后一条数据）
+         * @param charName 角色名字
+         */
+        getSkillLinkConByName(charName) {
+            return this.allSkill[charName].at(-1)
         },
         /**
          * 获取烙痕详情
