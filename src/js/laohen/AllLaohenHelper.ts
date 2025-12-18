@@ -141,6 +141,7 @@ import { 团圆 } from "./团圆"
 import { 雨中愿 } from "./雨中愿"
 import { 秘密音律 } from "./秘密音律"
 import { 白夜 } from "./白夜"
+import { 今日风平浪静 } from "./今日风平浪静"
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -286,4 +287,5 @@ export default class AllLaohenHelper {
     static 雨中愿 = 雨中愿
     static 秘密音律 = 秘密音律
     static 白夜 = 白夜
+    static 今日风平浪静 = 今日风平浪静
 }

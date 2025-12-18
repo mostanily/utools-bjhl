@@ -76,6 +76,7 @@ enum ToastSkillEnum {
     属性乘区自动技能回复速度,
     风化反应,
     风化元素伤害,
+    潮湿效果,
 }
 
 /**
@@ -114,6 +115,7 @@ enum LaohenToastSkillEnum {
     雷之界域,
     属性乘区暴击伤害,
     属性乘区刻印攻击百分比增加,
+    潮湿效果,
 }
 
 export { ToastSkillEnum, LaohenToastSkillEnum }

@@ -218,8 +218,7 @@ const allLaohenSkill = [
         "isJL": false,
         "rarity": LaohenRarity.r, //稀有度，共3种（r，sr，ssr）
         "id": MXLaohenEnum.乘人之危对地,
-        "takeEffect": [JobTypeName.所有同调者
-        ], //职业名称
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
         "useSkill": [
             120,
             90,
@@ -228,6 +227,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.遇见宝石海,
+                LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.棺中鸟,
                 LaohenNameEnum.因果历然,
                 LaohenNameEnum.底线大作战,
@@ -794,6 +794,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.幻想彼境,
                 LaohenNameEnum.幕影重重,
+                LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.暗涌轮廓,
                 LaohenNameEnum.双重引力,
                 LaohenNameEnum.谎言之下,
@@ -1904,6 +1905,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.同行,
+                LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.棺中鸟,
                 LaohenNameEnum.局外人,
                 LaohenNameEnum.荣与罪,
@@ -2568,6 +2570,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.怯者的墓志铭,
+                LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.角色扮演,
                 LaohenNameEnum.噩梦,
                 LaohenNameEnum.血露薇绝密,
@@ -3502,6 +3505,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.须臾浮生,
+                LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.Feat,
                 LaohenNameEnum.向新世界去
             ], //枚举LaohenNameEnum.(x)
@@ -3571,8 +3575,7 @@ const allLaohenSkill = [
         "isJL": false,
         "rarity": LaohenRarity.r, //稀有度，共3种（r，sr，ssr）
         "id": MXLaohenEnum.原生特攻β型,
-        "takeEffect": [JobTypeName.所有同调者
-        ], //职业名称
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
         "useSkill": [
             120,
             90,
@@ -3580,6 +3583,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.记虚,
                 LaohenNameEnum.底线大作战,
                 LaohenNameEnum.无刃之刃,
@@ -11275,6 +11279,7 @@ const allLaohenSkill = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.沙中金火,
                 LaohenNameEnum.萌火直出,
                 LaohenNameEnum.TARGETERROR
@@ -12698,6 +12703,40 @@ const allLaohenSkill = [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加)
         ]
     },
+    {
+        "name": "波涛助澜", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.波涛助澜,
+        "takeEffect": [JobTypeName.轻卫, JobTypeName.铁御, JobTypeName.尖锋], //职业名称
+        "useSkill": [
+            180,
+            240,
+            300
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.今日风平浪静], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "同调者命中处于水元素区域目标或",
+            speSkillCon("[潮湿效果]", SkillColorEnum.normal),
+            "的目标时，自身刻印攻击提高",
+            speSkillCon("15%（等级1时）"),
+            "/",
+            speSkillCon("35%（等级2时）"),
+            "/",
+            speSkillCon("50%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "，持续30秒",
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.潮湿效果),
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加)
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -12844,6 +12883,7 @@ const allLaohen = [
     AllLaohenHelper.无刃之刃,
     AllLaohenHelper.如长夜振翅,
     AllLaohenHelper.烟霞在侧,
+    AllLaohenHelper.今日风平浪静,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }

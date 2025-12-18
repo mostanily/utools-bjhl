@@ -1,6 +1,6 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
@@ -238,6 +238,88 @@ const Skill = [
                     speSkillCon("20%[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
                     speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries)
                 ]//三花特性
+            ]
+        }
+    },
+    {
+        "name": "技能同调",
+        "aliasNum": "技能同调",
+        "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+        "unlock": LaohenNameEnum.今日风平浪静,//该技能解锁条件，拥有对应的烙痕ID
+        "detail": {
+            "name": "海波的回礼",
+            "aliasNum": "2",
+            "maxLevel": 15,
+            "type": "主动技能",
+            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],
+            "tab": ["水区域", "自身增益", "伤害", "负面状态", "格挡条破坏3"],
+            "sizeLevel": [
+                ["1400%", "1120%"],
+                ["1610%", "1288%"],
+                ["1820%", "1456%"],
+                ["2030%", "1624%"],
+                ["2240%", "1792%"],
+                ["2450%", "1960%"],
+                ["2660%", "2128%"],
+                ["2870%", "2296%"],
+                ["3080%", "2464%"],
+                ["3220%", "2576%"],
+                ["3360%", "2688%"],
+                ["3500%", "2800%"],
+                ["3640%", "2912%"],
+                ["3780%", "3024%"],
+                ["3920%", "3136%"]
+            ],
+            "content": [
+                "被动：每隔",
+                speSkillCon("15"),
+                "秒获得",
+                speSkillCon("5"),
+                "层",
+                speSkillCon("[孤蓝的庇佑]", SkillColorEnum.normal, ToastSkillEnum.孤蓝的庇佑),
+                "效果",
+                "",
+                "主动：汇聚水流，在自身脚下产生水元素区域并对自身周围半径",
+                speSkillCon("500"),
+                "造成",
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的水元素伤害"),
+                "，随后生成4个持续",
+                speSkillCon("15"),
+                "秒的水球，水球碰撞到目标时会对周围半径",
+                speSkillCon("250"),
+                "造成",
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的水元素伤害"),
+                "同时留下少量水元素区域和",
+                speSkillCon("[潮湿效果]", SkillColorEnum.normal, ToastSkillEnum.潮湿效果),
+                "，持续",
+                speSkillCon("15"),
+                "秒（该碰撞效果每个水球有1秒间隔）。期间其他元素伤害命中带有",
+                speSkillCon("[潮湿效果]", SkillColorEnum.normal, ToastSkillEnum.潮湿效果),
+                "敌方时会触发水元素相关的反应。",
+                "",
+                "技能结束时额外获得",
+                speSkillCon("10"),
+                "层",
+                speSkillCon("[孤蓝的庇佑]", SkillColorEnum.normal, ToastSkillEnum.孤蓝的庇佑),
+            ],
+            "specialContent": [
+                [
+                    "【海波的回礼】施加的",
+                    speSkillCon("[潮湿效果]", SkillColorEnum.normal, ToastSkillEnum.潮湿效果),
+                    "会使目标受到伤害提高30%",
+                    speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                    "，水元素抗性降低25%",
+                    speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+                ],//特质Ⅱ级解锁
+                [
+                    "【海波的回礼】产生水球时会额外产生4个，同时水球每碰撞一次，尤尼造成的伤害提高20%",
+                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                    "，最多提高160%",
+                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                    "。"
+                ],//特质Ⅴ级解锁
             ]
         }
     }
