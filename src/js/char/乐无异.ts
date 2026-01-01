@@ -1,6 +1,6 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
 
 const Desc = {
@@ -246,6 +246,76 @@ const Skill = [
                     speSkillCon("（属性乘区·刻印攻击额外增加值）", SkillColorEnum.injuries),
                     "的刻印攻击额外增加值，超过1000部分的刻印终端值，增加的刻印攻击翻倍（覆盖初始特性）"
                 ]//三花特性
+            ]
+        }
+    },
+    {
+        "name": "技能同调",
+        "aliasNum": "技能同调",
+        "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+        "unlock": LaohenNameEnum.向火而去,//该技能解锁条件，拥有对应的烙痕ID
+        "detail": {
+            "name": "惊雷Ⅳ号",
+            "aliasNum": "2",
+            "maxLevel": 15,
+            "type": "抉择技能",
+            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],
+            "tab": ["伤害", "负面状态", "召唤", "对空", "穿透屏障"],
+            "sizeLevel": [
+                ["1200%", "800%"],
+                ["1380%", "920%"],
+                ["1560%", "1040%"],
+                ["1740%", "1160%"],
+                ["1920%", "1280%"],
+                ["2100%", "1400%"],
+                ["2280%", "1520%"],
+                ["2460%", "1640%"],
+                ["2640%", "1760%"],
+                ["2760%", "1840%"],
+                ["2880%", "1920%"],
+                ["3000%", "2000%"],
+                ["3120%", "2080%"],
+                ["3240%", "2160%"],
+                ["3360%", "2240%"]
+            ],
+            "content": [
+                speSkillCon("【防御姿态】/【攻击姿态】均可使用，【防御姿态】", SkillColorEnum.injuries),
+                "使用可回复自身全部格挡值。",
+                "",
+                "向目标位置投射两枚电网导弹，每枚对半径",
+                speSkillCon("250"),
+                "范围内的敌人造成",
+                speSkillCon("", 0, -1, 0),
+                speSkillCon("最终攻击的雷元素伤害"),
+                "，随后召唤",
+                speSkillCon("2"),
+                "个机器助手惊雷Ⅳ号，机器助手每隔",
+                speSkillCon("8"),
+                "秒会朝目标发射激光，造成",
+                speSkillCon("", 0, -1, 1),
+                speSkillCon("最终攻击的雷元素伤害"),
+                "。场上最多存在",
+                speSkillCon("4"),
+                "个机器助手，当达到4个时，乐无异造成伤害提高",
+                speSkillCon("50%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "。",
+            ],
+            "specialContent": [
+                [
+                    "场上每存在1个机器助手，自身造成的伤害忽略目标基础减伤10%",
+                    speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区忽略减伤),
+                    "",
+                    "机器助手对目标造成伤害时，使目标受到伤害提高40%",
+                    speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                    "，持续30秒。"
+                ],//特质Ⅱ级解锁
+                [
+                    "乐无异对机器助手激光命中的所有目标追加电流攻击，每个目标造成5000%雷元素伤害",
+                    "",
+                    "场上存在4个机器助手时，乐无异增伤效果由50%提高至200%",
+                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+                ],//特质Ⅴ级解锁
             ]
         }
     }

@@ -142,6 +142,8 @@ import { 雨中愿 } from "./雨中愿"
 import { 秘密音律 } from "./秘密音律"
 import { 白夜 } from "./白夜"
 import { 今日风平浪静 } from "./今日风平浪静"
+import { 安斯朵拉之书 } from "./安斯朵拉之书"
+import { 向火而去 } from "./向火而去"
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -288,4 +290,6 @@ export default class AllLaohenHelper {
     static 秘密音律 = 秘密音律
     static 白夜 = 白夜
     static 今日风平浪静 = 今日风平浪静
+    static 安斯朵拉之书 = 安斯朵拉之书
+    static 向火而去 = 向火而去
 }

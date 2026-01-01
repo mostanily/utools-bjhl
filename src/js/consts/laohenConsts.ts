@@ -440,6 +440,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.月光下的告解,
                 LaohenNameEnum.失途之日,
                 LaohenNameEnum.默,
+                LaohenNameEnum.安斯朵拉之书,
                 LaohenNameEnum.秘密音律
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -643,6 +644,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.神迹,
                 LaohenNameEnum.烟霞在侧,
                 LaohenNameEnum.芳年未及,
+                LaohenNameEnum.安斯朵拉之书,
                 LaohenNameEnum.街市清晨,
                 LaohenNameEnum.书卷晨曦,
                 LaohenNameEnum.归档
@@ -800,9 +802,11 @@ const allLaohenSkill = [
                 LaohenNameEnum.谎言之下,
                 LaohenNameEnum.堕入星尘,
                 LaohenNameEnum.千灯无间,
+                LaohenNameEnum.向火而去,
                 LaohenNameEnum.雪轻日暖,
                 LaohenNameEnum.越界,
                 LaohenNameEnum.泡影,
+                LaohenNameEnum.安斯朵拉之书,
                 LaohenNameEnum.奢梦,
                 LaohenNameEnum.如长夜振翅,
                 LaohenNameEnum.意外邂逅,
@@ -1505,6 +1509,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.馆中遗影,
                 LaohenNameEnum.雪轻日暖,
+                LaohenNameEnum.向火而去,
                 LaohenNameEnum.余兴节目,
                 LaohenNameEnum.万家灯火,
                 LaohenNameEnum.生死在握,
@@ -1787,6 +1792,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.藏锋,
                 LaohenNameEnum.执愿,
+                LaohenNameEnum.向火而去,
                 LaohenNameEnum.玄学,
                 LaohenNameEnum.繁花蜃影,
                 LaohenNameEnum.余兴节目,
@@ -2211,6 +2217,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.神迹,
                 LaohenNameEnum.天狼,
                 LaohenNameEnum.执愿,
+                LaohenNameEnum.安斯朵拉之书,
                 LaohenNameEnum.科技光辉
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -3550,6 +3557,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.底线大作战,
                 LaohenNameEnum.明日暄风,
                 LaohenNameEnum.燎夜余尘,
+                LaohenNameEnum.向火而去,
                 LaohenNameEnum.流星坠处,
                 LaohenNameEnum.问天,
                 LaohenNameEnum.奢梦,
@@ -3946,6 +3954,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.寂静昨日,
                 LaohenNameEnum.最强召唤师,
                 LaohenNameEnum.一枕酣甜,
+                LaohenNameEnum.安斯朵拉之书,
                 LaohenNameEnum.混乱烟尘
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -4595,6 +4604,7 @@ const allLaohenSkill = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.局外人,
                 LaohenNameEnum.潮湿前路,
+                LaohenNameEnum.向火而去,
                 LaohenNameEnum.火热手感,
                 LaohenNameEnum.荣与罪,
             ], //枚举LaohenNameEnum.(x)
@@ -4672,6 +4682,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.芳年未及,
                 LaohenNameEnum.截稿日,
                 LaohenNameEnum.家,
+                LaohenNameEnum.安斯朵拉之书,
                 LaohenNameEnum.混乱烟尘
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -9650,6 +9661,7 @@ const allLaohenSkill = [
                 LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.局外人,
                 LaohenNameEnum.新醅,
+                LaohenNameEnum.向火而去,
                 LaohenNameEnum.问天,
                 LaohenNameEnum.难渡,
             ], //枚举LaohenNameEnum.(x)
@@ -11600,6 +11612,7 @@ const allLaohenSkill = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.新醅,
+                LaohenNameEnum.向火而去,
                 LaohenNameEnum.余兴节目,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
@@ -12737,6 +12750,72 @@ const allLaohenSkill = [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加)
         ]
     },
+    {
+        "name": "风能助力", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": true,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.风能助力,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            180,
+            240,
+            300
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.安斯朵拉之书], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "施放主动技能后，场上所有同调者获得1层",
+            speSkillCon("[激励]"),
+            "，风元素同调者触发该效果时额外获得2层，通过该效果获得的",
+            speSkillCon("[激励]"),
+            "不能超过",
+            speSkillCon("4（等级1时）"),
+            "/",
+            speSkillCon("7（等级2时）"),
+            "/",
+            speSkillCon("10（等级3时）"),
+            speSkillCon("(增伤乘区·激励)", SkillColorEnum.injuries),
+            "层"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.激励)
+        ]
+    },
+    {
+        "name": "机械充能", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.机械充能,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            180,
+            240,
+            300
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.向火而去], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "雷元素同调者的刻印终端每100点提高",
+            speSkillCon("2.0%（等级1时）"),
+            "/",
+            speSkillCon("3.0%（等级2时）"),
+            "/",
+            speSkillCon("4.0%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "刻印攻击，当同调者生命值低于50%时，可回复20%最大生命值（回复效果每个同调者每60秒最多触发1次）",
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加)
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -12884,6 +12963,8 @@ const allLaohen = [
     AllLaohenHelper.如长夜振翅,
     AllLaohenHelper.烟霞在侧,
     AllLaohenHelper.今日风平浪静,
+    AllLaohenHelper.安斯朵拉之书,
+    AllLaohenHelper.向火而去,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }
