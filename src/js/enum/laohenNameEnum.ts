@@ -352,6 +352,10 @@ enum MXLaohenEnum {
     波涛助澜,
     风能助力,
     机械充能,
+    灼炎共燃,
+    利刃侵袭,
+    异能解构,
+    叠焰燎原,
 }
 
 /**
@@ -504,6 +508,9 @@ enum LaohenNameEnum {
     今日风平浪静,
     安斯朵拉之书,
     向火而去,
+    旧景三叠,
+    系,
+    共弈者,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

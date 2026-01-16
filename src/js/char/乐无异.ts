@@ -241,6 +241,16 @@ const Skill = [
                     "将敌人向中心牵引"
                 ],//一花特性
                 [
+                    "普通攻击可使目标基础减伤降低",
+                    speSkillCon("50%"),
+                    speSkillCon("(目标减益乘区·目标基础减伤降低)", SkillColorEnum.injuries),
+                    "（该效果属于",
+                    speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
+                    "，同调者重伤或离场时效果消失），持续",
+                    speSkillCon("10"),
+                    "秒"
+                ],//二花特性
+                [
                     "【攻击姿态】下，自身增加刻印终端",
                     speSkillCon("60%"),
                     speSkillCon("（属性乘区·刻印攻击额外增加值）", SkillColorEnum.injuries),

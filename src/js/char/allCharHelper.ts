@@ -24,6 +24,7 @@ import { 白鸟梓 } from "./白鸟梓";
 import { 霍冉 } from "./霍冉";
 import { 马尔斯 } from "./马尔斯";
 import { SweeperEX } from "./Sweeper-EX";
+import { 姜宁 } from "./姜宁";
 import { 玄戈 } from "./玄戈";
 import { 茜茜 } from "./茜茜";
 import { 鸢 } from "./鸢";
@@ -101,6 +102,7 @@ export default class AllCharHelper {
     static 霍冉 = 霍冉;
     static 马尔斯 = 马尔斯;
     static SweeperEX = SweeperEX;
+    static 姜宁 = 姜宁;
     static 玄戈 = 玄戈;
     static 茜茜 = 茜茜;
     static 鸢 = 鸢;

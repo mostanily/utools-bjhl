@@ -144,6 +144,9 @@ import { 白夜 } from "./白夜"
 import { 今日风平浪静 } from "./今日风平浪静"
 import { 安斯朵拉之书 } from "./安斯朵拉之书"
 import { 向火而去 } from "./向火而去"
+import { 旧景三叠 } from "./旧景三叠"
+import { 系 } from "./系"
+import { 共弈者 } from "./共弈者"
 
 export default class AllLaohenHelper {
     static 遇见宝石海 = 遇见宝石海
@@ -292,4 +295,7 @@ export default class AllLaohenHelper {
     static 今日风平浪静 = 今日风平浪静
     static 安斯朵拉之书 = 安斯朵拉之书
     static 向火而去 = 向火而去
+    static 旧景三叠 = 旧景三叠
+    static 系 = 系
+    static 共弈者 = 共弈者
 }
