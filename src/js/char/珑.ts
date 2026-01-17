@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["自性无瑕"],
             "imgs": [
                 "2/2e/02z4uuexideycb1i3jxwa29hrjwmmsp.png"
+            ],
+            "listImg": [
+                "c/ce/5h9nemgn7zefqo6qsawgsc8ict778vr.png"
             ]
         }
     ]

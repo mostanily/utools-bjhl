@@ -7,6 +7,7 @@ export const 新醅 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.新醅,
     "tacgie": "2/25/8ysrsxz67eo6eliqxgv6b9cl6ysec0c.png",
+    "openDate": "2025-03-27",
     "extraData": {
         "illust": LaohenIllust.木昆昆, //画师,
         "resourse": LaohenResourse.定向潜航

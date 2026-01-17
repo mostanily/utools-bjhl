@@ -7,6 +7,7 @@ export const 旖旎夜色 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.旖旎夜色,
     "tacgie": "1/1f/p5bggwniv79c8kv2s9wtnd6humnuop1.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

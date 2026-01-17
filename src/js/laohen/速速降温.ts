@@ -7,6 +7,7 @@ export const 速速降温 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.速速降温,
     "tacgie": "8/80/p6432m7pgnabq8ibp7ho5w9yy2q1vth.png",
+    "openDate": "2024-08-08",
     "extraData": {
         "illust": LaohenIllust.laxy, //画师,
         "resourse": LaohenResourse.活动

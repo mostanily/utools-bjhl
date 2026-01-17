@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["雪夜与赞美诗"],
             "imgs": [
                 "3/3a/5fj8wwxs9vz6ftyzq700u7byl5hs3dg.png"
+            ],
+            "listImg": [
+                "1/16/jdqggfuyfrsz659hmgbkfxwrzyak4y0.png"
             ]
         }
     ]

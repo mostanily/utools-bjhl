@@ -7,6 +7,7 @@ export const 打成一片 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.打成一片,
     "tacgie": "d/dc/jhkoghys5dpgvj0ukorhc161tvuv0uy.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.跟头, //画师,
         "resourse": LaohenResourse.寻迹潜航

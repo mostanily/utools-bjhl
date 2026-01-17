@@ -7,6 +7,7 @@ export const 繁花蜃影 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.繁花蜃影,
     "tacgie": "f/f0/0yf4sx405ayrglmlcalo2a67f3b3rig.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.寻迹潜航

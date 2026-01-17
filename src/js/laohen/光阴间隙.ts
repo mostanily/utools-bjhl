@@ -7,6 +7,7 @@ export const 光阴间隙 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.光阴间隙,
     "tacgie": "0/08/1yfeudeznqgr1pv6lp71ganp6dpej8p.png",
+    "openDate": "2024-05-09",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

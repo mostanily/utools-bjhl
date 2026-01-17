@@ -7,6 +7,7 @@ export const 落日残迹 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.落日残迹,
     "tacgie": "6/6d/iz2qghgyj0beghq1b9092sqs7bo51sn.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

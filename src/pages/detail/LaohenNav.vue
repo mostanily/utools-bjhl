@@ -71,8 +71,9 @@ export default defineComponent({
     methods: {
         sortLaohen() {
             const tempLaohen = computed(() => {
-                //默认排序，稀有度倒叙，属性正序
+                //默认排序，稀有度倒叙，开放日期倒叙，属性正序
                 return [...this.originLaohen]
+                    .sort((a, b) => new Date(b.openDate) - new Date(a.openDate))
                     .sort((a, b) => b.rarity - a.rarity)
                     .sort((a, b) => a.type - b.type)
             });

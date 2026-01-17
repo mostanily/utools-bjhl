@@ -7,6 +7,7 @@ export const 世事难料 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.世事难料,
     "tacgie": "b/b8/42gueeude2de8lm0w4eoeywt8l2u9ut.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.熟了的鱼, //画师,
         "resourse": LaohenResourse.寻迹潜航

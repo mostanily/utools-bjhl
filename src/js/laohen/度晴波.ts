@@ -7,6 +7,7 @@ export const 度晴波 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.度晴波,
     "tacgie": "7/7b/4lu1iusgy626d9bvzenbnnmo4lgxuu3.png",
+    "openDate": "2024-12-16",
     "extraData": {
         "illust": LaohenIllust.YGeriAn, //画师,
         "resourse": LaohenResourse.叶脉联结计划

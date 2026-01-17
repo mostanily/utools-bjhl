@@ -7,6 +7,7 @@ export const 繁星记忆 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.繁星记忆,
     "tacgie": "c/cb/2ovnj2wpaaxe3jfvrmky5qwnvf8os9k.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.猫鱼, //画师,
         "resourse": LaohenResourse.寻迹潜航

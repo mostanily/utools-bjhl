@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["海谣"],
             "imgs": [
                 "2/23/jhgtf9ug47gmo7ku8ucoyybua6xwlv8.png"
+            ],
+            "listImg": [
+                "9/95/2ih78jv2s6gds3khji9y71lrifpa8be.png"
             ]
         }
     ]

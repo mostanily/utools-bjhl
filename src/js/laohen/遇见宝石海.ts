@@ -7,6 +7,7 @@ export const 遇见宝石海 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.遇见宝石海,
     "tacgie": "d/d7/51wlp37bnslimgp2uful08y3wcopc2a.png",
+    "openDate": "2024-08-08",
     "extraData": {
         "illust": LaohenIllust.木昆昆, //画师,
         "resourse": LaohenResourse.定向潜航

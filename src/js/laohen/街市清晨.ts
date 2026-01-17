@@ -7,6 +7,7 @@ export const 街市清晨 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.街市清晨,
     "tacgie": "1/12/5t2lelscpp077sw77tn35g2mtjwktlu.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

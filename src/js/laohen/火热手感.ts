@@ -7,6 +7,7 @@ export const 火热手感 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.火热手感,
     "tacgie": "f/f1/a1chd5f6le8i2gcjbkqnrq3nzwdxbps.png",
+    "openDate": "2024-08-08",
     "extraData": {
         "illust": LaohenIllust.iii303, //画师,
         "resourse": LaohenResourse.活动

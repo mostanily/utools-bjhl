@@ -7,6 +7,7 @@ export const 问卜天地 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.问卜天地,
     "tacgie": "e/ec/jlgg0zlnhc5ld6on658w2zr8uoym4qh.png",
+    "openDate": "2024-05-09",
     "extraData": {
         "illust": LaohenIllust.鲛猫, //画师,
         "resourse": LaohenResourse.活动

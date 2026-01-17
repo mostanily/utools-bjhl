@@ -7,6 +7,7 @@ export const 参商形影 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.参商形影,
     "tacgie": "e/e9/tawezirlrkbdviccemiyruelggsgajr.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.印巴巴, //画师,
         "resourse": LaohenResourse.寻迹潜航

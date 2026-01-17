@@ -7,6 +7,7 @@ export const 你好维瑟尔 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.你好维瑟尔,
     "tacgie": "5/53/i3wvt1qp2d5chn5gxoij7tbjzsnmuo0.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.Akai, //画师,
         "resourse": LaohenResourse.寻迹潜航

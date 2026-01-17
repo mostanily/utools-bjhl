@@ -7,6 +7,7 @@ export const 局外人 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.局外人,
     "tacgie": "0/02/cpgsa624uu7bqu07sj4svbgjimy71nt.png",
+    "openDate": "2025-07-31",
     "extraData": {
         "illust": LaohenIllust.乙配, //画师,
         "resourse": LaohenResourse.定向潜航

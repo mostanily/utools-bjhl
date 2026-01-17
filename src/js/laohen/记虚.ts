@@ -7,6 +7,7 @@ export const 记虚 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.记虚,
     "tacgie": "2/2f/75842zmz37iek3rtdgyfapnyxkq4r2e.png",
+    "openDate": "2025-09-11",
     "extraData": {
         "illust": LaohenIllust.kan, //画师,
         "resourse": LaohenResourse.定向潜航

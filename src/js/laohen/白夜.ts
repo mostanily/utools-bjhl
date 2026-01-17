@@ -7,6 +7,7 @@ export const 白夜 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.白夜,
     "tacgie": "7/7a/alkzy4ug16tiz1pu4598s6jzx65slih.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.印巴巴, //画师,
         "resourse": LaohenResourse.寻迹潜航

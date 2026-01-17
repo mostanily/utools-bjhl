@@ -7,6 +7,7 @@ export const 秩序囚笼 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.秩序囚笼,
     "tacgie": "4/4b/9id4ez5nl0c2vjj156cyr96y4msva7m.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.阿尼鸭Anya, //画师,
         "resourse": LaohenResourse.寻迹潜航

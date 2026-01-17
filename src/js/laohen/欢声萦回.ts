@@ -7,6 +7,7 @@ export const 欢声萦回 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.欢声萦回,
     "tacgie": "6/67/nggkc8fln4l1utkvbd2j0m7w8w0jo8y.png",
+    "openDate": "2025-04-17",
     "extraData": {
         "illust": LaohenIllust.和子君, //画师,
         "resourse": LaohenResourse.定向潜航

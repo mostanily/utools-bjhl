@@ -7,6 +7,7 @@ export const 科技光辉 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.科技光辉,
     "tacgie": "4/4f/9ay2jbcx5t79mcxa2e5ym4pbjf7ftej.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

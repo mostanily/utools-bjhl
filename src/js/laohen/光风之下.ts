@@ -7,6 +7,7 @@ export const 光风之下 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.光风之下,
     "tacgie": "b/bb/axqf11dbjb7dsatgo7we7ixpa4plbio.png",
+    "openDate": "2025-10-09",
     "extraData": {
         "illust": LaohenIllust.kana酱, //画师,
         "resourse": LaohenResourse.定向潜航,

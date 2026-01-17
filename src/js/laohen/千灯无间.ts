@@ -7,6 +7,7 @@ export const 千灯无间 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.千灯无间,
     "tacgie": "1/1c/ibpbhx1br6ps847lh3e48olj6jtiriw.png",
+    "openDate": "2024-11-21",
     "extraData": {
         "illust": LaohenIllust.乔瑟夫乔尊尊, //画师,
         "resourse": LaohenResourse.定向潜航

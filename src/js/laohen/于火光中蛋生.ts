@@ -7,6 +7,7 @@ export const 于火光中蛋生 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.于火光中蛋生,
     "tacgie": "7/78/okcxncgi7licn1tebid0tkp70jryv8n.png",
+    "openDate": "2024-01-18",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.定向潜航

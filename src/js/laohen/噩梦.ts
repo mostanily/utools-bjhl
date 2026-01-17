@@ -7,6 +7,7 @@ export const 噩梦 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.噩梦,
     "tacgie": "9/9d/bukkgjpo3epssu8ykwqhdcmj9c4ru3t.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

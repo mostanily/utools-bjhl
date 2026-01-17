@@ -7,6 +7,7 @@ export const 潮湿前路 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.潮湿前路,
     "tacgie": "6/61/5e5h0jaz9a7u8wvm6dhau09643lbelb.png",
+    "openDate": "2024-05-30",
     "extraData": {
         "illust": LaohenIllust.当雨作金泽, //画师,
         "resourse": LaohenResourse.定向潜航

@@ -16,7 +16,19 @@ const Desc = {
             "c/c1/jvawyyti8ha1zyt384fyyfdgbeuo8sc.png",
             "d/d8/ta77n4w1geap6yrwmyzg1s1893l4vsc.png"
         ]
-    }
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["寒芳诣门"],
+            "imgs": [
+                "3/3f/7ggo22gsomjm9kayn125kniq1kls01w.png"
+            ],
+            "listImg": [
+                "0/04/tje42cnww5mwk9my0jkpqtz1ati290e.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

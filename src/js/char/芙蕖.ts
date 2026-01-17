@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["白沙珊瑚"],
             "imgs": [
                 "6/69/n4t1xm0id86x5phz90ia3by9o7mjglh.png"
+            ],
+            "listImg": [
+                "8/80/1l81acbfqizf75z4ydgqyq232wlumhy.png"
             ]
         }
     ]

@@ -7,6 +7,7 @@ export const 意外邂逅 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.意外邂逅,
     "tacgie": "1/13/qjkg1i5z40bnqggmhzf59i1v9ygi049.png",
+    "openDate": "2024-02-26",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.叶脉联结计划

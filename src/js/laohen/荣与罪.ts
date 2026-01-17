@@ -7,6 +7,7 @@ export const 荣与罪 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.荣与罪,
     "tacgie": "0/0b/tbm0n4oi61vhnessgb94eu8d2rvsk1d.png",
+    "openDate": "2025-07-14",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.叶脉联结计划

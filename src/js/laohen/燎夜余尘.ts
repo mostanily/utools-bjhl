@@ -7,6 +7,7 @@ export const 燎夜余尘 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.燎夜余尘,
     "tacgie": "5/51/1jvb3ub5yepquaihgd7e27b975dt8c5.png",
+    "openDate": "2025-06-19",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

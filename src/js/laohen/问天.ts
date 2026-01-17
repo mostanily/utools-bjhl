@@ -7,6 +7,7 @@ export const 问天 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.问天,
     "tacgie": "3/3c/53a1k2b8vtzwv8t9ecgeqk46wfgnt1p.png",
+    "openDate": "2025-03-10",
     "extraData": {
         "illust": LaohenIllust.和子君, //画师,
         "resourse": LaohenResourse.叶脉联结计划

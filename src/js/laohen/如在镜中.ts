@@ -7,6 +7,7 @@ export const 如在镜中 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.如在镜中,
     "tacgie": "4/4b/4ytr69y70crwp2y3x4tjnalpwfi0adp.png",
+    "openDate": "2024-06-27",
     "extraData": {
         "illust": LaohenIllust.和子君, //画师,
         "resourse": LaohenResourse.定向潜航

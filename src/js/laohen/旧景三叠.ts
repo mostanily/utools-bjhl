@@ -7,6 +7,7 @@ export const 旧景三叠 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.旧景三叠,
     "tacgie": "b/b9/c2l3tjpx0oxdsr3ryq4r2ai31ln2er4.png",
+    "openDate": "2026-01-15",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.活动

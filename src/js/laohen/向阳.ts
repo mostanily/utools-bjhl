@@ -7,6 +7,7 @@ export const 向阳 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.向阳,
     "tacgie": "6/6d/1gr9drrr09tmgkuccazfql8iycd18zm.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

@@ -40,7 +40,6 @@ export default {
 .center {
     width: 1280px;
     text-align: center;
-    position: fixed;
     bottom: 50px;
 }
 

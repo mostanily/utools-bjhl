@@ -7,6 +7,7 @@ export const 血露薇绝密 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.血露薇绝密,
     "tacgie": "d/d3/2h25umr07esihi14s4xg18m1lmmmrb1.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.min, //画师,
         "resourse": LaohenResourse.寻迹潜航

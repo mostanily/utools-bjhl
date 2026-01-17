@@ -7,6 +7,7 @@ export const 书卷晨曦 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.书卷晨曦,
     "tacgie": "0/08/anffd7wpns6auroi0xraxlo146ci94b.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

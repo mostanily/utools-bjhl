@@ -11,10 +11,12 @@
                 <div class="map-dh-left">展示模式</div>
                 <div class="map-dh-right">
                     <p>
-                        <a :class="{'mw-selflink selflink': listShouTypeIndex === 1}" style="cursor: pointer;" @click="setListShouTypeIndex(1)">
+                        <a :class="{ 'mw-selflink selflink': listShouTypeIndex === 1 }" style="cursor: pointer;"
+                            @click="setListShouTypeIndex(1)">
                             <span class="map-dh-an">&nbsp;记忆烙痕图鉴</span>
                         </a>
-                        <a :class="{'mw-selflink selflink': listShouTypeIndex === 2}" style="cursor: pointer;" @click="setListShouTypeIndex(2)">
+                        <a :class="{ 'mw-selflink selflink': listShouTypeIndex === 2 }" style="cursor: pointer;"
+                            @click="setListShouTypeIndex(2)">
                             <span class="map-dh-an">&nbsp;记忆烙痕一览(技能)</span>
                         </a>
                     </p>
@@ -169,6 +171,8 @@
                             来源：{{ LaohenResourseName[laohen.extraData.resourse] }}
                             <br>
                             画师：{{ IllustNames[laohen.extraData.illust] }}
+                            <br>
+                            实装日期：{{ getFullYearMonthDay(laohen.openDate) }}
                         </div>
                     </div>
                 </div>
@@ -240,10 +244,25 @@ export default defineComponent({
         },
         sortLaohen() {
             const tempLaohen = computed(() => {
-                //默认排序，稀有度倒叙，属性正序
+                //默认排序，开放日期倒叙，稀有度倒叙，属性正序
                 return [...this.originLaohen]
-                    .sort((a, b) => b.rarity - a.rarity)
-                    .sort((a, b) => a.type - b.type)
+                    .sort((a, b) => {
+                        const dateA = new Date(a.openDate)
+                        const dateB = new Date(b.openDate)
+                        if (dateA === dateB) {
+                            //如果日期相同，则按稀有度倒叙
+                            const rarityA = a.rarity
+                            const rarityB = b.rarity
+                            if (rarityA === rarityB) {
+                                //如果稀有度也相同，则按属性正序
+                                return a.type - b.type
+                            } else {
+                                return rarityB - rarityA
+                            }
+                        } else {
+                            return dateB - dateA
+                        }
+                    })
             });
             this.allLaohen = tempLaohen.value
             //根据导航，进行筛选数据
@@ -294,6 +313,10 @@ export default defineComponent({
         },
         setListShouTypeIndex(index) {
             this.listShouTypeIndex = index
+        },
+        getFullYearMonthDay(dateString) {
+            let date = new Date(dateString)
+            return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`
         },
         /**
          * 获取筛选条件对应的属性图片

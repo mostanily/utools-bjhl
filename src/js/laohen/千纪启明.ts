@@ -7,6 +7,7 @@ export const 千纪启明 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.千纪启明,
     "tacgie": "2/23/on168cx6cxfgbej0f8b2svp3tsndfsv.png",
+    "openDate": "2024-08-29",
     "extraData": {
         "illust": LaohenIllust.鲛猫, //画师,
         "resourse": LaohenResourse.活动

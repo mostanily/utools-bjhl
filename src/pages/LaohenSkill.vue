@@ -259,6 +259,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 0.25em;
+    padding: 0;
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    line-height: 1.3;
+}
+
 .mw-content-ltr {
     direction: ltr;
 }

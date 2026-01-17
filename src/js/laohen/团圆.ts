@@ -7,6 +7,7 @@ export const 团圆 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.团圆,
     "tacgie": "5/5b/6iw3mzr4yo8j78jwspsp8jor05k6r1a.png",
+    "openDate": "2024-02-01",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.定向潜航

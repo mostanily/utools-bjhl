@@ -7,6 +7,7 @@ export const 失途之日 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.失途之日,
     "tacgie": "3/37/m8fho2pxfp74x2uqgkqsv9ja4nwpqrc.png",
+    "openDate": "2024-02-01",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

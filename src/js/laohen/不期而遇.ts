@@ -7,6 +7,7 @@ export const 不期而遇 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.不期而遇,
     "tacgie": "f/f0/d2ol0zmv9ett86fhnn5aoi3p9p4q4o9.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.zz银咋, //画师,
         "resourse": LaohenResourse.寻迹潜航

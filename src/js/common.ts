@@ -1,6 +1,6 @@
 import { charAttr, allChar, allCharSkill, allCharTea } from './consts/charConsts.ts';
 import { colorConfig, rapportFormula } from './consts/simpleConsts.ts';
-
+import { tachieList } from './consts/tachieConst.ts';
 /**
  * 角色通用类
  */
@@ -11,6 +11,7 @@ export default class CommonUtil {
     static allCharSkill = allCharSkill
     static allCharTea = allCharTea
     static rapportFormula = rapportFormula
+    static tachieList = tachieList
 
     /**
      * 获取角色头像

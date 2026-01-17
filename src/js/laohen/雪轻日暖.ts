@@ -7,6 +7,7 @@ export const 雪轻日暖 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.雪轻日暖,
     "tacgie": "f/f4/hoczbddv7arj7yaas064svrzlxhtxo0.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.Juanmao, //画师,
         "resourse": LaohenResourse.寻迹潜航

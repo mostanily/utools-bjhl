@@ -7,6 +7,7 @@ export const 馆中遗影 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.馆中遗影,
     "tacgie": "f/f9/qxqznacsz5d5wpzjoepm7kf5jaaeodu.png",
+    "openDate": "2024-01-18",
     "extraData": {
         "illust": LaohenIllust.Juanmao, //画师,
         "resourse": LaohenResourse.活动

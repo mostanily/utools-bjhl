@@ -7,6 +7,7 @@ export const 月光下的告解 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.月光下的告解,
     "tacgie": "a/a7/cu1d7owbq04la61eta1nxv033ndul6w.png",
+    "openDate": "2024-06-27",
     "extraData": {
         "illust": LaohenIllust.乔瑟夫乔尊尊, //画师,
         "resourse": LaohenResourse.主线

@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["终点线"],
             "imgs": [
                 "a/a8/n2t00i1hecfoz580qsxz4z9kgsp64n5.png"
+            ],
+            "listImg": [
+                "7/79/1cvbxm1t9y78fl0s8j0k6ke9bg9y95a.png"
             ]
         }
     ]

@@ -7,6 +7,7 @@ export const 泅游 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.泅游,
     "tacgie": "c/c8/qxv76wkv8wrjm84kwhfhq2l7ljbv5y5.png",
+    "openDate": "2025-03-06",
     "extraData": {
         "illust": LaohenIllust.laxy, //画师,
         "resourse": LaohenResourse.定向潜航

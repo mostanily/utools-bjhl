@@ -7,6 +7,7 @@ export const 生死在握 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.生死在握,
     "tacgie": "6/61/7e1cqus1t5hjm0eel8wr9e3roz2648w.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

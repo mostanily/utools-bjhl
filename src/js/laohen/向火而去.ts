@@ -7,6 +7,7 @@ export const 向火而去 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.向火而去,
     "tacgie": "e/e1/rclrb6soj7zn5cl8lzphn5u698nx55q.png",
+    "openDate": "2026-01-01",
     "extraData": {
         "illust": LaohenIllust.东河, //画师,
         "resourse": LaohenResourse.定向潜航,

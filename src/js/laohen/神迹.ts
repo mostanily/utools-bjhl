@@ -7,6 +7,7 @@ export const 神迹 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.神迹,
     "tacgie": "a/a2/285utyrrbnh4sstyckv2tw7mjlzbjlo.png",
+    "openDate": "2025-01-23",
     "extraData": {
         "illust": LaohenIllust.竹墨繁漪, //画师,
         "resourse": LaohenResourse.定向潜航

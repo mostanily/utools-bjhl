@@ -7,6 +7,7 @@ export const 化为千鹤 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.化为千鹤,
     "tacgie": "e/e5/e8b44jbu8fcxpfnwbxoa32opz097dwh.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.kan, //画师,
         "resourse": LaohenResourse.寻迹潜航

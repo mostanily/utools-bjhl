@@ -7,6 +7,7 @@ export const 圆锥曲线 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.圆锥曲线,
     "tacgie": "9/9b/qxv6hzkhsf8081k7p05xvvku2c8dyc4.png",
+    "openDate": "2024-04-25",
     "extraData": {
         "illust": LaohenIllust.熟了的鱼, //画师,
         "resourse": LaohenResourse.活动

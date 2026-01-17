@@ -7,6 +7,7 @@ export const 安斯朵拉之书 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.安斯朵拉之书,
     "tacgie": "4/40/2ylqt08vxegjtjqhwl0y9x209u275fm.png",
+    "openDate": "2025-12-29",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.叶脉联结计划

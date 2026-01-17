@@ -7,6 +7,7 @@ export const 代号百草 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.代号百草,
     "tacgie": "5/59/a8g169t7tqq3hhk3mdv7bem7jfqsxhf.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.夜少与狗饼干, //画师,
         "resourse": LaohenResourse.寻迹潜航

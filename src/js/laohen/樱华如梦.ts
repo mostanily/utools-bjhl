@@ -7,6 +7,7 @@ export const 樱华如梦 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.樱华如梦,
     "tacgie": "3/32/4mb8brzxmq0p18e7usx0afjkoleogxk.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

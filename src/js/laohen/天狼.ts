@@ -7,6 +7,7 @@ export const 天狼 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.天狼,
     "tacgie": "5/5b/hkkwgnm3ivwn09c5t3tx6z8ma0dwzm7.png",
+    "openDate": "2024-03-28",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

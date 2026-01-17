@@ -7,6 +7,7 @@ export const 棺中鸟 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.棺中鸟,
     "tacgie": "1/14/6sxu3s7gt7253wbbtkyrgbjvlmyov89.png",
+    "openDate": "2024-09-19",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

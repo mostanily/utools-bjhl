@@ -7,6 +7,7 @@ export const 精准控分 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.精准控分,
     "tacgie": "6/69/tiol1bxferxf4c9dlpcvftomr6scajn.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.猫鱼, //画师,
         "resourse": LaohenResourse.寻迹潜航

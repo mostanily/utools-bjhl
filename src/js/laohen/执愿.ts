@@ -7,6 +7,7 @@ export const 执愿 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.执愿,
     "tacgie": "8/83/5gbswmrdjd0lmuep2idxjyfax434t4p.png",
+    "openDate": "2025-03-06",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.活动

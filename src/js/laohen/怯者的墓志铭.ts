@@ -7,6 +7,7 @@ export const 怯者的墓志铭 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.怯者的墓志铭,
     "tacgie": "6/69/eltuq1sgiyfjg4dsjvngm088yolso6z.png",
+    "openDate": "2024-10-31",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

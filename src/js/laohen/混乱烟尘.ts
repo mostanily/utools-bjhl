@@ -7,6 +7,7 @@ export const 混乱烟尘 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.混乱烟尘,
     "tacgie": "e/eb/kojgyc0gami0v9zqe3fxr4pctd5mfg9.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

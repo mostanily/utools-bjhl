@@ -7,6 +7,7 @@ export const 旧城夜幕 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.旧城夜幕,
     "tacgie": "0/01/1qjq4xtti1fgjizh4c0pre19buzpatw.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

@@ -7,6 +7,7 @@ export const 泡影 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.泡影,
     "tacgie": "6/66/hbsjdittgkg4vez99dm3pm8au8tg53o.png",
+    "openDate": "2024-07-01",
     "extraData": {
         "illust": LaohenIllust.太子池安, //画师,
         "resourse": LaohenResourse.叶脉联结计划

@@ -7,6 +7,7 @@ export const 全息邂逅 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.全息邂逅,
     "tacgie": "8/84/1vsofafk5ler2qrs2qfjxva6dpj2smf.png",
+    "openDate": "2025-09-25",
     "extraData": {
         "illust": LaohenIllust.乔瑟夫乔尊尊, //画师,
         "resourse": LaohenResourse.定向潜航,

@@ -7,6 +7,7 @@ export const 烟霞在侧 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.烟霞在侧,
     "tacgie": "3/35/pm3av2fp6z7dkpxrcmdqe27ktbduwud.png",
+    "openDate": "2025-12-04",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

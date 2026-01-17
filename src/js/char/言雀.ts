@@ -24,6 +24,9 @@ const Desc = {
             "listNames": ["头号粉丝"],
             "imgs": [
                 "e/e4/e574o3mex1hdf0omrp410845o6tdz05.png"
+            ],
+            "listImg": [
+                "1/16/q6otal6u7z37hccvlb931b549roulhk.png"
             ]
         }
     ]

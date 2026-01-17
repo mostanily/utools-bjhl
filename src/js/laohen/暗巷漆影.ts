@@ -7,6 +7,7 @@ export const 暗巷漆影 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.暗巷漆影,
     "tacgie": "0/03/4p1ba08kq1iuh6anbbo8n2a6ic4mq8k.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.Akai, //画师,
         "resourse": LaohenResourse.寻迹潜航

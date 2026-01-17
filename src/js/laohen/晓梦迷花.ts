@@ -7,6 +7,7 @@ export const 晓梦迷花 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.晓梦迷花,
     "tacgie": "1/1c/60lhyldsomchcq569p6y9b72jhpuso1.png",
+    "openDate": "2024-08-29",
     "extraData": {
         "illust": LaohenIllust.YGeriAn, //画师,
         "resourse": LaohenResourse.定向潜航

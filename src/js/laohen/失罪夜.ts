@@ -7,6 +7,7 @@ export const 失罪夜 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.失罪夜,
     "tacgie": "e/e5/p0yog4crohpn56zhjckwjlskec1wzfh.png",
+    "openDate": "2025-06-19",
     "extraData": {
         "illust": LaohenIllust.当雨作金泽, //画师,
         "resourse": LaohenResourse.定向潜航

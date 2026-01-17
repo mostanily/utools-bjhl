@@ -7,6 +7,7 @@ export const 明日暄风 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.明日暄风,
     "tacgie": "3/3e/7808n8urhq42e4h6ehc53byieyevvoq.png",
+    "openDate": "2025-11-06",
     "extraData": {
         "illust": LaohenIllust.东河, //画师,
         "resourse": LaohenResourse.定向潜航,

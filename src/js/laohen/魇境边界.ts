@@ -7,6 +7,7 @@ export const 魇境边界 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.魇境边界,
     "tacgie": "e/e8/nmp182nqmdyscliv8br1ud3vtsiiguk.png",
+    "openDate": "2024-10-10",
     "extraData": {
         "illust": LaohenIllust.iii303, //画师,
         "resourse": LaohenResourse.定向潜航

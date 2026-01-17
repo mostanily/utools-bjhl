@@ -7,6 +7,7 @@ export const 大隐于市 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.大隐于市,
     "tacgie": "e/e1/a8eplgmhwjxlxvf9ab1c7vcp6jx2v00.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

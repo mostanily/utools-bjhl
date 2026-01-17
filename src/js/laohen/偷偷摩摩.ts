@@ -7,6 +7,7 @@ export const 偷偷摩摩 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.偷偷摩摩,
     "tacgie": "0/05/lhjqvqsv4bs7zl8pix5jrjby0khged8.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.Juanmao, //画师,
         "resourse": LaohenResourse.寻迹潜航

@@ -7,6 +7,7 @@ export const 交换惊喜 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.交换惊喜,
     "tacgie": "5/56/ib0ao47lmdrpxz6kno58pkdsd057j72.png",
+    "openDate": "2024-08-08",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.活动

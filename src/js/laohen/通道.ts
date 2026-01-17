@@ -7,6 +7,7 @@ export const 通道 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.通道,
     "tacgie": "8/89/gj62rttcf2r2mnyh6yjeagiwzm2kj22.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

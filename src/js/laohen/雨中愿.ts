@@ -7,6 +7,7 @@ export const 雨中愿 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.雨中愿,
     "tacgie": "d/d2/53u3x1cm282n6v1054yhlkwkbo8dlhk.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.夜少与狗饼干, //画师,
         "resourse": LaohenResourse.寻迹潜航

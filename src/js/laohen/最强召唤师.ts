@@ -7,6 +7,7 @@ export const 最强召唤师 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.最强召唤师,
     "tacgie": "c/c1/aqu26leqsr0uweujw9alkph735xm9ns.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.Juanmao, //画师,
         "resourse": LaohenResourse.寻迹潜航

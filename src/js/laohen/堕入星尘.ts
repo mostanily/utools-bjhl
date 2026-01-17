@@ -7,6 +7,7 @@ export const 堕入星尘 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.堕入星尘,
     "tacgie": "3/38/b7br938elwrecyouhjkbgh12fd6ltny.png",
+    "openDate": "2025-07-10",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航,

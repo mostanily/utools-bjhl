@@ -7,6 +7,7 @@ export const 残照 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.残照,
     "tacgie": "1/10/twfuajberx05jifsmq30ebhwt21m0sv.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.灼忘, //画师,
         "resourse": LaohenResourse.寻迹潜航

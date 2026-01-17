@@ -7,6 +7,7 @@ export const 假日余暇 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.假日余暇,
     "tacgie": "0/06/pfc8fv1tp5tc7fstwt6pzwou23fyfu8.png",
+    "openDate": "2024-07-18",
     "extraData": {
         "illust": LaohenIllust.熏肉, //画师,
         "resourse": LaohenResourse.主线

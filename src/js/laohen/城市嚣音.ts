@@ -7,6 +7,7 @@ export const 城市嚣音 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.城市嚣音,
     "tacgie": "a/ad/ni49w503igr6z455owunbe8w5f7keg9.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

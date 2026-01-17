@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["万里彼苍"],
             "imgs": [
                 "1/13/p7mhs05yvxd7qvbr3kzixh8ry12hj6w.png"
+            ],
+            "listImg": [
+                "1/10/bu8msr68flxtx9nm7yla04aqzdeu0u4.png"
             ]
         }
     ]

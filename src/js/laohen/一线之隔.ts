@@ -7,6 +7,7 @@ export const 一线之隔 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.一线之隔,
     "tacgie": "b/bb/jn1150o3ewr3bxkf5x89kl0uxg40fya.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.木昆昆, //画师,
         "resourse": LaohenResourse.寻迹潜航

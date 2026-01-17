@@ -7,6 +7,7 @@ export const 增肌训练 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.增肌训练,
     "tacgie": "9/96/ml6k597pripc17517jmkzsonivqmg77.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.熟了的鱼, //画师,
         "resourse": LaohenResourse.寻迹潜航

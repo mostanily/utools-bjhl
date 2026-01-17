@@ -7,6 +7,7 @@ export const 事无出世间 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.事无出世间,
     "tacgie": "6/6d/pcxxwjut0rci9tctvwlfjy9z9e99n2w.png",
+    "openDate": "2025-07-31",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

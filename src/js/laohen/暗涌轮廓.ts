@@ -7,6 +7,7 @@ export const 暗涌轮廓 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.暗涌轮廓,
     "tacgie": "7/77/lbqbn4nbaxg7utmtyl6mue12nlddcoj.png",
+    "openDate": "2025-01-02",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.活动

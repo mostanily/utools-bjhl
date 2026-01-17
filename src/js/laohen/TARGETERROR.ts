@@ -7,6 +7,7 @@ export const TARGETERROR = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.TARGETERROR,
     "tacgie": "7/73/jr7tfregrrslo5dnco47a1xw6qzvg8w.png",
+    "openDate": "2025-01-27",
     "extraData": {
         "illust": LaohenIllust.laxy, //画师,
         "resourse": LaohenResourse.叶脉联结计划

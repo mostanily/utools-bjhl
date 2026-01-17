@@ -7,6 +7,7 @@ export const 默 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.默,
     "tacgie": "4/4c/4idg1i6hvysrknngns2c4xz1mvalsag.png",
+    "openDate": "2025-01-02",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

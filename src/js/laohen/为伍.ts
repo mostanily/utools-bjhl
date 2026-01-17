@@ -7,6 +7,7 @@ export const 为伍 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.为伍,
     "tacgie": "4/4a/cjmek7qijsslpkahr2g992d7ncvjgfx.png",
+    "openDate": "2025-10-23",
     "extraData": {
         "illust": LaohenIllust.沢马Haru, //画师,
         "resourse": LaohenResourse.定向潜航

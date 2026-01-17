@@ -7,6 +7,7 @@ export const 飞驰海岸线 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.飞驰海岸线,
     "tacgie": "4/43/sp1eyemnkxhkioahbkw5gu3qv44ae6q.png",
+    "openDate": "2024-08-08",
     "extraData": {
         "illust": LaohenIllust.东河, //画师,
         "resourse": LaohenResourse.活动

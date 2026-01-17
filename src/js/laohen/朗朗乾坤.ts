@@ -7,6 +7,7 @@ export const 朗朗乾坤 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.朗朗乾坤,
     "tacgie": "7/72/6m0j5gipstdw137fupew5lzu6k1wudl.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.跟头, //画师,
         "resourse": LaohenResourse.寻迹潜航

@@ -7,6 +7,7 @@ export const 拂晓 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.拂晓,
     "tacgie": "2/22/dr03b24as6920qwtymwndrrq6asgc3m.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.灼忘, //画师,
         "resourse": LaohenResourse.寻迹潜航

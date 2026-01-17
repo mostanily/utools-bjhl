@@ -7,6 +7,7 @@ export const 如长夜振翅 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.如长夜振翅,
     "tacgie": "7/71/kspwtgmyqfchha0ewyx2fa40nsxgiz7.png",
+    "openDate": "2025-11-17",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.叶脉联结计划,

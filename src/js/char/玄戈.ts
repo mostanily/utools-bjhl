@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["苦锈"],
             "imgs": [
                 "1/1f/hyrp8c0usv9kmdogrzgt40koimyz6gw.png"
+            ],
+            "listImg": [
+                "5/5d/ompfyf5a3oaex2zbul9uwtepcczflmw.png"
             ]
         }
     ]

@@ -7,6 +7,7 @@ export const 幕影重重 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.幕影重重,
     "tacgie": "2/2b/rbp6nrd4mzklnxqsl1q95qn4cc2w28w.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

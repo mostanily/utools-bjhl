@@ -7,6 +7,7 @@ export const 无罪之徒 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.无罪之徒,
     "tacgie": "d/da/5nfyxqezwsul56m84xes81xh2dekv2f.png",
+    "openDate": "2024-07-18",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

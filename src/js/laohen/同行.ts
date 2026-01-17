@@ -7,6 +7,7 @@ export const 同行 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.同行,
     "tacgie": "8/80/99a62omly6xnzh7h9zac2yu4x7qqwnb.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.寻迹潜航,

@@ -7,6 +7,7 @@ export const 归档 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.归档,
     "tacgie": "b/b3/f36okcwrf8903wmvzzqk8qbwr2vqude.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

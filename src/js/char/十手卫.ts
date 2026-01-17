@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["苍烟客"],
             "imgs": [
                 "a/a2/8oaqce0xnu71q8e84mu4z5j084q64d4.png"
+            ],
+            "listImg": [
+                "b/bf/pdh7lin1inr00mz6c3gunk0djow5dnp.png"
             ]
         }
     ]

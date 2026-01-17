@@ -7,6 +7,7 @@ export const 万家灯火 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.万家灯火,
     "tacgie": "d/da/6s5ptxqdyvrrralmfkjw4vwd28i0kbk.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

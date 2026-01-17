@@ -7,6 +7,7 @@ export const 双重引力 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.双重引力,
     "tacgie": "f/fa/34j0ira9mljfer8h9s7pgkunz7b5ftt.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.阿尼鸭Anya, //画师,
         "resourse": LaohenResourse.寻迹潜航,

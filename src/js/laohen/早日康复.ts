@@ -7,6 +7,7 @@ export const 早日康复 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.早日康复,
     "tacgie": "7/7b/prq7w5wcpa97sd63hwnp29554quzorc.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

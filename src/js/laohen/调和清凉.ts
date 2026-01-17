@@ -7,6 +7,7 @@ export const 调和清凉 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.调和清凉,
     "tacgie": "c/c5/7nfl008thk97niop217w5gt1gdjjrr8.png",
+    "openDate": "2024-08-08",
     "extraData": {
         "illust": LaohenIllust.夜少与狗饼干, //画师,
         "resourse": LaohenResourse.活动

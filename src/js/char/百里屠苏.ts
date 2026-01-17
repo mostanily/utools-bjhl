@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["笑春生"],
             "imgs": [
                 "f/fb/srv7av4r6yp71pjuty1tzit47kk5u0p.png"
+            ],
+            "listImg": [
+                "7/71/l5c9bsym70to4e3mylhk3bpq2yeoiij.png"
             ]
         }
     ]

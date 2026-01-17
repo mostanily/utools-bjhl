@@ -7,6 +7,7 @@ export const 未晞 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.未晞,
     "tacgie": "d/d7/1mkdjpty8rkp8405ef15myrwrttn3vr.png",
+    "openDate": "2024-11-04",
     "extraData": {
         "illust": LaohenIllust.乙配, //画师,
         "resourse": LaohenResourse.叶脉联结计划

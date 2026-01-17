@@ -7,6 +7,7 @@ export const 旧友无多 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.旧友无多,
     "tacgie": "5/5e/r9s5fsjl8ly0lbpchhk42jkp5lgklwf.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.印巴巴, //画师,
         "resourse": LaohenResourse.寻迹潜航

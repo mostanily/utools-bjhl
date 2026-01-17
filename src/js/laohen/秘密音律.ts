@@ -7,6 +7,7 @@ export const 秘密音律 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.秘密音律,
     "tacgie": "5/54/5w02u6sfpfalgzeox0gogn4ykyyff7a.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.太子池安, //画师,
         "resourse": LaohenResourse.叶脉联结计划

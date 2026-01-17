@@ -7,6 +7,7 @@ export const 海临人的好奇心 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.海临人的好奇心,
     "tacgie": "4/49/139mscxwo4r7il5owizo2tl47vpab7o.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.太子池安, //画师,
         "resourse": LaohenResourse.寻迹潜航

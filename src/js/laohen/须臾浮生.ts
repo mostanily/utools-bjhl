@@ -7,6 +7,7 @@ export const 须臾浮生 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.须臾浮生,
     "tacgie": "a/a2/mx5exzsj9cm9x2ir41e6ihfwlg01fhb.png",
+    "openDate": "2025-02-13",
     "extraData": {
         "illust": LaohenIllust.当雨作金泽, //画师,
         "resourse": LaohenResourse.定向潜航

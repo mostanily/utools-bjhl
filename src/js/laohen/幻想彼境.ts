@@ -7,6 +7,7 @@ export const 幻想彼境 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.幻想彼境,
     "tacgie": "5/5a/be6q097mv7zn38hx5cwqqtx68mw5f8b.png",
+    "openDate": "2024-02-29",
     "extraData": {
         "illust": LaohenIllust.印巴巴, //画师,
         "resourse": LaohenResourse.定向潜航

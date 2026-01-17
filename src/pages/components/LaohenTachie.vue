@@ -39,9 +39,14 @@
                     <th style="width:100px">illust</th>
                     <td style="width:20%;">{{ getLaohenIllust(getLaohenDetail($route.params.name).extraData.illust) }}
                     </td>
+                    <th style="width:100px">实装日期</th>
+                    <td style="width:20%;">{{ getFullYearMonthDay(getLaohenDetail($route.params.name).openDate) }}
+                    </td>
                     <th style="width:100px">获取途径</th>
                     <td style="width:20%;">{{
                         getLaohenResourseName(getLaohenDetail($route.params.name).extraData.resourse) }}</td>
+                </tr>
+                <tr>
                     <template v-if="checkHasKey(getLaohenDetail($route.params.name).extraData, 'skillLink')">
                         <th style="width:100px">技能同调</th>
                         <td style="width:20%;">
@@ -89,6 +94,10 @@ export default defineComponent({
         },
         getCharAttrImg(attrName, xType, isOriginal) {
             return window.$commonUtil.getCharAttrImg(attrName, xType, isOriginal)
+        },
+        getFullYearMonthDay(dateString) {
+            let date = new Date(dateString)
+            return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`
         },
         /**
          * 获取筛选条件对应的属性图片

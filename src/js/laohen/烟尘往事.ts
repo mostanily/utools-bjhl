@@ -7,6 +7,7 @@ export const 烟尘往事 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.烟尘往事,
     "tacgie": "0/0d/4z0bliydszqhl5apv52h8s2ux4x8f0z.png",
+    "openDate": "2024-01-25",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

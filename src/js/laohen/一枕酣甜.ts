@@ -7,6 +7,7 @@ export const 一枕酣甜 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.一枕酣甜,
     "tacgie": "6/6e/mh70q7yevbq23wi5tunzdc9mn1m7h1n.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.Akai, //画师,
         "resourse": LaohenResourse.寻迹潜航

@@ -7,6 +7,7 @@ export const 浊雨 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.浊雨,
     "tacgie": "b/bd/5epfq200fha1goa9pwljo7fh2zxode9.png",
+    "openDate": "2024-11-21",
     "extraData": {
         "illust": LaohenIllust.YGeriAn, //画师,
         "resourse": LaohenResourse.活动

@@ -7,6 +7,7 @@ export const 记录一夏 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.记录一夏,
     "tacgie": "4/46/o0gwbjc01qeszb50f7vk0brk29ak12r.png",
+    "openDate": "2024-08-12",
     "extraData": {
         "illust": LaohenIllust.墨秃, //画师,
         "resourse": LaohenResourse.叶脉联结计划

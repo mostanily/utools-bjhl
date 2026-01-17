@@ -7,6 +7,7 @@ export const 空 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.空,
     "tacgie": "1/1a/oucfyb3qhags81fmgv3pmazwn9w0pmm.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.寻迹潜航

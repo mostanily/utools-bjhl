@@ -7,6 +7,7 @@ export const 今日风平浪静 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.今日风平浪静,
     "tacgie": "6/63/52n2smlgyrkqjwruwdviuxrvajptyvh.png",
+    "openDate": "2025-12-18",
     "extraData": {
         "illust": LaohenIllust.laxy, //画师,
         "resourse": LaohenResourse.定向潜航,

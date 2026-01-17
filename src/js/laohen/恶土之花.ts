@@ -7,6 +7,7 @@ export const 恶土之花 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.恶土之花,
     "tacgie": "0/0c/5301pr66vakzih7jjg6ia2bpf7kve83.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.和子君, //画师,
         "resourse": LaohenResourse.寻迹潜航

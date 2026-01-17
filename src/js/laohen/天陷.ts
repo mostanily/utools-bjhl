@@ -7,6 +7,7 @@ export const 天陷 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.天陷,
     "tacgie": "7/72/kp147j2kbonhcmubj8urzwbu0sbvud3.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.波波, //画师,
         "resourse": LaohenResourse.寻迹潜航

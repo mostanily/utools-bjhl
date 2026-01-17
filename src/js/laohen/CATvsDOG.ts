@@ -7,6 +7,7 @@ export const CATvsDOG = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.CATvsDOG,
     "tacgie": "c/c7/mhxnikn5dcrxdjpmam1rcr2ttmjz7ux.png",
+    "openDate": "2024-05-20",
     "extraData": {
         "illust": LaohenIllust.鲛猫, //画师,
         "resourse": LaohenResourse.叶脉联结计划

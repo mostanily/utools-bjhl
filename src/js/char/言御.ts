@@ -24,6 +24,9 @@ const Desc = {
             "listNames": ["无栖"],
             "imgs": [
                 "c/c2/abrgmutewrl65v80t3o1u9df58g063t.png"
+            ],
+            "listImg": [
+                "5/52/4ei1yb1nc2l6e3adex8ucy4piax40gj.png"
             ]
         }
     ]

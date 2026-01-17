@@ -7,6 +7,7 @@ export const 成长 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.成长,
     "tacgie": "2/2a/40o35qn7erykrfak4gtaeqdoo4r8s3c.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.寻迹潜航

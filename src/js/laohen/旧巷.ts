@@ -7,6 +7,7 @@ export const 旧巷 = {
     "type": LaohenAttrType.终端,
     "id": LaohenNameEnum.旧巷,
     "tacgie": "9/92/klvnh1ktnzu0zvv91iqwd55tsvxogrv.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

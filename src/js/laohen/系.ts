@@ -7,6 +7,7 @@ export const 系 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.系,
     "tacgie": "6/65/ff91pzep8nkyppkqa2hys9fe4wybuxp.png",
+    "openDate": "2026-01-15",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.活动

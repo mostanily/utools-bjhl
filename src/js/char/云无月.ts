@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["独家幕后"],
             "imgs": [
                 "b/b6/7a82chtzbacbepqfldyyj0kr7mi6pa8.png"
+            ],
+            "listImg": [
+                "1/12/9f9l42lv2hpayt72h4veoqwgbvfnk2i.png"
             ]
         }
     ]

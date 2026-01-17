@@ -16,7 +16,19 @@ const Desc = {
             "7/79/pwg5px14fa7llqer1oyf4chphbud2dl.png",
             "c/c5/3l48ghn17m3fkgulom0po6rl9c5f5im.png"
         ],
-    }
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["如晦"],
+            "imgs": [
+                "9/91/dsmz0yn90fdw3qejrk2vae7fi025v3l.png"
+            ],
+            "listImg": [
+                "8/84/4wzvv41jighgholcnkpbz3jnbx3ja14.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

@@ -7,6 +7,7 @@ export const 甜蜜心绪 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.甜蜜心绪,
     "tacgie": "b/b8/nhc2xk4tnu53x5fgy5cedsk72sbicr0.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

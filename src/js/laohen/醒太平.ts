@@ -7,6 +7,7 @@ export const 醒太平 = {
         "type": LaohenAttrType.体质,
         "id": LaohenNameEnum.醒太平,
         "tacgie": "7/7f/b5ib38l87clj56q57308tmei4a8nf3e.png",
+        "openDate": "2024-02-22",
         "extraData": {
             "illust": LaohenIllust.鲸谜, //画师,
             "resourse": LaohenResourse.活动

@@ -7,6 +7,7 @@ export const 截稿日 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.截稿日,
     "tacgie": "9/9f/3elbiccljcekti6rnlx8wb073bjqs3x.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.寻迹潜航

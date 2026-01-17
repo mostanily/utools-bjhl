@@ -7,6 +7,7 @@ export const 玄学 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.玄学,
     "tacgie": "0/02/091yhz1lnj8dxioazxc4ondwazlgzi6.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.寻迹潜航

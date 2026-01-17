@@ -7,6 +7,7 @@ export const 曙色的地平线 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.曙色的地平线,
     "tacgie": "8/8f/1ox2urm2hyks8t87oxnzzsecsntxlgg.png",
+    "openDate": "2024-10-10",
     "extraData": {
         "illust": LaohenIllust.东河, //画师,
         "resourse": LaohenResourse.活动

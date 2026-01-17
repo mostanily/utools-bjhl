@@ -7,6 +7,7 @@ export const 流光竞夜 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.流光竞夜,
     "tacgie": "e/e8/hvagvwigdfdqx1c1ct6xy0ewi5vnuyu.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.zz银咋, //画师,
         "resourse": LaohenResourse.寻迹潜航

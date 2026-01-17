@@ -7,6 +7,7 @@ export const 余兴节目 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.余兴节目,
     "tacgie": "3/3c/aivj0kaopx0j220fkmerg0ie35k30vd.png",
+    "openDate": "2025-06-02",
     "extraData": {
         "illust": LaohenIllust.木昆昆, //画师,
         "resourse": LaohenResourse.叶脉联结计划

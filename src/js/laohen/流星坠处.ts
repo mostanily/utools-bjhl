@@ -7,6 +7,7 @@ export const 流星坠处 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.流星坠处,
     "tacgie": "d/dd/r9iuzsf80tmtcqbzwbus0eka7xp7yv9.png",
+    "openDate": "2024-01-18",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.定向潜航

@@ -7,6 +7,7 @@ export const 最好吃的朋友 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.最好吃的朋友,
     "tacgie": "8/83/3cfp5sf35f8hn3td88chz5j9uxk5071.png",
+    "openDate": "2024-04-08",
     "extraData": {
         "illust": LaohenIllust.墨秃, //画师,
         "resourse": LaohenResourse.叶脉联结计划

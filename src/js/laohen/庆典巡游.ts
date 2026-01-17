@@ -7,6 +7,7 @@ export const 庆典巡游 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.庆典巡游,
     "tacgie": "8/8d/esrqzsuvgzfqrk13gy4ew0h7u3f5max.png",
+    "openDate": "2024-02-01",
     "extraData": {
         "illust": LaohenIllust.和子君, //画师,
         "resourse": LaohenResourse.活动

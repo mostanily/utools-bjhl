@@ -16,7 +16,19 @@ const Desc = {
             "2/25/fb7wbvopbyazablqf9fkbcf7izdm32l.png",
             "f/fb/2vwrvb8i8akesda3wp5xdabxg47ak78.png"
         ]
-    }
+    },
+    "extraTacgie": [
+        {
+            "name": "森罗映像",
+            "listNames": ["不息"],
+            "imgs": [
+                "a/aa/kn7dhmppnjycayyx9g4bzr8tzidorlz.png"
+            ],
+            "listImg": [
+                "5/53/48zeckiw4k7wfu53py5cifbp9s8nqog.png"
+            ]
+        }
+    ]
 }
 
 const Skill = [

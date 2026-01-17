@@ -23,6 +23,9 @@ const Desc = {
             "listNames": ["第一课"],
             "imgs": [
                 "7/7c/04ntzy543wqbuibt9kvpjxwdwpmbo71.png"
+            ],
+            "listImg": [
+                "c/c5/nwpk19w5zbsagx8kpd53xzsb57zkndp.png"
             ]
         }
     ]

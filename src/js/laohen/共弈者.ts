@@ -7,6 +7,7 @@ export const 共弈者 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.共弈者,
     "tacgie": "0/0f/6zxyjwjxjfgfczla8p62y5nmeann1t8.png",
+    "openDate": "2026-01-15",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航

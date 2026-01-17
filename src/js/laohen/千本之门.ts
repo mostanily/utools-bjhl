@@ -7,6 +7,7 @@ export const 千本之门 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.千本之门,
     "tacgie": "9/99/2jh17fbcughqvnn080edjf4mxokvu6i.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

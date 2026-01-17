@@ -7,6 +7,7 @@ export const 家 = {
     "type": LaohenAttrType.专精,
     "id": LaohenNameEnum.家,
     "tacgie": "a/a1/9j8z7dm8sttty302jk5hjv99wtlefmk.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.BITE, //画师,
         "resourse": LaohenResourse.寻迹潜航

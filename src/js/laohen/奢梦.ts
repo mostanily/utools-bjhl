@@ -7,6 +7,7 @@ export const 奢梦 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.奢梦,
     "tacgie": "1/16/j2b4g0j45xkc3dzpvfusjkkn5xxwzx1.png",
+    "openDate": "2024-09-23",
     "extraData": {
         "illust": LaohenIllust.竹墨繁漪, //画师,
         "resourse": LaohenResourse.叶脉联结计划

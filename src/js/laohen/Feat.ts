@@ -7,6 +7,7 @@ export const Feat = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.Feat,
     "tacgie": "8/88/ghzo60amvpbavz94y5t95hhdg3yiwuu.png",
+    "openDate": "2025-01-23",
     "extraData": {
         "illust": LaohenIllust.Noir, //画师,
         "resourse": LaohenResourse.活动

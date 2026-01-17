@@ -7,6 +7,7 @@ export const 于人海中 = {
     "type": LaohenAttrType.体质,
     "id": LaohenNameEnum.于人海中,
     "tacgie": "4/4d/cd715zj141fjz2h6zpg2f1c4wjyvmef.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.寻迹潜航

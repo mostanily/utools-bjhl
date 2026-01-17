@@ -7,6 +7,7 @@ export const 谎言之下 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.谎言之下,
     "tacgie": "9/90/6wok31ul2hv8l97rfx4mjzj9fhqudd8.png",
+    "openDate": "2024-01-12",
     "extraData": {
         "illust": LaohenIllust.AurogonShanghai, //画师,
         "resourse": LaohenResourse.主线

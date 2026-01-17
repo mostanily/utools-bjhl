@@ -7,6 +7,7 @@ export const 底线大作战 = {
     "type": LaohenAttrType.攻击,
     "id": LaohenNameEnum.底线大作战,
     "tacgie": "b/ba/1jc2w6vn1ceaauf1l4rl66xaaxbj9qp.png",
+    "openDate": "2024-04-18",
     "extraData": {
         "illust": LaohenIllust.木昆昆, //画师,
         "resourse": LaohenResourse.定向潜航

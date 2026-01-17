@@ -7,6 +7,7 @@ export const 沙中金火 = {
     "type": LaohenAttrType.防御,
     "id": LaohenNameEnum.沙中金火,
     "tacgie": "2/2b/sffdm4hvr2lrd5o5bj0fah2vef6csps.png",
+    "openDate": "2025-05-29",
     "extraData": {
         "illust": LaohenIllust.MOL, //画师,
         "resourse": LaohenResourse.定向潜航
