@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "战术家", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.暗影伏击], "attr": "shi", "star": "6",
     "nameEn": "MRS.GEM", "tag": ["输出", "召唤", "群攻"], "originWorld": "森罗、克图尔特", "orginChar": "原创",
     "cv": "", "openDate": "2025年10月23日",
@@ -20,212 +21,217 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "织幕",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "18秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "拦截", "对空"],//技能标签
-            "sizeLevel": [
-                ["1000%", "600%"],
-                ["1150%", "690%"],
-                ["1300%", "780%"],
-                ["1450%", "870%"],
-                ["1600%", "960%"],
-                ["1750%", "1050%"],
-                ["1900%", "1140%"],
-                ["2050%", "1230%"],
-                ["2200%", "1320%"],
-                ["2300%", "1380%"],
-                ["2400%", "1440%"],
-                ["2500%", "1500%"],
-                ["2600%", "1560%"],
-                ["2700%", "1620%"],
-                ["2800%", "1680%"]
-            ],
-            "content": [
-                "指挥机械蜘蛛对矩形范围内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，并呼唤灰锈对",
-                speSkillCon("300"),
-                "范围内的敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，同时摧毁范围内投射物，并为终端附加",
-                speSkillCon("20点蚀爆值")
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "丝囚",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
-            "tab": ["伤害", "负面状态", "对空"],
-            "sizeLevel": [
-                ["600%", "480%"],
-                ["690%", "550%"],
-                ["780%", "620%"],
-                ["870%", "700%"],
-                ["960%", "770%"],
-                ["1050%", "840%"],
-                ["1140%", "910%"],
-                ["1230%", "980%"],
-                ["1320%", "1060%"],
-                ["1380%", "1100%"],
-                ["1440%", "1150%"],
-                ["1500%", "1200%"],
-                ["1560%", "1250%"],
-                ["1620%", "1300%"],
-                ["1680%", "1340%"]
-            ],
-            "content": [
-                "自动：每隔",
-                speSkillCon("20"),
-                "秒可以获得一次【丝囚】主动技能使用次数，使用后产生的指令冷却时间极短",
-                "",
-                "",
-                "主动：指挥机械蜘蛛落到目标区域，对半径",
-                speSkillCon("300"),
-                "范围内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，为终端附加",
-                speSkillCon("15点蚀爆值"),
-                "，并在目标区域留下持续",
-                speSkillCon("12"),
-                "秒的蛛网，同时自身周围也产生蛛网（当角色重伤或离场时，区域消失）",
-                "",
-                "",
-                "蛛网持续期间：",
-                "",
-                "三角、菱形职业的同调者（包含自己）在蛛网上，能够进入",
-                speSkillCon("[隐匿]", SkillColorEnum.normal, ToastSkillEnum.隐匿),
-                "状态",
-                "",
-                "每秒对区域内的敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "（重叠区域伤害不叠加），并使蛛网区域内地面上的敌人降低",
-                speSkillCon("70%"),
-                speSkillCon("[移动速度]", SkillColorEnum.normal, ToastSkillEnum.移动速度)
-            ]
-        }
-    },
-    {
-        "name": "血茧",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益", "对空"],
-            "sizeLevel": [
-                ["3000%", "600%"],
-                ["3500%", "700%"],
-                ["4000%", "800%"],
-                ["4500%", "900%"],
-                ["4750%", "950%"],
-                ["5000%", "1000%"]
-            ],
-            "content": [
-                "波丝对目标半径",
-                speSkillCon("500"),
-                "范围的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，灰绣对路径上的敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "。若命中敌方目标在蛛网内，则额外造成一次相当于",
-                speSkillCon("5"),
-                "秒蛛网总伤害的蚀元素伤害。",
-                "",
-                "释放技能后，接下来的",
-                speSkillCon("20"),
-                "秒内，场上蚀元素同调者（包含自己）进行普通攻击时，为终端额外附加",
-                speSkillCon("10点蚀爆值"),
-                "，总计最多可以获得",
-                speSkillCon("200"),
-                "点蚀爆值（当红珠重伤或离场时，此效果消失）",
-                "",
-                "战术家：开场充能50%"
-            ]
-        }
-    },
-    {
-        "name": "特性：自缚一线",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "指挥机械蜘蛛对当前目标造成",
-                speSkillCon("200%最终攻击的蚀元素伤害"),
-                "，为终端附加",
-                speSkillCon("3点蚀爆值"),
-                "",
-                "目标在自身近战范围内时，下次普通攻击会呼唤灰绣进行攻击，对",
-                speSkillCon("300"),
-                "范围内的敌人造成",
-                speSkillCon("200%最终攻击的蚀元素伤害"),
-                "",
-                "并击退敌人（每30秒最多触发一次）"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "机械蜘蛛视为[召唤物]，且灰绣造成的伤害视为[召唤物伤害]",
-                    "",
-                    "当自身在",
-                    speSkillCon("[隐匿]", SkillColorEnum.normal, ToastSkillEnum.隐匿),
-                    "状态中，每秒提高伤害",
-                    speSkillCon("5%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "，最多可以达到",
-                    speSkillCon("40%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ],//零花本体特性
-                [
-                    "登场时【丝囚】自动技能初始充能",
-                    speSkillCon("20"),
-                    "秒。",
-                    "",
-                    "蛛网的范围提高至",
-                    speSkillCon("400"),
-                    "，持续时间提高至",
-                    speSkillCon("20"),
-                    "秒，异核触发的蛛网伤害由",
-                    speSkillCon("5"),
-                    "秒提高至",
-                    speSkillCon("10"),
-                    "秒"
-                ],//一花特性
-                [
-                    "当自身在",
-                    speSkillCon("[隐匿]", SkillColorEnum.normal, ToastSkillEnum.隐匿),
-                    "状态中，每秒提高伤害由",
-                    speSkillCon("5%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "提高至",
-                    speSkillCon("10%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "，上限提高至",
-                    speSkillCon("80%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "织幕",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "18秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "拦截", "对空"],//技能标签
+        "sizeLevel": [
+            ["1000%", "600%"],
+            ["1150%", "690%"],
+            ["1300%", "780%"],
+            ["1450%", "870%"],
+            ["1600%", "960%"],
+            ["1750%", "1050%"],
+            ["1900%", "1140%"],
+            ["2050%", "1230%"],
+            ["2200%", "1320%"],
+            ["2300%", "1380%"],
+            ["2400%", "1440%"],
+            ["2500%", "1500%"],
+            ["2600%", "1560%"],
+            ["2700%", "1620%"],
+            ["2800%", "1680%"]
+        ],
+        "content": [
+            "指挥机械蜘蛛对矩形范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，并呼唤灰锈对",
+            speSkillCon("300"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，同时摧毁范围内投射物，并为终端附加",
+            speSkillCon("20点蚀爆值")
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "丝囚",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
+        "tab": ["伤害", "负面状态", "对空"],
+        "sizeLevel": [
+            ["600%", "480%"],
+            ["690%", "550%"],
+            ["780%", "620%"],
+            ["870%", "700%"],
+            ["960%", "770%"],
+            ["1050%", "840%"],
+            ["1140%", "910%"],
+            ["1230%", "980%"],
+            ["1320%", "1060%"],
+            ["1380%", "1100%"],
+            ["1440%", "1150%"],
+            ["1500%", "1200%"],
+            ["1560%", "1250%"],
+            ["1620%", "1300%"],
+            ["1680%", "1340%"]
+        ],
+        "content": [
+            "自动：每隔",
+            speSkillCon("20"),
+            "秒可以获得一次【丝囚】主动技能使用次数，使用后产生的指令冷却时间极短",
+            "",
+            "",
+            "主动：指挥机械蜘蛛落到目标区域，对半径",
+            speSkillCon("300"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，为终端附加",
+            speSkillCon("15点蚀爆值"),
+            "，并在目标区域留下持续",
+            speSkillCon("12"),
+            "秒的蛛网，同时自身周围也产生蛛网（当角色重伤或离场时，区域消失）",
+            "",
+            "",
+            "蛛网持续期间：",
+            "",
+            "三角、菱形职业的同调者（包含自己）在蛛网上，能够进入",
+            speSkillCon("[隐匿]", SkillColorEnum.normal, ToastSkillEnum.隐匿),
+            "状态",
+            "",
+            "每秒对区域内的敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "（重叠区域伤害不叠加），并使蛛网区域内地面上的敌人降低",
+            speSkillCon("70%"),
+            speSkillCon("[移动速度]", SkillColorEnum.normal, ToastSkillEnum.移动速度)
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "血茧",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益", "对空"],
+        "sizeLevel": [
+            ["3000%", "600%"],
+            ["3500%", "700%"],
+            ["4000%", "800%"],
+            ["4500%", "900%"],
+            ["4750%", "950%"],
+            ["5000%", "1000%"]
+        ],
+        "content": [
+            "波丝对目标半径",
+            speSkillCon("500"),
+            "范围的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，灰绣对路径上的敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "。若命中敌方目标在蛛网内，则额外造成一次相当于",
+            speSkillCon("5"),
+            "秒蛛网总伤害的蚀元素伤害。",
+            "",
+            "释放技能后，接下来的",
+            speSkillCon("20"),
+            "秒内，场上蚀元素同调者（包含自己）进行普通攻击时，为终端额外附加",
+            speSkillCon("10点蚀爆值"),
+            "，总计最多可以获得",
+            speSkillCon("200"),
+            "点蚀爆值（当红珠重伤或离场时，此效果消失）",
+            "",
+            "战术家：开场充能50%"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：自缚一线",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "指挥机械蜘蛛对当前目标造成",
+            speSkillCon("200%最终攻击的蚀元素伤害"),
+            "，为终端附加",
+            speSkillCon("3点蚀爆值"),
+            "",
+            "目标在自身近战范围内时，下次普通攻击会呼唤灰绣进行攻击，对",
+            speSkillCon("300"),
+            "范围内的敌人造成",
+            speSkillCon("200%最终攻击的蚀元素伤害"),
+            "",
+            "并击退敌人（每30秒最多触发一次）"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "机械蜘蛛视为[召唤物]，且灰绣造成的伤害视为[召唤物伤害]",
+                "",
+                "当自身在",
+                speSkillCon("[隐匿]", SkillColorEnum.normal, ToastSkillEnum.隐匿),
+                "状态中，每秒提高伤害",
+                speSkillCon("5%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "，最多可以达到",
+                speSkillCon("40%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ],//零花本体特性
+            [
+                "登场时【丝囚】自动技能初始充能",
+                speSkillCon("20"),
+                "秒。",
+                "",
+                "蛛网的范围提高至",
+                speSkillCon("400"),
+                "，持续时间提高至",
+                speSkillCon("20"),
+                "秒，异核触发的蛛网伤害由",
+                speSkillCon("5"),
+                "秒提高至",
+                speSkillCon("10"),
+                "秒"
+            ],//一花特性
+            [
+                "当自身在",
+                speSkillCon("[隐匿]", SkillColorEnum.normal, ToastSkillEnum.隐匿),
+                "状态中，每秒提高伤害由",
+                speSkillCon("5%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "提高至",
+                speSkillCon("10%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "，上限提高至",
+                speSkillCon("80%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "谨慎",

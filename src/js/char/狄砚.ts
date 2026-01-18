@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.针对打击三角, MXLaohenEnum.同步强化], "attr": "wuli", "star": "4",
     "nameEn": "DIYAN", "tag": ["群攻", "支援", "拦截"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "苏婉", "openDate": "2024年01月12日", "resourse": ["主线S0-1赠送", "常态共鸣"],
@@ -18,100 +19,105 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "弹雨韶华",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "拦截"],//技能标签
-            "content": [
-                "对半径",
-                speSkillCon("350"),
-                "范围内的敌方单位造成",
-                speSkillCon("1875%最终攻击的物理伤害"),
-                "并拦截敌方投射物"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "夜焰升平",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["增益冷却", "20秒"], ["增益持续", "20秒"]],
-            "tab": ["自身增益", "友方增益"],
-            "content": [
-                "使友方全体同调者提升",
-                speSkillCon("21%[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "，自身暴击率额外提升",
-                speSkillCon("50%"),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "以及暴击伤害提升",
-                speSkillCon("80%"),
-                speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("20"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "穿杨之宴",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益", "拦截", "穿透屏障"],
-            "content": [
-                "对指定区域内的敌方单位造成",
-                speSkillCon("2400%最终攻击的物理伤害"),
-                "并拦截敌方投射物，此后将普通攻击切换为三连发模式，",
-                speSkillCon("攻击速度：0.77次每秒"),
-                "，伤害降低20%，持续",
-                speSkillCon("24"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "特性：华照阑珊",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.56次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "向当前目标发射子弹造成",
-                speSkillCon("179%最终攻击的物理伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "对空中目标造成伤害提升",
-                    speSkillCon("30%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ],//零花本体特性
-                [
-                    "主动技能【弹雨韶华】触发连击时，造成的伤害提高",
-                    speSkillCon("50%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ],//一花特性
-                [
-                    "对空中目标造成伤害提升变为",
-                    speSkillCon("50%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "弹雨韶华",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "拦截"],//技能标签
+        "content": [
+            "对半径",
+            speSkillCon("350"),
+            "范围内的敌方单位造成",
+            speSkillCon("1875%最终攻击的物理伤害"),
+            "并拦截敌方投射物"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "夜焰升平",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "20秒"], ["增益持续", "20秒"]],
+        "tab": ["自身增益", "友方增益"],
+        "content": [
+            "使友方全体同调者提升",
+            speSkillCon("21%[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "，自身暴击率额外提升",
+            speSkillCon("50%"),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "以及暴击伤害提升",
+            speSkillCon("80%"),
+            speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("20"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "穿杨之宴",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益", "拦截", "穿透屏障"],
+        "content": [
+            "对指定区域内的敌方单位造成",
+            speSkillCon("2400%最终攻击的物理伤害"),
+            "并拦截敌方投射物，此后将普通攻击切换为三连发模式，",
+            speSkillCon("攻击速度：0.77次每秒"),
+            "，伤害降低20%，持续",
+            speSkillCon("24"),
+            "秒"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：华照阑珊",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.56次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "向当前目标发射子弹造成",
+            speSkillCon("179%最终攻击的物理伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "对空中目标造成伤害提升",
+                speSkillCon("30%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ],//零花本体特性
+            [
+                "主动技能【弹雨韶华】触发连击时，造成的伤害提高",
+                speSkillCon("50%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ],//一花特性
+            [
+                "对空中目标造成伤害提升变为",
+                speSkillCon("50%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "难解的结",
@@ -238,7 +244,7 @@ const Tea = {
                 "五分糖",
                 "常温"
             ],
-            "ex": [315, 352, 384],//参考默契值，无加，满家具，满加成
+            "ex": [315],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 5,
@@ -248,7 +254,7 @@ const Tea = {
                 "多冰",
                 "樱桃"
             ],
-            "ex": [373, 418, 455],//参考默契值，无加，满家具，满加成
+            "ex": [373],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 8,
@@ -258,7 +264,7 @@ const Tea = {
                 "标准",
                 "咖啡雪顶"
             ],
-            "ex": [410, 459, 501],//参考默契值，无加，满家具，满加成
+            "ex": [410],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -267,7 +273,7 @@ const Tea = {
                 "盐",
                 "咖啡雪顶"
             ],
-            "ex": [433, 485, 528],//参考默契值，无加，满家具，满加成
+            "ex": [433],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -277,7 +283,7 @@ const Tea = {
                 "正常冰",
                 "蜜桃冻"
             ],
-            "ex": [461, 517, 564],//参考默契值，无加，满家具，满加成
+            "ex": [461],//参考默契值，无加，满家具，满加成
         }
     ]
 }

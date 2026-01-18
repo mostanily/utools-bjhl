@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "战术家", "skill": [MXLaohenEnum.势如破竹对空, MXLaohenEnum.战术强化], "attr": "wuli", "star": "6",
     "nameEn": "LUKE", "tag": ["输出", "召唤", "屏障"], "originWorld": "黑曜", "orginChar": "古剑奇谭三",
     "cv": "张沛", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
@@ -31,134 +32,187 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "无人签收",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "召唤", "屏障", "穿透屏障"],//技能标签
-            "content": [
-                "朝目标位置投送隔离件，对半径",
-                speSkillCon("250"),
-                "范围内的目标造成",
-                speSkillCon("1250%最终攻击的物理伤害"),
-                "，随后隔离件会展开半径300范围",
-                speSkillCon("较大强度"),
-                "的球形屏障，抵御敌方投射物，并对附近敌人间歇性发射激光，存在",
-                speSkillCon("20"),
-                "秒，持续时间内总计造成",
-                speSkillCon("630%最终攻击的物理伤害"),
-                "，可以对敌方屏障造成较高破坏力"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "定时派送",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "15秒"]],
-            "tab": ["伤害", "负面状态"],
-            "content": [
-                "普通攻击命中时额外投送一个定时件，触发",
-                speSkillCon("3"),
-                "次后，下一次额外追加投送一个加急件",
-                "",
-                "定时件：持续",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "附近的敌人优先攻击定时件，",
-                speSkillCon("10"),
-                "秒后自动引爆，被击碎将提前引爆，对半径",
-                speSkillCon("200"),
-                "范围内的敌人造成",
-                speSkillCon("1500%最终攻击的物理伤害"),
-                "",
-                "加急件：朝目标快速发射7枚子弹，存在",
-                speSkillCon("20"),
-                "秒，持续时间内内总计造成",
-                speSkillCon("1700%最终攻击的物理伤害")
-            ]
-        }
-    },
-    {
-        "name": "鹿路宅急送",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "80秒"]],
-            "tab": ["自身增益", "友方增益", "召唤", "拦截"],
-            "content": [
-                "对直线范围内的目标造成",
-                speSkillCon("3000%最终攻击的物理伤害"),
-                "并为全体友方同调者提升",
-                speSkillCon("25%[同调者攻击]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击),
-                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("30"),
-                "秒；拦截敌方投射物，同时沿途投送",
-                speSkillCon("8"),
-                "箱快递",
-                "",
-                "战术家特性：开战时异核充能增加50%"
-            ]
-        }
-    },
-    {
-        "name": "特性：末日信使",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "朝目标投送“普通件”，命中目标造成",
-                speSkillCon("250%最终攻击的物理伤害"),
-                "，“普通件”会展开成小型炮台向附近敌人发射子弹，持续存在7秒，持续时间内总计造成",
-                speSkillCon("270%最终攻击的物理伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "快件为召唤物",
-                    "",
-                    "技能可以产生各种类型的快件"
-                ],//零花本体特性
-                [
-                    "主动技能【无人签收】可使用次数+1；“普通件”和“加急件”的伤害额外提高",
-                    speSkillCon("35%"),
-                    speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries)
-                ],//一花特性
-                [
-                    "除“定时件”以外的所有快件箱存在时间增加",
-                    speSkillCon("5"),
-                    "秒"
-                ]//三花特性
-            ]
-        }
-    },
-    {
-        "name": "特性强化",
-        "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "content": [
-                "加急件对目标造成伤害时，降低目标",
-                speSkillCon("40%"),
-                speSkillCon("（目标减益乘区·目标基础减伤降低）", SkillColorEnum.injuries),
-                "基础减伤，（该效果属于",
-                speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
-                "，自身下场时效果消失）；目标处于（我方或敌方）屏障下时，自身对其造成的伤害提高",
-                speSkillCon("30%"),
-                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "无人签收",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "召唤", "屏障", "穿透屏障"],//技能标签
+        "sizeLevel": [
+            ["500%", "252%"],
+            ["575%", "290%"],
+            ["650%", "328%"],
+            ["725%", "366%"],
+            ["800%", "403%"],
+            ["875%", "441%"],
+            ["950%", "479%"],
+            ["1025%", "517%"],
+            ["1100%", "554%"],
+            ["1150%", "580%"],
+            ["1200%", "605%"],
+            ["1250%", "630%"],
+            ["1300%", "655%"],
+            ["1350%", "680%"],
+            ["1400%", "706%"]
+        ],
+        "content": [
+            "朝目标位置投送隔离件，对半径",
+            speSkillCon("250"),
+            "范围内的目标造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的物理伤害"),
+            "，随后隔离件会展开半径300范围",
+            speSkillCon("较大强度"),
+            "的球形屏障，抵御敌方投射物，并对附近敌人间歇性发射激光，存在",
+            speSkillCon("20"),
+            "秒，持续时间内总计造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的物理伤害"),
+            "，可以对敌方屏障造成较高破坏力"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "定时派送",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "15秒"]],
+        "tab": ["伤害", "负面状态"],
+        "sizeLevel": [
+            ["600%"],
+            ["690%"],
+            ["780%"],
+            ["870%"],
+            ["960%"],
+            ["1050%"],
+            ["1140%"],
+            ["1230%"],
+            ["1320%"],
+            ["1380%"],
+            ["1440%"],
+            ["1500%"],
+            ["1560%"],
+            ["1620%"],
+            ["1680%"]
+        ],
+        "content": [
+            "普通攻击命中时额外投送一个定时件，触发",
+            speSkillCon("3"),
+            "次后，下一次额外追加投送一个加急件",
+            "",
+            "定时件：持续",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "附近的敌人优先攻击定时件，",
+            speSkillCon("10"),
+            "秒后自动引爆，被击碎将提前引爆，对半径",
+            speSkillCon("200"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的物理伤害"),
+            "",
+            "加急件：朝目标快速发射7枚子弹，存在",
+            speSkillCon("20"),
+            "秒，持续时间内内总计造成",
+            speSkillCon("1700%最终攻击的物理伤害")
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "鹿路宅急送",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "80秒"]],
+        "tab": ["自身增益", "友方增益", "召唤", "拦截"],
+        "sizeLevel": [
+            ["1800%", "6"],
+            ["2100%", "7"],
+            ["2400%", "7"],
+            ["2700%", "8"],
+            ["2850%", "8"],
+            ["3000%", "8"]
+        ],
+        "content": [
+            "对直线范围内的目标造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的物理伤害"),
+            "并为全体友方同调者提升",
+            speSkillCon("25%[同调者攻击]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击),
+            speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("30"),
+            "秒；拦截敌方投射物，同时沿途投送",
+            speSkillCon("", 0, -1, 1),
+            "箱快递",
+            "",
+            "战术家特性：开战时异核充能增加50%"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：末日信使",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "朝目标投送“普通件”，命中目标造成",
+            speSkillCon("250%最终攻击的物理伤害"),
+            "，“普通件”会展开成小型炮台向附近敌人发射子弹，持续存在7秒，持续时间内总计造成",
+            speSkillCon("270%最终攻击的物理伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "快件为召唤物",
+                "",
+                "技能可以产生各种类型的快件"
+            ],//零花本体特性
+            [
+                "主动技能【无人签收】可使用次数+1；“普通件”和“加急件”的伤害额外提高",
+                speSkillCon("35%"),
+                speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries)
+            ],//一花特性
+            [
+                "除“定时件”以外的所有快件箱存在时间增加",
+                speSkillCon("5"),
+                "秒"
+            ]//三花特性
+        ]
+    }
+}
+const skillTeseStrong: DefaultTeseSkillObj = {
+    "name": "特性强化",
+    "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "content": [
+            "加急件对目标造成伤害时，降低目标",
+            speSkillCon("40%"),
+            speSkillCon("（目标减益乘区·目标基础减伤降低）", SkillColorEnum.injuries),
+            "基础减伤，（该效果属于",
+            speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
+            "，自身下场时效果消失）；目标处于（我方或敌方）屏障下时，自身对其造成的伤害提高",
+            speSkillCon("30%"),
+            speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+        ]
+    }
+}
+
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese,
+    skillTeseStrong
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "全身心的拒绝",
@@ -284,7 +338,7 @@ const Tea = {
                 "多冰",
                 "樱桃"
             ],
-            "ex": [431, 483, 526],//参考默契值，无加，满家具，满加成
+            "ex": [431],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -293,7 +347,7 @@ const Tea = {
                 "正常冰",
                 "叶子冻"
             ],
-            "ex": [594, 665, 725],//参考默契值，无加，满家具，满加成
+            "ex": [594],//参考默契值，无加，满家具，满加成
         }
     ]
 }

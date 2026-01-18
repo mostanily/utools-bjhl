@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.沉浸舞台], "attr": "shui", "star": "5",
     "nameEn": "FREDA", "tag": ["治疗", "支援"], "originWorld": "艾达", "orginChar": "古剑奇谭一",
     "cv": "陈奕雯", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -31,121 +32,126 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "掀翻舞台",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "10秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["自身增益", "友方增益"],//技能标签
-            "content": [
-                "切换",
-                speSkillConWithImg(SkillDescStatusImg.芙蕖舞台攻),
-                "舞台效果，使所有同调者提升",
-                speSkillCon("20%"),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
-                "和",
-                speSkillCon("20%"),
-                speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
-                speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精),
-                "，同时使指令冷却的回复速度和自动技能的充能速度加快",
-                speSkillCon("50%"),
-                speSkillCon("(属性乘区·主动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
-                "；",
-                speSkillCon("(属性乘区·自动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区自动技能回复速度),
-                "，持续",
-                speSkillCon("20"),
-                "秒",
-                "",
-                "同一时间只能激活一种舞台效果"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "片刻沉溺",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "10秒"], ["次数", "4"]],
-            "tab": ["自身增益", "友方增益", "回复"],
-            "content": [
-                "被动：每隔",
-                speSkillCon("5"),
-                "秒治疗所有友方同调者",
-                speSkillCon("125%治愈力"),
-                "的生命值",
-                "",
-                "主动：切换",
-                speSkillConWithImg(SkillDescStatusImg.芙蕖舞台疗),
-                "舞台效果，被动治疗同调者生命值的间隔降低一半，并为目标额外增加",
-                speSkillCon("9%~15%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                speSkillCon("[同调者基础减伤]", SkillColorEnum.normal, ToastSkillEnum.同调者基础减伤),
-                "，持续",
-                speSkillCon("20"),
-                "秒",
-                "",
-                "同一时间只能激活一种舞台效果"
-            ]
-        }
-    },
-    {
-        "name": "安可时间",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["回复"],
-            "content": [
-                "无消耗再次激活上一个舞台效果，且该舞台效果获得「安可」状态：舞台效果的治疗量提高",
-                speSkillCon("60%"),
-                "；属性加成、资源回复的效果提高",
-                speSkillCon("100%")
-            ]
-        }
-    },
-    {
-        "name": "特性：反向应援",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "-"], ["攻击速度", "-"]],
-            "atType": ["不攻击"],
-            "content": [
-                "不会攻击敌人",
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "在场时，使场上所有同调者提升",
-                    speSkillCon("15%"),
-                    speSkillCon("[同调者攻击]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击),
-                    speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                    "",
-                    "司危在场时，场上友方同调者的基础攻击力额外提升",
-                    speSkillCon("5%"),
-                    speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries)
-                ],//零花本体特性
-                [
-                    "切换舞台效果后，获得",
-                    speSkillCon("5"),
-                    "秒「安可」状态（当前舞台效果的治疗量提高；属性加成、资源回复的效果提高）"
-                ],//一花特性
-                [
-                    "【掀翻舞台】和【片刻沉溺】的舞台效果激活持续期间，对其他友方同调者造成治疗时，额外为目标回复",
-                    speSkillCon("4%"),
-                    "异核充能进度"
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "掀翻舞台",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "10秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["自身增益", "友方增益"],//技能标签
+        "content": [
+            "切换",
+            speSkillConWithImg(SkillDescStatusImg.芙蕖舞台攻),
+            "舞台效果，使所有同调者提升",
+            speSkillCon("20%"),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
+            "和",
+            speSkillCon("20%"),
+            speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
+            speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精),
+            "，同时使指令冷却的回复速度和自动技能的充能速度加快",
+            speSkillCon("50%"),
+            speSkillCon("(属性乘区·主动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
+            "；",
+            speSkillCon("(属性乘区·自动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区自动技能回复速度),
+            "，持续",
+            speSkillCon("20"),
+            "秒",
+            "",
+            "同一时间只能激活一种舞台效果"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "片刻沉溺",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "10秒"], ["次数", "4"]],
+        "tab": ["自身增益", "友方增益", "回复"],
+        "content": [
+            "被动：每隔",
+            speSkillCon("5"),
+            "秒治疗所有友方同调者",
+            speSkillCon("125%治愈力"),
+            "的生命值",
+            "",
+            "主动：切换",
+            speSkillConWithImg(SkillDescStatusImg.芙蕖舞台疗),
+            "舞台效果，被动治疗同调者生命值的间隔降低一半，并为目标额外增加",
+            speSkillCon("9%~15%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            speSkillCon("[同调者基础减伤]", SkillColorEnum.normal, ToastSkillEnum.同调者基础减伤),
+            "，持续",
+            speSkillCon("20"),
+            "秒",
+            "",
+            "同一时间只能激活一种舞台效果"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "安可时间",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["回复"],
+        "content": [
+            "无消耗再次激活上一个舞台效果，且该舞台效果获得「安可」状态：舞台效果的治疗量提高",
+            speSkillCon("60%"),
+            "；属性加成、资源回复的效果提高",
+            speSkillCon("100%")
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：反向应援",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "-"], ["攻击速度", "-"]],
+        "atType": ["不攻击"],
+        "content": [
+            "不会攻击敌人",
+        ],//普通攻击
+        "specialContent": [
+            [
+                "在场时，使场上所有同调者提升",
+                speSkillCon("15%"),
+                speSkillCon("[同调者攻击]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击),
+                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+                "",
+                "司危在场时，场上友方同调者的基础攻击力额外提升",
+                speSkillCon("5%"),
+                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries)
+            ],//零花本体特性
+            [
+                "切换舞台效果后，获得",
+                speSkillCon("5"),
+                "秒「安可」状态（当前舞台效果的治疗量提高；属性加成、资源回复的效果提高）"
+            ],//一花特性
+            [
+                "【掀翻舞台】和【片刻沉溺】的舞台效果激活持续期间，对其他友方同调者造成治疗时，额外为目标回复",
+                speSkillCon("4%"),
+                "异核充能进度"
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "健康管理",
@@ -263,7 +269,7 @@ const Tea = {
                 "枸杞",
                 "叶子冻"
             ],
-            "ex": [445, 498, 543],//参考默契值，无加，满家具，满加成
+            "ex": [445],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 16,
@@ -272,7 +278,7 @@ const Tea = {
                 "全脂牛奶",
                 "汪汪饼干"
             ],
-            "ex": [510, 571, 622],//参考默契值，无加，满家具，满加成
+            "ex": [510],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -281,7 +287,7 @@ const Tea = {
                 "草莓冰淇淋",
                 "汪汪饼干"
             ],
-            "ex": [534, 598, 652],//参考默契值，无加，满家具，满加成
+            "ex": [534],//参考默契值，无加，满家具，满加成
         }
     ]
 }

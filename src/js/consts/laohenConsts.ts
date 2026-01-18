@@ -1,4 +1,4 @@
-import { toastWithSkill, laohenToastWithSkill } from './toastWithSkillConst.ts';
+import { laohenToastWithSkill } from './toastWithSkillConst.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { LaohenToastSkillEnum, ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import {
@@ -8,27 +8,8 @@ import {
     JobTypeName
 } from '../enum/skillSimpleEnum.ts';
 import AllLaohenHelper from '../laohen/AllLaohenHelper.ts';
-
-/**
- * 返回特殊技能内容对象
- * @param con 特殊技能内容
- * @param color 颜色类型
- * @param toastTitle toast弹窗标题内容
- * @returns 
- */
-const speSkillCon = (con: string, color: number = SkillColorEnum.normal, toastTitle: number = -1) => {
-    const res = { "desc": con, "color": color, "withToast": false, "title": "", "con": "" };
-    if (toastTitle != -1) {
-        res.withToast = true
-        if (typeof toastWithSkill[toastTitle][0] === "string") {
-            res.title = toastWithSkill[toastTitle][0]
-        }
-        if (typeof toastWithSkill[toastTitle][1] === "string") {
-            res.con = toastWithSkill[toastTitle][1]
-        }
-    }
-    return res
-}
+import { speSkillCon, DefaultRes } from './SkillCon.ts';
+import type { DefaultLaohenSkillObj } from './simpleInterfaceConst.ts'
 
 /**
  * 返回烙痕技能特殊提示内容对象
@@ -36,7 +17,7 @@ const speSkillCon = (con: string, color: number = SkillColorEnum.normal, toastTi
  * @returns 
  */
 const speLaohenSkillCon = (toastTitle: number) => {
-    const res = { "title": "", "con": new Array };
+    const res = new DefaultRes();
     if (toastTitle != -1) {
         const extraCon = laohenToastWithSkill[toastTitle]
         if (typeof extraCon[0] === "string") {
@@ -98,7 +79,7 @@ const getSpeLink = (charName: string, hxSkillName: string) => {
     ]
 }
 
-const allLaohenSkill = [
+const allLaohenSkill: DefaultLaohenSkillObj[] = [
     {
         "name": "回收利用", //技能名称
         "skillType": LaohenSkillType.常规技能,

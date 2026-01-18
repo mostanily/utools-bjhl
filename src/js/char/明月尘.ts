@@ -2,11 +2,12 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.蚀核强攻], "attr": "shi", "star": "6",
     "nameEn": "SOLBYRD VON LUMINBERG", "tag": ["输出", "爆发"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭网络版",
-    "cv": "谢添天", "openDate": "2024年09月19日", "resourse": ["定向共鸣·飞鸟也栖"], "laohenLink":LaohenNameEnum.棺中鸟,
+    "cv": "谢添天", "openDate": "2024年09月19日", "resourse": ["定向共鸣·飞鸟也栖"], "laohenLink": LaohenNameEnum.棺中鸟,
     "introText": "恶鬼王、索尔伯德，或者……明月尘。上次与你这样交谈，似乎已是千年以前了。如今也该改一改称呼。<br>那么，许久未见，监督阁下。",
     "tacgie": {
         "name": "初始外装",
@@ -31,235 +32,240 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "速效麻醉",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "25秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "格挡条破坏3"],//技能标签
-            "sizeLevel": [
-                ["1600%"],
-                ["1840%"],
-                ["2080%"],
-                ["2320%"],
-                ["2560%"],
-                ["2800%"],
-                ["3040%"],
-                ["3280%"],
-                ["3520%"],
-                ["3680%"],
-                ["3840%"],
-                ["4000%"],
-                ["4160%"],
-                ["4320%"],
-                ["4480%"]
-            ],
-            "content": [
-                "向十字区域快速冲锋并生成针刺，对选中区域的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，并以",
-                speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "将区域内的敌人拉向中心点，并为终端附加",
-                speSkillCon("20点蚀爆值"),
-                "，自身获得",
-                speSkillCon("20"),
-                "点",
-                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                "的能量。"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "善恶研判",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
-            "tab": ["伤害", "自身增益", "负面状态", "格挡条破坏3"],
-            "sizeLevel": [
-                ["600%","800%"],
-                ["690%","920%"],
-                ["780%","1040%"],
-                ["870%","1160%"],
-                ["960%","1280%"],
-                ["1050%","1400%"],
-                ["1140%","1520%"],
-                ["1230%","1640%"],
-                ["1320%","1760%"],
-                ["1380%","1840%"],
-                ["1440%","1920%"],
-                ["1500%","2000%"],
-                ["1560%","2080%"],
-                ["1620%","2160%"],
-                ["1680%","2240%"]
-            ],
-            "content": [
-                "被动：每隔",
-                speSkillCon("15"),
-                "秒，明月尘进入",
-                speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
-                "「刃血」状态，对自身周围",
-                speSkillCon("400"),
-                "范围的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，该状态下攻击速度提高",
-                speSkillCon("40%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "且每",
-                speSkillCon("2"),
-                "秒回复",
-                speSkillCon("4"),
-                "点",
-                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                "能量（攻击速度提高会降低回复间隔，最低间隔",
-                speSkillCon("1"),
-                "秒），持续",
-                speSkillCon("15"),
-                "秒。 明月尘在",
-                speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
-                "「刃血」状态下，可以使用一次主动技能【善恶研判】",
-                "",
-                "",
-                "主动：在自身周围划定",
-                speSkillCon("600"),
-                "范围的研判区域，对范围内的敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，并为终端附加",
-                speSkillCon("15点蚀爆值"),
-                "，并附带破坏",
-                speSkillCon("3段格挡条"),
-                "效果。 研判区域持续",
-                speSkillCon("15"),
-                "秒，区域内的敌人受到的伤害提高",
-                speSkillCon("40%"),
-                speSkillCon("（[目标减益乘区·目标受伤害增加]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
-                "；明月尘在区域内造成伤害时，可以恢复自身",
-                speSkillCon("2%"),
-                "的生命值（累计不超过",
-                speSkillCon("30%"),
-                "的最大生命值）",
-                "",
-                "区域内的敌方单位死亡时，明月尘获得",
-                speSkillCon("2"),
-                "点",
-                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                "的能量，精英及以上单位死亡时获得",
-                speSkillCon("5"),
-                "点",
-                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                "的能量。",
-                "",
-                "研判区域同时只能存在一个。（明月尘重伤或离场时消失）"
-            ]
-        }
-    },
-    {
-        "name": "死亡宣告",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["释放条件", "100血之祭坛"]],
-            "tab": ["伤害", "格挡条破坏3"],
-            "sizeLevel": [
-                ["24%","3000%"],
-                ["28%","3500%"],
-                ["32%","4000%"],
-                ["36%","4500%"],
-                ["38%","4750%"],
-                ["40%","5000%"]
-            ],
-            "content": [
-                "对自身周围",
-                speSkillCon("750"),
-                "范围内的敌人造成其当前生命值",
-                speSkillCon("", 0, -1, 0),
-                "的",
-                speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害),
-                "，首领单位受到的该伤害减少",
-                speSkillCon("70%"),
-                "。",
-                "",
-                "并额外对自身周围",
-                speSkillCon("750"),
-                "范围内的敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的蚀元素伤害"),
-                "，为终端附加",
-                speSkillCon("25点蚀爆值"),
-                "。"
-            ]
-        }
-    },
-    {
-        "name": "特性：猎血者",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "400"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["单体", "格挡条破坏1"],
-            "content": [
-                "向当前目标投掷帽子，对其造成",
-                speSkillCon("2200%最终攻击的蚀元素伤害"),
-                "，并为终端附加",
-                speSkillCon("3点蚀爆值")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                    "的能量上限为",
-                    speSkillCon("100"),
-                    "点，明月尘每次释放异核技能需要消耗",
-                    speSkillCon("100"),
-                    "点",
-                    speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                    "能量，不再需要消耗异核充能，当明月尘受到来自同调者的异核充能回复效果时，获得",
-                    speSkillCon("20%"),
-                    speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                    "攻击速度，持续40秒",
-                    "",
-                    speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                    "能量不会自动回复，明月尘可通过技能效果获得",
-                    speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                    "能量。"
-                ],//零花本体特性
-                [
-                    speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                    "的能量上限提高至",
-                    speSkillCon("200"),
-                    "点，",
-                    speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
-                    "「刃血」状态下，持续回复的",
-                    speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                    "能量每次额外提高",
-                    speSkillCon("4"),
-                    "点；异核技能【死亡宣告】造成的伤害忽略目标",
-                    speSkillCon("40%"),
-                    speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                    "基础减伤"
-                ],//一花特性
-                [
-                    "登场时获得",
-                    speSkillCon("80"),
-                    "点",
-                    speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
-                    "的能量。研判区域内的敌人受到伤害提高效果提高至",
-                    speSkillCon("100%"),
-                    speSkillCon("（[目标减益乘区·目标受伤害增加]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "速效麻醉",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "25秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "格挡条破坏3"],//技能标签
+        "sizeLevel": [
+            ["1600%"],
+            ["1840%"],
+            ["2080%"],
+            ["2320%"],
+            ["2560%"],
+            ["2800%"],
+            ["3040%"],
+            ["3280%"],
+            ["3520%"],
+            ["3680%"],
+            ["3840%"],
+            ["4000%"],
+            ["4160%"],
+            ["4320%"],
+            ["4480%"]
+        ],
+        "content": [
+            "向十字区域快速冲锋并生成针刺，对选中区域的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，并以",
+            speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "将区域内的敌人拉向中心点，并为终端附加",
+            speSkillCon("20点蚀爆值"),
+            "，自身获得",
+            speSkillCon("20"),
+            "点",
+            speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+            "的能量。"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "善恶研判",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
+        "tab": ["伤害", "自身增益", "负面状态", "格挡条破坏3"],
+        "sizeLevel": [
+            ["600%", "800%"],
+            ["690%", "920%"],
+            ["780%", "1040%"],
+            ["870%", "1160%"],
+            ["960%", "1280%"],
+            ["1050%", "1400%"],
+            ["1140%", "1520%"],
+            ["1230%", "1640%"],
+            ["1320%", "1760%"],
+            ["1380%", "1840%"],
+            ["1440%", "1920%"],
+            ["1500%", "2000%"],
+            ["1560%", "2080%"],
+            ["1620%", "2160%"],
+            ["1680%", "2240%"]
+        ],
+        "content": [
+            "被动：每隔",
+            speSkillCon("15"),
+            "秒，明月尘进入",
+            speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
+            "「刃血」状态，对自身周围",
+            speSkillCon("400"),
+            "范围的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，该状态下攻击速度提高",
+            speSkillCon("40%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "且每",
+            speSkillCon("2"),
+            "秒回复",
+            speSkillCon("4"),
+            "点",
+            speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+            "能量（攻击速度提高会降低回复间隔，最低间隔",
+            speSkillCon("1"),
+            "秒），持续",
+            speSkillCon("15"),
+            "秒。 明月尘在",
+            speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
+            "「刃血」状态下，可以使用一次主动技能【善恶研判】",
+            "",
+            "",
+            "主动：在自身周围划定",
+            speSkillCon("600"),
+            "范围的研判区域，对范围内的敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，并为终端附加",
+            speSkillCon("15点蚀爆值"),
+            "，并附带破坏",
+            speSkillCon("3段格挡条"),
+            "效果。 研判区域持续",
+            speSkillCon("15"),
+            "秒，区域内的敌人受到的伤害提高",
+            speSkillCon("40%"),
+            speSkillCon("（[目标减益乘区·目标受伤害增加]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+            "；明月尘在区域内造成伤害时，可以恢复自身",
+            speSkillCon("2%"),
+            "的生命值（累计不超过",
+            speSkillCon("30%"),
+            "的最大生命值）",
+            "",
+            "区域内的敌方单位死亡时，明月尘获得",
+            speSkillCon("2"),
+            "点",
+            speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+            "的能量，精英及以上单位死亡时获得",
+            speSkillCon("5"),
+            "点",
+            speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+            "的能量。",
+            "",
+            "研判区域同时只能存在一个。（明月尘重伤或离场时消失）"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "死亡宣告",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["释放条件", "100血之祭坛"]],
+        "tab": ["伤害", "格挡条破坏3"],
+        "sizeLevel": [
+            ["24%", "3000%"],
+            ["28%", "3500%"],
+            ["32%", "4000%"],
+            ["36%", "4500%"],
+            ["38%", "4750%"],
+            ["40%", "5000%"]
+        ],
+        "content": [
+            "对自身周围",
+            speSkillCon("750"),
+            "范围内的敌人造成其当前生命值",
+            speSkillCon("", 0, -1, 0),
+            "的",
+            speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害),
+            "，首领单位受到的该伤害减少",
+            speSkillCon("70%"),
+            "。",
+            "",
+            "并额外对自身周围",
+            speSkillCon("750"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，为终端附加",
+            speSkillCon("25点蚀爆值"),
+            "。"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：猎血者",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "400"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["单体", "格挡条破坏1"],
+        "content": [
+            "向当前目标投掷帽子，对其造成",
+            speSkillCon("2200%最终攻击的蚀元素伤害"),
+            "，并为终端附加",
+            speSkillCon("3点蚀爆值")
+        ],//普通攻击
+        "specialContent": [
+            [
+                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+                "的能量上限为",
+                speSkillCon("100"),
+                "点，明月尘每次释放异核技能需要消耗",
+                speSkillCon("100"),
+                "点",
+                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+                "能量，不再需要消耗异核充能，当明月尘受到来自同调者的异核充能回复效果时，获得",
+                speSkillCon("20%"),
+                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+                "攻击速度，持续40秒",
+                "",
+                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+                "能量不会自动回复，明月尘可通过技能效果获得",
+                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+                "能量。"
+            ],//零花本体特性
+            [
+                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+                "的能量上限提高至",
+                speSkillCon("200"),
+                "点，",
+                speSkillConWithImg(SkillDescStatusImg.明月尘刃血),
+                "「刃血」状态下，持续回复的",
+                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+                "能量每次额外提高",
+                speSkillCon("4"),
+                "点；异核技能【死亡宣告】造成的伤害忽略目标",
+                speSkillCon("40%"),
+                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+                "基础减伤"
+            ],//一花特性
+            [
+                "登场时获得",
+                speSkillCon("80"),
+                "点",
+                speSkillCon("[血之祭坛]", SkillColorEnum.normal, ToastSkillEnum.血之祭坛),
+                "的能量。研判区域内的敌人受到伤害提高效果提高至",
+                speSkillCon("100%"),
+                speSkillCon("（[目标减益乘区·目标受伤害增加]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "尊敬",
@@ -381,7 +387,7 @@ const Tea = {
                 "常温",
                 "叶子冻"
             ],
-            "ex": [434, 486, 530, 579],//参考默契值，无加，满家具，满加成
+            "ex": [434],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 4,
@@ -391,7 +397,7 @@ const Tea = {
                 "少冰",
                 "樱桃"
             ],
-            "ex": [461, 517, 564, 615],//参考默契值，无加，满家具，满加成
+            "ex": [461],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 5,
@@ -401,7 +407,7 @@ const Tea = {
                 "正常",
                 "樱桃"
             ],
-            "ex": [476, 533, 581, 639],//参考默契值，无加，满家具，满加成
+            "ex": [476],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 16,
@@ -410,7 +416,7 @@ const Tea = {
                 "盐",
                 "少冰"
             ],
-            "ex": [534, 598, 652, 712],//参考默契值，无加，满家具，满加成
+            "ex": [534],//参考默契值，无加，满家具，满加成
         }
     ]
 }

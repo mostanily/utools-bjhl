@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "轻卫", "skill": [MXLaohenEnum.昂扬斗志方块α型, MXLaohenEnum.战斗反射], "attr": "wuli", "star": "4",
     "nameEn": "RODNEY", "tag": ["输出", "防护"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "马正阳", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -18,180 +19,185 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "压力上升中…",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["自身增益", "最大选敌数8", "对空"],//技能标签
-            "sizeLevel": [
-                ["24%~40%", "15%"],
-                ["24%~40%", "17%"],
-                ["24%~40%", "20%"],
-                ["24%~40%", "22%"],
-                ["24%~40%", "24%"],
-                ["27%~45%", "26%"],
-                ["27%~45%", "29%"],
-                ["27%~45%", "31%"],
-                ["30%~50%", "33%"],
-                ["30%~50%", "35%"],
-                ["30%~50%", "36%"],
-                ["30%~50%", "38%"],
-                ["30%~50%", "39%"],
-                ["30%~50%", "40%"],
-                ["30%~50%", "40%"],
-            ],
-            "content": [
-                "主动",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "周围8名敌人攻击自己（优先",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "靠近自己的敌方单位），受",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "的目标对自身造成的伤害降低",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（减伤乘区·受伤害减少）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("15"),
-                "秒，同时获得自身",
-                speSkillCon("", 0, -1, 1),
-                "最大生命值的护盾"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "理智崩断中…",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "-"], ["施放条件", "20愤怒值"]],
-            "tab": ["伤害", "格挡条破坏3"],
-            "sizeLevel": [
-                ["1050%"],
-                ["1208%"],
-                ["1365%"],
-                ["1523%"],
-                ["1680%"],
-                ["1838%"],
-                ["1995%"],
-                ["2153%"],
-                ["2310%"],
-                ["2415%"],
-                ["2520%"],
-                ["2625%"],
-                ["2678%"],
-                ["2730%"],
-                ["2783%"]
-            ],
-            "content": [
-                "每次普通攻击或者受击时积累:",
-                speSkillCon("1"),
-                "点",
-                speSkillCon("[愤怒值]", SkillColorEnum.normal, ToastSkillEnum.愤怒值),
-                "，",
-                speSkillCon("[愤怒值]", SkillColorEnum.normal, ToastSkillEnum.愤怒值),
-                "达",
-                speSkillCon("20"),
-                "点后对正前方扇形范围内所有敌方进行反复抽打，造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的物理伤害"),
-                "；若目标受到自身",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "效果影响，则受到的伤害提高",
-                speSkillCon("30%"),
-                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                "，该伤害视为普通攻击伤害",
+const skill1: DefaultNormalSkillObj = {
+    "name": "压力上升中…",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["自身增益", "最大选敌数8", "对空"],//技能标签
+        "sizeLevel": [
+            ["24%~40%", "15%"],
+            ["24%~40%", "17%"],
+            ["24%~40%", "20%"],
+            ["24%~40%", "22%"],
+            ["24%~40%", "24%"],
+            ["27%~45%", "26%"],
+            ["27%~45%", "29%"],
+            ["27%~45%", "31%"],
+            ["30%~50%", "33%"],
+            ["30%~50%", "35%"],
+            ["30%~50%", "36%"],
+            ["30%~50%", "38%"],
+            ["30%~50%", "39%"],
+            ["30%~50%", "40%"],
+            ["30%~50%", "40%"],
+        ],
+        "content": [
+            "主动",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "周围8名敌人攻击自己（优先",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "靠近自己的敌方单位），受",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "的目标对自身造成的伤害降低",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（减伤乘区·受伤害减少）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("15"),
+            "秒，同时获得自身",
+            speSkillCon("", 0, -1, 1),
+            "最大生命值的护盾"
+        ]//满级技能内容描述
+    }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "理智崩断中…",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "-"], ["施放条件", "20愤怒值"]],
+        "tab": ["伤害", "格挡条破坏3"],
+        "sizeLevel": [
+            ["1050%"],
+            ["1208%"],
+            ["1365%"],
+            ["1523%"],
+            ["1680%"],
+            ["1838%"],
+            ["1995%"],
+            ["2153%"],
+            ["2310%"],
+            ["2415%"],
+            ["2520%"],
+            ["2625%"],
+            ["2678%"],
+            ["2730%"],
+            ["2783%"]
+        ],
+        "content": [
+            "每次普通攻击或者受击时积累:",
+            speSkillCon("1"),
+            "点",
+            speSkillCon("[愤怒值]", SkillColorEnum.normal, ToastSkillEnum.愤怒值),
+            "，",
+            speSkillCon("[愤怒值]", SkillColorEnum.normal, ToastSkillEnum.愤怒值),
+            "达",
+            speSkillCon("20"),
+            "点后对正前方扇形范围内所有敌方进行反复抽打，造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的物理伤害"),
+            "；若目标受到自身",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "效果影响，则受到的伤害提高",
+            speSkillCon("30%"),
+            speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+            "，该伤害视为普通攻击伤害",
+            "",
+            "激活格挡能力时，对目标额外造成",
+            speSkillCon("100%"),
+            "格挡强度的物理伤害"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "爱咋咋地吧！",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["45%", "60%", "4%"],
+            ["50%", "70%", "6%"],
+            ["55%", "80%", "8%"],
+            ["60%", "90%", "10%"],
+            ["60%", "95%", "10%"],
+            ["60%", "100%", "10%"],
+        ],
+        "content": [
+            "豪饮一瓶，对范围内的敌人总计造成",
+            speSkillCon("1500%最终攻击的物理伤害"),
+            "，之后攻击速度提升",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，格挡强度提升",
+            speSkillCon("", 0, -1, 1),
+            "且格挡值回复速度提升",
+            speSkillCon("100%"),
+            "，自身技能和特性产生的护盾额外提高",
+            speSkillCon("", 0, -1, 2),
+            "，积累",
+            speSkillCon("[愤怒值]", SkillColorEnum.normal, ToastSkillEnum.愤怒值),
+            "效率提升100%，持续",
+            speSkillCon("15"),
+            "秒"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：一天都不休？",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.59次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "攻击面前的目标造成",
+            speSkillCon("204%最终攻击的物理伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "生命值低于",
+                speSkillCon("70%"),
+                "，激活格挡能力，且受到的治疗",
+                speSkillCon("50%"),
+                "转化为等额护盾，若15秒内未受到攻击，消耗技能和特性产生的所有护盾为唐路遥回复等额生命值，并退出格挡状态",
                 "",
-                "激活格挡能力时，对目标额外造成",
-                speSkillCon("100%"),
-                "格挡强度的物理伤害"
-            ]
-        }
-    },
-    {
-        "name": "爱咋咋地吧！",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益"],
-            "sizeLevel": [
-                ["45%", "60%", "4%"],
-                ["50%", "70%", "6%"],
-                ["55%", "80%", "8%"],
-                ["60%", "90%", "10%"],
-                ["60%", "95%", "10%"],
-                ["60%", "100%", "10%"],
-            ],
-            "content": [
-                "豪饮一瓶，对范围内的敌人总计造成",
-                speSkillCon("1500%最终攻击的物理伤害"),
-                "，之后攻击速度提升",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "，格挡强度提升",
-                speSkillCon("", 0, -1, 1),
-                "且格挡值回复速度提升",
-                speSkillCon("100%"),
-                "，自身技能和特性产生的护盾额外提高",
-                speSkillCon("", 0, -1, 2),
+                "激活格挡能力时，自身技能和特性产生的护盾提升",
+                speSkillCon("20%"),
                 "，积累",
                 speSkillCon("[愤怒值]", SkillColorEnum.normal, ToastSkillEnum.愤怒值),
-                "效率提升100%，持续",
-                speSkillCon("15"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "特性：一天都不休？",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.59次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "攻击面前的目标造成",
-                speSkillCon("204%最终攻击的物理伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "生命值低于",
-                    speSkillCon("70%"),
-                    "，激活格挡能力，且受到的治疗",
-                    speSkillCon("50%"),
-                    "转化为等额护盾，若15秒内未受到攻击，消耗技能和特性产生的所有护盾为唐路遥回复等额生命值，并退出格挡状态",
-                    "",
-                    "激活格挡能力时，自身技能和特性产生的护盾提升",
-                    speSkillCon("20%"),
-                    "，积累",
-                    speSkillCon("[愤怒值]", SkillColorEnum.normal, ToastSkillEnum.愤怒值),
-                    "效率提高",
-                    speSkillCon("100%")
-                ],//零花本体特性
-                [
-                    "激活格挡能力时，额外获得自身",
-                    speSkillCon("40%"),
-                    "最大生命值的护盾，且15秒内未受到攻击时，技能和特性产生的所有护盾不会消失"
-                ],//一花特性
-                [
-                    "生命值低于",
-                    speSkillCon("90%"),
-                    "时激活格挡能力，且自身技能和特性产生的护盾提升至",
-                    speSkillCon("30%")
-                ]//三花特性
-            ]
-        }
+                "效率提高",
+                speSkillCon("100%")
+            ],//零花本体特性
+            [
+                "激活格挡能力时，额外获得自身",
+                speSkillCon("40%"),
+                "最大生命值的护盾，且15秒内未受到攻击时，技能和特性产生的所有护盾不会消失"
+            ],//一花特性
+            [
+                "生命值低于",
+                speSkillCon("90%"),
+                "时激活格挡能力，且自身技能和特性产生的护盾提升至",
+                speSkillCon("30%")
+            ]//三花特性
+        ]
     }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "为“父”艰难",
@@ -330,7 +336,7 @@ const Tea = {
                 "多冰",
                 "樱桃"
             ],
-            "ex": [362, 406, 442, 483],//参考默契值，无加，满家具，满加成
+            "ex": [362],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 5,
@@ -340,7 +346,7 @@ const Tea = {
                 "偏烈",
                 "樱桃"
             ],
-            "ex": [523, 586, 639, 697],//参考默契值，无加，满家具，满加成
+            "ex": [523],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -349,7 +355,7 @@ const Tea = {
                 "柠檬汁",
                 "咖啡雪顶"
             ],
-            "ex": [540, 604, 659, 719],//参考默契值，无加，满家具，满加成
+            "ex": [540],//参考默契值，无加，满家具，满加成
         }
     ]
 }

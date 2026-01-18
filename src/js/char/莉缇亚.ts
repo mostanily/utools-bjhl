@@ -1,8 +1,9 @@
 import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "筑术师", "skill": [MXLaohenEnum.人形特攻β型, MXLaohenEnum.源源不断], "attr": "lei", "star": "5",
     "nameEn": "LYDIA", "tag": ["群攻", "输出"], "originWorld": "黎威尔", "orginChar": "原创",
     "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -18,137 +19,142 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "闪金回响",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "自身增益"],//技能标签
-            "content": [
-                "被动：特性产生的金币对触碰到的敌人造成",
-                speSkillCon("275%专精的雷元素伤害"),
-                "",
-                "向目标区域挥洒10枚金币，每枚金币都会对途中触碰到的敌人造成",
-                speSkillCon("275%专精的雷元素伤害"),
-                "，随后召回场上所有",
-                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
-                "金币，再次对途中触碰到的敌人造成",
-                speSkillCon("275%专精的雷元素伤害"),
-                "",
-                "累计召回",
-                speSkillCon("30"),
-                "枚",
-                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
-                "金币后获得强化：挥洒的金币数量增加",
-                speSkillCon("5"),
-                "枚"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "商神印记",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "20秒"]],
-            "tab": ["伤害", "穿透屏障", "持续施法"],
-            "content": [
-                speSkillCon("该效果仅对精英及首领级别敌人生效", SkillColorEnum.injuries),
-                "",
-                "吟唱",
-                speSkillCon("4"),
-                "秒后，对单个目标造成",
-                speSkillCon("3125%最终攻击的雷元素伤害"),
-                "+",
-                speSkillCon("3125%专精的雷元素伤害"),
-                "，并在目标附近掉落3枚金币",
-                "",
-                "主动技能【闪金回响】累计召回",
-                speSkillCon("75"),
-                "枚",
-                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
-                "金币后获得强化：吟唱时间缩短",
-                speSkillCon("3"),
-                "秒，掉落金币增加到",
-                speSkillCon("5"),
-                "枚，且命中目标后回复1次主动技能【闪金回响】次数"
-            ]
-        }
-    },
-    {
-        "name": "雷霆圣域",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "80秒"]],
-            "tab": ["伤害", "穿透屏障"],
-            "content": [
-                "对指定区域半径",
-                speSkillCon("500"),
-                "范围内的敌人总计造成",
-                speSkillCon("2700%最终攻击的雷元素伤害"),
-                "+",
-                speSkillCon("2700%专精的雷元素伤害"),
-                "，并在区域内随机掉落10枚金币",
-                "",
-                "主动技能【闪金回响】累计召回",
-                speSkillCon("130"),
-                "枚",
-                speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
-                "金币后获得强化：掉落金币数量翻倍"
-            ]
-        }
-    },
-    {
-        "name": "特性：等价法则",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "1200"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "向当前目标发射魔法金币造成",
-                speSkillCon("100%最终攻击的雷元素伤害"),
-                "+",
-                speSkillCon("100%专精的雷元素伤害"),
-                "",
-                "普通攻击命中敌人后，会在敌人附近掉落",
-                speSkillCon("1"),
-                "枚附着雷电之力的魔法金币，对触碰到的敌人造成雷元素伤害，金币持续存在",
-                speSkillCon("10"),
-                "秒"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "无"
-                ],//零花本体特性
-                [
-                    "普通攻击掉落的金币增加至",
-                    speSkillCon("2"),
-                    "枚，造成的雷元素伤害提升",
-                    speSkillCon("20%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "，持续时间增加至",
-                    speSkillCon("15"),
-                    "秒"
-                ],//一花特性
-                [
-                    "每次召回金币时，永久提升",
-                    speSkillCon("0.2%"),
-                    speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
-                    "基础专精值，最多召回150枚金币"
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "闪金回响",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "自身增益"],//技能标签
+        "content": [
+            "被动：特性产生的金币对触碰到的敌人造成",
+            speSkillCon("275%专精的雷元素伤害"),
+            "",
+            "向目标区域挥洒10枚金币，每枚金币都会对途中触碰到的敌人造成",
+            speSkillCon("275%专精的雷元素伤害"),
+            "，随后召回场上所有",
+            speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
+            "金币，再次对途中触碰到的敌人造成",
+            speSkillCon("275%专精的雷元素伤害"),
+            "",
+            "累计召回",
+            speSkillCon("30"),
+            "枚",
+            speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
+            "金币后获得强化：挥洒的金币数量增加",
+            speSkillCon("5"),
+            "枚"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "商神印记",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "20秒"]],
+        "tab": ["伤害", "穿透屏障", "持续施法"],
+        "content": [
+            speSkillCon("该效果仅对精英及首领级别敌人生效", SkillColorEnum.injuries),
+            "",
+            "吟唱",
+            speSkillCon("4"),
+            "秒后，对单个目标造成",
+            speSkillCon("3125%最终攻击的雷元素伤害"),
+            "+",
+            speSkillCon("3125%专精的雷元素伤害"),
+            "，并在目标附近掉落3枚金币",
+            "",
+            "主动技能【闪金回响】累计召回",
+            speSkillCon("75"),
+            "枚",
+            speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
+            "金币后获得强化：吟唱时间缩短",
+            speSkillCon("3"),
+            "秒，掉落金币增加到",
+            speSkillCon("5"),
+            "枚，且命中目标后回复1次主动技能【闪金回响】次数"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "雷霆圣域",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "80秒"]],
+        "tab": ["伤害", "穿透屏障"],
+        "content": [
+            "对指定区域半径",
+            speSkillCon("500"),
+            "范围内的敌人总计造成",
+            speSkillCon("2700%最终攻击的雷元素伤害"),
+            "+",
+            speSkillCon("2700%专精的雷元素伤害"),
+            "，并在区域内随机掉落10枚金币",
+            "",
+            "主动技能【闪金回响】累计召回",
+            speSkillCon("130"),
+            "枚",
+            speSkillConWithImg(SkillDescStatusImg.莉缇亚金币),
+            "金币后获得强化：掉落金币数量翻倍"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：等价法则",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "1200"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "向当前目标发射魔法金币造成",
+            speSkillCon("100%最终攻击的雷元素伤害"),
+            "+",
+            speSkillCon("100%专精的雷元素伤害"),
+            "",
+            "普通攻击命中敌人后，会在敌人附近掉落",
+            speSkillCon("1"),
+            "枚附着雷电之力的魔法金币，对触碰到的敌人造成雷元素伤害，金币持续存在",
+            speSkillCon("10"),
+            "秒"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "无"
+            ],//零花本体特性
+            [
+                "普通攻击掉落的金币增加至",
+                speSkillCon("2"),
+                "枚，造成的雷元素伤害提升",
+                speSkillCon("20%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "，持续时间增加至",
+                speSkillCon("15"),
+                "秒"
+            ],//一花特性
+            [
+                "每次召回金币时，永久提升",
+                speSkillCon("0.2%"),
+                speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
+                "基础专精值，最多召回150枚金币"
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "淡粉",
@@ -273,7 +279,7 @@ const Tea = {
                 "常温",
                 "叶子冻"
             ],
-            "ex": [393, 441, 480],//参考默契值，无加，满家具，满加成
+            "ex": [393],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 4,
@@ -282,7 +288,7 @@ const Tea = {
                 "少冰",
                 "咸梅干"
             ],
-            "ex": [445, 498, 543],//参考默契值，无加，满家具，满加成
+            "ex": [445],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 5,
@@ -292,7 +298,7 @@ const Tea = {
                 "偏烈",
                 "樱桃"
             ],
-            "ex": [504, 564, 615],//参考默契值，无加，满家具，满加成
+            "ex": [504],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 16,
@@ -301,7 +307,7 @@ const Tea = {
                 "盐",
                 "偏淡"
             ],
-            "ex": [534, 598, 652],//参考默契值，无加，满家具，满加成
+            "ex": [534],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -310,7 +316,7 @@ const Tea = {
                 "盐",
                 "樱桃"
             ],
-            "ex": [558, 625, 685],//参考默契值，无加，满家具，满加成
+            "ex": [558],//参考默契值，无加，满家具，满加成
         }
     ]
 }

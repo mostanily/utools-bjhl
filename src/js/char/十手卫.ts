@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.强攻对地方块, MXLaohenEnum.驭风之力], "attr": "feng", "star": "6",
     "nameEn": "MAMORU", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "", "openDate": "2025年02月13日", "resourse": ["定向共鸣·至暗至明"],
@@ -31,126 +32,131 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "疾掠",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "10秒"], ["次数", "8"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "对空", "格挡条破坏2"],//技能标签
-            "content": [
-                "释放「副影」对自身正前方矩形区域造成",
-                speSkillCon("300％最终攻击的风元素伤害"),
-                "，并回复",
-                speSkillCon("15%"),
-                "【破野】自动技能的冷却时间。「副影」会停留在区域末端并吹散半径",
-                speSkillCon("300"),
-                "范围的毒雾。",
-                "",
-                "「副影」持续",
-                speSkillCon("11"),
-                "秒，持续期间每秒会对「副影」半径",
-                speSkillCon("300"),
-                "范围造成",
-                speSkillCon("112％最终攻击的风元素伤害"),
-                "，持续时间结束额外造成",
-                speSkillCon("1792％最终攻击的风元素伤害")
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "破野",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
-            "tab": ["伤害", "自身增益", "对空", "格挡条破坏3"],
-            "content": [
-                "消耗“千风势”状态可施放，对选中区域半径",
-                speSkillCon("300"),
-                "范围造成",
-                speSkillCon("2800％最终攻击的风元素伤害"),
-                "，并使下一次释放的「副影」所有伤害提高",
-                speSkillCon("100％"),
-                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                "",
-                "",
-                "自动技能：冷却时间",
-                speSkillCon("25"),
-                "秒，对自身正前方长",
-                speSkillCon("600"),
-                "矩形区域造成",
-                speSkillCon("2520％最终攻击的风元素伤害"),
-                "，并使自身进入“千风势”状态"
-            ]
-        }
-    },
-    {
-        "name": "崔嵬",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "30秒"]],
-            "tab": ["伤害", "对空", "格挡条破坏3"],
-            "content": [
-                "对选中长",
-                speSkillCon("550"),
-                "的矩形区域造成",
-                speSkillCon("3500％最终攻击的风元素伤害"),
-                "，该伤害额外增加",
-                speSkillCon("50%"),
-                "暴击率，并忽略目标",
-                speSkillCon("40%"),
-                speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
-                "基础减伤"
-            ]
-        }
-    },
-    {
-        "name": "特性：秘传·朔风",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "300"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["群体", "格挡条破坏1"],
-            "content": [
-                "对自身正前方长300范围内的矩形区域造成",
-                speSkillCon("200%最终攻击的风元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "风元素同调者施放主动技能/异核技能时会使当前场上存在的「副影」造成的伤害提高",
-                    speSkillCon("8%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                    "，最多叠加3层"
-                ],//零花本体特性
-                [
-                    "消耗“千风势”状态施放【破野】时，可额外使",
-                    speSkillCon("1"),
-                    "次释放的「副影」伤害提高。同时【疾掠】为【破野】回复的自动技能冷却提高至",
-                    speSkillCon("40%")
-                ],//一花特性
-                [
-                    "处于「副影」伤害区域的目标每隔2秒",
-                    speSkillCon("以2级"),
-                    speSkillCon("[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                    "向「副影」牵引，且受到的伤害提高",
-                    speSkillCon("30%"),
-                    speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
-                    "，受到十手卫的伤害额外提高",
-                    speSkillCon("30%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "疾掠",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "10秒"], ["次数", "8"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "对空", "格挡条破坏2"],//技能标签
+        "content": [
+            "释放「副影」对自身正前方矩形区域造成",
+            speSkillCon("300％最终攻击的风元素伤害"),
+            "，并回复",
+            speSkillCon("15%"),
+            "【破野】自动技能的冷却时间。「副影」会停留在区域末端并吹散半径",
+            speSkillCon("300"),
+            "范围的毒雾。",
+            "",
+            "「副影」持续",
+            speSkillCon("11"),
+            "秒，持续期间每秒会对「副影」半径",
+            speSkillCon("300"),
+            "范围造成",
+            speSkillCon("112％最终攻击的风元素伤害"),
+            "，持续时间结束额外造成",
+            speSkillCon("1792％最终攻击的风元素伤害")
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "破野",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
+        "tab": ["伤害", "自身增益", "对空", "格挡条破坏3"],
+        "content": [
+            "消耗“千风势”状态可施放，对选中区域半径",
+            speSkillCon("300"),
+            "范围造成",
+            speSkillCon("2800％最终攻击的风元素伤害"),
+            "，并使下一次释放的「副影」所有伤害提高",
+            speSkillCon("100％"),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+            "",
+            "",
+            "自动技能：冷却时间",
+            speSkillCon("25"),
+            "秒，对自身正前方长",
+            speSkillCon("600"),
+            "矩形区域造成",
+            speSkillCon("2520％最终攻击的风元素伤害"),
+            "，并使自身进入“千风势”状态"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "崔嵬",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "30秒"]],
+        "tab": ["伤害", "对空", "格挡条破坏3"],
+        "content": [
+            "对选中长",
+            speSkillCon("550"),
+            "的矩形区域造成",
+            speSkillCon("3500％最终攻击的风元素伤害"),
+            "，该伤害额外增加",
+            speSkillCon("50%"),
+            "暴击率，并忽略目标",
+            speSkillCon("40%"),
+            speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+            "基础减伤"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：秘传·朔风",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "300"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["群体", "格挡条破坏1"],
+        "content": [
+            "对自身正前方长300范围内的矩形区域造成",
+            speSkillCon("200%最终攻击的风元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "风元素同调者施放主动技能/异核技能时会使当前场上存在的「副影」造成的伤害提高",
+                speSkillCon("8%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "，最多叠加3层"
+            ],//零花本体特性
+            [
+                "消耗“千风势”状态施放【破野】时，可额外使",
+                speSkillCon("1"),
+                "次释放的「副影」伤害提高。同时【疾掠】为【破野】回复的自动技能冷却提高至",
+                speSkillCon("40%")
+            ],//一花特性
+            [
+                "处于「副影」伤害区域的目标每隔2秒",
+                speSkillCon("以2级"),
+                speSkillCon("[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+                "向「副影」牵引，且受到的伤害提高",
+                speSkillCon("30%"),
+                speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                "，受到十手卫的伤害额外提高",
+                speSkillCon("30%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "拒绝",
@@ -285,7 +291,7 @@ const Tea = {
                 "五分糖",
                 "杨桃"
             ],
-            "ex": [594, 665, 725, 791],//参考默契值，无加，满家具，满加成
+            "ex": [594],//参考默契值，无加，满家具，满加成
         }
     ]
 }

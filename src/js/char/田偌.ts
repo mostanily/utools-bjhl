@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "铁御", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.坚毅不屈], "attr": "shui", "star": "4",
     "nameEn": "TIANRUO", "tag": ["治疗", "屏障"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "风袖", "openDate": "2024年01月12日", "resourse": ["精神深潜教学", "常态共鸣"],
@@ -18,150 +19,155 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "掩护",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["自身增益", "回复", "屏障"],//技能标签
-            "sizeLevel": [
-                ["20%", "910%"],
-                ["23%", "1047%"],
-                ["26%", "1183%"],
-                ["29%", "1320%"],
-                ["32%", "1456%"],
-                ["35%", "1593%"],
-                ["38%", "1729%"],
-                ["41%", "1866%"],
-                ["44%", "2002%"],
-                ["46%", "2093%"],
-                ["48%", "2184%"],
-                ["50%", "2275%"],
-                ["51%", "2320%"],
-                ["52%", "2366%"],
-                ["53%", "2412%"]
-            ],
-            "content": [
-                "开启",
-                speSkillCon("中等强度"),
-                "的海浪屏障抵御敌方投射物，期间自身格挡强度提升",
-                speSkillCon("", 0, -1, 0),
-                "，格挡值回复速度提升",
-                speSkillCon("100%"),
-                "，持续",
-                speSkillCon("10"),
-                "秒。",
-                "",//空表示该处需要设置为<br>标签
-                "开启屏障时，回复全部格挡值并治疗自身半径",
-                speSkillCon("300"),
-                "范围内的友方同调者，回复其",
-                speSkillCon("10%最大生命值"),
-                "",
-                "收盾或屏障被击碎时对半径",
-                speSkillCon("300"),
-                "范围内的目标造成一次",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的水元素伤害"),
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "急救",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "10秒"]],
-            "tab": ["回复"],
-            "sizeLevel": [
-                ["8%"],
-                ["10%"],
-                ["11%"],
-                ["12%"],
-                ["13%"],
-                ["15%"],
-                ["16%"],
-                ["17%"],
-                ["18%"],
-                ["19%"],
-                ["20%"],
-                ["21%"],
-                ["21.42%"],
-                ["21.84%"],
-                ["22.26%"]
-            ],
-            "content": [
-                "治疗生命值最低的一名友方同调者，为其回复",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最大生命值")
-            ]
-        }
-    },
-    {
-        "name": "活性粒子潮",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "100秒"], ["次数", "无限"]],
-            "tab": ["自身增益", "友方增益", "回复"],
-            "sizeLevel": [
-                ["4%", "9%~15%"],
-                ["4.5%", "9.6%~16%"],
-                ["5%", "10.2%~17%"],
-                ["5.5%", "10.8%~18%"],
-                ["5.75%", "11.4%~19%"],
-                ["6%", "12%~20%"]
-            ],
-            "content": [
-                "使友方同调者每秒回复",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最大生命值"),
-                "，并增加",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                speSkillCon("[同调者基础减伤]", SkillColorEnum.normal, ToastSkillEnum.同调者基础减伤),
-                "，持续",
-                speSkillCon("15"),
-                "秒。"
-            ]
-        }
-    },
-    {
-        "name": "特性：田螺姑娘",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "300"], ["攻击速度", "0.65次每秒"]],
-            "atType": ["群体"],
-            "content": [
-                "挥动海螺箱向前方泼出海浪，造成矩形范围",
-                speSkillCon("185%最终攻击的水元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "可以治疗友方同调者",
-                    "",
-                    "较易成为敌方的攻击目标"
-                ],//零花本体特性
-                [
-                    "主动技能【掩护】的效果持续期间，持续对周围友方同调者进行治疗，效果随主动技能【掩护】等级提升"
-                ],//一花特性
-                [
-                    "治疗量提高",
-                    speSkillCon("25%"),
-                    speSkillCon("（治疗乘区·额外治疗）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "掩护",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["自身增益", "回复", "屏障"],//技能标签
+        "sizeLevel": [
+            ["20%", "910%"],
+            ["23%", "1047%"],
+            ["26%", "1183%"],
+            ["29%", "1320%"],
+            ["32%", "1456%"],
+            ["35%", "1593%"],
+            ["38%", "1729%"],
+            ["41%", "1866%"],
+            ["44%", "2002%"],
+            ["46%", "2093%"],
+            ["48%", "2184%"],
+            ["50%", "2275%"],
+            ["51%", "2320%"],
+            ["52%", "2366%"],
+            ["53%", "2412%"]
+        ],
+        "content": [
+            "开启",
+            speSkillCon("中等强度"),
+            "的海浪屏障抵御敌方投射物，期间自身格挡强度提升",
+            speSkillCon("", 0, -1, 0),
+            "，格挡值回复速度提升",
+            speSkillCon("100%"),
+            "，持续",
+            speSkillCon("10"),
+            "秒。",
+            "",//空表示该处需要设置为<br>标签
+            "开启屏障时，回复全部格挡值并治疗自身半径",
+            speSkillCon("300"),
+            "范围内的友方同调者，回复其",
+            speSkillCon("10%最大生命值"),
+            "",
+            "收盾或屏障被击碎时对半径",
+            speSkillCon("300"),
+            "范围内的目标造成一次",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的水元素伤害"),
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "急救",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "10秒"]],
+        "tab": ["回复"],
+        "sizeLevel": [
+            ["8%"],
+            ["10%"],
+            ["11%"],
+            ["12%"],
+            ["13%"],
+            ["15%"],
+            ["16%"],
+            ["17%"],
+            ["18%"],
+            ["19%"],
+            ["20%"],
+            ["21%"],
+            ["21.42%"],
+            ["21.84%"],
+            ["22.26%"]
+        ],
+        "content": [
+            "治疗生命值最低的一名友方同调者，为其回复",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最大生命值")
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "活性粒子潮",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "100秒"], ["次数", "无限"]],
+        "tab": ["自身增益", "友方增益", "回复"],
+        "sizeLevel": [
+            ["4%", "9%~15%"],
+            ["4.5%", "9.6%~16%"],
+            ["5%", "10.2%~17%"],
+            ["5.5%", "10.8%~18%"],
+            ["5.75%", "11.4%~19%"],
+            ["6%", "12%~20%"]
+        ],
+        "content": [
+            "使友方同调者每秒回复",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最大生命值"),
+            "，并增加",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            speSkillCon("[同调者基础减伤]", SkillColorEnum.normal, ToastSkillEnum.同调者基础减伤),
+            "，持续",
+            speSkillCon("15"),
+            "秒。"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：田螺姑娘",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "300"], ["攻击速度", "0.65次每秒"]],
+        "atType": ["群体"],
+        "content": [
+            "挥动海螺箱向前方泼出海浪，造成矩形范围",
+            speSkillCon("185%最终攻击的水元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "可以治疗友方同调者",
+                "",
+                "较易成为敌方的攻击目标"
+            ],//零花本体特性
+            [
+                "主动技能【掩护】的效果持续期间，持续对周围友方同调者进行治疗，效果随主动技能【掩护】等级提升"
+            ],//一花特性
+            [
+                "治疗量提高",
+                speSkillCon("25%"),
+                speSkillCon("（治疗乘区·额外治疗）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "条件反射",
@@ -285,7 +291,7 @@ const Tea = {
                 "柠檬汁",
                 "热"
             ],
-            "ex": [399, 447, 487, 532],//参考默契值，无加，满家具，满加成
+            "ex": [399],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -295,7 +301,7 @@ const Tea = {
                 "热",
                 "咖啡冻"
             ],
-            "ex": [466, 522, 569, 621],
+            "ex": [466],
         }
     ]
 }

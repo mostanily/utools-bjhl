@@ -1,8 +1,9 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.人形特攻α型, MXLaohenEnum.灵感激活], "attr": "shi", "star": "5",
     "nameEn": "GINA", "tag": ["输出", "爆发"], "originWorld": "特默里恩", "orginChar": "原创",
     "cv": "降温", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -18,126 +19,131 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "毒刃",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "穿透屏障"],//技能标签
-            "content": [
-                "朝指定方向投掷剧毒匕首，匕首会命中范围内的所有敌方单位，对每个目标造成",
-                speSkillCon("2000%最终攻击的蚀元素伤害"),
-                "，并为终端附加",
-                speSkillCon("20点蚀爆值"),
-                "",
-                "同时自身在技能释放后",
-                speSkillCon("20"),
-                "秒内普通攻击命中后，匕首必定会穿透路径上的所有敌方单位",
-                "",
-                "【连击】：技能额外效果的持续时间延长",
-                speSkillCon("10"),
-                "秒，且普通攻击匕首造成的伤害提高",
-                speSkillCon("100%"),
-                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "封喉",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "10秒"]],
-            "tab": ["伤害"],
-            "content": [
-                "立即闪现至目标身后，对其造成",
-                speSkillCon("2000%最终攻击的蚀元素伤害"),
-                "，并为终端附加",
-                speSkillCon("5点蚀爆值"),
-                "",
-                "伤害目标当前生命值低于",
-                speSkillCon("40%"),
-                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                "时，忽略目标",
-                speSkillCon("10%"),
-                "基础减伤",
-                "",
-                "目标每受到过一次蚀爆伤害，该技能对其造成的伤害额外提高",
-                speSkillCon("20%"),
-                speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
-                "，最多提高",
-                speSkillCon("100%"),
-                speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries)
-            ]
-        }
-    },
-    {
-        "name": "附骨",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益"],
-            "content": [
-                "冲向目标位置，向四周散射大量剧毒匕首，对其中的所有单位造成",
-                speSkillCon("3300%最终攻击的蚀元素伤害"),
-                "，为终端附加",
-                speSkillCon("20点蚀爆值"),
-                "",
-                "并在",
-                speSkillCon("25"),
-                "秒内，【封喉】释放后返还",
-                speSkillCon("50%"),
-                "的冷却时间",
-                "",
-                "伤害造成暴击时，该效果的持续时间延长至",
-                speSkillCon("40"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "特性：剧毒之牙",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.56次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "为2连击，向当前目标连续发射两枚剧毒匕首造成",
-                speSkillCon("180%最终攻击的蚀元素伤害"),
-                "并为终端附加",
-                speSkillCon("3点蚀爆值"),
-                "；命中首个目标造成暴击后，匕首会穿透路径上的所有敌方单位"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "无"
-                ],//零花本体特性
-                [
-                    "参与击杀后返还",
-                    speSkillCon("40%"),
-                    "自动技能【封喉】的冷却时间"
-                ],//一花特性
-                [
-                    "自身暴击率提升",
-                    speSkillCon("20%"),
-                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                    "，暴击伤害提升",
-                    speSkillCon("20%"),
-                    speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "毒刃",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "穿透屏障"],//技能标签
+        "content": [
+            "朝指定方向投掷剧毒匕首，匕首会命中范围内的所有敌方单位，对每个目标造成",
+            speSkillCon("2000%最终攻击的蚀元素伤害"),
+            "，并为终端附加",
+            speSkillCon("20点蚀爆值"),
+            "",
+            "同时自身在技能释放后",
+            speSkillCon("20"),
+            "秒内普通攻击命中后，匕首必定会穿透路径上的所有敌方单位",
+            "",
+            "【连击】：技能额外效果的持续时间延长",
+            speSkillCon("10"),
+            "秒，且普通攻击匕首造成的伤害提高",
+            speSkillCon("100%"),
+            speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "封喉",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "10秒"]],
+        "tab": ["伤害"],
+        "content": [
+            "立即闪现至目标身后，对其造成",
+            speSkillCon("2000%最终攻击的蚀元素伤害"),
+            "，并为终端附加",
+            speSkillCon("5点蚀爆值"),
+            "",
+            "伤害目标当前生命值低于",
+            speSkillCon("40%"),
+            speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+            "时，忽略目标",
+            speSkillCon("10%"),
+            "基础减伤",
+            "",
+            "目标每受到过一次蚀爆伤害，该技能对其造成的伤害额外提高",
+            speSkillCon("20%"),
+            speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
+            "，最多提高",
+            speSkillCon("100%"),
+            speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries)
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "附骨",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益"],
+        "content": [
+            "冲向目标位置，向四周散射大量剧毒匕首，对其中的所有单位造成",
+            speSkillCon("3300%最终攻击的蚀元素伤害"),
+            "，为终端附加",
+            speSkillCon("20点蚀爆值"),
+            "",
+            "并在",
+            speSkillCon("25"),
+            "秒内，【封喉】释放后返还",
+            speSkillCon("50%"),
+            "的冷却时间",
+            "",
+            "伤害造成暴击时，该效果的持续时间延长至",
+            speSkillCon("40"),
+            "秒"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：剧毒之牙",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.56次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "为2连击，向当前目标连续发射两枚剧毒匕首造成",
+            speSkillCon("180%最终攻击的蚀元素伤害"),
+            "并为终端附加",
+            speSkillCon("3点蚀爆值"),
+            "；命中首个目标造成暴击后，匕首会穿透路径上的所有敌方单位"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "无"
+            ],//零花本体特性
+            [
+                "参与击杀后返还",
+                speSkillCon("40%"),
+                "自动技能【封喉】的冷却时间"
+            ],//一花特性
+            [
+                "自身暴击率提升",
+                speSkillCon("20%"),
+                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+                "，暴击伤害提升",
+                speSkillCon("20%"),
+                speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "警铃大作",
@@ -268,7 +274,7 @@ const Tea = {
                 "偏淡",
                 "多冰"
             ],
-            "ex": [450, 504, 549],//参考默契值，无加，满家具，满加成
+            "ex": [450],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 5,
@@ -278,7 +284,7 @@ const Tea = {
                 "多冰",
                 "樱桃"
             ],
-            "ex": [513, 574, 626],//参考默契值，无加，满家具，满加成
+            "ex": [513],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -288,7 +294,7 @@ const Tea = {
                 "盐",
                 "青梅"
             ],
-            "ex": [527, 591, 644],//参考默契值，无加，满家具，满加成
+            "ex": [527],//参考默契值，无加，满家具，满加成
         }
     ]
 }

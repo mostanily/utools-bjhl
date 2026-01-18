@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形α型, MXLaohenEnum.针对削弱], "attr": "yan", "star": "5",
     "nameEn": "XIANGLING", "tag": ["输出", "拉拽"], "originWorld": "艾达", "orginChar": "古剑奇谭一",
     "cv": "阎萌萌", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -19,131 +20,136 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "拳焰式",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "10秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "负面状态", "对空"],//技能标签
-            "content": [
-                speSkillCon("【拳焰式·普通】技能形态", SkillColorEnum.injuries),
-                "",
-                "普通状态下可使用",
-                "",
-                speSkillCon("以2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "抓取",
-                speSkillCon("1200"),
-                "范围内的目标至自身面前攻击，造成",
-                speSkillCon("2000%最终攻击的物理伤害"),
-                "",
-                speSkillCon("【拳焰式·狐拟态】技能形态", SkillColorEnum.injuries),
-                "",
-                "「狐拟态」状态下可使用",
-                "",
-                speSkillCon("以3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "抓取",
-                speSkillCon("1600"),
-                "范围内的目标至自身面前攻击，造成",
-                speSkillCon("3750%最终攻击的炎元素伤害")
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "屏扇式",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "30秒"], ["次数", "∞"]],
-            "tab": ["炎区域", "负面状态", "伤害"],
-            "content": [
-                "被动：每隔",
-                speSkillCon("20"),
-                "秒可使用一次，使用后产生的指令冷却时间极短",
-                "",
-                speSkillCon("【屏扇式·普通】技能形态", SkillColorEnum.injuries),
-                "",
-                "普通状态下可使用",
-                "",
-                "对扇形范围内5条路径上的首个敌人造成",
-                speSkillCon("1850%最终攻击的物理伤害"),
-                "并以",
-                speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "造成击退效果，对击退路径上的其他敌人造成",
-                speSkillCon("1150%最终攻击的物理伤害"),
-                "",
-                speSkillCon("【屏扇式·狐拟态】技能形态"),
-                "",
-                "「狐拟态」状态下可使用",
-                "",
-                "对扇形范围内5条路径上的首个敌人造成",
-                speSkillCon("2313%最终攻击的炎元素伤害"),
-                "并以",
-                speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "造成击退效果，对击退路径上的其他敌人造成",
-                speSkillCon("1438%最终攻击的炎元素伤害"),
-                "且沿途留下炎元素区域"
-            ]
-        }
-    },
-    {
-        "name": "狐拟态",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "80秒"]],
-            "tab": ["自身增益"],
-            "content": [
-                "变身成「狐拟态」，所有伤害转为炎元素伤害，攻击提升",
-                speSkillCon("120%"),
-                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                "，回复1次主动技能【拳焰式】使用次数，并使所有技能获得强化，持续",
-                speSkillCon("45"),
-                "秒",
-                "",
-                "战术家特性：开战时异核充能增加50%"
-            ]
-        }
-    },
-    {
-        "name": "特性：狐引",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.62次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "攻击面前的目标造成",
-                speSkillCon("192%最终攻击的物理伤害"),
-                "",
-                "近战范围没有敌人时，对远处一名敌人造成",
-                speSkillCon("96%最终攻击的物理伤害"),
-                "，并以",
-                speSkillCon("1级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "抓取到面前（每3秒最多触发一次）。"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "可以战术移动至全场任意可达位置",
-                    "",
-                    "会自动将抓取的目标击飞入周围的可跌落点"
-                ],//零花本体特性
-                [
-                    "施放异核技能【狐拟态】时，立即清空指令冷却时间并激活主动技能【屏扇式】"
-                ],//一花特性
-                [
-                    "异核技能【狐拟态】时施展主动技能【屏扇式】留下的炎元素区域扩大"
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "拳焰式",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "10秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "负面状态", "对空"],//技能标签
+        "content": [
+            speSkillCon("【拳焰式·普通】技能形态", SkillColorEnum.injuries),
+            "",
+            "普通状态下可使用",
+            "",
+            speSkillCon("以2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "抓取",
+            speSkillCon("1200"),
+            "范围内的目标至自身面前攻击，造成",
+            speSkillCon("2000%最终攻击的物理伤害"),
+            "",
+            speSkillCon("【拳焰式·狐拟态】技能形态", SkillColorEnum.injuries),
+            "",
+            "「狐拟态」状态下可使用",
+            "",
+            speSkillCon("以3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "抓取",
+            speSkillCon("1600"),
+            "范围内的目标至自身面前攻击，造成",
+            speSkillCon("3750%最终攻击的炎元素伤害")
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "屏扇式",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "30秒"], ["次数", "∞"]],
+        "tab": ["炎区域", "负面状态", "伤害"],
+        "content": [
+            "被动：每隔",
+            speSkillCon("20"),
+            "秒可使用一次，使用后产生的指令冷却时间极短",
+            "",
+            speSkillCon("【屏扇式·普通】技能形态", SkillColorEnum.injuries),
+            "",
+            "普通状态下可使用",
+            "",
+            "对扇形范围内5条路径上的首个敌人造成",
+            speSkillCon("1850%最终攻击的物理伤害"),
+            "并以",
+            speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "造成击退效果，对击退路径上的其他敌人造成",
+            speSkillCon("1150%最终攻击的物理伤害"),
+            "",
+            speSkillCon("【屏扇式·狐拟态】技能形态"),
+            "",
+            "「狐拟态」状态下可使用",
+            "",
+            "对扇形范围内5条路径上的首个敌人造成",
+            speSkillCon("2313%最终攻击的炎元素伤害"),
+            "并以",
+            speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "造成击退效果，对击退路径上的其他敌人造成",
+            speSkillCon("1438%最终攻击的炎元素伤害"),
+            "且沿途留下炎元素区域"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "狐拟态",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "80秒"]],
+        "tab": ["自身增益"],
+        "content": [
+            "变身成「狐拟态」，所有伤害转为炎元素伤害，攻击提升",
+            speSkillCon("120%"),
+            speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+            "，回复1次主动技能【拳焰式】使用次数，并使所有技能获得强化，持续",
+            speSkillCon("45"),
+            "秒",
+            "",
+            "战术家特性：开战时异核充能增加50%"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：狐引",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.62次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "攻击面前的目标造成",
+            speSkillCon("192%最终攻击的物理伤害"),
+            "",
+            "近战范围没有敌人时，对远处一名敌人造成",
+            speSkillCon("96%最终攻击的物理伤害"),
+            "，并以",
+            speSkillCon("1级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "抓取到面前（每3秒最多触发一次）。"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "可以战术移动至全场任意可达位置",
+                "",
+                "会自动将抓取的目标击飞入周围的可跌落点"
+            ],//零花本体特性
+            [
+                "施放异核技能【狐拟态】时，立即清空指令冷却时间并激活主动技能【屏扇式】"
+            ],//一花特性
+            [
+                "异核技能【狐拟态】时施展主动技能【屏扇式】留下的炎元素区域扩大"
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "偏差",
@@ -277,7 +283,7 @@ const Tea = {
                 "五分糖",
                 "正常冰"
             ],
-            "ex": [413, 463, 505],//参考默契值，无加，满家具，满加成
+            "ex": [413],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -287,7 +293,7 @@ const Tea = {
                 "正常冰",
                 "焦糖布丁"
             ],
-            "ex": [476, 533, 581],//参考默契值，无加，满家具，满加成
+            "ex": [476],//参考默契值，无加，满家具，满加成
         }
     ]
 }

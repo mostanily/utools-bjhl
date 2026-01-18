@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "战术家", "skill": [MXLaohenEnum.元素专攻菱形β型, MXLaohenEnum.元素跃威], "attr": "shui", "star": "6",
     "nameEn": "TITIA", "tag": ["支援", "元素区域"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "郭贝", "openDate": "2024年07月18日", "resourse": ["定向共鸣·本真枷锁"],
@@ -19,188 +20,193 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "狱门·刑罚",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "抉择技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "-"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["水区域", "负面状态", "伤害", "对空"],//技能标签
-            "content": [
-                "可选择",
-                speSkillCon("「狱门·雷刑」", SkillColorEnum.injuries),
-                "或者",
-                speSkillCon("「狱门·寒刑」", SkillColorEnum.injuries),
-                "进行施放（指令冷却均为",
-                speSkillCon("20"),
-                "秒）",
-                "",
-                speSkillCon("「狱门·雷刑」", SkillColorEnum.injuries),
-                "：朝指定位置发射出一枚秘钥·雷，密钥运动过程中对沿途的敌人造成",
-                speSkillCon("200%最终攻击的雷元素伤害"),
-                "并标记敌人。秘钥运动到指定位置后，会将被标记的敌人以",
-                speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "拉拽至秘钥自身所在位置,并生成半径",
-                speSkillCon("200"),
-                "范围的水元素区域。秘钥在原地持续",
-                speSkillCon("40"),
-                "秒，存在期间每隔",
-                speSkillCon("5"),
-                "秒对自身周围300半径内造成",
-                speSkillCon("600%最终攻击的雷元素伤害"),
-                "，并施加",
-                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                "效果，效果持续",
-                speSkillCon("20"),
-                "秒",
-                "",
-                speSkillCon("「狱门·寒刑」", SkillColorEnum.injuries),
-                "：朝指定位置发射出一枚秘钥·霜，钥匙运动过程中对沿途的敌人造成",
-                speSkillCon("200%最终攻击的霜元素伤害"),
-                "并标记敌人。秘钥运动到指定位置后，会将被标记的敌人以",
-                speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "拉拽至秘钥自身所在位置，在潮湿环境下会生成生成半径",
-                speSkillCon("200"),
-                "范围的霜元素区域。秘钥在原地持续",
-                speSkillCon("40"),
-                "秒，存在期间每隔",
-                speSkillCon("5"),
-                "秒对自身周围300半径内造成",
-                speSkillCon("600%最终攻击的霜元素伤害"),
-                "，并施加",
-                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                "效果，效果持续",
-                speSkillCon("20"),
-                "秒"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "真言拷问",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],
-            "tab": ["伤害", "负面状态", "对空"],
-            "content": [
-                "自动技能：冷却时间",
-                speSkillCon("18"),
-                "秒，对带有",
-                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                "效果的敌方目标造成",
-                speSkillCon("1500%最终攻击的水、霜或雷元素伤害"),
-                "",
-                "",
-                "主动技能：手动选中一名敌人以锁链攻击，命中后使目标水、雷、霜元素抗性降低",
-                speSkillCon("30%"),
-                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                "，持续",
-                speSkillCon("40"),
-                "秒，并造成",
-                speSkillCon("2500%最终攻击的水、霜或雷元素伤害"),
-                "。被命中的敌人会获得",
-                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                "效果，效果持续",
-                speSkillCon("20"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "地狱囚笼",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "90秒"]],
-            "tab": ["水区域", "负面状态", "伤害", "对空"],
-            "content": [
-                "在指定位置生成一个巨型铁笼，铁笼持续",
-                speSkillCon("6"),
-                "秒，铁笼生成时将所有带有",
-                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                "效果的目标以",
-                speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "拉拽入笼内，并施加眩晕，该效果持续",
-                speSkillCon("6"),
-                "秒。铁笼存在期间，会触发2次半径300的",
-                speSkillCon("1000%最终攻击的雷元素伤害"),
-                "和2次半径300的",
-                speSkillCon("1000%最终攻击的霜元素伤害"),
-                "，铁笼存在时间结束时，会炸毁自身，并对场上所有敌人造成",
-                speSkillCon("2500%最终攻击的水元素伤害"),
-                "，同时生成半径",
-                speSkillCon("350"),
-                "的水元素区域",
-                "",
-                "战术家特性：开战时异核充能增加50%"
-            ]
-        }
-    },
-    {
-        "name": "特性：守狱人",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "根据当前目标的元素弱点选择不同的钥匙投掷向目标进行攻击，其中：",
-                "",
-                "当目标具有水元素弱点或不具有雷、霜弱点时，投掷水元素钥匙，成功命中目标会造成",
-                speSkillCon("250%最终攻击的水元素伤害"),
-                "",
-                "当目标具有雷元素弱点时，投掷雷元素钥匙，钥匙成功命中目标会造成",
-                speSkillCon("250%最终攻击的雷元素伤害"),
-                "",
-                "当目标具有霜元素弱点时，投掷霜元素钥匙，钥匙成功命中目标会造成",
-                speSkillCon("250%最终攻击的霜元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "提提亚的主动技能会为命中目标施加",
-                    speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                    "，该效果持续",
-                    speSkillCon("20"),
-                    "秒，提提亚的普通攻击伤害会以",
-                    speSkillCon("35%"),
-                    "的比例传递给拥有",
-                    speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                    "链接的单位，该效果至多同时影响",
-                    speSkillCon("10"),
-                    "个单位。",
-                    "",
-                    "当场上仅有一个带有",
-                    speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
-                    "的单位时，普通攻击伤害提高",
-                    speSkillCon("250%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ],//零花本体特性
-                [
-                    "秘钥持续时间提高",
-                    speSkillCon("20"),
-                    "秒，造成伤害提高",
-                    speSkillCon("30%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ],//一花特性
-                [
-                    "自身施放任意技能后，攻击速度提高",
-                    speSkillCon("50%"),
-                    speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                    "，持续",
-                    speSkillCon("15"),
-                    "秒。罪业漩涡伤害传递比例提高至",
-                    speSkillCon("60%")
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "狱门·刑罚",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "抉择技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "-"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["水区域", "负面状态", "伤害", "对空"],//技能标签
+        "content": [
+            "可选择",
+            speSkillCon("「狱门·雷刑」", SkillColorEnum.injuries),
+            "或者",
+            speSkillCon("「狱门·寒刑」", SkillColorEnum.injuries),
+            "进行施放（指令冷却均为",
+            speSkillCon("20"),
+            "秒）",
+            "",
+            speSkillCon("「狱门·雷刑」", SkillColorEnum.injuries),
+            "：朝指定位置发射出一枚秘钥·雷，密钥运动过程中对沿途的敌人造成",
+            speSkillCon("200%最终攻击的雷元素伤害"),
+            "并标记敌人。秘钥运动到指定位置后，会将被标记的敌人以",
+            speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "拉拽至秘钥自身所在位置,并生成半径",
+            speSkillCon("200"),
+            "范围的水元素区域。秘钥在原地持续",
+            speSkillCon("40"),
+            "秒，存在期间每隔",
+            speSkillCon("5"),
+            "秒对自身周围300半径内造成",
+            speSkillCon("600%最终攻击的雷元素伤害"),
+            "，并施加",
+            speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+            "效果，效果持续",
+            speSkillCon("20"),
+            "秒",
+            "",
+            speSkillCon("「狱门·寒刑」", SkillColorEnum.injuries),
+            "：朝指定位置发射出一枚秘钥·霜，钥匙运动过程中对沿途的敌人造成",
+            speSkillCon("200%最终攻击的霜元素伤害"),
+            "并标记敌人。秘钥运动到指定位置后，会将被标记的敌人以",
+            speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "拉拽至秘钥自身所在位置，在潮湿环境下会生成生成半径",
+            speSkillCon("200"),
+            "范围的霜元素区域。秘钥在原地持续",
+            speSkillCon("40"),
+            "秒，存在期间每隔",
+            speSkillCon("5"),
+            "秒对自身周围300半径内造成",
+            speSkillCon("600%最终攻击的霜元素伤害"),
+            "，并施加",
+            speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+            "效果，效果持续",
+            speSkillCon("20"),
+            "秒"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "真言拷问",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],
+        "tab": ["伤害", "负面状态", "对空"],
+        "content": [
+            "自动技能：冷却时间",
+            speSkillCon("18"),
+            "秒，对带有",
+            speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+            "效果的敌方目标造成",
+            speSkillCon("1500%最终攻击的水、霜或雷元素伤害"),
+            "",
+            "",
+            "主动技能：手动选中一名敌人以锁链攻击，命中后使目标水、雷、霜元素抗性降低",
+            speSkillCon("30%"),
+            speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+            "，持续",
+            speSkillCon("40"),
+            "秒，并造成",
+            speSkillCon("2500%最终攻击的水、霜或雷元素伤害"),
+            "。被命中的敌人会获得",
+            speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+            "效果，效果持续",
+            speSkillCon("20"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "地狱囚笼",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "90秒"]],
+        "tab": ["水区域", "负面状态", "伤害", "对空"],
+        "content": [
+            "在指定位置生成一个巨型铁笼，铁笼持续",
+            speSkillCon("6"),
+            "秒，铁笼生成时将所有带有",
+            speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+            "效果的目标以",
+            speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "拉拽入笼内，并施加眩晕，该效果持续",
+            speSkillCon("6"),
+            "秒。铁笼存在期间，会触发2次半径300的",
+            speSkillCon("1000%最终攻击的雷元素伤害"),
+            "和2次半径300的",
+            speSkillCon("1000%最终攻击的霜元素伤害"),
+            "，铁笼存在时间结束时，会炸毁自身，并对场上所有敌人造成",
+            speSkillCon("2500%最终攻击的水元素伤害"),
+            "，同时生成半径",
+            speSkillCon("350"),
+            "的水元素区域",
+            "",
+            "战术家特性：开战时异核充能增加50%"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：守狱人",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "根据当前目标的元素弱点选择不同的钥匙投掷向目标进行攻击，其中：",
+            "",
+            "当目标具有水元素弱点或不具有雷、霜弱点时，投掷水元素钥匙，成功命中目标会造成",
+            speSkillCon("250%最终攻击的水元素伤害"),
+            "",
+            "当目标具有雷元素弱点时，投掷雷元素钥匙，钥匙成功命中目标会造成",
+            speSkillCon("250%最终攻击的雷元素伤害"),
+            "",
+            "当目标具有霜元素弱点时，投掷霜元素钥匙，钥匙成功命中目标会造成",
+            speSkillCon("250%最终攻击的霜元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "提提亚的主动技能会为命中目标施加",
+                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+                "，该效果持续",
+                speSkillCon("20"),
+                "秒，提提亚的普通攻击伤害会以",
+                speSkillCon("35%"),
+                "的比例传递给拥有",
+                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+                "链接的单位，该效果至多同时影响",
+                speSkillCon("10"),
+                "个单位。",
+                "",
+                "当场上仅有一个带有",
+                speSkillCon("[罪业漩涡]", SkillColorEnum.normal, ToastSkillEnum.罪业漩涡),
+                "的单位时，普通攻击伤害提高",
+                speSkillCon("250%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ],//零花本体特性
+            [
+                "秘钥持续时间提高",
+                speSkillCon("20"),
+                "秒，造成伤害提高",
+                speSkillCon("30%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ],//一花特性
+            [
+                "自身施放任意技能后，攻击速度提高",
+                speSkillCon("50%"),
+                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+                "，持续",
+                speSkillCon("15"),
+                "秒。罪业漩涡伤害传递比例提高至",
+                speSkillCon("60%")
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "口味变化",
@@ -340,7 +346,7 @@ const Tea = {
                 "正常冰",
                 "蜜桃冻"
             ],
-            "ex": [594, 665, 725],//参考默契值，无加，满家具，满加成
+            "ex": [594],//参考默契值，无加，满家具，满加成
         }
     ]
 }

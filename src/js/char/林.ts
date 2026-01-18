@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "轻卫", "skill": [MXLaohenEnum.核心充能方块α型, MXLaohenEnum.炎域强袭], "attr": "yan", "star": "6",
     "nameEn": "LYNN", "tag": ["防护", "输出", "元素区域"], "originWorld": "黑曜", "orginChar": "原创",
     "cv": "孟阳", "openDate": "2024年12月12日", "resourse": ["定向潜航·渊火伏明"],
@@ -31,233 +32,238 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "吞厄",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "自身增益"],//技能标签
-            "sizeLevel": [
-                ["240%"],
-                ["276%"],
-                ["312%"],
-                ["348%"],
-                ["384%"],
-                ["420%"],
-                ["456%"],
-                ["492%"],
-                ["528%"],
-                ["552%"],
-                ["576%"],
-                ["600%"],
-                ["624%"],
-                ["648%"],
-                ["672%"]
-            ],
-            "content": [
-                "对自身周围",
-                speSkillCon("300"),
-                "半径造成",
-                speSkillCon("300％最终攻击的炎元素伤害"),
-                "后进入持续",
-                speSkillCon("25"),
-                "秒的攻击姿态，且",
-                speSkillCon("25"),
-                "秒内无法再次进入，该姿态下自身暴击率提高",
-                speSkillCon("30%"),
-                "，最大生命值提高",
-                speSkillCon("80%"),
-                "，且每次普通攻击触发",
-                speSkillConWithImg(SkillDescStatusImg.林熔毁),
-                "“熔毁”。",
-                "",
-                speSkillConWithImg(SkillDescStatusImg.林熔毁),
-                "“熔毁”：每次施放普通攻击消耗自身最大生命值",
-                speSkillCon("4%"),
-                "可额外对当前主目标周围",
-                speSkillCon("200"),
-                "半径造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，自身生命值低于",
-                speSkillCon("30%"),
-                "后将不消耗生命值触发。（“熔毁”最多可触发",
-                speSkillCon("20"),
-                "次）",
-                "",
-                "处于攻击姿态时可施展技能退出该姿态；当自身受到敌方伤害导致生命值低于",
-                speSkillCon("20%"),
-                "（同调者未重伤）会提前退出该姿态，生命值恢复至进入姿态时的生命值。"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "湮烬",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],
-            "tab": ["格挡条破坏3"],
-            "sizeLevel": [
-                ["500%", "24%", "1380%", "500%"],
-                ["575%", "28%", "1587%", "575%"],
-                ["650%", "31%", "1794%", "650%"],
-                ["725%", "35%", "2001%", "725%"],
-                ["800%", "38%", "2208%", "800%"],
-                ["875%", "42%", "2415%", "875%"],
-                ["950%", "46%", "2622%", "950%"],
-                ["1025%", "49%", "2829%", "1025%"],
-                ["1100%", "53%", "3036%", "1100%"],
-                ["1150%", "55%", "3174%", "1150%"],
-                ["1200%", "58%", "3312%", "1200%"],
-                ["1250%", "60%", "3450%", "1250%"],
-                ["1300%", "62%", "3588%", "1300%"],
-                ["1350%", "65%", "3726%", "1350%"],
-                ["1400%", "67%", "3864%", "1400%"]
-            ],
-            "content": [
-                speSkillCon("「防御姿态」", SkillColorEnum.injuries),
-                "：对单体目标造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，并使目标降低",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                "炎元素抗性，持续",
-                speSkillCon("60"),
-                "秒，切换攻击姿态后或离场后上述效果消失",
-                "",
-                speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
-                "：对选中扇形区域",
-                speSkillCon("400"),
-                "半径造成",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "",
-                "",
-                "自动技能：对自身前方扇形造成",
-                speSkillCon("", 0, -1, 3),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，根据当前姿态所需的触发条件及效果：",
-                "",
-                speSkillCon("「防御姿态」", SkillColorEnum.injuries),
-                "：该状态下每",
-                speSkillCon("1.2"),
-                "秒获得1层“冥火”，且受到直接伤害获得1层“冥火”。（每",
-                speSkillCon("0.5"),
-                "秒最多获得1层）消耗",
-                speSkillCon("15"),
-                "层“冥火”施展，造成伤害后嘲讽",
-                speSkillCon("250"),
-                "半径的单位",
-                speSkillCon("3"),
-                "秒，使场上所有友方提高",
-                speSkillCon("20%"),
-                speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
-                "，持续",
-                speSkillCon("20"),
-                "秒，切换攻击姿态或离场后上述效果消失",
-                "",
-                speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
-                "：持续时间内无法施放，攻击姿态结束时触发自动技能，自身",
-                speSkillConWithImg(SkillDescStatusImg.林熔毁),
-                "“熔毁”每次触发提高",
-                speSkillCon("10%"),
-                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                "自动技能伤害，该效果可叠加"
-            ]
-        }
-    },
-    {
-        "name": "裂魂",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "45秒"]],
-            "tab": ["伤害", "炎区域"],
-            "sizeLevel": [
-                ["2100%", "600%"],
-                ["2450%", "700%"],
-                ["2800%", "800%"],
-                ["3150%", "900%"],
-                ["3325%", "950%"],
-                ["3500%", "1000%"]
-            ],
-            "content": [
-                "对选中位置目标位置半径",
-                speSkillCon("250"),
-                "圆形范围内",
-                speSkillCon("3"),
-                "个主要目标造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，随后对",
-                speSkillCon("450"),
-                "半径范围造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，并留下半径",
-                speSkillCon("250"),
-                "范围的炎元素区域并在该范围随机散落小范围炎元素区域"
-            ]
-        }
-    },
-    {
-        "name": "特性：自我吞食者",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "250"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "防御姿态下：普通攻击对单体目标造成",
-                speSkillCon("90％最终攻击的炎元素伤害"),
-                "",
-                "攻击姿态下：普通攻击对半径",
-                speSkillCon("250"),
-                "扇形范围目标造成",
-                speSkillCon("190％最终攻击的炎元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "初始为",
-                    speSkillCon("「防御姿态」", SkillColorEnum.injuries),
-                    "，防御姿态下基础减伤提高",
-                    speSkillCon("20%"),
-                    "，普通攻击使目标受到伤害提高",
-                    speSkillCon("30%"),
-                    speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
-                    "，持续",
-                    speSkillCon("5"),
-                    "秒（切换攻击姿态或离场后上述效果消失），可施放技能【吞厄】进入攻击姿态"
-                ],//零花本体特性
-                [
-                    "切换至",
-                    speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
-                    "后，主动技能【湮烬】造成的抗性降低效果不再消失"
-                ],//一花特性
-                [
-                    "林开启",
-                    speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
-                    "后，场上除自身外当前百分比生命值最低的一个友方同调者施放普通攻击时也会触发“熔毁”（不消耗生命值且触发次数不共享），持续至林的攻击姿态结束",
-                    "",
-                    "自身生命值越低，“熔毁”伤害额外提高，",
-                    speSkillCon("40%"),
-                    "生命值时达到最大值",
-                    speSkillCon("80%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "吞厄",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "自身增益"],//技能标签
+        "sizeLevel": [
+            ["240%"],
+            ["276%"],
+            ["312%"],
+            ["348%"],
+            ["384%"],
+            ["420%"],
+            ["456%"],
+            ["492%"],
+            ["528%"],
+            ["552%"],
+            ["576%"],
+            ["600%"],
+            ["624%"],
+            ["648%"],
+            ["672%"]
+        ],
+        "content": [
+            "对自身周围",
+            speSkillCon("300"),
+            "半径造成",
+            speSkillCon("300％最终攻击的炎元素伤害"),
+            "后进入持续",
+            speSkillCon("25"),
+            "秒的攻击姿态，且",
+            speSkillCon("25"),
+            "秒内无法再次进入，该姿态下自身暴击率提高",
+            speSkillCon("30%"),
+            "，最大生命值提高",
+            speSkillCon("80%"),
+            "，且每次普通攻击触发",
+            speSkillConWithImg(SkillDescStatusImg.林熔毁),
+            "“熔毁”。",
+            "",
+            speSkillConWithImg(SkillDescStatusImg.林熔毁),
+            "“熔毁”：每次施放普通攻击消耗自身最大生命值",
+            speSkillCon("4%"),
+            "可额外对当前主目标周围",
+            speSkillCon("200"),
+            "半径造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，自身生命值低于",
+            speSkillCon("30%"),
+            "后将不消耗生命值触发。（“熔毁”最多可触发",
+            speSkillCon("20"),
+            "次）",
+            "",
+            "处于攻击姿态时可施展技能退出该姿态；当自身受到敌方伤害导致生命值低于",
+            speSkillCon("20%"),
+            "（同调者未重伤）会提前退出该姿态，生命值恢复至进入姿态时的生命值。"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "湮烬",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],
+        "tab": ["格挡条破坏3"],
+        "sizeLevel": [
+            ["500%", "24%", "1380%", "500%"],
+            ["575%", "28%", "1587%", "575%"],
+            ["650%", "31%", "1794%", "650%"],
+            ["725%", "35%", "2001%", "725%"],
+            ["800%", "38%", "2208%", "800%"],
+            ["875%", "42%", "2415%", "875%"],
+            ["950%", "46%", "2622%", "950%"],
+            ["1025%", "49%", "2829%", "1025%"],
+            ["1100%", "53%", "3036%", "1100%"],
+            ["1150%", "55%", "3174%", "1150%"],
+            ["1200%", "58%", "3312%", "1200%"],
+            ["1250%", "60%", "3450%", "1250%"],
+            ["1300%", "62%", "3588%", "1300%"],
+            ["1350%", "65%", "3726%", "1350%"],
+            ["1400%", "67%", "3864%", "1400%"]
+        ],
+        "content": [
+            speSkillCon("「防御姿态」", SkillColorEnum.injuries),
+            "：对单体目标造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，并使目标降低",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+            "炎元素抗性，持续",
+            speSkillCon("60"),
+            "秒，切换攻击姿态后或离场后上述效果消失",
+            "",
+            speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
+            "：对选中扇形区域",
+            speSkillCon("400"),
+            "半径造成",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "",
+            "",
+            "自动技能：对自身前方扇形造成",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，根据当前姿态所需的触发条件及效果：",
+            "",
+            speSkillCon("「防御姿态」", SkillColorEnum.injuries),
+            "：该状态下每",
+            speSkillCon("1.2"),
+            "秒获得1层“冥火”，且受到直接伤害获得1层“冥火”。（每",
+            speSkillCon("0.5"),
+            "秒最多获得1层）消耗",
+            speSkillCon("15"),
+            "层“冥火”施展，造成伤害后嘲讽",
+            speSkillCon("250"),
+            "半径的单位",
+            speSkillCon("3"),
+            "秒，使场上所有友方提高",
+            speSkillCon("20%"),
+            speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
+            "，持续",
+            speSkillCon("20"),
+            "秒，切换攻击姿态或离场后上述效果消失",
+            "",
+            speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
+            "：持续时间内无法施放，攻击姿态结束时触发自动技能，自身",
+            speSkillConWithImg(SkillDescStatusImg.林熔毁),
+            "“熔毁”每次触发提高",
+            speSkillCon("10%"),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+            "自动技能伤害，该效果可叠加"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "裂魂",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "45秒"]],
+        "tab": ["伤害", "炎区域"],
+        "sizeLevel": [
+            ["2100%", "600%"],
+            ["2450%", "700%"],
+            ["2800%", "800%"],
+            ["3150%", "900%"],
+            ["3325%", "950%"],
+            ["3500%", "1000%"]
+        ],
+        "content": [
+            "对选中位置目标位置半径",
+            speSkillCon("250"),
+            "圆形范围内",
+            speSkillCon("3"),
+            "个主要目标造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，随后对",
+            speSkillCon("450"),
+            "半径范围造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，并留下半径",
+            speSkillCon("250"),
+            "范围的炎元素区域并在该范围随机散落小范围炎元素区域"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：自我吞食者",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "250"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "防御姿态下：普通攻击对单体目标造成",
+            speSkillCon("90％最终攻击的炎元素伤害"),
+            "",
+            "攻击姿态下：普通攻击对半径",
+            speSkillCon("250"),
+            "扇形范围目标造成",
+            speSkillCon("190％最终攻击的炎元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "初始为",
+                speSkillCon("「防御姿态」", SkillColorEnum.injuries),
+                "，防御姿态下基础减伤提高",
+                speSkillCon("20%"),
+                "，普通攻击使目标受到伤害提高",
+                speSkillCon("30%"),
+                speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                "，持续",
+                speSkillCon("5"),
+                "秒（切换攻击姿态或离场后上述效果消失），可施放技能【吞厄】进入攻击姿态"
+            ],//零花本体特性
+            [
+                "切换至",
+                speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
+                "后，主动技能【湮烬】造成的抗性降低效果不再消失"
+            ],//一花特性
+            [
+                "林开启",
+                speSkillCon("「攻击姿态」", SkillColorEnum.injuries),
+                "后，场上除自身外当前百分比生命值最低的一个友方同调者施放普通攻击时也会触发“熔毁”（不消耗生命值且触发次数不共享），持续至林的攻击姿态结束",
+                "",
+                "自身生命值越低，“熔毁”伤害额外提高，",
+                speSkillCon("40%"),
+                "生命值时达到最大值",
+                speSkillCon("80%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "厌恶的必要性",
@@ -384,7 +390,7 @@ const Tea = {
                 "五分糖",
                 "常温"
             ],
-            "ex": [415, 465, 507, 554],//参考默契值，无加，满家具，满加成
+            "ex": [415],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -394,7 +400,7 @@ const Tea = {
                 "正常冰",
                 "茶冻"
             ],
-            "ex": [461, 516, 563, 614],//参考默契值，无加，满家具，满加成
+            "ex": [461],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 16,
@@ -403,7 +409,7 @@ const Tea = {
                 "常温",
                 "茶冻"
             ],
-            "ex": [534, 598, 652, 712],//参考默契值，无加，满家具，满加成
+            "ex": [534],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -412,7 +418,7 @@ const Tea = {
                 "枸杞",
                 "茶冻"
             ],
-            "ex": [594, 665, 725, 791],//参考默契值，无加，满家具，满加成
+            "ex": [594],//参考默契值，无加，满家具，满加成
         }
     ]
 }

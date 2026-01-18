@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultSkillLinkObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "轻卫", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.卸劲化能], "attr": "lei", "star": "6",
     "nameEn": "KYLIN", "tag": ["防护", "输出", "屏障"], "originWorld": "森罗", "orginChar": "古剑奇谭二",
     "cv": "赵毅", "openDate": "2024年04月18日", "resourse": ["常态共鸣·森罗万象", "定向共鸣·王牌机械师"],
@@ -31,310 +32,316 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "电蛛Ⅰ代",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "负面状态", "对空", "穿透屏障"],//技能标签
-            "sizeLevel": [
-                ["750%"],
-                ["863%"],
-                ["975%"],
-                ["1088%"],
-                ["1200%"],
-                ["1313%"],
-                ["1425%"],
-                ["1538%"],
-                ["1650%"],
-                ["1725%"],
-                ["1800%"],
-                ["1875%"],
-                ["1950%"],
-                ["2025%"],
-                ["2100%"]
-            ],
-            "content": [
-                speSkillCon("技能施放后进入【防御姿态】", SkillColorEnum.injuries),
+const skill1: DefaultNormalSkillObj = {
+    "name": "电蛛Ⅰ代",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "负面状态", "对空", "穿透屏障"],//技能标签
+        "sizeLevel": [
+            ["750%"],
+            ["863%"],
+            ["975%"],
+            ["1088%"],
+            ["1200%"],
+            ["1313%"],
+            ["1425%"],
+            ["1538%"],
+            ["1650%"],
+            ["1725%"],
+            ["1800%"],
+            ["1875%"],
+            ["1950%"],
+            ["2025%"],
+            ["2100%"]
+        ],
+        "content": [
+            speSkillCon("技能施放后进入【防御姿态】", SkillColorEnum.injuries),
+            "",
+            "向目标位置投射两枚电网导弹，每枚对半径",
+            speSkillCon("250"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "，随后以",
+            speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "将其拉到身边，使其优先攻击自己，并回复自身全部格挡值"
+        ]//满级技能内容描述
+    }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "霹雳网",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["施放冷却", "20秒"], ["次数", "3"]],
+        "tab": ["伤害", "自身增益", "负面状态"],
+        "sizeLevel": [
+            ["1000%", "80%"],
+            ["1150%", "92%"],
+            ["1300%", "104%"],
+            ["1450%", "116%"],
+            ["1600%", "128%"],
+            ["1750%", "140%"],
+            ["1900%", "152%"],
+            ["2050%", "164%"],
+            ["2200%", "176%"],
+            ["2300%", "184%"],
+            ["2400%", "192%"],
+            ["2500%", "200%"],
+            ["2600%", "208%"],
+            ["2700%", "216%"],
+            ["2800%", "224%"]
+        ],
+        "content": [
+            "被动:",
+            speSkillCon("【防御姿态】", SkillColorEnum.injuries),
+            "下每隔",
+            speSkillCon("15"),
+            "秒，随机弹开一个武装机械臂发动一轮攻击，造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "",
+            "主动：",
+            speSkillCon("进入【防御姿态】", SkillColorEnum.injuries),
+            "，拉起电网强化机甲，回复自身全部格挡值，在目标位置留下一张电网，并生成另一张电网跟随自身移动。每张电网每隔",
+            speSkillCon("2"),
+            "秒对范围内的目标造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "并使目标受到持续",
+            speSkillCon("1"),
+            "秒的",
+            speSkillCon("[眩晕]", SkillColorEnum.normal, ToastSkillEnum.眩晕),
+            "效果，电网持续存在",
+            speSkillCon("20"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "扳仔出击！",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "100秒"]],
+        "tab": ["伤害", "自身增益", "拦截", "对空", "格挡条破坏1"],
+        "sizeLevel": [
+            ["3000%", "1800%", "150%", "1200%", "180%", "300%", "300%", "180%"],
+            ["3500%", "2100%", "175%", "1400%", "210%", "350%", "350%", "210%"],
+            ["4000%", "2400%", "200%", "1600%", "240%", "400%", "400%", "240%"],
+            ["4500%", "2700%", "225%", "1800%", "270%", "450%", "450%", "270%"],
+            ["4750%", "2850%", "237%", "1900%", "285%", "475%", "475%", "285%"],
+            ["5000%", "3000%", "250%", "2000%", "300%", "500%", "500%", "300%"]
+        ],
+        "content": [
+            speSkillCon("进入【攻击姿态】", SkillColorEnum.injuries),
+            "，展开所有机械臂火力全开，使用各类枪械对全场随机目标进行扫射，造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "和",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的物理伤害"),
+            "",
+            speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
+            "期间失去格挡能力，每次攻击破坏敌方",
+            speSkillCon("1段格挡条"),
+            "，并持续用各类枪械攻击敌方目标:",
+            "",
+            "「破天轰雷」每10秒攻击一次，期间持续对自身半径",
+            speSkillCon("1500"),
+            "范围内的随机目标放射电流，共造成",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("最终攻击的雷元素伤害"),
+            ";蓄力后，对正前方宽度",
+            speSkillCon("450"),
+            "范围发射超远电磁炮，对路径上敌人造成",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "，并摧毁敌方投射物",
+            "",
+            "「无敌光波」每5秒攻击一次，对目标发射激光，对半径",
+            speSkillCon("100"),
+            "范围的敌人造成",
+            speSkillCon("", 0, -1, 4),
+            speSkillCon("最终攻击的物理伤害"),
+            "",
+            "「连环飞弹」每5秒攻击一次，对地面区域投射导弹，每次两枚，共对半径",
+            speSkillCon("250"),
+            "范围的敌人造成",
+            speSkillCon("", 0, -1, 5),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "",
+            "「扳扳主炮」强化普通攻击，每次对目标造成",
+            speSkillCon("", 0, -1, 6),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "",
+            "「扳扳副炮」每3秒攻击一次，持续向目标发射子弹，共对目标造成",
+            speSkillCon("", 0, -1, 7),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "",
+            speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
+            "下可施放技能【解除出击】:回到",
+            speSkillCon("【防御姿态】", SkillColorEnum.injuries),
+            ":进行机甲维修，产生6次生命回复效果，每次回复自身",
+            speSkillCon("6%最大生命值"),
+            "",
+            "退出",
+            speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
+            "时:根据异核剩余充能时间的",
+            speSkillCon("25%"),
+            "返还异核充能"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：仁兽止戈",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "500"], ["攻击速度", "0.40次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "向当前目标发射子弹造成",
+            speSkillCon("250%最终攻击的雷元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "通过主动技能进入",
+                speSkillCon("【防御姿态】", SkillColorEnum.injuries),
+                "(初始为",
+                speSkillCon("【防御姿态】", SkillColorEnum.injuries),
+                "，通过异核技能进入",
+                speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
                 "",
-                "向目标位置投射两枚电网导弹，每枚对半径",
-                speSkillCon("250"),
-                "范围内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "，随后以",
-                speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "将其拉到身边，使其优先攻击自己，并回复自身全部格挡值"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "霹雳网",
+                speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
+                "下，自身增加刻印终端",
+                speSkillCon("30%"),
+                speSkillCon("（属性乘区·刻印攻击额外增加值）", SkillColorEnum.injuries),
+                "的刻印攻击额外增加值，超过1000部分的刻印终端值，增加的刻印攻击翻倍",
+                "",
+                "登场异核充能增加70%",
+                "",
+                "屏障:登场后，机甲面前会生成三片持续",
+                speSkillCon("15"),
+                "秒的",
+                speSkillCon("较大强度"),
+                "的屏障，屏障持续时间结束或被打破后，等待",
+                speSkillCon("30"),
+                "秒将自动修复，若期间生成屏障，将重新开始自动修复的计时。",
+                "",
+                "使用技能【电蛛I代】、【霹雳网】、【扳扳出击!】时，可立即修复自身所有屏障，并在机甲背后生成三片新屏障（背后的三片屏障被打破后不会自动修复），屏障持续",
+                speSkillCon("15"),
+                "秒"
+            ],//零花本体特性
+            [
+                "主动技能【霹雳网】可使用次数+1，电网每次电击时都会以",
+                speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+                "将敌人向中心牵引"
+            ],//一花特性
+            [
+                "普通攻击可使目标基础减伤降低",
+                speSkillCon("50%"),
+                speSkillCon("(目标减益乘区·目标基础减伤降低)", SkillColorEnum.injuries),
+                "（该效果属于",
+                speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
+                "，同调者重伤或离场时效果消失），持续",
+                speSkillCon("10"),
+                "秒"
+            ],//二花特性
+            [
+                "【攻击姿态】下，自身增加刻印终端",
+                speSkillCon("60%"),
+                speSkillCon("（属性乘区·刻印攻击额外增加值）", SkillColorEnum.injuries),
+                "的刻印攻击额外增加值，超过1000部分的刻印终端值，增加的刻印攻击翻倍（覆盖初始特性）"
+            ]//三花特性
+        ]
+    }
+}
+const skillLink: DefaultSkillLinkObj = {
+    "name": "技能同调",
+    "aliasNum": "技能同调",
+    "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+    "unlock": LaohenNameEnum.向火而去,//该技能解锁条件，拥有对应的烙痕ID
+    "detail": {
+        "name": "惊雷Ⅳ号",
         "aliasNum": "2",
         "maxLevel": 15,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["施放冷却", "20秒"], ["次数", "3"]],
-            "tab": ["伤害", "自身增益", "负面状态"],
-            "sizeLevel": [
-                ["1000%", "80%"],
-                ["1150%", "92%"],
-                ["1300%", "104%"],
-                ["1450%", "116%"],
-                ["1600%", "128%"],
-                ["1750%", "140%"],
-                ["1900%", "152%"],
-                ["2050%", "164%"],
-                ["2200%", "176%"],
-                ["2300%", "184%"],
-                ["2400%", "192%"],
-                ["2500%", "200%"],
-                ["2600%", "208%"],
-                ["2700%", "216%"],
-                ["2800%", "224%"]
-            ],
-            "content": [
-                "被动:",
-                speSkillCon("【防御姿态】", SkillColorEnum.injuries),
-                "下每隔",
-                speSkillCon("15"),
-                "秒，随机弹开一个武装机械臂发动一轮攻击，造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
+        "type": "抉择技能",
+        "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],
+        "tab": ["伤害", "负面状态", "召唤", "对空", "穿透屏障"],
+        "sizeLevel": [
+            ["1200%", "800%"],
+            ["1380%", "920%"],
+            ["1560%", "1040%"],
+            ["1740%", "1160%"],
+            ["1920%", "1280%"],
+            ["2100%", "1400%"],
+            ["2280%", "1520%"],
+            ["2460%", "1640%"],
+            ["2640%", "1760%"],
+            ["2760%", "1840%"],
+            ["2880%", "1920%"],
+            ["3000%", "2000%"],
+            ["3120%", "2080%"],
+            ["3240%", "2160%"],
+            ["3360%", "2240%"]
+        ],
+        "content": [
+            speSkillCon("【防御姿态】/【攻击姿态】均可使用，【防御姿态】", SkillColorEnum.injuries),
+            "使用可回复自身全部格挡值。",
+            "",
+            "向目标位置投射两枚电网导弹，每枚对半径",
+            speSkillCon("250"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "，随后召唤",
+            speSkillCon("2"),
+            "个机器助手惊雷Ⅳ号，机器助手每隔",
+            speSkillCon("8"),
+            "秒会朝目标发射激光，造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "。场上最多存在",
+            speSkillCon("4"),
+            "个机器助手，当达到4个时，乐无异造成伤害提高",
+            speSkillCon("50%"),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+            "。",
+        ],
+        "specialContent": [
+            [
+                "场上每存在1个机器助手，自身造成的伤害忽略目标基础减伤10%",
+                speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区忽略减伤),
                 "",
-                "主动：",
-                speSkillCon("进入【防御姿态】", SkillColorEnum.injuries),
-                "，拉起电网强化机甲，回复自身全部格挡值，在目标位置留下一张电网，并生成另一张电网跟随自身移动。每张电网每隔",
-                speSkillCon("2"),
-                "秒对范围内的目标造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "并使目标受到持续",
-                speSkillCon("1"),
-                "秒的",
-                speSkillCon("[眩晕]", SkillColorEnum.normal, ToastSkillEnum.眩晕),
-                "效果，电网持续存在",
-                speSkillCon("20"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "扳仔出击！",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "100秒"]],
-            "tab": ["伤害", "自身增益", "拦截", "对空", "格挡条破坏1"],
-            "sizeLevel": [
-                ["3000%", "1800%", "150%", "1200%", "180%", "300%", "300%", "180%"],
-                ["3500%", "2100%", "175%", "1400%", "210%", "350%", "350%", "210%"],
-                ["4000%", "2400%", "200%", "1600%", "240%", "400%", "400%", "240%"],
-                ["4500%", "2700%", "225%", "1800%", "270%", "450%", "450%", "270%"],
-                ["4750%", "2850%", "237%", "1900%", "285%", "475%", "475%", "285%"],
-                ["5000%", "3000%", "250%", "2000%", "300%", "500%", "500%", "300%"]
-            ],
-            "content": [
-                speSkillCon("进入【攻击姿态】", SkillColorEnum.injuries),
-                "，展开所有机械臂火力全开，使用各类枪械对全场随机目标进行扫射，造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "和",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的物理伤害"),
+                "机器助手对目标造成伤害时，使目标受到伤害提高40%",
+                speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                "，持续30秒。"
+            ],//特质Ⅱ级解锁
+            [
+                "乐无异对机器助手激光命中的所有目标追加电流攻击，每个目标造成5000%雷元素伤害",
                 "",
-                speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
-                "期间失去格挡能力，每次攻击破坏敌方",
-                speSkillCon("1段格挡条"),
-                "，并持续用各类枪械攻击敌方目标:",
-                "",
-                "「破天轰雷」每10秒攻击一次，期间持续对自身半径",
-                speSkillCon("1500"),
-                "范围内的随机目标放射电流，共造成",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("最终攻击的雷元素伤害"),
-                ";蓄力后，对正前方宽度",
-                speSkillCon("450"),
-                "范围发射超远电磁炮，对路径上敌人造成",
-                speSkillCon("", 0, -1, 3),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "，并摧毁敌方投射物",
-                "",
-                "「无敌光波」每5秒攻击一次，对目标发射激光，对半径",
-                speSkillCon("100"),
-                "范围的敌人造成",
-                speSkillCon("", 0, -1, 4),
-                speSkillCon("最终攻击的物理伤害"),
-                "",
-                "「连环飞弹」每5秒攻击一次，对地面区域投射导弹，每次两枚，共对半径",
-                speSkillCon("250"),
-                "范围的敌人造成",
-                speSkillCon("", 0, -1, 5),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "",
-                "「扳扳主炮」强化普通攻击，每次对目标造成",
-                speSkillCon("", 0, -1, 6),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "",
-                "「扳扳副炮」每3秒攻击一次，持续向目标发射子弹，共对目标造成",
-                speSkillCon("", 0, -1, 7),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "",
-                speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
-                "下可施放技能【解除出击】:回到",
-                speSkillCon("【防御姿态】", SkillColorEnum.injuries),
-                ":进行机甲维修，产生6次生命回复效果，每次回复自身",
-                speSkillCon("6%最大生命值"),
-                "",
-                "退出",
-                speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
-                "时:根据异核剩余充能时间的",
-                speSkillCon("25%"),
-                "返还异核充能"
-            ]
-        }
-    },
-    {
-        "name": "特性：仁兽止戈",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "500"], ["攻击速度", "0.40次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "向当前目标发射子弹造成",
-                speSkillCon("250%最终攻击的雷元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "通过主动技能进入",
-                    speSkillCon("【防御姿态】", SkillColorEnum.injuries),
-                    "(初始为",
-                    speSkillCon("【防御姿态】", SkillColorEnum.injuries),
-                    "，通过异核技能进入",
-                    speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
-                    "",
-                    speSkillCon("【攻击姿态】", SkillColorEnum.injuries),
-                    "下，自身增加刻印终端",
-                    speSkillCon("30%"),
-                    speSkillCon("（属性乘区·刻印攻击额外增加值）", SkillColorEnum.injuries),
-                    "的刻印攻击额外增加值，超过1000部分的刻印终端值，增加的刻印攻击翻倍",
-                    "",
-                    "登场异核充能增加70%",
-                    "",
-                    "屏障:登场后，机甲面前会生成三片持续",
-                    speSkillCon("15"),
-                    "秒的",
-                    speSkillCon("较大强度"),
-                    "的屏障，屏障持续时间结束或被打破后，等待",
-                    speSkillCon("30"),
-                    "秒将自动修复，若期间生成屏障，将重新开始自动修复的计时。",
-                    "",
-                    "使用技能【电蛛I代】、【霹雳网】、【扳扳出击!】时，可立即修复自身所有屏障，并在机甲背后生成三片新屏障（背后的三片屏障被打破后不会自动修复），屏障持续",
-                    speSkillCon("15"),
-                    "秒"
-                ],//零花本体特性
-                [
-                    "主动技能【霹雳网】可使用次数+1，电网每次电击时都会以",
-                    speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                    "将敌人向中心牵引"
-                ],//一花特性
-                [
-                    "普通攻击可使目标基础减伤降低",
-                    speSkillCon("50%"),
-                    speSkillCon("(目标减益乘区·目标基础减伤降低)", SkillColorEnum.injuries),
-                    "（该效果属于",
-                    speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
-                    "，同调者重伤或离场时效果消失），持续",
-                    speSkillCon("10"),
-                    "秒"
-                ],//二花特性
-                [
-                    "【攻击姿态】下，自身增加刻印终端",
-                    speSkillCon("60%"),
-                    speSkillCon("（属性乘区·刻印攻击额外增加值）", SkillColorEnum.injuries),
-                    "的刻印攻击额外增加值，超过1000部分的刻印终端值，增加的刻印攻击翻倍（覆盖初始特性）"
-                ]//三花特性
-            ]
-        }
-    },
-    {
-        "name": "技能同调",
-        "aliasNum": "技能同调",
-        "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
-        "unlock": LaohenNameEnum.向火而去,//该技能解锁条件，拥有对应的烙痕ID
-        "detail": {
-            "name": "惊雷Ⅳ号",
-            "aliasNum": "2",
-            "maxLevel": 15,
-            "type": "抉择技能",
-            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],
-            "tab": ["伤害", "负面状态", "召唤", "对空", "穿透屏障"],
-            "sizeLevel": [
-                ["1200%", "800%"],
-                ["1380%", "920%"],
-                ["1560%", "1040%"],
-                ["1740%", "1160%"],
-                ["1920%", "1280%"],
-                ["2100%", "1400%"],
-                ["2280%", "1520%"],
-                ["2460%", "1640%"],
-                ["2640%", "1760%"],
-                ["2760%", "1840%"],
-                ["2880%", "1920%"],
-                ["3000%", "2000%"],
-                ["3120%", "2080%"],
-                ["3240%", "2160%"],
-                ["3360%", "2240%"]
-            ],
-            "content": [
-                speSkillCon("【防御姿态】/【攻击姿态】均可使用，【防御姿态】", SkillColorEnum.injuries),
-                "使用可回复自身全部格挡值。",
-                "",
-                "向目标位置投射两枚电网导弹，每枚对半径",
-                speSkillCon("250"),
-                "范围内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "，随后召唤",
-                speSkillCon("2"),
-                "个机器助手惊雷Ⅳ号，机器助手每隔",
-                speSkillCon("8"),
-                "秒会朝目标发射激光，造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "。场上最多存在",
-                speSkillCon("4"),
-                "个机器助手，当达到4个时，乐无异造成伤害提高",
-                speSkillCon("50%"),
-                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                "。",
-            ],
-            "specialContent": [
-                [
-                    "场上每存在1个机器助手，自身造成的伤害忽略目标基础减伤10%",
-                    speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区忽略减伤),
-                    "",
-                    "机器助手对目标造成伤害时，使目标受到伤害提高40%",
-                    speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
-                    "，持续30秒。"
-                ],//特质Ⅱ级解锁
-                [
-                    "乐无异对机器助手激光命中的所有目标追加电流攻击，每个目标造成5000%雷元素伤害",
-                    "",
-                    "场上存在4个机器助手时，乐无异增伤效果由50%提高至200%",
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
-                ],//特质Ⅴ级解锁
-            ]
-        }
+                "场上存在4个机器助手时，乐无异增伤效果由50%提高至200%",
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+            ],//特质Ⅴ级解锁
+        ]
     }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese,
+    skillLink
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "严禁酒驾",
@@ -470,7 +477,7 @@ const Tea = {
                 "多冰",
                 "咸梅干"
             ],
-            "ex": [495, 554, 604, 659],//参考默契值，无加，满家具，满加成
+            "ex": [495],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -479,7 +486,7 @@ const Tea = {
                 "多冰",
                 "叶子冻"
             ],
-            "ex": [540, 604, 659, 719],//参考默契值，无加，满家具，满加成
+            "ex": [540],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -488,7 +495,7 @@ const Tea = {
                 "原味雪顶",
                 "珍珠"
             ],
-            "ex": [567, 635, 692, 755],//参考默契值，无加，满家具，满加成
+            "ex": [567],//参考默契值，无加，满家具，满加成
         }
     ]
 }

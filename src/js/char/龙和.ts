@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "筑术师", "skill": [MXLaohenEnum.自动瞄准系统三角α型, MXLaohenEnum.炽锋叠势], "attr": "yan", "star": "6",
     "nameEn": "LONG HE", "tag": ["输出", "群攻", "元素区域"], "originWorld": "海错", "orginChar": "原创",
     "cv": "", "openDate": "2025年03月06日", "resourse": ["定向潜航·潮生流火"],
@@ -19,137 +20,142 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "沸红",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "25秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["炎区域", "伤害", "拦截", "对空", "穿透屏障"],//技能标签
-            "content": [
-                "对指定区域的敌人造成",
-                speSkillCon("3360％最终攻击的炎元素伤害"),
-                "，并拦截区域内的所有投射物，同时产生炎元素地形"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "燃犀",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["增益冷却", "15秒"], ["增益持续", "15秒"]],
-            "tab": ["自身增益"],
-            "content": [
-                "回复1次【沸红】使用次数",
+const skill1: DefaultNormalSkillObj = {
+    "name": "沸红",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "25秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["炎区域", "伤害", "拦截", "对空", "穿透屏障"],//技能标签
+        "content": [
+            "对指定区域的敌人造成",
+            speSkillCon("3360％最终攻击的炎元素伤害"),
+            "，并拦截区域内的所有投射物，同时产生炎元素地形"
+        ]//满级技能内容描述
+    }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "燃犀",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "15秒"], ["增益持续", "15秒"]],
+        "tab": ["自身增益"],
+        "content": [
+            "回复1次【沸红】使用次数",
+            "",
+            "在增益持续期间，攻击速度提高",
+            speSkillCon("60%"),
+            speSkillCon("(属性乘区·攻击速度)", SkillColorEnum.injuries),
+            "，且普通攻击变成具有穿透性的阙龙剑，对命中的单位造成",
+            speSkillCon("896％最终攻击的炎元素伤害"),
+            "，并使目标降低",
+            speSkillCon("30%"),
+            speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+            "炎元素抗性，持续",
+            speSkillCon("4"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "无忌",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "80秒"]],
+        "tab": ["伤害", "自身增益", "对空"],
+        "content": [
+            "在指定位置形成",
+            speSkillCon("600"),
+            "范围的龙纹区域，持续",
+            speSkillCon("15"),
+            "秒。龙纹区域存在时，每秒对区域内的敌人造成",
+            speSkillCon("400％最终攻击的炎元素伤害"),
+            "，当龙和对龙纹区域内的敌人造成暴击时，伤害提高",
+            speSkillCon("30%"),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+            "。",
+            "",
+            "技能施放后，龙和进入「海祟」状态，持续",
+            speSkillCon("30"),
+            "秒。在此状态的增益持续时间内，龙和能够触发「燃犀」所有的持续增益效果，且暴击率提高",
+            speSkillCon("50%"),
+            "。龙和每",
+            speSkillCon("2"),
+            "次普通攻击，可以对命中的1个单位（优先选取精英及首领目标）造成",
+            speSkillCon("300"),
+            "范围内",
+            speSkillCon("1250％最终攻击的炎元素伤害"),
+            "且向两侧额外生成阙龙剑攻击敌人，该伤害视为普通攻击伤害。该效果触发时，普通攻击每额外命中一个单位可以扩大",
+            speSkillCon("50"),
+            "范围，最多可以扩大至",
+            speSkillCon("500"),
+            "范围。在增益持续时间内，最多可以触发",
+            speSkillCon("10"),
+            "次。"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：一笑作千温",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "1200"], ["攻击速度", "0.40次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "对目标投掷阙龙刃，造成",
+            speSkillCon("250％最终攻击的炎元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "在不同状态下，可以使用不同的形态的普通攻击",
                 "",
-                "在增益持续期间，攻击速度提高",
-                speSkillCon("60%"),
-                speSkillCon("(属性乘区·攻击速度)", SkillColorEnum.injuries),
-                "，且普通攻击变成具有穿透性的阙龙剑，对命中的单位造成",
-                speSkillCon("896％最终攻击的炎元素伤害"),
-                "，并使目标降低",
-                speSkillCon("30%"),
-                speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                "炎元素抗性，持续",
-                speSkillCon("4"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "无忌",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "80秒"]],
-            "tab": ["伤害", "自身增益", "对空"],
-            "content": [
-                "在指定位置形成",
-                speSkillCon("600"),
-                "范围的龙纹区域，持续",
-                speSkillCon("15"),
-                "秒。龙纹区域存在时，每秒对区域内的敌人造成",
-                speSkillCon("400％最终攻击的炎元素伤害"),
-                "，当龙和对龙纹区域内的敌人造成暴击时，伤害提高",
+                "龙和的普通攻击对炎元素地形上的敌人造成的伤害提高",
+                speSkillCon("20%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "，当场上只有一个敌人时，此效果提高至",
                 speSkillCon("30%"),
                 speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                "。",
-                "",
-                "技能施放后，龙和进入「海祟」状态，持续",
-                speSkillCon("30"),
-                "秒。在此状态的增益持续时间内，龙和能够触发「燃犀」所有的持续增益效果，且暴击率提高",
-                speSkillCon("50%"),
-                "。龙和每",
-                speSkillCon("2"),
-                "次普通攻击，可以对命中的1个单位（优先选取精英及首领目标）造成",
+            ],//零花本体特性
+            [
+                "登场时异核充能",
+                speSkillCon("60"),
+                "秒。「海祟」的触发伤害提高",
+                speSkillCon("40%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "。进入「燃犀」状态时，会对场上敌人单位触发",
+                speSkillCon("3"),
+                "次「海祟」的",
                 speSkillCon("300"),
-                "范围内",
-                speSkillCon("1250％最终攻击的炎元素伤害"),
-                "且向两侧额外生成阙龙剑攻击敌人，该伤害视为普通攻击伤害。该效果触发时，普通攻击每额外命中一个单位可以扩大",
-                speSkillCon("50"),
-                "范围，最多可以扩大至",
-                speSkillCon("500"),
-                "范围。在增益持续时间内，最多可以触发",
-                speSkillCon("10"),
-                "次。"
-            ]
-        }
-    },
-    {
-        "name": "特性：一笑作千温",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "1200"], ["攻击速度", "0.40次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "对目标投掷阙龙刃，造成",
-                speSkillCon("250％最终攻击的炎元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "在不同状态下，可以使用不同的形态的普通攻击",
-                    "",
-                    "龙和的普通攻击对炎元素地形上的敌人造成的伤害提高",
-                    speSkillCon("20%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                    "，当场上只有一个敌人时，此效果提高至",
-                    speSkillCon("30%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                ],//零花本体特性
-                [
-                    "登场时异核充能",
-                    speSkillCon("60"),
-                    "秒。「海祟」的触发伤害提高",
-                    speSkillCon("40%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                    "。进入「燃犀」状态时，会对场上敌人单位触发",
-                    speSkillCon("3"),
-                    "次「海祟」的",
-                    speSkillCon("300"),
-                    "范围伤害效果（优先精英及首领目标）"
-                ],//一花特性
-                [
-                    "普通攻击的伤害提高",
-                    speSkillCon("30%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                    "，异核充能时间减少",
-                    speSkillCon("20"),
-                    "秒，且龙纹区域持续时间增加",
-                    speSkillCon("15"),
-                    "秒"
-                ]//三花特性
-            ]
-        }
+                "范围伤害效果（优先精英及首领目标）"
+            ],//一花特性
+            [
+                "普通攻击的伤害提高",
+                speSkillCon("30%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "，异核充能时间减少",
+                speSkillCon("20"),
+                "秒，且龙纹区域持续时间增加",
+                speSkillCon("15"),
+                "秒"
+            ]//三花特性
+        ]
     }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "不吃苦中苦",
@@ -282,7 +288,7 @@ const Tea = {
                 "五分糖",
                 "杨桃"
             ],
-            "ex": [544, 609, 664],//参考默契值，无加，满家具，满加成
+            "ex": [544],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 5,
@@ -291,7 +297,7 @@ const Tea = {
                 "枸杞",
                 "咸梅干"
             ],
-            "ex": [620, 695, 758],//参考默契值，无加，满家具，满加成
+            "ex": [620],//参考默契值，无加，满家具，满加成
         }
     ]
 }

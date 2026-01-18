@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.庇佑, MXLaohenEnum.束缚蚀力], "attr": "shi", "star": "5",
     "nameEn": "VIDAR", "tag": ["输出", "召唤"], "originWorld": "特默里恩", "orginChar": "古剑奇谭网络版",
     "cv": "刘十四", "openDate": "2024年01月18日", "resourse": ["定向共鸣·游光澄明", "常态共鸣"],
@@ -19,145 +20,151 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "凋亡舞步",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "持续施法"],//技能标签
-            "content": [
-                "操控傀儡在目标位置起舞攻击周围敌人，8秒内对半径",
-                speSkillCon("250"),
-                "范围内的敌人每次造成",
-                speSkillCon("125%最终攻击的蚀元素伤害"),
-                "，共造成25次伤害，并为终端附加",
-                speSkillCon("25点蚀爆值"),
-                "，每",
-                speSkillCon("10%"),
-                "攻击速度提升可额外增加一次伤害",
-                "",
-                "【连击】︰重新选择傀儡的起舞位置，并额外对目标位置半径",
-                speSkillCon("300"),
-                "范围内的敌人造成",
-                speSkillCon("500%最终攻击的蚀元素伤害")
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "维达尔契约",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "20秒"], ["次数", "3"]],
-            "tab": ["伤害", "自身增益", "负面状态"],
-            "content": [
-                "【被动】：当友方同调者受到攻击时，傀儡会",
-                speSkillCon("[定身]", SkillColorEnum.normal, ToastSkillEnum.定身),
-                "友方半径",
-                speSkillCon("300"),
-                "范围内的敌人",
-                speSkillCon("2"),
-                "秒，并造成",
-                speSkillCon("1000%最终攻击的蚀元素伤害"),
-                "，冷却时间",
-                speSkillCon("10"),
-                "秒",
-                "",
-                "【主动】：指挥傀儡对指定位置半径",
-                speSkillCon("300"),
-                "范围内的敌人造成",
-                speSkillCon("1000%最终攻击的蚀元素伤害"),
-                "和被动的",
-                speSkillCon("[定身]", SkillColorEnum.normal, ToastSkillEnum.定身),
-                "效果，同时提高自身",
-                speSkillCon("50%"),
-                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                "攻击力，持续",
-                speSkillCon("20"),
-                "秒；强化效果期间，傀儡每次普通攻击为终端附加",
-                speSkillCon("2点蚀爆值")
-            ]
-        }
-    },
-    {
-        "name": "羽化世代",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "80秒"]],
-            "tab": ["自身增益"],
-            "content": [
-                "回复全部生命和技能使用次数，前3次施放依次激活",
-                speSkillConWithImg(SkillDescStatusImg.凤无梦技能强化),
-                "强化效果：",
-                "",
-                "【I】普通攻击的攻击速度提升",
-                speSkillCon("30%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "，额外造成",
-                speSkillCon("180%最终攻击的蚀元素伤害"),
-                "，并额外为终端附加",
-                speSkillCon("1点蚀爆值"),
-                "",
-                "【II】主动技能【凋亡舞步】不再需要持续施法，额外为终端增加",
-                speSkillCon("5点蚀爆值"),
-                "",
-                "【III】主动技能【维达尔契约】持续期间傀儡攻击会",
-                speSkillCon("[定身]", SkillColorEnum.normal, ToastSkillEnum.定身),
-                "目标",
-                speSkillCon("2"),
-                "秒",
-                "",
-                "初次施放所需充能时间减少",
-                speSkillCon("35"),
-                "秒",
-            ]
-        }
-    },
-    {
-        "name": "特性：天命作茧",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "操控傀儡攻击目标造成",
-                speSkillCon("220%最终攻击的蚀元素伤害"),
-                "，普通攻击为终端附加",
-                speSkillCon("4点蚀爆值"),
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "傀儡视为召唤物",
-                    "",
-                    "终端每有1点蚀爆值，凤无梦造成的伤害额外提高",
-                    speSkillCon("0.2%"),
-                    speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
-                    "，最多不超过",
-                    speSkillCon("30%")
-                ],//零花本体特性
-                [
-                    "主动技能【凋亡舞步】触发连击时，不会停止上一个技能位置的傀儡起舞"
-                ],//一花特性
-                [
-                    "终端每有1点蚀暴值，凤无梦对其造成的伤害提高",
-                    speSkillCon("0.5%"),
-                    speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
-                    "，最多不超过",
-                    speSkillCon("30%")
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "凋亡舞步",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "持续施法"],//技能标签
+        "content": [
+            "操控傀儡在目标位置起舞攻击周围敌人，8秒内对半径",
+            speSkillCon("250"),
+            "范围内的敌人每次造成",
+            speSkillCon("125%最终攻击的蚀元素伤害"),
+            "，共造成25次伤害，并为终端附加",
+            speSkillCon("25点蚀爆值"),
+            "，每",
+            speSkillCon("10%"),
+            "攻击速度提升可额外增加一次伤害",
+            "",
+            "【连击】︰重新选择傀儡的起舞位置，并额外对目标位置半径",
+            speSkillCon("300"),
+            "范围内的敌人造成",
+            speSkillCon("500%最终攻击的蚀元素伤害")
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "维达尔契约",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "20秒"], ["次数", "3"]],
+        "tab": ["伤害", "自身增益", "负面状态"],
+        "content": [
+            "【被动】：当友方同调者受到攻击时，傀儡会",
+            speSkillCon("[定身]", SkillColorEnum.normal, ToastSkillEnum.定身),
+            "友方半径",
+            speSkillCon("300"),
+            "范围内的敌人",
+            speSkillCon("2"),
+            "秒，并造成",
+            speSkillCon("1000%最终攻击的蚀元素伤害"),
+            "，冷却时间",
+            speSkillCon("10"),
+            "秒",
+            "",
+            "【主动】：指挥傀儡对指定位置半径",
+            speSkillCon("300"),
+            "范围内的敌人造成",
+            speSkillCon("1000%最终攻击的蚀元素伤害"),
+            "和被动的",
+            speSkillCon("[定身]", SkillColorEnum.normal, ToastSkillEnum.定身),
+            "效果，同时提高自身",
+            speSkillCon("50%"),
+            speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+            "攻击力，持续",
+            speSkillCon("20"),
+            "秒；强化效果期间，傀儡每次普通攻击为终端附加",
+            speSkillCon("2点蚀爆值")
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "羽化世代",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "80秒"]],
+        "tab": ["自身增益"],
+        "content": [
+            "回复全部生命和技能使用次数，前3次施放依次激活",
+            speSkillConWithImg(SkillDescStatusImg.凤无梦技能强化),
+            "强化效果：",
+            "",
+            "【I】普通攻击的攻击速度提升",
+            speSkillCon("30%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，额外造成",
+            speSkillCon("180%最终攻击的蚀元素伤害"),
+            "，并额外为终端附加",
+            speSkillCon("1点蚀爆值"),
+            "",
+            "【II】主动技能【凋亡舞步】不再需要持续施法，额外为终端增加",
+            speSkillCon("5点蚀爆值"),
+            "",
+            "【III】主动技能【维达尔契约】持续期间傀儡攻击会",
+            speSkillCon("[定身]", SkillColorEnum.normal, ToastSkillEnum.定身),
+            "目标",
+            speSkillCon("2"),
+            "秒",
+            "",
+            "初次施放所需充能时间减少",
+            speSkillCon("35"),
+            "秒",
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：天命作茧",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "操控傀儡攻击目标造成",
+            speSkillCon("220%最终攻击的蚀元素伤害"),
+            "，普通攻击为终端附加",
+            speSkillCon("4点蚀爆值"),
+        ],//普通攻击
+        "specialContent": [
+            [
+                "傀儡视为召唤物",
+                "",
+                "终端每有1点蚀爆值，凤无梦造成的伤害额外提高",
+                speSkillCon("0.2%"),
+                speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
+                "，最多不超过",
+                speSkillCon("30%")
+            ],//零花本体特性
+            [
+                "主动技能【凋亡舞步】触发连击时，不会停止上一个技能位置的傀儡起舞"
+            ],//一花特性
+            [
+                "终端每有1点蚀暴值，凤无梦对其造成的伤害提高",
+                speSkillCon("0.5%"),
+                speSkillCon("（增伤乘区·额外伤害）", SkillColorEnum.injuries),
+                "，最多不超过",
+                speSkillCon("30%")
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "森罗特有套路",
@@ -285,7 +292,7 @@ const Tea = {
                 "椰浆",
                 "低因"
             ],
-            "ex": [393, 441, 480],//参考默契值，无加，满家具，满加成
+            "ex": [393],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -294,7 +301,7 @@ const Tea = {
                 "五分糖",
                 "奇异果片"
             ],
-            "ex": [512, 573, 625],//参考默契值，无加，满家具，满加成
+            "ex": [512],//参考默契值，无加，满家具，满加成
         }
     ]
 }

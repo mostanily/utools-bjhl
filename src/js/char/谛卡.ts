@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.澜盾凝锋], "attr": "shui", "star": "6",
     "nameEn": "TIKKA", "tag": ["支援", "治疗"], "originWorld": "乌瑞亚", "orginChar": "原创",
     "cv": "", "openDate": "2025年05月29日", "resourse": ["定向潜航·是，主厨！"],
@@ -19,221 +20,226 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "限时供餐",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["自身增益"],//技能标签
-            "sizeLevel": [
-                ["250%"],
-                ["288%"],
-                ["325%"],
-                ["362%"],
-                ["400%"],
-                ["438%"],
-                ["475%"],
-                ["512%"],
-                ["550%"],
-                ["575%"],
-                ["600%"],
-                ["625%"],
-                ["650%"],
-                ["675%"],
-                ["700%"]
-            ],
-            "content": [
-                "进入持续",
-                speSkillCon("25"),
-                "秒的",
-                speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
-                "形态，回复所有【易食无忧】技能次数，且攻击模式改变：",
-                speSkillCon("攻击速度：0.40次每秒"),
-                "，每次对目标造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的水元素伤害"),
-                "（在此攻击模式下，不再产生水元素区域）",
-                "",
-                "已在",
-                speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
-                "形态下时无法施展【限时供餐】，且",
-                speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
-                "形态结束后",
-                speSkillCon("10"),
-                "秒内无法再次施放"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "易食无忧",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "15秒"], ["次数", "2"]],
-            "tab": ["友方增益", "回复"],
-            "sizeLevel": [
-                ["45%", "16%", "500%", "24%"],
-                ["52%", "18%", "575%", "27.6%"],
-                ["59%", "21%", "650%", "31.2%"],
-                ["65%", "23%", "725%", "34.8%"],
-                ["72%", "26%", "800%", "38.4%"],
-                ["79%", "28%", "875%", "42%"],
-                ["86%", "30%", "950%", "45.6%"],
-                ["92%", "33%", "1025%", "49.2%"],
-                ["99%", "35%", "1100%", "52.8%"],
-                ["104%", "37%", "1150%", "55.2%"],
-                ["108%", "38%", "1200%", "57.6%"],
-                ["113%", "40%", "1250%", "60%"],
-                ["117%", "42%", "1300%", "62.4%"],
-                ["122%", "43%", "1350%", "64.8%"],
-                ["126%", "45%", "1400%", "67.2%"]
-            ],
-            "content": [
-                "自动：",
-                "",
-                "每隔",
-                speSkillCon("6"),
-                "秒，对友方同调者进行一次治疗，回复",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("治愈力"),
-                "的生命值，并根据同调者当前是否拥有护盾触发不同的效果：",
-                "",
-                "对没有护盾的队友，治疗量额外提高",
-                speSkillCon("40%"),
-                "",
-                "对拥有护盾的队友，提高",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
-                speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("10"),
-                "秒",
-                "",
-                "",
-                "主动：",
-                "",
-                "只在",
-                speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
-                "形态下可以使用",
-                "",
-                "为指定的一名队友，回复",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("治愈力"),
-                "的生命值，并使其获得持续",
-                speSkillCon("25"),
-                "秒的增益效果，造成的伤害无视目标",
-                speSkillCon("", 0, -1, 3),
-                speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区忽略减伤),
-                "基础减伤，同时，免疫",
-                speSkillCon("[控制效果]", SkillColorEnum.normal, ToastSkillEnum.控制效果),
-            ]
-        }
-    },
-    {
-        "name": "好食多磨",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "回复", "友方增益", "负面状态", "对空"],
-            "sizeLevel": [
-                ["9%", "18%", "90%", "360%"],
-                ["11%", "21%", "105%", "420%"],
-                ["12%", "24%", "120%", "480%"],
-                ["13%", "27%", "135%", "540%"],
-                ["14%", "29%", "142%", "570%"],
-                ["15%", "30%", "150%", "600%"]
-            ],
-            "content": [
-                "对指定",
-                speSkillCon("400"),
-                "范围内的敌人造成其当前生命值",
-                speSkillCon("", 0, -1, 0),
-                "的",
-                speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害),
-                "（首领单位受到的该伤害减少",
-                speSkillCon("70%"),
-                "），并生成持续",
-                speSkillCon("15"),
-                "秒的【浓汤区域】，在上面的敌人水元素抗性降低",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                "（当谛卡重伤或离场时，区域消失）。",
-                "",
-                "给场上友方同调者施加持续",
-                speSkillCon("15"),
-                "秒的回复效果，每秒回复",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("治愈力"),
-                "的生命值，且在获得回复效果时，拥有护盾的同调者每次施放普通攻击时，额外对当前目标造成单体",
-                speSkillCon("", 0, -1, 3),
-                speSkillCon("最终攻击的水元素伤害"),
-                "（伤害视为该同调者造成的伤害）"
-            ]
-        }
-    },
-    {
-        "name": "特性：切换键：翻台",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.58次每秒"]],
-            "atType": ["单体", "伤害", "对空"],
-            "content": [
-                "对目标造成",
-                speSkillCon("170%最终攻击的水元素伤害"),
-                "，且在目标处生成",
-                speSkillCon("50"),
-                "范围的水元素区域"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "能够在",
-                    speSkillCon("「热咖喱」", SkillColorEnum.injuries),
-                    "和",
-                    speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
-                    "形态中切换",
-                    "",
-                    "对友方同调者溢出的治疗将按照",
-                    speSkillCon("30%"),
-                    "比例转化为护盾，最多可以积累最大生命值",
-                    speSkillCon("100%"),
-                    "护盾"
-                ],//零花本体特性
-                [
-                    "谛卡切换形态或释放异核技能时，为场上同调者提供",
-                    speSkillCon("300%治愈力"),
-                    "的护盾。",
-                    "",
-                    "当谛卡拥有的护盾量大于最大生命值的",
-                    speSkillCon("60%"),
-                    "时，谛卡处于「饱食」",
-                    speSkillConWithImg(SkillDescStatusImg.谛卡饱食),
-                    "。当谛卡处于「饱食」",
-                    speSkillConWithImg(SkillDescStatusImg.谛卡饱食),
-                    "时，使场上同调者造成的伤害提高",
-                    speSkillCon("18%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                    "（当谛卡重伤或离场时，此效果消失）"
-                ],//一花特性
-                [
-                    "【浓汤区域】的水元素抗性降低效果对其他元素生效。【易食无忧】技能冷却时间降低至",
-                    speSkillCon("8"),
-                    "秒，次数增加",
-                    speSkillCon("1"),
-                    "次"
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "限时供餐",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["自身增益"],//技能标签
+        "sizeLevel": [
+            ["250%"],
+            ["288%"],
+            ["325%"],
+            ["362%"],
+            ["400%"],
+            ["438%"],
+            ["475%"],
+            ["512%"],
+            ["550%"],
+            ["575%"],
+            ["600%"],
+            ["625%"],
+            ["650%"],
+            ["675%"],
+            ["700%"]
+        ],
+        "content": [
+            "进入持续",
+            speSkillCon("25"),
+            "秒的",
+            speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
+            "形态，回复所有【易食无忧】技能次数，且攻击模式改变：",
+            speSkillCon("攻击速度：0.40次每秒"),
+            "，每次对目标造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的水元素伤害"),
+            "（在此攻击模式下，不再产生水元素区域）",
+            "",
+            "已在",
+            speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
+            "形态下时无法施展【限时供餐】，且",
+            speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
+            "形态结束后",
+            speSkillCon("10"),
+            "秒内无法再次施放"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "易食无忧",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "15秒"], ["次数", "2"]],
+        "tab": ["友方增益", "回复"],
+        "sizeLevel": [
+            ["45%", "16%", "500%", "24%"],
+            ["52%", "18%", "575%", "27.6%"],
+            ["59%", "21%", "650%", "31.2%"],
+            ["65%", "23%", "725%", "34.8%"],
+            ["72%", "26%", "800%", "38.4%"],
+            ["79%", "28%", "875%", "42%"],
+            ["86%", "30%", "950%", "45.6%"],
+            ["92%", "33%", "1025%", "49.2%"],
+            ["99%", "35%", "1100%", "52.8%"],
+            ["104%", "37%", "1150%", "55.2%"],
+            ["108%", "38%", "1200%", "57.6%"],
+            ["113%", "40%", "1250%", "60%"],
+            ["117%", "42%", "1300%", "62.4%"],
+            ["122%", "43%", "1350%", "64.8%"],
+            ["126%", "45%", "1400%", "67.2%"]
+        ],
+        "content": [
+            "自动：",
+            "",
+            "每隔",
+            speSkillCon("6"),
+            "秒，对友方同调者进行一次治疗，回复",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("治愈力"),
+            "的生命值，并根据同调者当前是否拥有护盾触发不同的效果：",
+            "",
+            "对没有护盾的队友，治疗量额外提高",
+            speSkillCon("40%"),
+            "",
+            "对拥有护盾的队友，提高",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
+            speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("10"),
+            "秒",
+            "",
+            "",
+            "主动：",
+            "",
+            "只在",
+            speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
+            "形态下可以使用",
+            "",
+            "为指定的一名队友，回复",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("治愈力"),
+            "的生命值，并使其获得持续",
+            speSkillCon("25"),
+            "秒的增益效果，造成的伤害无视目标",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区忽略减伤),
+            "基础减伤，同时，免疫",
+            speSkillCon("[控制效果]", SkillColorEnum.normal, ToastSkillEnum.控制效果),
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "好食多磨",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "回复", "友方增益", "负面状态", "对空"],
+        "sizeLevel": [
+            ["9%", "18%", "90%", "360%"],
+            ["11%", "21%", "105%", "420%"],
+            ["12%", "24%", "120%", "480%"],
+            ["13%", "27%", "135%", "540%"],
+            ["14%", "29%", "142%", "570%"],
+            ["15%", "30%", "150%", "600%"]
+        ],
+        "content": [
+            "对指定",
+            speSkillCon("400"),
+            "范围内的敌人造成其当前生命值",
+            speSkillCon("", 0, -1, 0),
+            "的",
+            speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害),
+            "（首领单位受到的该伤害减少",
+            speSkillCon("70%"),
+            "），并生成持续",
+            speSkillCon("15"),
+            "秒的【浓汤区域】，在上面的敌人水元素抗性降低",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+            "（当谛卡重伤或离场时，区域消失）。",
+            "",
+            "给场上友方同调者施加持续",
+            speSkillCon("15"),
+            "秒的回复效果，每秒回复",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("治愈力"),
+            "的生命值，且在获得回复效果时，拥有护盾的同调者每次施放普通攻击时，额外对当前目标造成单体",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("最终攻击的水元素伤害"),
+            "（伤害视为该同调者造成的伤害）"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：切换键：翻台",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.58次每秒"]],
+        "atType": ["单体", "伤害", "对空"],
+        "content": [
+            "对目标造成",
+            speSkillCon("170%最终攻击的水元素伤害"),
+            "，且在目标处生成",
+            speSkillCon("50"),
+            "范围的水元素区域"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "能够在",
+                speSkillCon("「热咖喱」", SkillColorEnum.injuries),
+                "和",
+                speSkillCon("「灵魂咖喱」", SkillColorEnum.injuries),
+                "形态中切换",
+                "",
+                "对友方同调者溢出的治疗将按照",
+                speSkillCon("30%"),
+                "比例转化为护盾，最多可以积累最大生命值",
+                speSkillCon("100%"),
+                "护盾"
+            ],//零花本体特性
+            [
+                "谛卡切换形态或释放异核技能时，为场上同调者提供",
+                speSkillCon("300%治愈力"),
+                "的护盾。",
+                "",
+                "当谛卡拥有的护盾量大于最大生命值的",
+                speSkillCon("60%"),
+                "时，谛卡处于「饱食」",
+                speSkillConWithImg(SkillDescStatusImg.谛卡饱食),
+                "。当谛卡处于「饱食」",
+                speSkillConWithImg(SkillDescStatusImg.谛卡饱食),
+                "时，使场上同调者造成的伤害提高",
+                speSkillCon("18%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "（当谛卡重伤或离场时，此效果消失）"
+            ],//一花特性
+            [
+                "【浓汤区域】的水元素抗性降低效果对其他元素生效。【易食无忧】技能冷却时间降低至",
+                speSkillCon("8"),
+                "秒，次数增加",
+                speSkillCon("1"),
+                "次"
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "“忌口”",
@@ -369,7 +375,7 @@ const Tea = {
                 "盐",
                 "樱桃"
             ],
-            "ex": [455, 510, 555],//参考默契值，无加，满家具，满加成
+            "ex": [455],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 4,
@@ -378,7 +384,7 @@ const Tea = {
                 "燕麦奶",
                 "汪汪饼干"
             ],
-            "ex": [475, 531, 579],//参考默契值，无加，满家具，满加成
+            "ex": [475],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -388,7 +394,7 @@ const Tea = {
                 "标准",
                 "香蕉冰淇淋"
             ],
-            "ex": [504, 564, 615],//参考默契值，无加，满家具，满加成
+            "ex": [504],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -397,7 +403,7 @@ const Tea = {
                 "七分糖",
                 "蜜桃冻"
             ],
-            "ex": [519, 582, 634],//参考默契值，无加，满家具，满加成
+            "ex": [519],//参考默契值，无加，满家具，满加成
         }
     ]
 }

@@ -1,8 +1,9 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "护佑者", "skill": [MXLaohenEnum.落井下石, MXLaohenEnum.润物无声], "attr": "shui", "star": "4",
     "nameEn": "CHANGYAO", "tag": ["治疗", "控场"], "originWorld": "海错", "orginChar": "原创",
     "cv": "忙音", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -17,90 +18,95 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "闭门蟹客",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "18秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["水区域", "负面状态", "伤害"],//技能标签
-            "content": [
-                "向目标位置发射泡泡，在目标位置留下水元素区域。",
-                "",
-                "泡泡会将目标点半径",
-                speSkillCon("150"),
-                "范围内的敌人困在空中，持续",
-                speSkillCon("5"),
-                "秒后泡泡碎裂，对半径",
-                speSkillCon("150"),
-                "范围内的敌人造成",
-                speSkillCon("875%最终攻击的水元素伤害"),
-                "（该效果对精英、首领级别敌人无效）"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "蟹手回春",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "5秒"]],
-            "tab": ["回复"],
-            "content": [
-                "治疗当前生命值百分比最低的两名友方同调者",
-                speSkillCon("250%治愈力"),
-                "的生命值"
-            ]
-        }
-    },
-    {
-        "name": "绮光万象",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["回复"],
-            "content": [
-                "每3秒治疗所有友方同调者",
-                speSkillCon("150%治愈力"),
-                "的生命值，总计会产生10次治疗效果"
-            ]
-        }
-    },
-    {
-        "name": "特性：治愈气泡",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.48次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "向当前目标发射泡泡弹造成",
-                speSkillCon("210%最终攻击的水元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "可以治疗友方同调者"
-                ],//零花本体特性
-                [
-                    "主动技能【闭门蟹客】效果范围额外扩大",
-                    speSkillCon("100")
-                ],//一花特性
-                [
-                    "治愈力提升",
-                    speSkillCon("25%"),
-                    speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "闭门蟹客",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "18秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["水区域", "负面状态", "伤害"],//技能标签
+        "content": [
+            "向目标位置发射泡泡，在目标位置留下水元素区域。",
+            "",
+            "泡泡会将目标点半径",
+            speSkillCon("150"),
+            "范围内的敌人困在空中，持续",
+            speSkillCon("5"),
+            "秒后泡泡碎裂，对半径",
+            speSkillCon("150"),
+            "范围内的敌人造成",
+            speSkillCon("875%最终攻击的水元素伤害"),
+            "（该效果对精英、首领级别敌人无效）"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "蟹手回春",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "5秒"]],
+        "tab": ["回复"],
+        "content": [
+            "治疗当前生命值百分比最低的两名友方同调者",
+            speSkillCon("250%治愈力"),
+            "的生命值"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "绮光万象",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["回复"],
+        "content": [
+            "每3秒治疗所有友方同调者",
+            speSkillCon("150%治愈力"),
+            "的生命值，总计会产生10次治疗效果"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：治愈气泡",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.48次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "向当前目标发射泡泡弹造成",
+            speSkillCon("210%最终攻击的水元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "可以治疗友方同调者"
+            ],//零花本体特性
+            [
+                "主动技能【闭门蟹客】效果范围额外扩大",
+                speSkillCon("100")
+            ],//一花特性
+            [
+                "治愈力提升",
+                speSkillCon("25%"),
+                speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "气泡消失术",
@@ -214,7 +220,7 @@ const Tea = {
                 "五分糖",
                 "少冰"
             ],
-            "ex": [399, 447, 487],//参考默契值，无加，满家具，满加成
+            "ex": [399],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 8,
@@ -224,7 +230,7 @@ const Tea = {
                 "少冰",
                 "青提"
             ],
-            "ex": [411, 460, 502],//参考默契值，无加，满家具，满加成
+            "ex": [411],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 16,
@@ -233,7 +239,7 @@ const Tea = {
                 "五分糖",
                 "原味雪顶"
             ],
-            "ex": [495, 554, 604],//参考默契值，无加，满家具，满加成
+            "ex": [495],//参考默契值，无加，满家具，满加成
         }
     ]
 }

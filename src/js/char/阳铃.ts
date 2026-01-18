@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "护佑者", "skill": [MXLaohenEnum.核心充能菱形α型, MXLaohenEnum.冻结延长], "attr": "shuang", "star": "5",
     "nameEn": "NOLA", "tag": ["治疗", "控场"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
     "cv": "叶知秋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -18,114 +19,118 @@ const Desc = {
         ]
     }
 }
+const skill1: DefaultNormalSkillObj = {
+    "name": "早春祷歌",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["回复"],//技能标签
+        "content": [
+            "对全体友方同调者进行",
+            speSkillConWithImg(SkillDescStatusImg.阳铃持续治疗),
+            "「持续治疗」，每秒治疗目标",
+            speSkillCon("68%治愈力"),
+            "的生命值，持续",
+            speSkillCon("15"),
+            "秒"
+        ]//满级技能内容描述
+    }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "冬的挽留",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "20秒"]],
+        "tab": ["伤害", "负面状态"],
+        "content": [
+            "在指定位置制造半径",
+            speSkillCon("300"),
+            "范围的暴风雪区域，每0.5秒对区域内的敌人造成",
+            speSkillCon("158%最终攻击的霜元素伤害"),
+            "，持续",
+            speSkillCon("10"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "鼬的报恩",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["自身增益", "友方增益", "回复", "持续施法"],
+        "content": [
+            "持续施法对全场生命值百分比最低的三名友方同调者进行治疗，每秒治疗目标",
+            speSkillCon("240%治愈力"),
+            "的生命值，持续",
+            speSkillCon("6"),
+            "秒",
+            "",
+            "同时提升全场友方同调者",
+            speSkillCon("30%[同调者攻击速度]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击速度),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("10"),
+            "秒"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：与维瑟尔约定",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.60次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "向当前目标发射雪球或冰锥，造成",
+            speSkillCon("165%最终攻击的霜元素伤害"),
+            "",
+            "目标在自身近战范围内时，下次普通攻击替换为雪鼬扫尾，造成",
+            speSkillCon("300%最终攻击的霜元素伤害"),
+            "并以",
+            speSkillCon("1级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "击退范围内的所有敌人 (每20秒最多触发一次)"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "攻击对敌人附加移动速度降低",
+                speSkillCon("70%"),
+                "效果，持续",
+                speSkillCon("3"),
+                "秒"
+            ],//零花本体特性
+            [
+                "治愈力提升",
+                speSkillCon("25%"),
+                speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries),
+                "，同时延长",
+                speSkillCon("5"),
+                "秒主动技能【早春祷歌】的持续时间"
+            ],//一花特性
+            [
+                "受到特性减速效果影响的单位遭受的伤害提高",
+                speSkillCon("10%"),
+                speSkillCon("（目标减益乘区·目标额外减伤降低）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
 
 const Skill = [
-    {
-        "name": "早春祷歌",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["回复"],//技能标签
-            "content": [
-                "对全体友方同调者进行",
-                speSkillConWithImg(SkillDescStatusImg.阳铃持续治疗),
-                "「持续治疗」，每秒治疗目标",
-                speSkillCon("68%治愈力"),
-                "的生命值，持续",
-                speSkillCon("15"),
-                "秒"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "冬的挽留",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "20秒"]],
-            "tab": ["伤害", "负面状态"],
-            "content": [
-                "在指定位置制造半径",
-                speSkillCon("300"),
-                "范围的暴风雪区域，每0.5秒对区域内的敌人造成",
-                speSkillCon("158%最终攻击的霜元素伤害"),
-                "，持续",
-                speSkillCon("10"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "鼬的报恩",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["自身增益", "友方增益", "回复", "持续施法"],
-            "content": [
-                "持续施法对全场生命值百分比最低的三名友方同调者进行治疗，每秒治疗目标",
-                speSkillCon("240%治愈力"),
-                "的生命值，持续",
-                speSkillCon("6"),
-                "秒",
-                "",
-                "同时提升全场友方同调者",
-                speSkillCon("30%[同调者攻击速度]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击速度),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("10"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "特性：与维瑟尔约定",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.60次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "向当前目标发射雪球或冰锥，造成",
-                speSkillCon("165%最终攻击的霜元素伤害"),
-                "",
-                "目标在自身近战范围内时，下次普通攻击替换为雪鼬扫尾，造成",
-                speSkillCon("300%最终攻击的霜元素伤害"),
-                "并以",
-                speSkillCon("1级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "击退范围内的所有敌人 (每20秒最多触发一次)"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "攻击对敌人附加移动速度降低",
-                    speSkillCon("70%"),
-                    "效果，持续",
-                    speSkillCon("3"),
-                    "秒"
-                ],//零花本体特性
-                [
-                    "治愈力提升",
-                    speSkillCon("25%"),
-                    speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries),
-                    "，同时延长",
-                    speSkillCon("5"),
-                    "秒主动技能【早春祷歌】的持续时间"
-                ],//一花特性
-                [
-                    "受到特性减速效果影响的单位遭受的伤害提高",
-                    speSkillCon("10%"),
-                    speSkillCon("（目标减益乘区·目标额外减伤降低）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
-    }
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "将错就错",
@@ -254,7 +259,7 @@ const Tea = {
                 "常温",
                 "全脂牛奶"
             ],
-            "ex": [385, 431, 470],//参考默契值，无加，满家具，满加成
+            "ex": [385],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 4,
@@ -264,7 +269,7 @@ const Tea = {
                 "少冰",
                 "椰果"
             ],
-            "ex": [420, 470, 512],//参考默契值，无加，满家具，满加成
+            "ex": [420],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -273,7 +278,7 @@ const Tea = {
                 "全脂牛奶",
                 "椰果"
             ],
-            "ex": [470, 526, 574],//参考默契值，无加，满家具，满加成
+            "ex": [470],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -282,7 +287,7 @@ const Tea = {
                 "常温",
                 "茶冻"
             ],
-            "ex": [495, 554, 604],//参考默契值，无加，满家具，满加成
+            "ex": [495],//参考默契值，无加，满家具，满加成
         }
     ]
 }

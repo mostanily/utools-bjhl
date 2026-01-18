@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultSkillLinkObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "护佑者", "skill": [MXLaohenEnum.坚实护盾, MXLaohenEnum.锻炼治疗], "attr": "wuli", "star": "5",
     "nameEn": "SUXIAO", "tag": ["治疗", "屏障"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "Vila", "openDate": "2024年01月12日", "resourse": ["主线初始赠送"],
@@ -19,257 +20,263 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "选择障碍",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "抉择技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "-"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害"],//技能标签
-            "sizeLevel": [
-                ["600%","2000%","250%"],
-                ["690%","2300%","288%"],
-                ["780%","2600%","325%"],
-                ["870%","2900%","363%"],
-                ["960%","3200%","400%"],
-                ["1050%","3500%","438%"],
-                ["1140%","3800%","475%"],
-                ["1230%","4100%","513%"],
-                ["1320%","4400%","550%"],
-                ["1380%","4600%","575%"],
-                ["1440%","4800%","600%"],
-                ["1500%","5000%","625%"],
-                ["1530%","5100%","638%"],
-                ["1560%","5200%","650%"],
-                ["1590%","5300%","662%"]
-            ],
-            "content": [
-                "可选择以下其一技能施放：",
-                "",
-                "剑形态-经典战备：对直线范围内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的物理伤害"),
-                "（指令冷却：",
-                speSkillCon("12"),
-                "秒）",
-                "",
-                "锤形态-大锤定律：对离中心点最近的单个敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的物理伤害"),
-                "，同时溅射周围敌人造成",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("最终攻击的物理伤害"),
-                "（指令冷却：",
-                speSkillCon("20"),
-                "秒）"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "外勤统筹",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "10秒"], ["次数", "2"]],
-            "tab": ["回复", "屏障"],
-            "sizeLevel": [
-                ["100%"],
-                ["115%"],
-                ["130%"],
-                ["145%"],
-                ["160%"],
-                ["175%"],
-                ["190%"],
-                ["205%"],
-                ["220%"],
-                ["230%"],
-                ["240%"],
-                ["250%"],
-                ["255%"],
-                ["260%"],
-                ["265%"]
-            ],
-            "content": [
-                "被动：每隔",
-                speSkillCon("5"),
-                "秒，无人机会治疗场上当前生命值百分比最低的友方同调者总计",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("治愈力"),
-                "的生命值",
-                "",
-                "",
-                "主动：操纵无人机在指定位置生成",
-                speSkillCon("较大强度"),
-                "的屏障，抵御敌方投射物，持续",
-                speSkillCon("20"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "三倍工资",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "120秒"]],
-            "tab": ["回复"],
-            "sizeLevel": [
-                ["20%"],
-                ["30%"],
-                ["40%"],
-                ["50%"],
-                ["55%"],
-                ["60%"]
-            ],
-            "content": [
-                "使全体友方同调者提升",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("[同调者最大生命值]", SkillColorEnum.normal, ToastSkillEnum.同调者最大生命值),
-                "，并回复所有生命值"
-            ]
-        }
-    },
-    {
-        "name": "特性：全能助理",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.62次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "攻击面前的目标造成",
-                speSkillCon("144%最终攻击的物理伤害"),
-                "，第三下普通攻击会向目标挥锤造成圆形范围",
-                speSkillCon("360%最终攻击的物理伤害"),
-                "",
-                "近战范围没有目标时，普通攻击会向远处敌人投掷爆弹，",
-                speSkillCon("攻击速度：0.40次每秒"),
-                "，造成小范围",
-                speSkillCon("72%最终攻击的物理伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "操纵白荆科技无人机（视为召唤物）辅助外勤工作，负责治疗和防护",
-                    "",
-                    "当友方同调者陷入危机时，立即解除自身与目标同调者的",
-                    speSkillCon("[控制效果]", SkillColorEnum.normal, ToastSkillEnum.控制效果),
-                    "，无人机将回复该名同调者全部生命和技能使用次数，同时使该同调者和自身的攻击力提升",
-                    speSkillCon("10%"),
-                    speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                    "，暴击率提升",
-                    speSkillCon("20%"),
-                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                    "，持续至战斗结束（该效果一场战斗只能触发—次）"
-                ],//零花本体特性
-                [
-                    "治愈力提升",
-                    speSkillCon("20%"),
-                    speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries),
-                    "，造成伤害时附带",
-                    speSkillCon("20%"),
-                    speSkillCon("（增伤乘区·额外伤害增加值）", SkillColorEnum.injuries),
-                    "治愈力的额外伤害"
-                ],//一花特性
-                [
-                    "区域切换时，将重置特性效果的触发次数"
-                ]//三花特性
-            ]
-        }
-    },
-    {
-        "name": "技能同调",
-        "aliasNum": "技能同调",
-        "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
-        "unlock": LaohenNameEnum.同行,//该技能解锁条件，拥有对应的烙痕ID
-        "detail": {
-            "name": "内务管理",
-            "aliasNum": "1",
-            "maxLevel": 15,
-            "type": "抉择技能",
-            "skillTab": [["指令冷却", "-"], ["次数", "6"]],
-            "tab": ["伤害", "自身增益"],
-            "sizeLevel": [
-                ["600%", "350%", "2000%", "250%"],
-                ["690%", "403%", "2300%","288%"],
-                ["780%", "455%", "2600%","325%"],
-                ["870%", "508%", "2900%","362%"],
-                ["960%", "560%", "3200%","400%"],
-                ["1050%", "613%", "3500%","438%"],
-                ["1140%", "665%", "3800%","475%"],
-                ["1230%", "718%", "4100%","512%"],
-                ["1320%", "770%", "4400%","550%"],
-                ["1380%", "805%", "4600%","575%"],
-                ["1440%", "840%", "4800%","600%"],
-                ["1500%", "875%", "5000%","625%"],
-                ["1530%", "910%", "5100%","638%"],
-                ["1560%", "945%", "5200%","650%"],
-                ["1590%", "980%", "5300%","662%"]
-            ],
-            "content": [
-                "可选择以下其一技能施放：",
-                "",
-                "【直球攻势】-炎：对直线范围内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "（指令冷却：",
-                speSkillCon("15"),
-                "秒）",
-                "",
-                "技能结束后",
-                speSkillCon("20"),
-                "秒内，普通攻击附加",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "",
-                "【雷厉风行】-雷：对离中心点最近的单个敌人造成",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "，同时溅射周围敌人造成",
-                speSkillCon("", 0, -1, 3),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "（指令冷却：",
-                speSkillCon("15"),
-                "秒）",
-                "",
-                "技能结束后",
-                speSkillCon("20"),
-                "秒内，普通攻击附加",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "",
-                "同一时间只能存在一种属性的附加伤害"
-            ],
-            "specialContent":[
-                [
-                    "苏筱触发",
-                    speSkillCon("[爆燃反应]", SkillColorEnum.normal, ToastSkillEnum.爆燃反应),
-                    "时，目标基础减伤降低50%",
-                    speSkillCon("(目标减益乘区·目标基础减伤降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标基础减伤降低),
-                    "，持续20秒（该效果属于",
-                    speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
-                    "，苏筱离场效果消失），且场上同调者回复苏筱55%治愈力的生命值（回复效果每1秒最多触发1次）。"
-                ],//特质Ⅱ级解锁
-                [
-                    "苏筱在场时，场上同调者触发",
-                    speSkillCon("[爆燃反应]", SkillColorEnum.normal, ToastSkillEnum.爆燃反应),
-                    "，苏筱及触发者的",
-                    speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精),
-                    "提高40%",
-                    speSkillCon("(属性乘区·专精加成)", SkillColorEnum.injuries),
-                    "且主动技能回复速度提高50%",
-                    speSkillCon("(属性乘区·主动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
-                    "，持续20秒"
-                ],//特质Ⅴ级解锁
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "选择障碍",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "抉择技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "-"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害"],//技能标签
+        "sizeLevel": [
+            ["600%", "2000%", "250%"],
+            ["690%", "2300%", "288%"],
+            ["780%", "2600%", "325%"],
+            ["870%", "2900%", "363%"],
+            ["960%", "3200%", "400%"],
+            ["1050%", "3500%", "438%"],
+            ["1140%", "3800%", "475%"],
+            ["1230%", "4100%", "513%"],
+            ["1320%", "4400%", "550%"],
+            ["1380%", "4600%", "575%"],
+            ["1440%", "4800%", "600%"],
+            ["1500%", "5000%", "625%"],
+            ["1530%", "5100%", "638%"],
+            ["1560%", "5200%", "650%"],
+            ["1590%", "5300%", "662%"]
+        ],
+        "content": [
+            "可选择以下其一技能施放：",
+            "",
+            "剑形态-经典战备：对直线范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的物理伤害"),
+            "（指令冷却：",
+            speSkillCon("12"),
+            "秒）",
+            "",
+            "锤形态-大锤定律：对离中心点最近的单个敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的物理伤害"),
+            "，同时溅射周围敌人造成",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("最终攻击的物理伤害"),
+            "（指令冷却：",
+            speSkillCon("20"),
+            "秒）"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "外勤统筹",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "10秒"], ["次数", "2"]],
+        "tab": ["回复", "屏障"],
+        "sizeLevel": [
+            ["100%"],
+            ["115%"],
+            ["130%"],
+            ["145%"],
+            ["160%"],
+            ["175%"],
+            ["190%"],
+            ["205%"],
+            ["220%"],
+            ["230%"],
+            ["240%"],
+            ["250%"],
+            ["255%"],
+            ["260%"],
+            ["265%"]
+        ],
+        "content": [
+            "被动：每隔",
+            speSkillCon("5"),
+            "秒，无人机会治疗场上当前生命值百分比最低的友方同调者总计",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("治愈力"),
+            "的生命值",
+            "",
+            "",
+            "主动：操纵无人机在指定位置生成",
+            speSkillCon("较大强度"),
+            "的屏障，抵御敌方投射物，持续",
+            speSkillCon("20"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "三倍工资",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "120秒"]],
+        "tab": ["回复"],
+        "sizeLevel": [
+            ["20%"],
+            ["30%"],
+            ["40%"],
+            ["50%"],
+            ["55%"],
+            ["60%"]
+        ],
+        "content": [
+            "使全体友方同调者提升",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("[同调者最大生命值]", SkillColorEnum.normal, ToastSkillEnum.同调者最大生命值),
+            "，并回复所有生命值"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：全能助理",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.62次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "攻击面前的目标造成",
+            speSkillCon("144%最终攻击的物理伤害"),
+            "，第三下普通攻击会向目标挥锤造成圆形范围",
+            speSkillCon("360%最终攻击的物理伤害"),
+            "",
+            "近战范围没有目标时，普通攻击会向远处敌人投掷爆弹，",
+            speSkillCon("攻击速度：0.40次每秒"),
+            "，造成小范围",
+            speSkillCon("72%最终攻击的物理伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "操纵白荆科技无人机（视为召唤物）辅助外勤工作，负责治疗和防护",
+                "",
+                "当友方同调者陷入危机时，立即解除自身与目标同调者的",
+                speSkillCon("[控制效果]", SkillColorEnum.normal, ToastSkillEnum.控制效果),
+                "，无人机将回复该名同调者全部生命和技能使用次数，同时使该同调者和自身的攻击力提升",
+                speSkillCon("10%"),
+                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+                "，暴击率提升",
+                speSkillCon("20%"),
+                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+                "，持续至战斗结束（该效果一场战斗只能触发—次）"
+            ],//零花本体特性
+            [
+                "治愈力提升",
+                speSkillCon("20%"),
+                speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries),
+                "，造成伤害时附带",
+                speSkillCon("20%"),
+                speSkillCon("（增伤乘区·额外伤害增加值）", SkillColorEnum.injuries),
+                "治愈力的额外伤害"
+            ],//一花特性
+            [
+                "区域切换时，将重置特性效果的触发次数"
+            ]//三花特性
+        ]
+    }
+}
+const skillLink: DefaultSkillLinkObj = {
+    "name": "技能同调",
+    "aliasNum": "技能同调",
+    "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+    "unlock": LaohenNameEnum.同行,//该技能解锁条件，拥有对应的烙痕ID
+    "detail": {
+        "name": "内务管理",
+        "aliasNum": "1",
+        "maxLevel": 15,
+        "type": "抉择技能",
+        "skillTab": [["指令冷却", "-"], ["次数", "6"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["600%", "350%", "2000%", "250%"],
+            ["690%", "403%", "2300%", "288%"],
+            ["780%", "455%", "2600%", "325%"],
+            ["870%", "508%", "2900%", "362%"],
+            ["960%", "560%", "3200%", "400%"],
+            ["1050%", "613%", "3500%", "438%"],
+            ["1140%", "665%", "3800%", "475%"],
+            ["1230%", "718%", "4100%", "512%"],
+            ["1320%", "770%", "4400%", "550%"],
+            ["1380%", "805%", "4600%", "575%"],
+            ["1440%", "840%", "4800%", "600%"],
+            ["1500%", "875%", "5000%", "625%"],
+            ["1530%", "910%", "5100%", "638%"],
+            ["1560%", "945%", "5200%", "650%"],
+            ["1590%", "980%", "5300%", "662%"]
+        ],
+        "content": [
+            "可选择以下其一技能施放：",
+            "",
+            "【直球攻势】-炎：对直线范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "（指令冷却：",
+            speSkillCon("15"),
+            "秒）",
+            "",
+            "技能结束后",
+            speSkillCon("20"),
+            "秒内，普通攻击附加",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "",
+            "【雷厉风行】-雷：对离中心点最近的单个敌人造成",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "，同时溅射周围敌人造成",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "（指令冷却：",
+            speSkillCon("15"),
+            "秒）",
+            "",
+            "技能结束后",
+            speSkillCon("20"),
+            "秒内，普通攻击附加",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "",
+            "同一时间只能存在一种属性的附加伤害"
+        ],
+        "specialContent": [
+            [
+                "苏筱触发",
+                speSkillCon("[爆燃反应]", SkillColorEnum.normal, ToastSkillEnum.爆燃反应),
+                "时，目标基础减伤降低50%",
+                speSkillCon("(目标减益乘区·目标基础减伤降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标基础减伤降低),
+                "，持续20秒（该效果属于",
+                speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
+                "，苏筱离场效果消失），且场上同调者回复苏筱55%治愈力的生命值（回复效果每1秒最多触发1次）。"
+            ],//特质Ⅱ级解锁
+            [
+                "苏筱在场时，场上同调者触发",
+                speSkillCon("[爆燃反应]", SkillColorEnum.normal, ToastSkillEnum.爆燃反应),
+                "，苏筱及触发者的",
+                speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精),
+                "提高40%",
+                speSkillCon("(属性乘区·专精加成)", SkillColorEnum.injuries),
+                "且主动技能回复速度提高50%",
+                speSkillCon("(属性乘区·主动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
+                "，持续20秒"
+            ],//特质Ⅴ级解锁
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese,
+    skillLink
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "改良配方实验员",
@@ -393,7 +400,7 @@ const Tea = {
                 "五分糖",
                 "正常冰"
             ],
-            "ex": [475, 532, 580],//参考默契值，无加，满家具，满加成
+            "ex": [475],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -403,7 +410,7 @@ const Tea = {
                 "正常冰",
                 "奇异果片"
             ],
-            "ex": [503, 563, 614],//参考默契值，无加，满家具，满加成
+            "ex": [503],//参考默契值，无加，满家具，满加成
         }
     ]
 }

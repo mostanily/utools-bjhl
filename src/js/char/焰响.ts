@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "铁御", "skill": [MXLaohenEnum.一线生机, MXLaohenEnum.绝处逢生], "attr": "yan", "star": "4",
     "nameEn": "INFA", "tag": ["防护", "支援"], "originWorld": "黑曜", "orginChar": "原创",
     "cv": "张昱", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -18,171 +19,176 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "鸣金",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "自身增益"],//技能标签
-            "sizeLevel": [
-                ["800%"],
-                ["920%"],
-                ["1040%"],
-                ["1160%"],
-                ["1280%"],
-                ["1400%"],
-                ["1520%"],
-                ["1640%"],
-                ["1760%"],
-                ["1840%"],
-                ["1920%"],
-                ["2000%"],
-                ["2040%"],
-                ["2080%"],
-                ["2120%"]
-            ],
-            "content": [
-                "对面前扇形范围半径",
-                speSkillCon("450"),
-                "内的敌人总计造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "并",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "目标，同时自身基础减伤增加",
-                speSkillCon("3%~5%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                speSkillCon("10"),
-                "秒。",
-                "",//空表示该处需要设置为<br>标签
-                "赫九逸在场时，技能半径扩大至",
-                speSkillCon("600")
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "抓彩",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "20秒"], ["增益持续", "10秒"]],
-            "tab": ["自身增益", "友方增益", "回复"],
-            "sizeLevel": [
-                ["50%", "6%~10%", "7.8%~13%"],
-                ["57%", "6%~10%", "7.8%~13%"],
-                ["65%", "6%~10%", "7.8%~13%"],
-                ["73%", "6%~10%", "7.8%~13%"],
-                ["80%", "6%~10%", "7.8%~13%"],
-                ["88%", "7.2%~12%", "9.6%~16%"],
-                ["95%", "7.2%~12%", "9.6%~16%"],
-                ["103%", "7.2%~12%", "9.6%~16%"],
-                ["110%", "9%~15%", "12%~20%"],
-                ["115%", "9%~15%", "12%~20%"],
-                ["120%", "9%~15%", "12%~20%"],
-                ["125%", "9%~15%", "12%~20%"],
-                ["127%", "9%~15%", "12%~20%"],
-                ["130%", "9%~15%", "12%~20%"],
-                ["132%", "9%~15%", "12%~20%"]
-            ],
-            "content": [
-                "抽取红包获得增益效果，基础减伤增加",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                "，有50%概率抽取到“大”红包，基础减伤增加量提高至",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("10"),
-                "秒",
-                "",
-                "效果持续期间内，自身每秒回复",
-                speSkillCon("7%最大生命值"),
-                "，自身附着火环，每秒对自身周围半径",
-                speSkillCon("150"),
-                "范围内的敌人造成",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("最终攻击的炎元素伤害"),
-            ]
-        }
-    },
-    {
-        "name": "赤焰压祟",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "80秒"]],
-            "tab": ["伤害", "负面状态"],
-            "sizeLevel": [
-                ["1600%", "88%"],
-                ["1800%", "99%"],
-                ["2000%", "110%"],
-                ["2200%", "121%"],
-                ["2300%", "126%"],
-                ["2400%", "132%"]
-            ],
-            "content": [
-                "对指定目标点半径",
-                speSkillCon("300"),
-                "范围内的敌人总计造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，并",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "目标，同时降低敌人",
-                speSkillCon("25%"),
-                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                "炎元素抗性，持续",
-                speSkillCon("10"),
-                "秒。",
-                "",
-                "之后会在目标区域留下一个存在",
-                speSkillCon("15"),
-                "秒的火雨区域，每秒对范围内的敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "并附加相同的炎元素抗性降低效果",
-                "",
-                "赫九逸在场时，技能半径扩大至",
-                speSkillCon("500")
-            ]
-        }
-    },
-    {
-        "name": "特性：吉人相",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.60次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "攻击面前的目标造成",
-                speSkillCon("200%最终攻击的物理伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "赫九逸在场时，双方的技能范围都将得到大幅提升"
-                ],//零花本体特性
-                [
-                    "自动技能【抓彩】产生的增益效果将同时附加给所有友方同调者，友方生命回复效果受益三分之一"
-                ],//一花特性
-                [
-                    "最终体质提升",
-                    speSkillCon("10%"),
-                    speSkillCon("（属性乘区·体质加成）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "鸣金",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "自身增益"],//技能标签
+        "sizeLevel": [
+            ["800%"],
+            ["920%"],
+            ["1040%"],
+            ["1160%"],
+            ["1280%"],
+            ["1400%"],
+            ["1520%"],
+            ["1640%"],
+            ["1760%"],
+            ["1840%"],
+            ["1920%"],
+            ["2000%"],
+            ["2040%"],
+            ["2080%"],
+            ["2120%"]
+        ],
+        "content": [
+            "对面前扇形范围半径",
+            speSkillCon("450"),
+            "内的敌人总计造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "并",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "目标，同时自身基础减伤增加",
+            speSkillCon("3%~5%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            speSkillCon("10"),
+            "秒。",
+            "",//空表示该处需要设置为<br>标签
+            "赫九逸在场时，技能半径扩大至",
+            speSkillCon("600")
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "抓彩",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "20秒"], ["增益持续", "10秒"]],
+        "tab": ["自身增益", "友方增益", "回复"],
+        "sizeLevel": [
+            ["50%", "6%~10%", "7.8%~13%"],
+            ["57%", "6%~10%", "7.8%~13%"],
+            ["65%", "6%~10%", "7.8%~13%"],
+            ["73%", "6%~10%", "7.8%~13%"],
+            ["80%", "6%~10%", "7.8%~13%"],
+            ["88%", "7.2%~12%", "9.6%~16%"],
+            ["95%", "7.2%~12%", "9.6%~16%"],
+            ["103%", "7.2%~12%", "9.6%~16%"],
+            ["110%", "9%~15%", "12%~20%"],
+            ["115%", "9%~15%", "12%~20%"],
+            ["120%", "9%~15%", "12%~20%"],
+            ["125%", "9%~15%", "12%~20%"],
+            ["127%", "9%~15%", "12%~20%"],
+            ["130%", "9%~15%", "12%~20%"],
+            ["132%", "9%~15%", "12%~20%"]
+        ],
+        "content": [
+            "抽取红包获得增益效果，基础减伤增加",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            "，有50%概率抽取到“大”红包，基础减伤增加量提高至",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("10"),
+            "秒",
+            "",
+            "效果持续期间内，自身每秒回复",
+            speSkillCon("7%最大生命值"),
+            "，自身附着火环，每秒对自身周围半径",
+            speSkillCon("150"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("最终攻击的炎元素伤害"),
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "赤焰压祟",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "80秒"]],
+        "tab": ["伤害", "负面状态"],
+        "sizeLevel": [
+            ["1600%", "88%"],
+            ["1800%", "99%"],
+            ["2000%", "110%"],
+            ["2200%", "121%"],
+            ["2300%", "126%"],
+            ["2400%", "132%"]
+        ],
+        "content": [
+            "对指定目标点半径",
+            speSkillCon("300"),
+            "范围内的敌人总计造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，并",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "目标，同时降低敌人",
+            speSkillCon("25%"),
+            speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+            "炎元素抗性，持续",
+            speSkillCon("10"),
+            "秒。",
+            "",
+            "之后会在目标区域留下一个存在",
+            speSkillCon("15"),
+            "秒的火雨区域，每秒对范围内的敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "并附加相同的炎元素抗性降低效果",
+            "",
+            "赫九逸在场时，技能半径扩大至",
+            speSkillCon("500")
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：吉人相",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.60次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "攻击面前的目标造成",
+            speSkillCon("200%最终攻击的物理伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "赫九逸在场时，双方的技能范围都将得到大幅提升"
+            ],//零花本体特性
+            [
+                "自动技能【抓彩】产生的增益效果将同时附加给所有友方同调者，友方生命回复效果受益三分之一"
+            ],//一花特性
+            [
+                "最终体质提升",
+                speSkillCon("10%"),
+                speSkillCon("（属性乘区·体质加成）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "热身动作",
@@ -307,7 +313,7 @@ const Tea = {
                 "多冰",
                 "椰果"
             ],
-            "ex": [495, 554, 604, 659],//参考默契值，无加，满家具，满加成
+            "ex": [495],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -316,7 +322,7 @@ const Tea = {
                 "五分糖",
                 "苦味素"
             ],
-            "ex": [495, 554, 604, 659],//参考默契值，无加，满家具，满加成
+            "ex": [495],//参考默契值，无加，满家具，满加成
         }
     ]
 }

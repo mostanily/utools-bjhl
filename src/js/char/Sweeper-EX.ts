@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.生生不息方块, MXLaohenEnum.绝处逢生], "attr": "wuli", "star": "1",
     "nameEn": "SWEEPER-EX", "tag": ["输出"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "吴磊", "openDate": "2024年01月12日", "resourse": ["成就奖励"],
@@ -36,101 +37,106 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "吸尘模式",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "格挡条破坏3"],//技能标签
-            "content": [
-                "攻击半径",
-                speSkillCon("325"),
-                "范围内的敌人，总计造成",
-                speSkillCon("2500%最终攻击的物理伤害"),
-                "，并以",
-                speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "造成牵引效果"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "急速模式",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["增益冷却", "30秒"], ["增益持续", "20秒"]],
-            "tab": ["自身增益"],
-            "content": [
-                "攻击速度提升",
-                speSkillCon("50%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "，普通攻击伤害提升",
-                speSkillCon("125%"),
-                speSkillCon("（增伤乘区·技能增伤）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("20"),
-                "秒",
-                "",
-                "技能效果结束后进入瘫痪状态，攻击速度、普通攻击伤害降低",
-                speSkillCon("30%"),
-                speSkillCon("（属性乘区·攻击速度；增伤乘区·技能增伤）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("10"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "大扫除模式",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "100秒"]],
-            "tab": ["伤害", "格挡条破坏3"],
-            "content": [
-                "对半径",
-                speSkillCon("500"),
-                "范围内的敌方单位总计造成",
-                speSkillCon("6000%最终攻击的水元素伤害")
-            ]
-        }
-    },
-    {
-        "name": "特性：小心地滑",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.67次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "对面前的目标持续挥砍鸡毛掸子造成",
-                speSkillCon("108%最终攻击的物理伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "异核技能可以造成水元素伤害"
-                ],//零花本体特性
-                [
-                    "暴击率提高",
-                    speSkillCon("10%"),
-                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries)
-                ],//一花特性
-                [
-                    "暴击率再提高",
-                    speSkillCon("15%"),
-                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "吸尘模式",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "格挡条破坏3"],//技能标签
+        "content": [
+            "攻击半径",
+            speSkillCon("325"),
+            "范围内的敌人，总计造成",
+            speSkillCon("2500%最终攻击的物理伤害"),
+            "，并以",
+            speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "造成牵引效果"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "急速模式",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "30秒"], ["增益持续", "20秒"]],
+        "tab": ["自身增益"],
+        "content": [
+            "攻击速度提升",
+            speSkillCon("50%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，普通攻击伤害提升",
+            speSkillCon("125%"),
+            speSkillCon("（增伤乘区·技能增伤）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("20"),
+            "秒",
+            "",
+            "技能效果结束后进入瘫痪状态，攻击速度、普通攻击伤害降低",
+            speSkillCon("30%"),
+            speSkillCon("（属性乘区·攻击速度；增伤乘区·技能增伤）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("10"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "大扫除模式",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "100秒"]],
+        "tab": ["伤害", "格挡条破坏3"],
+        "content": [
+            "对半径",
+            speSkillCon("500"),
+            "范围内的敌方单位总计造成",
+            speSkillCon("6000%最终攻击的水元素伤害")
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：小心地滑",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.67次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "对面前的目标持续挥砍鸡毛掸子造成",
+            speSkillCon("108%最终攻击的物理伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "异核技能可以造成水元素伤害"
+            ],//零花本体特性
+            [
+                "暴击率提高",
+                speSkillCon("10%"),
+                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries)
+            ],//一花特性
+            [
+                "暴击率再提高",
+                speSkillCon("15%"),
+                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "自动防卫模式",
@@ -256,7 +262,7 @@ const Tea = {
                 "正常",
                 "燕麦奶"
             ],
-            "ex": [461, 517, 564],//参考默契值，无加，满家具，满加成
+            "ex": [461],//参考默契值，无加，满家具，满加成
         }
     ]
 }

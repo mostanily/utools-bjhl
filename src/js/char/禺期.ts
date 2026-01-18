@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "铁御", "skill": [MXLaohenEnum.生机盎然方块β型, MXLaohenEnum.荆棘之志], "attr": "lei", "star": "5",
     "nameEn": "YUQI", "tag": ["防护", "反伤"], "originWorld": "乌瑞亚", "orginChar": "古剑奇谭二",
     "cv": "斑马", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -19,176 +20,181 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "雷引",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "自身增益", "负面状态"],//技能标签
-            "sizeLevel": [
-                ["375%"],
-                ["431%"],
-                ["488%"],
-                ["544%"],
-                ["600%"],
-                ["656%"],
-                ["713%"],
-                ["769%"],
-                ["825%"],
-                ["863%"],
-                ["900%"],
-                ["938%"],
-                ["956%"],
-                ["975%"],
-                ["994%"]
-            ],
-            "content": [
-                "对自身周围半径",
-                speSkillCon("300"),
-                "范围内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "，并将武器的一端锤头固定在目标点形成“引雷区”，每隔一段时间会以",
-                speSkillCon("1级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "向自身拖拽。",
-                "对范围内敌人造成牵引效果，持续",
-                speSkillCon("20"),
-                "秒。",
-                "",//空表示该处需要设置为<br>标签
-                "禺期在“引雷区”范围内时获得「引雷」状态：攻击提升",
-                speSkillCon("30%"),
-                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                "，基础减伤增加",
-                speSkillCon("9%~15%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                "“引雷区”最多同时存在2个"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "鸣振",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "20秒"]],
-            "tab": ["伤害", "负面状态"],
-            "sizeLevel": [
-                ["1000%"],
-                ["1150%"],
-                ["1300%"],
-                ["1450%"],
-                ["1600%"],
-                ["1750%"],
-                ["1900%"],
-                ["2050%"],
-                ["2200%"],
-                ["2300%"],
-                ["2400%"],
-                ["2500%"],
-                ["2550%"],
-                ["2600%"],
-                ["2650%"]
-            ],
-            "content": [
-                "对前方扇形区域内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("体质的雷元素伤害"),
-                "，",
-                speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
-                "被命中的敌人"
-            ]
-        }
-    },
-    {
-        "name": "铸劫",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "120秒"], ["次数", "无限"]],
-            "tab": ["伤害", "自身增益"],
-            "sizeLevel": [
-                ["900%", "900%", "12%~20%", "38%", "38%"],
-                ["1013%", "1013%", "13.2%~22%", "42%", "42%"],
-                ["1125%", "1125%", "14.4%~24%", "47%", "47%"],
-                ["1238%", "1238%", "15%~25%", "52%", "52%"],
-                ["1294%", "1294%", "15%~25%", "54%", "54%"],
-                ["1350%", "1350%", "15%~25%", "56%", "56%"]
-            ],
-            "content": [
-                "对指定范围",
-                speSkillCon("500"),
-                "内的敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "+",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("体质的雷元素伤害"),
-                "，同时自身进入「引雷·铸劫」状态：攻击提升",
-                speSkillCon("30%"),
-                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                "，基础减伤增加",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                "持续",
-                speSkillCon("30"),
-                "秒。",
-                "",
-                "持续时间内，特性的反弹效果除了对攻击来源造成伤害以外，额外对自身半径",
-                speSkillCon("300"),
-                "范围内的所有敌人造成",
-                speSkillCon("", 0, -1, 3),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "+",
-                speSkillCon("", 0, -1, 4),
-                speSkillCon("体质的雷元素伤害"),
-                "（每秒最多触发一次）。",
-                "",
-                "同时拥有「引雷·铸劫」和「引雷」状态时，仅生效「引雷·铸劫」效果"
-            ]
-        }
-    },
-    {
-        "name": "特性：淬砺",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.57次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "攻击面前的目标造成",
-                speSkillCon("210%最终攻击的雷元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "受伤害时反弹伤害，数值为攻击者当前生命的",
-                    speSkillCon("2%"),
-                    "，不超过自身最大生命",
-                    speSkillCon("3%"),
-                    "",
-                    "较易成为敌人的攻击目标"
-                ],//零花本体特性
-                [
-                    "主动技能【雷引】产生的“引雷区”持续时间增加",
-                    speSkillCon("5"),
-                    "秒"
-                ],//一花特性
-                [
-                    "最终体质提升",
-                    speSkillCon("10%"),
-                    speSkillCon("（属性乘区·体质加成）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "雷引",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "自身增益", "负面状态"],//技能标签
+        "sizeLevel": [
+            ["375%"],
+            ["431%"],
+            ["488%"],
+            ["544%"],
+            ["600%"],
+            ["656%"],
+            ["713%"],
+            ["769%"],
+            ["825%"],
+            ["863%"],
+            ["900%"],
+            ["938%"],
+            ["956%"],
+            ["975%"],
+            ["994%"]
+        ],
+        "content": [
+            "对自身周围半径",
+            speSkillCon("300"),
+            "范围内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "，并将武器的一端锤头固定在目标点形成“引雷区”，每隔一段时间会以",
+            speSkillCon("1级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "向自身拖拽。",
+            "对范围内敌人造成牵引效果，持续",
+            speSkillCon("20"),
+            "秒。",
+            "",//空表示该处需要设置为<br>标签
+            "禺期在“引雷区”范围内时获得「引雷」状态：攻击提升",
+            speSkillCon("30%"),
+            speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+            "，基础减伤增加",
+            speSkillCon("9%~15%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            "“引雷区”最多同时存在2个"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "鸣振",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "20秒"]],
+        "tab": ["伤害", "负面状态"],
+        "sizeLevel": [
+            ["1000%"],
+            ["1150%"],
+            ["1300%"],
+            ["1450%"],
+            ["1600%"],
+            ["1750%"],
+            ["1900%"],
+            ["2050%"],
+            ["2200%"],
+            ["2300%"],
+            ["2400%"],
+            ["2500%"],
+            ["2550%"],
+            ["2600%"],
+            ["2650%"]
+        ],
+        "content": [
+            "对前方扇形区域内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("体质的雷元素伤害"),
+            "，",
+            speSkillCon("[嘲讽]", SkillColorEnum.normal, ToastSkillEnum.嘲讽),
+            "被命中的敌人"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "铸劫",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "120秒"], ["次数", "无限"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["900%", "900%", "12%~20%", "38%", "38%"],
+            ["1013%", "1013%", "13.2%~22%", "42%", "42%"],
+            ["1125%", "1125%", "14.4%~24%", "47%", "47%"],
+            ["1238%", "1238%", "15%~25%", "52%", "52%"],
+            ["1294%", "1294%", "15%~25%", "54%", "54%"],
+            ["1350%", "1350%", "15%~25%", "56%", "56%"]
+        ],
+        "content": [
+            "对指定范围",
+            speSkillCon("500"),
+            "内的敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "+",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("体质的雷元素伤害"),
+            "，同时自身进入「引雷·铸劫」状态：攻击提升",
+            speSkillCon("30%"),
+            speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+            "，基础减伤增加",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            "持续",
+            speSkillCon("30"),
+            "秒。",
+            "",
+            "持续时间内，特性的反弹效果除了对攻击来源造成伤害以外，额外对自身半径",
+            speSkillCon("300"),
+            "范围内的所有敌人造成",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "+",
+            speSkillCon("", 0, -1, 4),
+            speSkillCon("体质的雷元素伤害"),
+            "（每秒最多触发一次）。",
+            "",
+            "同时拥有「引雷·铸劫」和「引雷」状态时，仅生效「引雷·铸劫」效果"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：淬砺",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.57次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "攻击面前的目标造成",
+            speSkillCon("210%最终攻击的雷元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "受伤害时反弹伤害，数值为攻击者当前生命的",
+                speSkillCon("2%"),
+                "，不超过自身最大生命",
+                speSkillCon("3%"),
+                "",
+                "较易成为敌人的攻击目标"
+            ],//零花本体特性
+            [
+                "主动技能【雷引】产生的“引雷区”持续时间增加",
+                speSkillCon("5"),
+                "秒"
+            ],//一花特性
+            [
+                "最终体质提升",
+                speSkillCon("10%"),
+                speSkillCon("（属性乘区·体质加成）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "禁忌",

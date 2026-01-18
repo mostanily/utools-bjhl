@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "筑术师", "skill": [MXLaohenEnum.利刃三角α型, MXLaohenEnum.雷核释力], "attr": "lei", "star": "6",
     "nameEn": "TISHI", "tag": ["输出", "群攻"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "虫虫", "openDate": "2024年10月10日", "resourse": ["定向共鸣·凡我之至"],
@@ -19,163 +20,168 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "元能突变",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "自身增益", "对空"],//技能标签
-            "content": [
-                "对目标区域造成",
-                speSkillCon("3750%最终攻击的雷元素伤害"),
-                "，并对路径上的敌方造成",
-                speSkillCon("300%最终攻击的雷元素伤害"),
-                "",
-                "技能施放结束后提高1级自身",
-                speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
-                speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
-                "强度"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "再生序列",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
-            "tab": ["伤害", "自身增益", "负面状态", "对空"],
-            "content": [
-                speSkillCon("仅「重组酶」状态下可主动施放：", SkillColorEnum.injuries),
-                "",
-                "制造电能喷发区域，每",
-                speSkillCon("3"),
-                "秒喷发对区域内目标造成伤害，喷发造成",
-                speSkillCon("650%最终攻击的雷元素伤害"),
-                "，喷发区域持续",
-                speSkillCon("21"),
-                "秒（预计对每个目标最高造成总计",
-                speSkillCon("4550%最终攻击的雷元素伤害"),
-                "），缇诗离场或重伤时该效果消失",
-                "",
-                "技能施放结束后提高1级自身",
-                speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
-                speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
-                "强度，并回复1次",
-                speSkillCon("【元能突变】", SkillColorEnum.injuries),
-                "技能次数",
-                "",
-                speSkillCon("被动：", SkillColorEnum.injuries),
-                "当场上存在电能喷发区域时，普通攻击可降低目标",
-                speSkillCon("25%"),
-                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                "雷元素抗性，抗性降低效果持续",
-                speSkillCon("3"),
-                "秒，可重复刷新。（该被动效果不属于自动技能）"
-            ]
-        }
-    },
-    {
-        "name": "染色质崩解",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "45秒"]],
-            "tab": ["伤害", "自身增益", "对空"],
-            "content": [
-                "缇诗化身成能量电球，对选中区域进行环绕打击，每次打击对半径",
-                speSkillCon("500"),
-                "范围内目标造成",
-                speSkillCon("500%最终攻击的雷元素伤害"),
-                "，共",
-                speSkillCon("6"),
-                "次，越靠近中心的敌人受到的攻击次数越高，对同一敌人造成多次打击时造成原伤害的",
-                speSkillCon("20%"),
-                "；最后冲向选中点，对半径",
-                speSkillCon("800"),
-                "范围内目标造成",
-                speSkillCon("3500%最终攻击的雷元素伤害"),
-                "",
-                "施放该技能提高缇诗",
-                speSkillCon("30%"),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "暴击率和",
-                speSkillCon("50%"),
-                speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries),
-                "暴击伤害，持续",
-                speSkillCon("50"),
-                "秒，重复触发刷新持续时间"
-            ]
-        }
-    },
-    {
-        "name": "特性：基因标记",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "1000"], ["攻击速度", "0.71次每秒"]],
-            "atType": ["群体", "对空"],
-            "content": [
-                "武器飞出并飞回，每次对路径上的目标造成",
-                speSkillCon("60%最终攻击的雷元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "每隔20秒获得",
-                    speSkillCon("「重组酶」状态", SkillColorEnum.injuries),
-                    "，拥有",
-                    speSkillCon("「重组酶」状态", SkillColorEnum.injuries),
-                    "时可以施放【再生序列】",
-                    "",
-                    "通过主动技能可提升自身",
-                    speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
-                    speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
-                    "强度，达到强度Ⅲ后不再提升",
-                    "",
-                    "强度Ⅰ：主动技能回复速度提高",
-                    speSkillCon("100%"),
-                    speSkillCon("（[属性乘区·主动技能回复速度]）", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
-                    "",
-                    "强度Ⅱ：主动技能暴击时伤害提高",
-                    speSkillCon("30%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "",
-                    "强度Ⅲ：自身提高",
-                    speSkillCon("40%"),
-                    speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
-                    speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精)
-                ],//零花本体特性
-                [
-                    "登场时异核充能",
-                    speSkillCon("30"),
-                    "秒，且",
-                    speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
-                    speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
-                    "强度Ⅲ级后自身所有伤害忽略目标基础减伤",
-                    speSkillCon("30%"),
-                    speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                ],//一花特性
-                [
-                    "异核充能时间减少",
-                    speSkillCon("15"),
-                    "秒，",
-                    speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
-                    speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
-                    "强度Ⅲ后，主动技能伤害提高",
-                    speSkillCon("30%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "元能突变",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "自身增益", "对空"],//技能标签
+        "content": [
+            "对目标区域造成",
+            speSkillCon("3750%最终攻击的雷元素伤害"),
+            "，并对路径上的敌方造成",
+            speSkillCon("300%最终攻击的雷元素伤害"),
+            "",
+            "技能施放结束后提高1级自身",
+            speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
+            speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
+            "强度"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "再生序列",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
+        "tab": ["伤害", "自身增益", "负面状态", "对空"],
+        "content": [
+            speSkillCon("仅「重组酶」状态下可主动施放：", SkillColorEnum.injuries),
+            "",
+            "制造电能喷发区域，每",
+            speSkillCon("3"),
+            "秒喷发对区域内目标造成伤害，喷发造成",
+            speSkillCon("650%最终攻击的雷元素伤害"),
+            "，喷发区域持续",
+            speSkillCon("21"),
+            "秒（预计对每个目标最高造成总计",
+            speSkillCon("4550%最终攻击的雷元素伤害"),
+            "），缇诗离场或重伤时该效果消失",
+            "",
+            "技能施放结束后提高1级自身",
+            speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
+            speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
+            "强度，并回复1次",
+            speSkillCon("【元能突变】", SkillColorEnum.injuries),
+            "技能次数",
+            "",
+            speSkillCon("被动：", SkillColorEnum.injuries),
+            "当场上存在电能喷发区域时，普通攻击可降低目标",
+            speSkillCon("25%"),
+            speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+            "雷元素抗性，抗性降低效果持续",
+            speSkillCon("3"),
+            "秒，可重复刷新。（该被动效果不属于自动技能）"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "染色质崩解",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "45秒"]],
+        "tab": ["伤害", "自身增益", "对空"],
+        "content": [
+            "缇诗化身成能量电球，对选中区域进行环绕打击，每次打击对半径",
+            speSkillCon("500"),
+            "范围内目标造成",
+            speSkillCon("500%最终攻击的雷元素伤害"),
+            "，共",
+            speSkillCon("6"),
+            "次，越靠近中心的敌人受到的攻击次数越高，对同一敌人造成多次打击时造成原伤害的",
+            speSkillCon("20%"),
+            "；最后冲向选中点，对半径",
+            speSkillCon("800"),
+            "范围内目标造成",
+            speSkillCon("3500%最终攻击的雷元素伤害"),
+            "",
+            "施放该技能提高缇诗",
+            speSkillCon("30%"),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "暴击率和",
+            speSkillCon("50%"),
+            speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries),
+            "暴击伤害，持续",
+            speSkillCon("50"),
+            "秒，重复触发刷新持续时间"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：基因标记",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "1000"], ["攻击速度", "0.71次每秒"]],
+        "atType": ["群体", "对空"],
+        "content": [
+            "武器飞出并飞回，每次对路径上的目标造成",
+            speSkillCon("60%最终攻击的雷元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "每隔20秒获得",
+                speSkillCon("「重组酶」状态", SkillColorEnum.injuries),
+                "，拥有",
+                speSkillCon("「重组酶」状态", SkillColorEnum.injuries),
+                "时可以施放【再生序列】",
+                "",
+                "通过主动技能可提升自身",
+                speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
+                speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
+                "强度，达到强度Ⅲ后不再提升",
+                "",
+                "强度Ⅰ：主动技能回复速度提高",
+                speSkillCon("100%"),
+                speSkillCon("（[属性乘区·主动技能回复速度]）", SkillColorEnum.injuries, ToastSkillEnum.属性乘区主动技能回复速度),
+                "",
+                "强度Ⅱ：主动技能暴击时伤害提高",
+                speSkillCon("30%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "",
+                "强度Ⅲ：自身提高",
+                speSkillCon("40%"),
+                speSkillCon("（属性乘区·专精加成）", SkillColorEnum.injuries),
+                speSkillCon("[同调者专精]", SkillColorEnum.normal, ToastSkillEnum.同调者专精)
+            ],//零花本体特性
+            [
+                "登场时异核充能",
+                speSkillCon("30"),
+                "秒，且",
+                speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
+                speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
+                "强度Ⅲ级后自身所有伤害忽略目标基础减伤",
+                speSkillCon("30%"),
+                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+            ],//一花特性
+            [
+                "异核充能时间减少",
+                speSkillCon("15"),
+                "秒，",
+                speSkillConWithImg(SkillDescStatusImg.缇诗靶向效应),
+                speSkillCon("[靶向效应]", SkillColorEnum.normal, ToastSkillEnum.靶向效应),
+                "强度Ⅲ后，主动技能伤害提高",
+                speSkillCon("30%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "应尝尽尝",
@@ -305,7 +311,7 @@ const Tea = {
                 "五分糖",
                 "草莓"
             ],
-            "ex": [594, 665, 725],//参考默契值，无加，满家具，满加成
+            "ex": [594],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 8,
@@ -314,7 +320,7 @@ const Tea = {
                 "常温",
                 "茶冻"
             ],
-            "ex": [620, 695, 758],//参考默契值，无加，满家具，满加成
+            "ex": [620],//参考默契值，无加，满家具，满加成
         }
     ]
 }

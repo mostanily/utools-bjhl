@@ -7,7 +7,7 @@ class DefaultRes {
     repIndex: number;
     withToast: boolean;
     title: string;
-    con: string;
+    con: (string | (string | { desc: string, color: number })[]) | (string | (string | { desc: string, color: number })[])[];
     conSpe: any[];
     isImg: boolean;
     constructor() {
@@ -60,4 +60,4 @@ const speSkillConWithImg = (skillStatusEnum: number) => {
     return res
 }
 
-export { speSkillCon, speSkillConWithImg }
+export { speSkillCon, speSkillConWithImg, DefaultRes }

@@ -2,11 +2,12 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.异核过载, MXLaohenEnum.灼炎共燃], "attr": "yan", "star": "6",
     "nameEn": "NING", "tag": ["输出", "爆发", "群攻"], "originWorld": "森罗", "orginChar": "古剑奇谭网络版",
-    "cv": "", "openDate": "2026年01月15日", "resourse": ["定向共鸣·因果不昧"], "laohenLink":LaohenNameEnum.共弈者,
+    "cv": "", "openDate": "2026年01月15日", "resourse": ["定向共鸣·因果不昧"], "laohenLink": LaohenNameEnum.共弈者,
     "introText": "相识这么久，自我介绍的环节就免了吧，如果是为了庆祝血露薇和白荆科技的合作进展，我们倒是可以共饮一杯，你说呢，小女士？",
     "tacgie": {
         "name": "初始外装",
@@ -19,196 +20,201 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "业岚",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "12秒"], ["次数", "8"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "负面状态", "对空"],//技能标签
-            "sizeLevel": [
-                ["1000%", "1200%"],
-                ["1150%", "1380%"],
-                ["1300%", "1560%"],
-                ["1450%", "1740%"],
-                ["1600%", "1920%"],
-                ["1750%", "2100%"],
-                ["1900%", "2280%"],
-                ["2050%", "2460%"],
-                ["2200%", "2640%"],
-                ["2300%", "2760%"],
-                ["2400%", "2880%"],
-                ["2500%", "3000%"],
-                ["2600%", "3120%"],
-                ["2700%", "3240%"],
-                ["2800%", "3360%"]
-            ],
-            "content": [
-                "向选择区域施放一道烟龙卷，对目标范围半径",
-                speSkillCon("400"),
-                "敌方造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，同时在区域内生成",
-                speSkillCon("3"),
-                "朵血露薇花，血露薇花朵持续",
-                speSkillCon("12"),
-                "秒，持续时间到后对半径",
-                speSkillCon("200"),
-                "范围内目标造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "",
-                "",
-                "连击：在前方直线",
-                speSkillCon("1200"),
-                "范围施放一个烟雾圈，烟雾圈对路径目标造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，同时会引爆经过范围内所有的血露薇花"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "无垢身",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "15秒"]],
-            "tab": ["自身增益"],
-            "sizeLevel": [
-                ["40%", "2%"],
-                ["46%", "3%"],
-                ["52%", "3%"],
-                ["58%", "3%"],
-                ["64%", "4%"],
-                ["70%", "4%"],
-                ["76%", "5%"],
-                ["82%", "5%"],
-                ["88%", "5%"],
-                ["92%", "6%"],
-                ["96%", "6%"],
-                ["100%", "6%"],
-                ["104%", "6%"],
-                ["108%", "6%"],
-                ["112%", "7%"]
-            ],
-            "content": [
-                "进入持续",
-                speSkillCon("20"),
-                "秒的燃烟状态，该状态下姜宁造成的燃烧伤害提高",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                "，且若目标身上燃烧层数达到",
-                speSkillCon("6"),
-                "层，则每次会额外造成一次目标当前生命值",
-                speSkillCon("", 0, -1, 1),
-                "的真实伤害"
-            ]
-        }
-    },
-    {
-        "name": "终式·散华",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["炎区域", "伤害", "负面状态", "对空"],
-            "sizeLevel": [
-                ["3000%", "4500%", "9%"],
-                ["3500%", "5250%", "11%"],
-                ["4000%", "6000%", "12%"],
-                ["4500%", "6750%", "14%"],
-                ["4750%", "7125%", "14%"],
-                ["5000%", "7500%", "15%"],
-            ],
-            "content": [
-                "第一次施放该技能所需等待时间减半",
-                "",
-                "烟雾包裹自身在区域范围内",
-                speSkillCon("4"),
-                "个位置留下强化血露薇花，并对区域范围内目标造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "。强化血露薇花引爆后对半径",
-                speSkillCon("300"),
-                "造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，并留下炎元素区域",
-                "",
-                "",
-                "再次施放可直接引爆场上所有的血露薇花，并额外对全场目标造成一次当前生命值",
-                speSkillCon("", 0, -1, 2),
-                "的",
-                speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害)
-            ]
-        }
-    },
-    {
-        "name": "特性：六尘炽",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "对选中目标施放烟雾造成",
-                speSkillCon("300%最终攻击的炎元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "主动和异核技能可生成血露薇花，血露薇花引爆后对命中目标施加",
-                    speSkillCon("1"),
-                    "层持续",
-                    speSkillCon("30"),
-                    "秒的燃烧效果，每",
-                    speSkillCon("2"),
-                    "秒造成",
-                    speSkillCon("600%最终攻击的炎元素伤害"),
-                    "，最多叠加",
-                    speSkillCon("6"),
-                    "层",
-                    "",
-                    "登场时获得",
-                    speSkillCon("[同调]", SkillColorEnum.normal, ToastSkillEnum.同调),
-                    "效果"
-                ],//零花本体特性
-                [
-                    "血露薇花引爆时施加的燃烧层数由",
-                    speSkillCon("1"),
-                    "层变为",
-                    speSkillCon("2"),
-                    "层。目标燃烧层数首次达到",
-                    speSkillCon("6"),
-                    "层时以及后续每",
-                    speSkillCon("10"),
-                    "秒均会在脚下额外生成一朵强化血露薇花。",
-                    "",
-                    "血露薇花造成的伤害提高",
-                    speSkillCon("40%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
-                ],//一花特性
-                [
-                    "每引爆",
-                    speSkillCon("3"),
-                    "朵血露薇花可回复",
-                    speSkillCon("1"),
-                    "次技能【业岚】使用次数，姜宁造成的伤害忽略目标基础减伤",
-                    speSkillCon("40%"),
-                    speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区忽略减伤),
-                    "。"
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "业岚",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "12秒"], ["次数", "8"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "负面状态", "对空"],//技能标签
+        "sizeLevel": [
+            ["1000%", "1200%"],
+            ["1150%", "1380%"],
+            ["1300%", "1560%"],
+            ["1450%", "1740%"],
+            ["1600%", "1920%"],
+            ["1750%", "2100%"],
+            ["1900%", "2280%"],
+            ["2050%", "2460%"],
+            ["2200%", "2640%"],
+            ["2300%", "2760%"],
+            ["2400%", "2880%"],
+            ["2500%", "3000%"],
+            ["2600%", "3120%"],
+            ["2700%", "3240%"],
+            ["2800%", "3360%"]
+        ],
+        "content": [
+            "向选择区域施放一道烟龙卷，对目标范围半径",
+            speSkillCon("400"),
+            "敌方造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，同时在区域内生成",
+            speSkillCon("3"),
+            "朵血露薇花，血露薇花朵持续",
+            speSkillCon("12"),
+            "秒，持续时间到后对半径",
+            speSkillCon("200"),
+            "范围内目标造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "",
+            "",
+            "连击：在前方直线",
+            speSkillCon("1200"),
+            "范围施放一个烟雾圈，烟雾圈对路径目标造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，同时会引爆经过范围内所有的血露薇花"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "无垢身",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "15秒"]],
+        "tab": ["自身增益"],
+        "sizeLevel": [
+            ["40%", "2%"],
+            ["46%", "3%"],
+            ["52%", "3%"],
+            ["58%", "3%"],
+            ["64%", "4%"],
+            ["70%", "4%"],
+            ["76%", "5%"],
+            ["82%", "5%"],
+            ["88%", "5%"],
+            ["92%", "6%"],
+            ["96%", "6%"],
+            ["100%", "6%"],
+            ["104%", "6%"],
+            ["108%", "6%"],
+            ["112%", "7%"]
+        ],
+        "content": [
+            "进入持续",
+            speSkillCon("20"),
+            "秒的燃烟状态，该状态下姜宁造成的燃烧伤害提高",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+            "，且若目标身上燃烧层数达到",
+            speSkillCon("6"),
+            "层，则每次会额外造成一次目标当前生命值",
+            speSkillCon("", 0, -1, 1),
+            "的真实伤害"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "终式·散华",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["炎区域", "伤害", "负面状态", "对空"],
+        "sizeLevel": [
+            ["3000%", "4500%", "9%"],
+            ["3500%", "5250%", "11%"],
+            ["4000%", "6000%", "12%"],
+            ["4500%", "6750%", "14%"],
+            ["4750%", "7125%", "14%"],
+            ["5000%", "7500%", "15%"],
+        ],
+        "content": [
+            "第一次施放该技能所需等待时间减半",
+            "",
+            "烟雾包裹自身在区域范围内",
+            speSkillCon("4"),
+            "个位置留下强化血露薇花，并对区域范围内目标造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "。强化血露薇花引爆后对半径",
+            speSkillCon("300"),
+            "造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，并留下炎元素区域",
+            "",
+            "",
+            "再次施放可直接引爆场上所有的血露薇花，并额外对全场目标造成一次当前生命值",
+            speSkillCon("", 0, -1, 2),
+            "的",
+            speSkillCon("[真实伤害]", SkillColorEnum.normal, ToastSkillEnum.真实伤害)
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：六尘炽",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "对选中目标施放烟雾造成",
+            speSkillCon("300%最终攻击的炎元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "主动和异核技能可生成血露薇花，血露薇花引爆后对命中目标施加",
+                speSkillCon("1"),
+                "层持续",
+                speSkillCon("30"),
+                "秒的燃烧效果，每",
+                speSkillCon("2"),
+                "秒造成",
+                speSkillCon("600%最终攻击的炎元素伤害"),
+                "，最多叠加",
+                speSkillCon("6"),
+                "层",
+                "",
+                "登场时获得",
+                speSkillCon("[同调]", SkillColorEnum.normal, ToastSkillEnum.同调),
+                "效果"
+            ],//零花本体特性
+            [
+                "血露薇花引爆时施加的燃烧层数由",
+                speSkillCon("1"),
+                "层变为",
+                speSkillCon("2"),
+                "层。目标燃烧层数首次达到",
+                speSkillCon("6"),
+                "层时以及后续每",
+                speSkillCon("10"),
+                "秒均会在脚下额外生成一朵强化血露薇花。",
+                "",
+                "血露薇花造成的伤害提高",
+                speSkillCon("40%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+            ],//一花特性
+            [
+                "每引爆",
+                speSkillCon("3"),
+                "朵血露薇花可回复",
+                speSkillCon("1"),
+                "次技能【业岚】使用次数，姜宁造成的伤害忽略目标基础减伤",
+                speSkillCon("40%"),
+                speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区忽略减伤),
+                "。"
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "意外",

@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.铁杵磨成针三角, MXLaohenEnum.连破留痕], "attr": "wuli", "star": "6",
     "nameEn": "LIONEL", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "古剑奇谭三",
     "cv": "夏磊", "openDate": "2025年01月02日", "resourse": ["定向潜航·灼金格言"],
@@ -31,187 +32,192 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "御厄",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "对空", "穿透屏障"],//技能标签
-            "content": [
-                speSkillCon("【御厄】技能形态指令冷却：", SkillColorEnum.injuries),
+const skill1: DefaultNormalSkillObj = {
+    "name": "御厄",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "对空", "穿透屏障"],//技能标签
+        "content": [
+            speSkillCon("【御厄】技能形态指令冷却：", SkillColorEnum.injuries),
+            speSkillCon("15"),
+            speSkillCon("秒", SkillColorEnum.injuries),
+            "",
+            "在目标区域创造空间裂缝，对",
+            speSkillCon("450"),
+            "范围内的敌人造成",
+            speSkillCon("2352％最终攻击的物理伤害"),
+            "",
+            "【连击】：获得",
+            speSkillCon("2"),
+            "个",
+            speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+            speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+            "",
+            "",
+            speSkillCon("【荡厄】技能形态指令冷却：", SkillColorEnum.injuries),
+            speSkillCon("10"),
+            speSkillCon("秒", SkillColorEnum.injuries),
+            "",
+            "激活后可以使用",
+            speSkillCon("2"),
+            "次",
+            "",
+            "在目标区域创造空间裂缝，对",
+            speSkillCon("450"),
+            "范围内的敌人造成",
+            speSkillCon("4480％最终攻击的物理伤害"),
+            "",
+            "【连击】：回复",
+            speSkillCon("15"),
+            "秒的异核充能"
+        ]//满级技能内容描述
+    }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "纵略黑白",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "15秒"], ["增益持续", "15秒"]],
+        "tab": ["自身增益"],
+        "content": [
+            "提高自身暴击率",
+            speSkillCon("45%"),
+            speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+            "、暴击伤害",
+            speSkillCon("90%"),
+            speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
+            "，且获得",
+            speSkillCon("1"),
+            "个",
+            speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+            speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+            "",
+            "当玄戈在增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的友方同调者使用主动技能时，玄戈会触发",
+            speSkillConWithImg(SkillDescStatusImg.玄戈璨星增益),
+            "效果，获得",
+            speSkillCon("2"),
+            "个",
+            speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+            speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星)
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "抑扬话事",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "拦截", "对空", "穿透屏障"],
+        "content": [
+            "对",
+            speSkillCon("500"),
+            "范围内的敌人造成",
+            speSkillCon("5000％最终攻击的物理伤害"),
+            "，可以摧毁范围内的投射物，且获得",
+            speSkillCon("3"),
+            "个",
+            speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+            speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+            "",
+            "技能释放结束后，受到伤害的敌人在接下来的",
+            speSkillCon("60"),
+            "秒内，受到【御厄】、【荡厄】的伤害提高",
+            speSkillCon("25％"),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：破而后立",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "对当前目标造成",
+            speSkillCon("200％最终攻击的物理伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "自身施放【御厄】、【纵略黑白】和【抑扬话事】可获得",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+                speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                "",
+                "当获得",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+                speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                "数量达到",
+                speSkillCon("5"),
+                "个时，会激活【荡厄】。在释放",
+                speSkillCon("2"),
+                "次【荡厄】后，恢复到【御厄】技能形态",
+                "",
+                "当获得",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+                speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                "数量大于",
+                speSkillCon("5"),
+                "个时，会保留剩余的",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+                speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                "，保留的",
+                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
+                speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
+                "的数量上限是",
+                speSkillCon("5"),
+                "个",
+                "",
+                "",
+                "登场时获得",
+                speSkillCon("[同调]", SkillColorEnum.normal, ToastSkillEnum.同调),
+                "效果"
+            ],//零花本体特性
+            [
+                "登场时，异核充能",
+                speSkillCon("45"),
+                "秒，【纵略黑白】充能",
                 speSkillCon("15"),
-                speSkillCon("秒", SkillColorEnum.injuries),
-                "",
-                "在目标区域创造空间裂缝，对",
-                speSkillCon("450"),
-                "范围内的敌人造成",
-                speSkillCon("2352％最终攻击的物理伤害"),
-                "",
-                "【连击】：获得",
+                "秒，且释放异核技能【抑扬话事】额外获得",
                 speSkillCon("2"),
                 "个",
                 speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                 speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                "",
-                "",
-                speSkillCon("【荡厄】技能形态指令冷却：", SkillColorEnum.injuries),
-                speSkillCon("10"),
-                speSkillCon("秒", SkillColorEnum.injuries),
-                "",
-                "激活后可以使用",
-                speSkillCon("2"),
-                "次",
-                "",
-                "在目标区域创造空间裂缝，对",
-                speSkillCon("450"),
-                "范围内的敌人造成",
-                speSkillCon("4480％最终攻击的物理伤害"),
-                "",
-                "【连击】：回复",
-                speSkillCon("15"),
-                "秒的异核充能"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "纵略黑白",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["增益冷却", "15秒"], ["增益持续", "15秒"]],
-            "tab": ["自身增益"],
-            "content": [
-                "提高自身暴击率",
-                speSkillCon("45%"),
-                speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
-                "、暴击伤害",
-                speSkillCon("90%"),
-                speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
-                "，且获得",
-                speSkillCon("1"),
-                "个",
-                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                "",
-                "当玄戈在增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的友方同调者使用主动技能时，玄戈会触发",
+                "。【御厄】、【荡厄】造成的伤害提高",
+                speSkillCon("30%"),
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+            ],//一花特性
+            [
+                "【御厄】、【荡厄】造成伤害时忽略敌人减伤",
+                speSkillCon("40%"),
+                speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+                "。当玄戈在【纵略黑白】增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的队友使用主动技能时，玄戈触发",
                 speSkillConWithImg(SkillDescStatusImg.玄戈璨星增益),
-                "效果，获得",
+                "效果时，会额外获得",
                 speSkillCon("2"),
                 "个",
                 speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
                 speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星)
-            ]
-        }
-    },
-    {
-        "name": "抑扬话事",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "拦截", "对空", "穿透屏障"],
-            "content": [
-                "对",
-                speSkillCon("500"),
-                "范围内的敌人造成",
-                speSkillCon("5000％最终攻击的物理伤害"),
-                "，可以摧毁范围内的投射物，且获得",
-                speSkillCon("3"),
-                "个",
-                speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                "",
-                "技能释放结束后，受到伤害的敌人在接下来的",
-                speSkillCon("60"),
-                "秒内，受到【御厄】、【荡厄】的伤害提高",
-                speSkillCon("25％"),
-                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
-            ]
-        }
-    },
-    {
-        "name": "特性：破而后立",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "对当前目标造成",
-                speSkillCon("200％最终攻击的物理伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "自身施放【御厄】、【纵略黑白】和【抑扬话事】可获得",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                    "",
-                    "当获得",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                    "数量达到",
-                    speSkillCon("5"),
-                    "个时，会激活【荡厄】。在释放",
-                    speSkillCon("2"),
-                    "次【荡厄】后，恢复到【御厄】技能形态",
-                    "",
-                    "当获得",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                    "数量大于",
-                    speSkillCon("5"),
-                    "个时，会保留剩余的",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                    "，保留的",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                    "的数量上限是",
-                    speSkillCon("5"),
-                    "个",
-                    "",
-                    "",
-                    "登场时获得",
-                    speSkillCon("[同调]", SkillColorEnum.normal, ToastSkillEnum.同调),
-                    "效果"
-                ],//零花本体特性
-                [
-                    "登场时，异核充能",
-                    speSkillCon("45"),
-                    "秒，【纵略黑白】充能",
-                    speSkillCon("15"),
-                    "秒，且释放异核技能【抑扬话事】额外获得",
-                    speSkillCon("2"),
-                    "个",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星),
-                    "。【御厄】、【荡厄】造成的伤害提高",
-                    speSkillCon("30%"),
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
-                ],//一花特性
-                [
-                    "【御厄】、【荡厄】造成伤害时忽略敌人减伤",
-                    speSkillCon("40%"),
-                    speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
-                    "。当玄戈在【纵略黑白】增益持续期间，下一次【游徒】、【筑术师】、【战术家】职业的队友使用主动技能时，玄戈触发",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星增益),
-                    "效果时，会额外获得",
-                    speSkillCon("2"),
-                    "个",
-                    speSkillConWithImg(SkillDescStatusImg.玄戈璨星),
-                    speSkillCon("[璨星]", SkillColorEnum.normal, ToastSkillEnum.璨星)
-                ]//三花特性
-            ]
-        }
+            ]//三花特性
+        ]
     }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "死敌",
@@ -336,7 +342,7 @@ const Tea = {
                 "盐",
                 "青提"
             ],
-            "ex": [554, 620, 676],//参考默契值，无加，满家具，满加成
+            "ex": [554],//参考默契值，无加，满家具，满加成
         }
     ]
 }

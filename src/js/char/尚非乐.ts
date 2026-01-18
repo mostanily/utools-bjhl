@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "筑术师", "skill": [MXLaohenEnum.强攻对空, MXLaohenEnum.信号干扰三角], "attr": "feng", "star": "5",
     "nameEn": "HIRUNDO", "tag": ["群攻", "拦截"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
     "cv": "王燕华", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -19,127 +20,132 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "知风",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["自身增益", "友方增益", "拦截"],//技能标签
-            "content": [
-                "提升全体友方同调者",
-                speSkillCon("50%[同调者攻击速度]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击速度),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "，自身攻击速度额外提升",
-                speSkillCon("25%"),
+const skill1: DefaultNormalSkillObj = {
+    "name": "知风",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "3"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["自身增益", "友方增益", "拦截"],//技能标签
+        "content": [
+            "提升全体友方同调者",
+            speSkillCon("50%[同调者攻击速度]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击速度),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，自身攻击速度额外提升",
+            speSkillCon("25%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("20"),
+            "秒（效果结束后，将永久提升自身",
+            speSkillCon("10%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "攻击速度，最多可叠加",
+            speSkillCon("3"),
+            "次），并拦截所有敌方投射物"
+        ]//满级技能内容描述
+    }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "风骤起",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "15秒"]],
+        "tab": ["伤害"],
+        "content": [
+            "连续朝3个方向丢出风筝，对沿途命中的目标造成",
+            speSkillCon("625%最终攻击的风元素伤害"),
+            "+",
+            speSkillCon("625%专精的风元素伤害"),
+            "",
+            "普通攻击命中目标时缩短",
+            speSkillCon("1"),
+            "秒施放间隔（每",
+            speSkillCon("3"),
+            "秒最多触发一次）"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "正义的伙伴",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害"],
+        "content": [
+            "对指定区域范围",
+            speSkillCon("350"),
+            "内的敌方单位攻击10次，每次造成",
+            speSkillCon("210%最终攻击的风元素伤害"),
+            "+",
+            speSkillCon("210%专精的风元素伤害"),
+            "",
+            "自身攻击速度每提升",
+            speSkillCon("30%"),
+            "，额外攻击1次，最多额外攻击",
+            speSkillCon("3"),
+            "次"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：快快长大",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "1200"], ["攻击速度", "0.42次每秒"]],
+        "atType": ["群体", "对空"],
+        "content": [
+            "对路径上的目标造成",
+            speSkillCon("60%最终攻击的风元素伤害"),
+            "，到最远处飞回并造成",
+            speSkillCon("2"),
+            "次伤害，伤害随风筝攻击到目标数衰减（最多降低至",
+            speSkillCon("25%"),
+            "），每次命中目标后，可以缩短自动技能【风骤起】的施放冷却（每",
+            speSkillCon("3"),
+            "秒触发一次）"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "每次造成伤害时获得1层",
+                speSkillConWithImg(SkillDescStatusImg.尚非乐强化),
+                "强化：基础攻击速度提升",
+                speSkillCon("1%"),
                 speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
                 "，持续",
+                speSkillCon("5"),
+                "秒，可叠加",
                 speSkillCon("20"),
-                "秒（效果结束后，将永久提升自身",
-                speSkillCon("10%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "攻击速度，最多可叠加",
-                speSkillCon("3"),
-                "次），并拦截所有敌方投射物"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "风骤起",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "15秒"]],
-            "tab": ["伤害"],
-            "content": [
-                "连续朝3个方向丢出风筝，对沿途命中的目标造成",
-                speSkillCon("625%最终攻击的风元素伤害"),
-                "+",
-                speSkillCon("625%专精的风元素伤害"),
-                "",
-                "普通攻击命中目标时缩短",
-                speSkillCon("1"),
-                "秒施放间隔（每",
-                speSkillCon("3"),
-                "秒最多触发一次）"
-            ]
-        }
-    },
-    {
-        "name": "正义的伙伴",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害"],
-            "content": [
-                "对指定区域范围",
-                speSkillCon("350"),
-                "内的敌方单位攻击10次，每次造成",
-                speSkillCon("210%最终攻击的风元素伤害"),
-                "+",
-                speSkillCon("210%专精的风元素伤害"),
-                "",
-                "自身攻击速度每提升",
-                speSkillCon("30%"),
-                "，额外攻击1次，最多额外攻击",
-                speSkillCon("3"),
                 "次"
-            ]
-        }
-    },
-    {
-        "name": "特性：快快长大",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "1200"], ["攻击速度", "0.42次每秒"]],
-            "atType": ["群体", "对空"],
-            "content": [
-                "对路径上的目标造成",
-                speSkillCon("60%最终攻击的风元素伤害"),
-                "，到最远处飞回并造成",
-                speSkillCon("2"),
-                "次伤害，伤害随风筝攻击到目标数衰减（最多降低至",
-                speSkillCon("25%"),
-                "），每次命中目标后，可以缩短自动技能【风骤起】的施放冷却（每",
-                speSkillCon("3"),
-                "秒触发一次）"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "每次造成伤害时获得1层",
-                    speSkillConWithImg(SkillDescStatusImg.尚非乐强化),
-                    "强化：基础攻击速度提升",
-                    speSkillCon("1%"),
-                    speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                    "，持续",
-                    speSkillCon("5"),
-                    "秒，可叠加",
-                    speSkillCon("20"),
-                    "次"
-                ],//零花本体特性
-                [
-                    "特性产生的攻击速度叠加至上限时，普通攻击额外造成",
-                    speSkillCon("30%专精值的风元素伤害")
-                ],//一花特性
-                [
-                    "普通攻击命中减少自动技能【风骤起】施放间隔的效果受自身攻速影响，最多降低到每",
-                    speSkillCon("1"),
-                    "秒触发一次（预计当自身攻击速度额外提升",
-                    speSkillCon("80%"),
-                    "时，达到最低触发间隔）"
-                ]//三花特性
-            ]
-        }
+            ],//零花本体特性
+            [
+                "特性产生的攻击速度叠加至上限时，普通攻击额外造成",
+                speSkillCon("30%专精值的风元素伤害")
+            ],//一花特性
+            [
+                "普通攻击命中减少自动技能【风骤起】施放间隔的效果受自身攻速影响，最多降低到每",
+                speSkillCon("1"),
+                "秒触发一次（预计当自身攻击速度额外提升",
+                speSkillCon("80%"),
+                "时，达到最低触发间隔）"
+            ]//三花特性
+        ]
     }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "猫奴……们",
@@ -275,7 +281,7 @@ const Tea = {
                 "低因",
                 "原味雪顶"
             ],
-            "ex": [390, 437, 476],//参考默契值，无加，满家具，满加成
+            "ex": [390],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 4,
@@ -285,7 +291,7 @@ const Tea = {
                 "正常冰",
                 "茶冻"
             ],
-            "ex": [431, 483, 526],//参考默契值，无加，满家具，满加成
+            "ex": [431],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -295,7 +301,7 @@ const Tea = {
                 "正常冰",
                 "茶冻"
             ],
-            "ex": [461, 516, 563],//参考默契值，无加，满家具，满加成
+            "ex": [461],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -304,7 +310,7 @@ const Tea = {
                 "多冰",
                 "咸梅干"
             ],
-            "ex": [534, 598, 652],//参考默契值，无加，满家具，满加成
+            "ex": [534],//参考默契值，无加，满家具，满加成
         }
     ]
 }

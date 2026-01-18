@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.利刃三角β型, MXLaohenEnum.狂风卷袭], "attr": "feng", "star": "6",
     "nameEn": "SCARLETT", "tag": ["输出", "击退", "拦截"], "originWorld": "森罗", "orginChar": "古剑奇谭一",
     "cv": "蔡娜", "openDate": "2024年02月01日",
@@ -20,166 +21,172 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "狩天",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "6"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "拦截", "穿透屏障"],//技能标签
-            "content": [
-                "短暂蓄力后，对指定区域内的敌人进行穿透射击，造成",
-                speSkillCon("3000%最终攻击的风元素伤害"),
-                "，同时击落空中单位及敌方投射物，并吹散范围内的毒雾",
-                "",
-                speSkillCon("「缉捕模式」下额外效果", SkillColorEnum.injuries),
-                "",
-                "弹道变宽，射击弹道后跟随一串震荡波，额外造成",
-                speSkillCon("750%最终攻击的风元素伤害"),
-                "",
-                "【连击】：造成的伤害提升",
-                speSkillCon("20%"),
-                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "猎逐",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],
-            "tab": ["伤害", "自身增益", "持续施法"],
-            "content": [
-                "被动：每隔",
-                speSkillCon("20"),
-                "秒，提升自身",
-                speSkillCon("50%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "基础攻击速度，持续",
-                speSkillCon("15"),
-                "秒",
-                "",
-                "主动：锁定单个敌人，以其为中心绕圈骑行，持续射击该目标，期间降低该目标",
-                speSkillCon("90%[移动速度]", SkillColorEnum.normal, ToastSkillEnum.移动速度),
-                "，总计发射50枚子弹，每次命中忽视其",
-                speSkillCon("0.5%"),
-                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                "基础减伤，随命中次数提升，最高忽视",
-                speSkillCon("20%"),
-                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                "基础减伤，预计总计造成",
-                speSkillCon("10000%最终攻击的风元素伤害"),
-                "，对骑行路线上的敌人总计造成",
-                speSkillCon("1250%最终攻击的风元素伤害"),
-                "，期间自身受到伤害减免",
-                speSkillCon("90%"),
-                "，并免疫控制效果（若锁定的目标在子弹发射完毕前被击败，将结束绕圈骑行，并激活本技能的被动效果；若未被击败，该目标在后续",
-                speSkillCon("45"),
-                "秒内，红玉对其造成的普攻伤害，忽视其",
-                speSkillCon("20%"),
-                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                "基础减伤，「缉捕模式」下忽视",
-                speSkillCon("25%"),
-                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                "基础减伤）",
-                "",
-                speSkillCon("「缉捕模式」下额外效果", SkillColorEnum.injuries),
-                "",
-                "最高忽视目标",
-                speSkillCon("25%"),
-                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                "基础减伤，绕圈骑行对撞击到的敌人以",
-                speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "造成击退效果"
-            ]
-        }
-    },
-    {
-        "name": "赤红惩戒",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益", "穿透屏障"],
-            "content": [
-                "摩托启动「缉捕模式」",
-                "",
-                "第一次施放该技能所需等待时间减半",
-                "",
-                "骑摩托冲向目标区域，在目标区域外围绕圈狂飙，同时朝目标区域内持续射击，总计造成",
-                speSkillCon("4500%最终攻击的风元素伤害"),
-                "，然后拉起车头冲回原地，刹车后回头再蓄力射击区域内的敌人，造成",
-                speSkillCon("500%最终攻击的风元素伤害"),
-                "并以",
-                speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "击退目标",
-                "",
-                "「缉捕模式」期间普通攻击伤害提高",
-                speSkillCon("90%"),
-                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                "且普通攻击会额外弹射一个目标（只会弹射当前目标以外的敌方单位，即单目标情况下无法触发弹射），伤害同普通攻击伤害，「缉捕模式」持续",
-                speSkillCon("30"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "特性：执法者",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "向射击范围内的目标发射三发高速子弹，每发子弹造成",
-                speSkillCon("90%最终攻击的风元素伤害"),
-                "，优先攻击射程范围内的不同目标"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "执法者印记：对目标造成伤害时附加印记，会使其受到自身伤害提升",
-                    speSkillCon("18%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "，持续",
-                    speSkillCon("5"),
-                    "秒"
-                ],//零花本体特性
-                [
-                    "异核技能期间普通攻击伤害提高的效果提升至",
-                    speSkillCon("150%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ],//一花特性
-                [
-                    speSkillCon("[执法者印记]", SkillColorEnum.normal, ToastSkillEnum.执法者印记),
-                    "持续时间提升至",
-                    speSkillCon("30"),
-                    "秒，且伤害提升至",
-                    speSkillCon("36%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
-    },
-    {
-        "name": "特性强化",
-        "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "content": [
-                "施放连击后友方同调者提高20％",
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
-                "，持续20秒，且【猎逐】被动触发时普通攻击获得与「缉捕模式」等同的强化效果（不与「缉捕模式」叠加）"
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "狩天",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "6"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "拦截", "穿透屏障"],//技能标签
+        "content": [
+            "短暂蓄力后，对指定区域内的敌人进行穿透射击，造成",
+            speSkillCon("3000%最终攻击的风元素伤害"),
+            "，同时击落空中单位及敌方投射物，并吹散范围内的毒雾",
+            "",
+            speSkillCon("「缉捕模式」下额外效果", SkillColorEnum.injuries),
+            "",
+            "弹道变宽，射击弹道后跟随一串震荡波，额外造成",
+            speSkillCon("750%最终攻击的风元素伤害"),
+            "",
+            "【连击】：造成的伤害提升",
+            speSkillCon("20%"),
+            speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "猎逐",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],
+        "tab": ["伤害", "自身增益", "持续施法"],
+        "content": [
+            "被动：每隔",
+            speSkillCon("20"),
+            "秒，提升自身",
+            speSkillCon("50%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "基础攻击速度，持续",
+            speSkillCon("15"),
+            "秒",
+            "",
+            "主动：锁定单个敌人，以其为中心绕圈骑行，持续射击该目标，期间降低该目标",
+            speSkillCon("90%[移动速度]", SkillColorEnum.normal, ToastSkillEnum.移动速度),
+            "，总计发射50枚子弹，每次命中忽视其",
+            speSkillCon("0.5%"),
+            speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+            "基础减伤，随命中次数提升，最高忽视",
+            speSkillCon("20%"),
+            speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+            "基础减伤，预计总计造成",
+            speSkillCon("10000%最终攻击的风元素伤害"),
+            "，对骑行路线上的敌人总计造成",
+            speSkillCon("1250%最终攻击的风元素伤害"),
+            "，期间自身受到伤害减免",
+            speSkillCon("90%"),
+            "，并免疫控制效果（若锁定的目标在子弹发射完毕前被击败，将结束绕圈骑行，并激活本技能的被动效果；若未被击败，该目标在后续",
+            speSkillCon("45"),
+            "秒内，红玉对其造成的普攻伤害，忽视其",
+            speSkillCon("20%"),
+            speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+            "基础减伤，「缉捕模式」下忽视",
+            speSkillCon("25%"),
+            speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+            "基础减伤）",
+            "",
+            speSkillCon("「缉捕模式」下额外效果", SkillColorEnum.injuries),
+            "",
+            "最高忽视目标",
+            speSkillCon("25%"),
+            speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+            "基础减伤，绕圈骑行对撞击到的敌人以",
+            speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "造成击退效果"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "赤红惩戒",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益", "穿透屏障"],
+        "content": [
+            "摩托启动「缉捕模式」",
+            "",
+            "第一次施放该技能所需等待时间减半",
+            "",
+            "骑摩托冲向目标区域，在目标区域外围绕圈狂飙，同时朝目标区域内持续射击，总计造成",
+            speSkillCon("4500%最终攻击的风元素伤害"),
+            "，然后拉起车头冲回原地，刹车后回头再蓄力射击区域内的敌人，造成",
+            speSkillCon("500%最终攻击的风元素伤害"),
+            "并以",
+            speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "击退目标",
+            "",
+            "「缉捕模式」期间普通攻击伤害提高",
+            speSkillCon("90%"),
+            speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+            "且普通攻击会额外弹射一个目标（只会弹射当前目标以外的敌方单位，即单目标情况下无法触发弹射），伤害同普通攻击伤害，「缉捕模式」持续",
+            speSkillCon("30"),
+            "秒"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：执法者",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.40次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "向射击范围内的目标发射三发高速子弹，每发子弹造成",
+            speSkillCon("90%最终攻击的风元素伤害"),
+            "，优先攻击射程范围内的不同目标"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "执法者印记：对目标造成伤害时附加印记，会使其受到自身伤害提升",
+                speSkillCon("18%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "，持续",
+                speSkillCon("5"),
+                "秒"
+            ],//零花本体特性
+            [
+                "异核技能期间普通攻击伤害提高的效果提升至",
+                speSkillCon("150%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ],//一花特性
+            [
+                speSkillCon("[执法者印记]", SkillColorEnum.normal, ToastSkillEnum.执法者印记),
+                "持续时间提升至",
+                speSkillCon("30"),
+                "秒，且伤害提升至",
+                speSkillCon("36%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+const skillTeseStrong: DefaultTeseSkillObj = {
+    "name": "特性强化",
+    "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "content": [
+            "施放连击后友方同调者提高20％",
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            speSkillCon("[同调者暴击率]", SkillColorEnum.normal, ToastSkillEnum.同调者暴击率),
+            "，持续20秒，且【猎逐】被动触发时普通攻击获得与「缉捕模式」等同的强化效果（不与「缉捕模式」叠加）"
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese,
+    skillTeseStrong
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "失误",
@@ -302,7 +309,7 @@ const Tea = {
                 "盐",
                 "正常"
             ],
-            "ex": [519, 582, 634],//参考默契值，无加，满家具，满加成
+            "ex": [519],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -312,7 +319,7 @@ const Tea = {
                 "正常",
                 "樱桃"
             ],
-            "ex": [561, 628, 684],//参考默契值，无加，满家具，满加成
+            "ex": [561],//参考默契值，无加，满家具，满加成
         }
     ]
 }

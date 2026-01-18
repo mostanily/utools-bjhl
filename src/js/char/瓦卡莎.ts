@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "战术家", "skill": [MXLaohenEnum.伤害赐福菱形β型, MXLaohenEnum.等待时机], "attr": "shui", "star": "5",
     "nameEn": "SAMBHEKA", "tag": ["击退", "元素区域"], "originWorld": "夜摩", "orginChar": "原创",
     "cv": "灯果", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -19,107 +20,112 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "风天",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "负面状态", "对空", "持续施法"],//技能标签
-            "content": [
-                "持续施法，朝指定方向刮风吹散范围内的毒雾，持续对沿途敌人造成",
-                speSkillCon("200%最终攻击的风元素伤害"),
-                "并以",
-                speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "击退目标，持续12秒"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "因坻之息",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["增益冷却", "15秒"], ["增益持续", "18秒"]],
-            "tab": ["水区域", "伤害", "对空", "持续施法"],
-            "content": [
-                "祈求降雨，对场上随机位置半径",
-                speSkillCon("300"),
-                "范围内所有敌人每2秒造成",
-                speSkillCon("125%最终攻击的水元素伤害"),
-                "并逐渐生成水元素区域，持续",
-                speSkillCon("18"),
-                "秒",
-                "",
-                "期间有",
-                speSkillCon("100%"),
-                "概率落雷，对降雨区内随机一名敌人造成",
-                speSkillCon("125%最终攻击的雷元素伤害")
-            ]
-        }
-    },
-    {
-        "name": "婆罗那天地",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "120秒"]],
-            "tab": ["水区域", "友方增益", "自身增益", "对空", "持续施法"],
-            "content": [
-                "持续施法，在持续施法期间将改变全场天气，并持续生成水元素区域，持续30秒。期间我方水元素同调者提升",
-                speSkillCon("50%[同调者攻击]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击),
-                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                "，同时每隔一定时间降下落雷，对随机目标点范围",
-                speSkillCon("150"),
-                "内的敌人造成",
-                speSkillCon("72%最终攻击的雷元素伤害"),
-                "，雨势会随时间逐渐加大，落雷的频率和伤害随之提升（伤害最多提升100%）",
-                "",
-                "战术家特性：开战时异核充能增加50%"
-            ]
-        }
-    },
-    {
-        "name": "特性：休息一下",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "-"], ["攻击速度", "-"]],
-            "atType": ["不攻击"],
-            "content": [
-                "技能未开启时不攻击"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "持续祈祷，使全场敌人水元素抗性降低",
-                    speSkillCon("20%"),
-                    speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                    "，雷元素抗性降低",
-                    speSkillCon("10%"),
-                    speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                    "，风元素抗性降低",
-                    speSkillCon("10%"),
-                    speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低)
-                ],//零花本体特性
-                [
-                    "主动技能【风天】持续时间延长",
-                    speSkillCon("6"),
-                    "秒"
-                ],//一花特性
-                [
-                    "驻场时，水元素同调者除异核技能外，其他技能的回复速度加快",
-                    speSkillCon("15%")
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "风天",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "20秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "负面状态", "对空", "持续施法"],//技能标签
+        "content": [
+            "持续施法，朝指定方向刮风吹散范围内的毒雾，持续对沿途敌人造成",
+            speSkillCon("200%最终攻击的风元素伤害"),
+            "并以",
+            speSkillCon("3级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "击退目标，持续12秒"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "因坻之息",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "15秒"], ["增益持续", "18秒"]],
+        "tab": ["水区域", "伤害", "对空", "持续施法"],
+        "content": [
+            "祈求降雨，对场上随机位置半径",
+            speSkillCon("300"),
+            "范围内所有敌人每2秒造成",
+            speSkillCon("125%最终攻击的水元素伤害"),
+            "并逐渐生成水元素区域，持续",
+            speSkillCon("18"),
+            "秒",
+            "",
+            "期间有",
+            speSkillCon("100%"),
+            "概率落雷，对降雨区内随机一名敌人造成",
+            speSkillCon("125%最终攻击的雷元素伤害")
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "婆罗那天地",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "120秒"]],
+        "tab": ["水区域", "友方增益", "自身增益", "对空", "持续施法"],
+        "content": [
+            "持续施法，在持续施法期间将改变全场天气，并持续生成水元素区域，持续30秒。期间我方水元素同调者提升",
+            speSkillCon("50%[同调者攻击]", SkillColorEnum.normal, ToastSkillEnum.同调者攻击),
+            speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+            "，同时每隔一定时间降下落雷，对随机目标点范围",
+            speSkillCon("150"),
+            "内的敌人造成",
+            speSkillCon("72%最终攻击的雷元素伤害"),
+            "，雨势会随时间逐渐加大，落雷的频率和伤害随之提升（伤害最多提升100%）",
+            "",
+            "战术家特性：开战时异核充能增加50%"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：休息一下",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "-"], ["攻击速度", "-"]],
+        "atType": ["不攻击"],
+        "content": [
+            "技能未开启时不攻击"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "持续祈祷，使全场敌人水元素抗性降低",
+                speSkillCon("20%"),
+                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+                "，雷元素抗性降低",
+                speSkillCon("10%"),
+                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+                "，风元素抗性降低",
+                speSkillCon("10%"),
+                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低)
+            ],//零花本体特性
+            [
+                "主动技能【风天】持续时间延长",
+                speSkillCon("6"),
+                "秒"
+            ],//一花特性
+            [
+                "驻场时，水元素同调者除异核技能外，其他技能的回复速度加快",
+                speSkillCon("15%")
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "咖啡奶油",
@@ -234,7 +240,7 @@ const Tea = {
                 "正常冰",
                 "椰果"
             ],
-            "ex": [425, 476, 519],//参考默契值，无加，满家具，满加成
+            "ex": [425],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -244,7 +250,7 @@ const Tea = {
                 "正常冰",
                 "椰果"
             ],
-            "ex": [483, 542, 590],//参考默契值，无加，满家具，满加成
+            "ex": [483],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -253,7 +259,7 @@ const Tea = {
                 "正常冰",
                 "椰果"
             ],
-            "ex": [495, 554, 604],//参考默契值，无加，满家具，满加成
+            "ex": [495],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 16,
@@ -263,7 +269,7 @@ const Tea = {
                 "正常冰",
                 "椰果"
             ],
-            "ex": [560, 627, 683],//参考默契值，无加，满家具，满加成
+            "ex": [560],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -272,7 +278,7 @@ const Tea = {
                 "正常冰",
                 "椰果"
             ],
-            "ex": [594, 665, 725],//参考默契值，无加，满家具，满加成
+            "ex": [594],//参考默契值，无加，满家具，满加成
         }
     ]
 }

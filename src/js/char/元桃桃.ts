@@ -1,8 +1,9 @@
 import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "护佑者", "skill": [MXLaohenEnum.及时援助菱形β型, MXLaohenEnum.因祸得福], "attr": "shui", "star": "4",
     "nameEn": "BUBBLES", "tag": ["治疗", "输出"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "富贵", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -17,96 +18,101 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "奶茶双响炮",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "10秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["回复"],//技能标签
-            "content": [
-                "开启",
-                speSkillConWithImg(SkillDescStatusImg.元桃桃治疗模式),
-                "「治疗模式」，普通攻击改为向生命最低的友方同调者连续发射治疗弹，每",
-                speSkillCon("2.4"),
-                "秒总计治疗目标",
-                speSkillCon("263%治愈力"),
-                "的生命值，持续",
-                speSkillCon("20"),
-                "秒",
-                "",
-                "效果期间自动技能【青提波波】将暂停冷却回复"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "青提波波",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "15秒"]],
-            "tab": ["伤害", "负面状态"],
-            "content": [
-                "对一名敌方目标总计造成",
-                speSkillCon("3000%最终攻击的水元素伤害"),
-                "，并使其攻击速度降低",
-                speSkillCon("50%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("3"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "桃桃乌龙茶",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "90秒"]],
-            "tab": ["水区域", "回复", "伤害"],
-            "content": [
-                "对指定区域内所有敌方目标总计造成",
-                speSkillCon("2400%最终攻击的水元素伤害"),
-                "，同时治疗所有友方同调者",
-                speSkillCon("660%治愈力"),
-                "的生命值，并在范围内生成水元素区域"
-            ]
-        }
-    },
-    {
-        "name": "特性：奶茶双拼",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.75次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "向当前目标发射波波弹造成",
-                speSkillCon("133%最终攻击的水元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "可以切换攻击模式与治疗模式"
-                ],//零花本体特性
-                [
-                    "主动技能【奶茶双响炮】使用次数+1"
-                ],//一花特性
-                [
-                    "治愈力提升",
-                    speSkillCon("25%"),
-                    speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "奶茶双响炮",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "10秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["回复"],//技能标签
+        "content": [
+            "开启",
+            speSkillConWithImg(SkillDescStatusImg.元桃桃治疗模式),
+            "「治疗模式」，普通攻击改为向生命最低的友方同调者连续发射治疗弹，每",
+            speSkillCon("2.4"),
+            "秒总计治疗目标",
+            speSkillCon("263%治愈力"),
+            "的生命值，持续",
+            speSkillCon("20"),
+            "秒",
+            "",
+            "效果期间自动技能【青提波波】将暂停冷却回复"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "青提波波",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "15秒"]],
+        "tab": ["伤害", "负面状态"],
+        "content": [
+            "对一名敌方目标总计造成",
+            speSkillCon("3000%最终攻击的水元素伤害"),
+            "，并使其攻击速度降低",
+            speSkillCon("50%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("3"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "桃桃乌龙茶",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "90秒"]],
+        "tab": ["水区域", "回复", "伤害"],
+        "content": [
+            "对指定区域内所有敌方目标总计造成",
+            speSkillCon("2400%最终攻击的水元素伤害"),
+            "，同时治疗所有友方同调者",
+            speSkillCon("660%治愈力"),
+            "的生命值，并在范围内生成水元素区域"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：奶茶双拼",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.75次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "向当前目标发射波波弹造成",
+            speSkillCon("133%最终攻击的水元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "可以切换攻击模式与治疗模式"
+            ],//零花本体特性
+            [
+                "主动技能【奶茶双响炮】使用次数+1"
+            ],//一花特性
+            [
+                "治愈力提升",
+                speSkillCon("25%"),
+                speSkillCon("（属性乘区·治愈力加成）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "经典，有经典的道理",
@@ -226,7 +232,7 @@ const Tea = {
                 "正常糖",
                 "正常冰"
             ],
-            "ex": [472, 529, 576],//参考默契值，无加，满家具，满加成
+            "ex": [472],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -236,7 +242,7 @@ const Tea = {
                 "正常冰",
                 "蜜桃冻"
             ],
-            "ex": [528, 591, 644],//参考默契值，无加，满家具，满加成
+            "ex": [528],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 16,
@@ -246,7 +252,7 @@ const Tea = {
                 "正常冰",
                 "蜜桃冻"
             ],
-            "ex": [594, 665, 725],//参考默契值，无加，满家具，满加成
+            "ex": [594],//参考默契值，无加，满家具，满加成
         }
     ]
 }

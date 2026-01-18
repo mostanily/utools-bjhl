@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.元素专攻方块β型, MXLaohenEnum.雷域和源], "attr": "lei", "star": "6",
     "nameEn": "JING·GLIT·JUSTICE", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "张若瑜", "openDate": "2024年08月08日", "resourse": ["定向共鸣·荣耀俯首"],
@@ -19,148 +20,153 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "罚罪",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "1秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "自身增益", "格挡条破坏3"],//技能标签
-            "content": [
-                "进入持续",
-                speSkillCon("35"),
-                "秒的",
-                speSkillConWithImg(SkillDescStatusImg.景守誓),
-                "「守誓」状态并对自身周围",
-                speSkillCon("500"),
-                "半径造成",
-                speSkillCon("2000%最终攻击的雷元素伤害"),
-                "，回复异核充能",
-                speSkillCon("15"),
-                "秒并回复所有【断恶】技能次数，该状态下自身暴击率提高",
-                speSkillCon("25%"),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "",
-                "已在「守誓」状态下时无法施展【罚罪】，且「守誓」状态结束后",
-                speSkillCon("10"),
-                "秒内无法再次施放"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "断恶",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "15秒"], ["次数", "2"]],
-            "tab": ["伤害", "自身增益", "格挡条破坏3"],
-            "content": [
-                "自动技能：冷却时间",
-                speSkillCon("12"),
-                "秒，对目标周围半径",
-                speSkillCon("250"),
-                "范围造成",
-                speSkillCon("1600%最终攻击的雷元素伤害"),
-                "",
-                "",
-                "主动技能：仅在",
-                speSkillConWithImg(SkillDescStatusImg.景守誓),
-                "「守誓」状态下可施放，对半径",
-                speSkillCon("300"),
-                "范围造成",
-                speSkillCon("4000%最终攻击的雷元素伤害"),
-                "，且下",
-                speSkillCon("6"),
-                "次普通攻击的攻击速度提升",
-                speSkillCon("200%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "，并回复异核充能",
-                speSkillCon("10"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "辉光殿堂",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益", "对空", "格挡条破坏3"],
-            "content": [
-                "对自身半径",
-                speSkillCon("800"),
-                "范围内所有敌方造成",
-                speSkillCon("3500%最终攻击的雷元素伤害"),
-                "，同时获得",
-                speSkillCon("12"),
-                "层",
-                speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
-                "",
-                speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
-                "：",
-                speSkillConWithImg(SkillDescStatusImg.景守誓),
-                "「守誓」状态下自身普通攻击时，消耗1层",
-                speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
-                "对目标及周围半径",
-                speSkillCon("250"),
-                "范围地面敌方单位造成相当于自动技能伤害的",
-                speSkillCon("25%"),
-                "（该伤害视为异核技能伤害）。",
-                "",
-                "若【罚罪】次数耗尽，则非「守誓」状态下的普通攻击也会触发",
-                speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身)
-            ]
-        }
-    },
-    {
-        "name": "特性：裁决权柄",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "300"], ["攻击速度", "0.50次每秒"]],
-            "atType": ["单体"],
-            "content": [
-                "对选中目标造成",
-                speSkillCon("200%最终攻击的雷元素伤害")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "自身在场时使场上敌方雷元素抗性降低",
-                    speSkillCon("15%"),
-                    speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                    "，且自身所有伤害忽略目标基础减伤，数值为目标身上雷元素抗性降低效果的",
-                    speSkillCon("40%"),
-                    speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries)
-                ],//零花本体特性
-                [
-                    "异核技能获得的",
-                    speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
-                    "层数提高",
-                    speSkillCon("6"),
-                    "层，且【断恶】技能冷却时间降低至",
-                    speSkillCon("10"),
-                    "秒，次数增加",
-                    speSkillCon("1"),
-                    "次"
-                ],//一花特性
-                [
-                    "「守誓」状态下暴击时伤害提高",
-                    speSkillCon("20%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "，且「守誓」状态下特性中忽略目标基础减伤的数值提升至雷元素抗性降低效果的",
-                    speSkillCon("80%")
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "罚罪",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "1秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "自身增益", "格挡条破坏3"],//技能标签
+        "content": [
+            "进入持续",
+            speSkillCon("35"),
+            "秒的",
+            speSkillConWithImg(SkillDescStatusImg.景守誓),
+            "「守誓」状态并对自身周围",
+            speSkillCon("500"),
+            "半径造成",
+            speSkillCon("2000%最终攻击的雷元素伤害"),
+            "，回复异核充能",
+            speSkillCon("15"),
+            "秒并回复所有【断恶】技能次数，该状态下自身暴击率提高",
+            speSkillCon("25%"),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "",
+            "已在「守誓」状态下时无法施展【罚罪】，且「守誓」状态结束后",
+            speSkillCon("10"),
+            "秒内无法再次施放"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "断恶",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "15秒"], ["次数", "2"]],
+        "tab": ["伤害", "自身增益", "格挡条破坏3"],
+        "content": [
+            "自动技能：冷却时间",
+            speSkillCon("12"),
+            "秒，对目标周围半径",
+            speSkillCon("250"),
+            "范围造成",
+            speSkillCon("1600%最终攻击的雷元素伤害"),
+            "",
+            "",
+            "主动技能：仅在",
+            speSkillConWithImg(SkillDescStatusImg.景守誓),
+            "「守誓」状态下可施放，对半径",
+            speSkillCon("300"),
+            "范围造成",
+            speSkillCon("4000%最终攻击的雷元素伤害"),
+            "，且下",
+            speSkillCon("6"),
+            "次普通攻击的攻击速度提升",
+            speSkillCon("200%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "，并回复异核充能",
+            speSkillCon("10"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "辉光殿堂",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益", "对空", "格挡条破坏3"],
+        "content": [
+            "对自身半径",
+            speSkillCon("800"),
+            "范围内所有敌方造成",
+            speSkillCon("3500%最终攻击的雷元素伤害"),
+            "，同时获得",
+            speSkillCon("12"),
+            "层",
+            speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
+            "",
+            speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
+            "：",
+            speSkillConWithImg(SkillDescStatusImg.景守誓),
+            "「守誓」状态下自身普通攻击时，消耗1层",
+            speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
+            "对目标及周围半径",
+            speSkillCon("250"),
+            "范围地面敌方单位造成相当于自动技能伤害的",
+            speSkillCon("25%"),
+            "（该伤害视为异核技能伤害）。",
+            "",
+            "若【罚罪】次数耗尽，则非「守誓」状态下的普通攻击也会触发",
+            speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身)
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：裁决权柄",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "300"], ["攻击速度", "0.50次每秒"]],
+        "atType": ["单体"],
+        "content": [
+            "对选中目标造成",
+            speSkillCon("200%最终攻击的雷元素伤害")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "自身在场时使场上敌方雷元素抗性降低",
+                speSkillCon("15%"),
+                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+                "，且自身所有伤害忽略目标基础减伤，数值为目标身上雷元素抗性降低效果的",
+                speSkillCon("40%"),
+                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries)
+            ],//零花本体特性
+            [
+                "异核技能获得的",
+                speSkillCon("[荣耀加身]", SkillColorEnum.normal, ToastSkillEnum.荣耀加身),
+                "层数提高",
+                speSkillCon("6"),
+                "层，且【断恶】技能冷却时间降低至",
+                speSkillCon("10"),
+                "秒，次数增加",
+                speSkillCon("1"),
+                "次"
+            ],//一花特性
+            [
+                "「守誓」状态下暴击时伤害提高",
+                speSkillCon("20%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "，且「守誓」状态下特性中忽略目标基础减伤的数值提升至雷元素抗性降低效果的",
+                speSkillCon("80%")
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "无需更改",
@@ -292,7 +298,7 @@ const Tea = {
                 "盐",
                 "青梅"
             ],
-            "ex": [527, 591, 644],//参考默契值，无加，满家具，满加成
+            "ex": [527],//参考默契值，无加，满家具，满加成
         }
     ]
 }

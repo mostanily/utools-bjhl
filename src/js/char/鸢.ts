@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.核心充能三角β型, MXLaohenEnum.核心蚀解], "attr": "shi", "star": "6",
     "nameEn": "LEILANI", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "王晓彤", "openDate": "2024年06月27日", "resourse": ["定向共鸣·沉默的誓言"],
@@ -19,129 +20,134 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "月巡",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "穿透屏障"],//技能标签
-            "content": [
-                "对自身前方扇形区域射出箭矢对半径1200范围内目标造成",
-                speSkillCon("2500%最终攻击的蚀元素伤害"),
-                "，伤害随目标当前生命值百分比提升，最高提升",
-                speSkillCon("100%"),
-                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                "",
-                "连击：无视当前蚀爆值触发一次相当于消耗",
-                speSkillCon("100"),
-                "点蚀爆值时",
-                speSkillCon("50%"),
-                "的蚀爆伤害"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "弦影",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "主动技能",
-            "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],
-            "tab": ["伤害", "自身增益"],
-            "content": [
-                "被动：每隔",
-                speSkillCon("15"),
-                "秒强化自身武器，使自身",
-                speSkillCon("20"),
-                "秒内普通攻击额外为终端附加",
-                speSkillCon("5点蚀爆值"),
-                "，并使普通攻击对命中目标周围",
-                speSkillCon("200"),
-                "半径同样造成伤害。若技能【月巡】的次数耗尽，则持续时间内额外提升自身",
-                speSkillCon("100%"),
-                speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
-                "攻击速度",
-                "",
-                "",
-                "主动：对选中区域半径400范围内的目标造成",
-                speSkillCon("3750%最终攻击的蚀元素伤害"),
-                "，并为终端附加",
-                speSkillCon("10点蚀爆值"),
-                "。同时以",
-                speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
-                "击退自身周围300范围目标"
-            ]
-        }
-    },
-    {
-        "name": "应许之箭",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益", "穿透屏障"],
-            "content": [
-                "对选中区域半径范围",
-                speSkillCon("500"),
-                "内目标造成",
-                speSkillCon("4500%最终攻击的蚀元素伤害"),
-                "，并内终端附加",
-                speSkillCon("20点蚀爆值"),
-                "，同时立即触发【弦影】的被动效果。",
-                "",
-                "异核技能若只命中单个目标，则对其额外造成",
-                speSkillCon("2000%最终攻击的蚀元素伤害")
-            ]
-        }
-    },
-    {
-        "name": "特性：弥辉",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.35次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "对目标发射箭矢，造成",
-                speSkillCon("286%最终攻击的蚀元素伤害"),
-                "，并为终端附加",
-                speSkillCon("3点蚀爆值")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "触发蚀爆后，使自身所有伤害无视目标",
-                    speSkillCon("10%"),
-                    speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
-                    "基础减伤，最多叠加",
-                    speSkillCon("3"),
-                    "层"
-                ],//零花本体特性
-                [
-                    "【弦影】被动效果激活时，普通攻击伤害提高",
-                    speSkillCon("40%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "，且自身普通攻击使目标蚀元素抗性降低",
-                    speSkillCon("15%"),
-                    speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
-                    "，持续",
-                    speSkillCon("20"),
-                    "秒"
-                ],//一花特性
-                [
-                    "目标生命值越低，鸢对目标造成的伤害越高，最多提高",
-                    speSkillCon("40%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "月巡",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "穿透屏障"],//技能标签
+        "content": [
+            "对自身前方扇形区域射出箭矢对半径1200范围内目标造成",
+            speSkillCon("2500%最终攻击的蚀元素伤害"),
+            "，伤害随目标当前生命值百分比提升，最高提升",
+            speSkillCon("100%"),
+            speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+            "",
+            "连击：无视当前蚀爆值触发一次相当于消耗",
+            speSkillCon("100"),
+            "点蚀爆值时",
+            speSkillCon("50%"),
+            "的蚀爆伤害"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "弦影",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "15秒"], ["次数", "4"]],
+        "tab": ["伤害", "自身增益"],
+        "content": [
+            "被动：每隔",
+            speSkillCon("15"),
+            "秒强化自身武器，使自身",
+            speSkillCon("20"),
+            "秒内普通攻击额外为终端附加",
+            speSkillCon("5点蚀爆值"),
+            "，并使普通攻击对命中目标周围",
+            speSkillCon("200"),
+            "半径同样造成伤害。若技能【月巡】的次数耗尽，则持续时间内额外提升自身",
+            speSkillCon("100%"),
+            speSkillCon("（属性乘区·攻击速度）", SkillColorEnum.injuries),
+            "攻击速度",
+            "",
+            "",
+            "主动：对选中区域半径400范围内的目标造成",
+            speSkillCon("3750%最终攻击的蚀元素伤害"),
+            "，并为终端附加",
+            speSkillCon("10点蚀爆值"),
+            "。同时以",
+            speSkillCon("2级[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "击退自身周围300范围目标"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "应许之箭",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益", "穿透屏障"],
+        "content": [
+            "对选中区域半径范围",
+            speSkillCon("500"),
+            "内目标造成",
+            speSkillCon("4500%最终攻击的蚀元素伤害"),
+            "，并内终端附加",
+            speSkillCon("20点蚀爆值"),
+            "，同时立即触发【弦影】的被动效果。",
+            "",
+            "异核技能若只命中单个目标，则对其额外造成",
+            speSkillCon("2000%最终攻击的蚀元素伤害")
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：弥辉",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.35次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "对目标发射箭矢，造成",
+            speSkillCon("286%最终攻击的蚀元素伤害"),
+            "，并为终端附加",
+            speSkillCon("3点蚀爆值")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "触发蚀爆后，使自身所有伤害无视目标",
+                speSkillCon("10%"),
+                speSkillCon("（属性乘区·忽略减伤）", SkillColorEnum.injuries),
+                "基础减伤，最多叠加",
+                speSkillCon("3"),
+                "层"
+            ],//零花本体特性
+            [
+                "【弦影】被动效果激活时，普通攻击伤害提高",
+                speSkillCon("40%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "，且自身普通攻击使目标蚀元素抗性降低",
+                speSkillCon("15%"),
+                speSkillCon("（[目标减益乘区·目标抗性降低]）", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+                "，持续",
+                speSkillCon("20"),
+                "秒"
+            ],//一花特性
+            [
+                "目标生命值越低，鸢对目标造成的伤害越高，最多提高",
+                speSkillCon("40%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "初印象",
@@ -276,7 +282,7 @@ const Tea = {
                 "少冰",
                 "椰果"
             ],
-            "ex": [519, 582, 634],//参考默契值，无加，满家具，满加成
+            "ex": [519],//参考默契值，无加，满家具，满加成
         }
     ]
 }

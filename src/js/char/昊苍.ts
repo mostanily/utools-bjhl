@@ -2,8 +2,9 @@ import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.化险为夷, MXLaohenEnum.烈焰暴击], "attr": "yan", "star": "6",
     "nameEn": "CATULUS", "tag": ["爆发", "元素区域"], "originWorld": "黎威尔", "orginChar": "古剑奇谭网络版",
     "cv": "孙晔", "openDate": "2024年01月12日", "resourse": ["常态共鸣·异世交汇", "常态共鸣"],
@@ -31,238 +32,244 @@ const Desc = {
     ]
 }
 
-const Skill = [
-    {
-        "name": "破晓·血脉印记",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "18秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["炎区域", "伤害", "格挡条破坏3"],//技能标签
-            "sizeLevel": [
-                ["1080%", "360%", "1380%", "216%"],
-                ["1242%", "414%", "1587%", "248%"],
-                ["1404%", "468%", "1794%", "281%"],
-                ["1566%", "522%", "2001%", "313%"],
-                ["1728%", "576%", "2208%", "346%"],
-                ["1890%", "630%", "2415%", "378%"],
-                ["2050%", "684%", "2622%", "410%"],
-                ["2214%", "738%", "2829%", "443%"],
-                ["2376%", "792%", "3036%", "475%"],
-                ["2484%", "828%", "3174%", "497%"],
-                ["2592%", "864%", "3312%", "518%"],
-                ["2700%", "900%", "3450%", "540%"],
-                ["2808%", "936%", "3588%", "562%"],
-                ["2916%", "972%", "3726%", "583%"],
-                ["3024%", "1008%", "3864%", "605%"]
-            ],
-            "content": [
-                speSkillCon("【破晓】技能形态", SkillColorEnum.injuries),
-                "",
-                "人形状态下可使用",
-                "",
-                "向前突进，对沿途敌人造成",
-                speSkillCon("100%最终攻击的炎元素伤害"),
-                "，到达目标位置后对半径",
-                speSkillCon("300"),
-                "范围内距离自身最近的一名敌方造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "并对其他敌人造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，随后突进回初始位置",
-                "",
-                speSkillCon("【血脉印记】技能形态", SkillColorEnum.injuries),
-                "",
-                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
-                "「坎尼斯」状态下可使用",
-                "",
-                "向目标位置扔出武器，对半径",
-                speSkillCon("300"),
-                "范围内最多三名敌人造成",
-                speSkillCon("216%最终攻击的炎元素伤害"),
-                "，随后向前突进对沿途敌人造成",
-                speSkillCon("200%最终攻击的炎元素伤害"),
-                "，到达目标位置后对半径",
-                speSkillCon("300"),
-                "范围内距离自身最近的三名敌人总计造成",
-                speSkillCon("", 0, -1, 2),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，并对其他敌人造成",
-                speSkillCon("", 0, -1, 3),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，随后突进回初始位置，对沿途敌人再次造成",
-                speSkillCon("200%最终攻击的炎元素伤害"),
-                "；突进和造成伤害时留下炎元素区域"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "猎风·呼啸",
-        "aliasNum": "2",
-        "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["指令冷却", "15秒"], ["增益持续", "15秒"]],
-            "tab": ["伤害", "自身增益"],
-            "sizeLevel": [
-                ["15%", "20%"],
-                ["16%", "23%"],
-                ["17%", "26%"],
-                ["18%", "29%"],
-                ["19%", "32%"],
-                ["20%", "35%"],
-                ["21%", "38%"],
-                ["22%", "41%"],
-                ["24%", "44%"],
-                ["25%", "46%"],
-                ["27%", "48%"],
-                ["30%", "50%"],
-                ["31%", "52%"],
-                ["32%", "54%"],
-                ["34%", "56%"]
-            ],
-            "content": [
-                speSkillCon("【猎风】技能形态", SkillColorEnum.injuries),
-                "",
-                "人形状态下可使用",
-                "",
-                "自身暴击率提升",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("15"),
-                "秒，期间普通攻击变为范围炎元素伤害，每次攻击额外造成",
-                speSkillCon("100%最终攻击的炎元素伤害"),
-                "",
-                speSkillCon("【呼啸】技能形态", SkillColorEnum.injuries),
-                "",
-                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
-                "「坎尼斯」状态下可使用",
-                "",
-                "自身暴击率提升",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "、暴击伤害提升",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries),
-                "，持续",
-                speSkillCon("15"),
-                "秒，期间普通攻击变为范围炎元素伤害，造成的伤害提升（提升幅度为目标当前生命值百分比，最高提升100%）"
-            ]
-        }
-    },
-    {
-        "name": "无赦之罪",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "60秒"]],
-            "tab": ["伤害", "自身增益", "回复", "格挡条破坏3"],
-            "sizeLevel": [
-                ["1800%"],
-                ["2100%"],
-                ["2400%"],
-                ["2700%"],
-                ["2850%"],
-                ["3000%"],
-            ],
-            "content": [
-                "从人形状态切换到",
-                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
-                "「坎尼斯」状态",
-                "",
-                "对自身半径",
-                speSkillCon("600"),
-                "范围内的所有敌人造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的炎元素伤害"),
-                "，并根据命中敌方数量回复自身生命值，每命中一名敌方单位，回复自身",
-                speSkillCon("8%最大生命值"),
-                "，随后切换到",
-                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
-                "「坎尼斯」形态，普通攻击变为炎元素伤害，",
-                speSkillCon("攻击速度：0.67次每秒"),
-                "，持续",
-                speSkillCon("30"),
-                "秒，每次发生暴击都会延长自身",
-                speSkillCon("2"),
-                "秒",
-                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
-                "「坎尼斯」形态的持续时间",
-                "",
-                "使用后立即激活自动技能【呼啸】"
-            ]
-        }
-    },
-    {
-        "name": "特性：原罪者",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.56次每秒"]],
-            "atType": ["单体", "格挡条破坏1"],
-            "content": [
-                "攻击面前的目标造成",
-                speSkillCon("200%最终攻击的物理伤害"),
-                "",
-                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
-                "「坎尼斯」状态下的第三段普通攻击将挥出远程剑气，对沿途的敌人造成炎元素伤害；该状态下普通攻击命中目标有几率（同自身当前暴击率）触发犬爪幻影追击，造成",
-                speSkillCon("100%最终攻击的炎元素伤害"),
-                "，伤害随目标当前生命值百分比提升（最高提升100%）并回复自身",
-                speSkillCon("5%最大生命值")
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "登场异核充能增加50%",
-                    "",
-                    "不攻击时，每秒回复",
-                    speSkillCon("1%最大生命值"),
-                    "",
-                    "人形：不攻击时，5秒后，进入格挡姿态，受到的伤害减免",
-                    speSkillCon("80%"),
-                    speSkillCon("（减伤乘区·受伤害减少）", SkillColorEnum.injuries),
-                    "",
-                    speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
-                    "「坎尼斯」形态：基础减伤增加",
-                    speSkillCon("12%~20%"),
-                    speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                    speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                    "；不攻击时，5秒后，下一次普通攻击将造成范围炎元素伤害，并在路径上留下炎元素区域"
-                ],//零花本体特性
-                [
-                    "登场可立即施放异核技能，且异核技能【无赦之罪】冷却时间缩短",
-                    speSkillCon("10"),
-                    "秒"
-                ],//一花特性
-                [
-                    "场上每有一名炎元素同调者（包含自己），昊苍的暴击率提升",
-                    speSkillCon("5%"),
-                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                    "、攻击力提升",
-                    speSkillCon("5%"),
-                    speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
-    },
-    {
-        "name": "特性强化",
-        "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "content": [
-                "【血脉印记】和【破晓·血脉印记】伤害提高",
-                speSkillCon("15%"),
-                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "破晓·血脉印记",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "18秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["炎区域", "伤害", "格挡条破坏3"],//技能标签
+        "sizeLevel": [
+            ["1080%", "360%", "1380%", "216%"],
+            ["1242%", "414%", "1587%", "248%"],
+            ["1404%", "468%", "1794%", "281%"],
+            ["1566%", "522%", "2001%", "313%"],
+            ["1728%", "576%", "2208%", "346%"],
+            ["1890%", "630%", "2415%", "378%"],
+            ["2050%", "684%", "2622%", "410%"],
+            ["2214%", "738%", "2829%", "443%"],
+            ["2376%", "792%", "3036%", "475%"],
+            ["2484%", "828%", "3174%", "497%"],
+            ["2592%", "864%", "3312%", "518%"],
+            ["2700%", "900%", "3450%", "540%"],
+            ["2808%", "936%", "3588%", "562%"],
+            ["2916%", "972%", "3726%", "583%"],
+            ["3024%", "1008%", "3864%", "605%"]
+        ],
+        "content": [
+            speSkillCon("【破晓】技能形态", SkillColorEnum.injuries),
+            "",
+            "人形状态下可使用",
+            "",
+            "向前突进，对沿途敌人造成",
+            speSkillCon("100%最终攻击的炎元素伤害"),
+            "，到达目标位置后对半径",
+            speSkillCon("300"),
+            "范围内距离自身最近的一名敌方造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "并对其他敌人造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，随后突进回初始位置",
+            "",
+            speSkillCon("【血脉印记】技能形态", SkillColorEnum.injuries),
+            "",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            "「坎尼斯」状态下可使用",
+            "",
+            "向目标位置扔出武器，对半径",
+            speSkillCon("300"),
+            "范围内最多三名敌人造成",
+            speSkillCon("216%最终攻击的炎元素伤害"),
+            "，随后向前突进对沿途敌人造成",
+            speSkillCon("200%最终攻击的炎元素伤害"),
+            "，到达目标位置后对半径",
+            speSkillCon("300"),
+            "范围内距离自身最近的三名敌人总计造成",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，并对其他敌人造成",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，随后突进回初始位置，对沿途敌人再次造成",
+            speSkillCon("200%最终攻击的炎元素伤害"),
+            "；突进和造成伤害时留下炎元素区域"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "猎风·呼啸",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["指令冷却", "15秒"], ["增益持续", "15秒"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["15%", "20%"],
+            ["16%", "23%"],
+            ["17%", "26%"],
+            ["18%", "29%"],
+            ["19%", "32%"],
+            ["20%", "35%"],
+            ["21%", "38%"],
+            ["22%", "41%"],
+            ["24%", "44%"],
+            ["25%", "46%"],
+            ["27%", "48%"],
+            ["30%", "50%"],
+            ["31%", "52%"],
+            ["32%", "54%"],
+            ["34%", "56%"]
+        ],
+        "content": [
+            speSkillCon("【猎风】技能形态", SkillColorEnum.injuries),
+            "",
+            "人形状态下可使用",
+            "",
+            "自身暴击率提升",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("15"),
+            "秒，期间普通攻击变为范围炎元素伤害，每次攻击额外造成",
+            speSkillCon("100%最终攻击的炎元素伤害"),
+            "",
+            speSkillCon("【呼啸】技能形态", SkillColorEnum.injuries),
+            "",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            "「坎尼斯」状态下可使用",
+            "",
+            "自身暴击率提升",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "、暴击伤害提升",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("（属性乘区·暴击伤害）", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("15"),
+            "秒，期间普通攻击变为范围炎元素伤害，造成的伤害提升（提升幅度为目标当前生命值百分比，最高提升100%）"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "无赦之罪",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "60秒"]],
+        "tab": ["伤害", "自身增益", "回复", "格挡条破坏3"],
+        "sizeLevel": [
+            ["1800%"],
+            ["2100%"],
+            ["2400%"],
+            ["2700%"],
+            ["2850%"],
+            ["3000%"],
+        ],
+        "content": [
+            "从人形状态切换到",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            "「坎尼斯」状态",
+            "",
+            "对自身半径",
+            speSkillCon("600"),
+            "范围内的所有敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，并根据命中敌方数量回复自身生命值，每命中一名敌方单位，回复自身",
+            speSkillCon("8%最大生命值"),
+            "，随后切换到",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            "「坎尼斯」形态，普通攻击变为炎元素伤害，",
+            speSkillCon("攻击速度：0.67次每秒"),
+            "，持续",
+            speSkillCon("30"),
+            "秒，每次发生暴击都会延长自身",
+            speSkillCon("2"),
+            "秒",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            "「坎尼斯」形态的持续时间",
+            "",
+            "使用后立即激活自动技能【呼啸】"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：原罪者",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.56次每秒"]],
+        "atType": ["单体", "格挡条破坏1"],
+        "content": [
+            "攻击面前的目标造成",
+            speSkillCon("200%最终攻击的物理伤害"),
+            "",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            "「坎尼斯」状态下的第三段普通攻击将挥出远程剑气，对沿途的敌人造成炎元素伤害；该状态下普通攻击命中目标有几率（同自身当前暴击率）触发犬爪幻影追击，造成",
+            speSkillCon("100%最终攻击的炎元素伤害"),
+            "，伤害随目标当前生命值百分比提升（最高提升100%）并回复自身",
+            speSkillCon("5%最大生命值")
+        ],//普通攻击
+        "specialContent": [
+            [
+                "登场异核充能增加50%",
+                "",
+                "不攻击时，每秒回复",
+                speSkillCon("1%最大生命值"),
+                "",
+                "人形：不攻击时，5秒后，进入格挡姿态，受到的伤害减免",
+                speSkillCon("80%"),
+                speSkillCon("（减伤乘区·受伤害减少）", SkillColorEnum.injuries),
+                "",
+                speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+                "「坎尼斯」形态：基础减伤增加",
+                speSkillCon("12%~20%"),
+                speSkillCon("（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+                "；不攻击时，5秒后，下一次普通攻击将造成范围炎元素伤害，并在路径上留下炎元素区域"
+            ],//零花本体特性
+            [
+                "登场可立即施放异核技能，且异核技能【无赦之罪】冷却时间缩短",
+                speSkillCon("10"),
+                "秒"
+            ],//一花特性
+            [
+                "场上每有一名炎元素同调者（包含自己），昊苍的暴击率提升",
+                speSkillCon("5%"),
+                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+                "、攻击力提升",
+                speSkillCon("5%"),
+                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+const skillTeseStrong: DefaultTeseSkillObj = {
+    "name": "特性强化",
+    "aliasNum": "特性强化",//特性强化技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "content": [
+            "【血脉印记】和【破晓·血脉印记】伤害提高",
+            speSkillCon("15%"),
+            speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese,
+    skillTeseStrong
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "灵敏味觉",
@@ -379,7 +386,7 @@ const Tea = {
                 "盐",
                 "少冰"
             ],
-            "ex": [448, 501, 546, 597],//参考默契值，无加，满家具，满加成
+            "ex": [448],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -388,7 +395,7 @@ const Tea = {
                 "盐",
                 "原味雪顶"
             ],
-            "ex": [467, 523, 571, 623],//参考默契值，无加，满家具，满加成
+            "ex": [467],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -397,7 +404,7 @@ const Tea = {
                 "原味雪顶",
                 "椰果"
             ],
-            "ex": [567, 635, 692, 755],//参考默契值，无加，满家具，满加成
+            "ex": [567],//参考默契值，无加，满家具，满加成
         }
     ]
 }

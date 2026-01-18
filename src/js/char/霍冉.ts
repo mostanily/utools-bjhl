@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.自动瞄准系统方块α型, MXLaohenEnum.破碎打击], "attr": "yan", "star": "4",
     "nameEn": "HUORAN", "tag": ["输出", "爆发"], "originWorld": "森罗", "orginChar": "原创",
     "cv": "小巫", "openDate": "2024年01月12日", "resourse": ["主线S0-3赠送", "常态共鸣"],
@@ -18,109 +19,114 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "警告！路牌！",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 12,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "18秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "负面状态", "最大选敌数1", "格挡条破坏3"],//技能标签
-            "content": [
-                "对单个目标造成",
-                speSkillCon("4500%最终攻击的炎元素伤害"),
-                "，该次伤害附带",
-                speSkillCon("30%"),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "额外暴击率提升，并使其",
-                speSkillCon("[眩晕]", SkillColorEnum.normal, ToastSkillEnum.眩晕),
-                "，持续",
-                speSkillCon("6"),
-                "秒"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "横扫街头",
-        "aliasNum": "2",
-        "maxLevel": 12,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["施放冷却", "15秒"]],
-            "tab": ["伤害", "格挡条破坏2"],
-            "content": [
-                "对当前目标进行三连击，总计造成",
-                speSkillCon("3750%最终攻击的炎元素伤害")
-            ]
-        }
-    },
-    {
-        "name": "无名怒火",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "80秒"]],
-            "tab": ["自身增益"],
-            "content": [
-                "增加自身",
-                speSkillCon("120%"),
-                speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
-                "攻击力，",
-                speSkillCon("40%"),
-                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
-                "暴击率，",
-                speSkillCon("9%~15%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
-                speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
-                "基础减伤，普通攻击变为炎元素伤害，持续",
-                speSkillCon("30"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "特性：无畏",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "200"], ["攻击速度", "0.62次每秒"]],
-            "atType": ["单体", "格挡条破坏1"],
-            "content": [
-                "用路牌挥砍面前的目标，对其造成",
-                speSkillCon("192%最终攻击的物理伤害"),
-                "",
-                "近战范围没有敌人时，向远处目标扔出路牌，对敌人造成",
-                speSkillCon("96%最终攻击的物理伤害"),
-                "（远程攻击不附带格挡条破坏效果）"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "拥有较强的单体输出能力",
-                    "",
-                    "优先攻击精英及以上的敌方单位，造成的伤害总计提升",
-                    speSkillCon("20%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
-                    "，受到的伤害总计降低",
-                    speSkillCon("20%"),
-                    speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
-                ],//零花本体特性
-                [
-                    "主动技能【警告！路牌！】破坏敌方单位格挡能力大幅提高，额外提高",
-                    speSkillCon("3段格挡条"),
-                    "破坏"
-                ],//一花特性
-                [
-                    "暴击率提升",
-                    speSkillCon("25%"),
-                    speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries)
-                ]//三花特性
-            ]
-        }
+const skill1: DefaultNormalSkillObj = {
+    "name": "警告！路牌！",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 12,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "18秒"], ["次数", "4"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "负面状态", "最大选敌数1", "格挡条破坏3"],//技能标签
+        "content": [
+            "对单个目标造成",
+            speSkillCon("4500%最终攻击的炎元素伤害"),
+            "，该次伤害附带",
+            speSkillCon("30%"),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "额外暴击率提升，并使其",
+            speSkillCon("[眩晕]", SkillColorEnum.normal, ToastSkillEnum.眩晕),
+            "，持续",
+            speSkillCon("6"),
+            "秒"
+        ]//满级技能内容描述
     }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "横扫街头",
+    "aliasNum": "2",
+    "maxLevel": 12,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "15秒"]],
+        "tab": ["伤害", "格挡条破坏2"],
+        "content": [
+            "对当前目标进行三连击，总计造成",
+            speSkillCon("3750%最终攻击的炎元素伤害")
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "无名怒火",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "80秒"]],
+        "tab": ["自身增益"],
+        "content": [
+            "增加自身",
+            speSkillCon("120%"),
+            speSkillCon("（属性乘区·攻击力加成）", SkillColorEnum.injuries),
+            "攻击力，",
+            speSkillCon("40%"),
+            speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries),
+            "暴击率，",
+            speSkillCon("9%~15%（[防御依赖]）", SkillColorEnum.normal, ToastSkillEnum.防御依赖),
+            speSkillCon("（属性乘区·基础减伤）", SkillColorEnum.injuries),
+            "基础减伤，普通攻击变为炎元素伤害，持续",
+            speSkillCon("30"),
+            "秒"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：无畏",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "200"], ["攻击速度", "0.62次每秒"]],
+        "atType": ["单体", "格挡条破坏1"],
+        "content": [
+            "用路牌挥砍面前的目标，对其造成",
+            speSkillCon("192%最终攻击的物理伤害"),
+            "",
+            "近战范围没有敌人时，向远处目标扔出路牌，对敌人造成",
+            speSkillCon("96%最终攻击的物理伤害"),
+            "（远程攻击不附带格挡条破坏效果）"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "拥有较强的单体输出能力",
+                "",
+                "优先攻击精英及以上的敌方单位，造成的伤害总计提升",
+                speSkillCon("20%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries),
+                "，受到的伤害总计降低",
+                speSkillCon("20%"),
+                speSkillCon("（增伤乘区·独立增伤）", SkillColorEnum.injuries)
+            ],//零花本体特性
+            [
+                "主动技能【警告！路牌！】破坏敌方单位格挡能力大幅提高，额外提高",
+                speSkillCon("3段格挡条"),
+                "破坏"
+            ],//一花特性
+            [
+                "暴击率提升",
+                speSkillCon("25%"),
+                speSkillCon("（属性乘区·暴击率）", SkillColorEnum.injuries)
+            ]//三花特性
+        ]
+    }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "有意见？",
@@ -252,7 +258,7 @@ const Tea = {
                 "枸杞",
                 "咸梅干"
             ],
-            "ex": [414, 463, 505],//参考默契值，无加，满家具，满加成
+            "ex": [414],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 6,
@@ -262,7 +268,7 @@ const Tea = {
                 "柠檬汁",
                 "黄瓜片"
             ],
-            "ex": [420, 470, 512],//参考默契值，无加，满家具，满加成
+            "ex": [420],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 8,
@@ -271,7 +277,7 @@ const Tea = {
                 "常温",
                 "咸梅干"
             ],
-            "ex": [433, 485, 528],//参考默契值，无加，满家具，满加成
+            "ex": [433],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 10,
@@ -280,7 +286,7 @@ const Tea = {
                 "苦味素",
                 "原味雪顶"
             ],
-            "ex": [445, 498, 543],//参考默契值，无加，满家具，满加成
+            "ex": [445],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -290,7 +296,7 @@ const Tea = {
                 "常温",
                 "蜜桃冻"
             ],
-            "ex": [462, 517, 564],//参考默契值，无加，满家具，满加成
+            "ex": [462],//参考默契值，无加，满家具，满加成
         }
     ]
 }

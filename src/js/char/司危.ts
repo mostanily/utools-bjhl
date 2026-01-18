@@ -2,8 +2,9 @@ import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
 import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultSkillLinkObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
-const Desc = {
+const Desc: DefaultCharDescObj = {
     "job": "游徒", "skill": [MXLaohenEnum.机械特攻α型, MXLaohenEnum.连击精通], "attr": "lei", "star": "5",
     "nameEn": "PRIS", "tag": ["输出"], "originWorld": "艾达", "orginChar": "古剑奇谭三",
     "cv": "醋醋", "openDate": "2024年01月12日", "resourse": ["常态共鸣"],
@@ -19,235 +20,241 @@ const Desc = {
     }
 }
 
-const Skill = [
-    {
-        "name": "摇滚连音",
-        "aliasNum": "1",//技能简称，1技能
-        "maxLevel": 15,//技能最大等级
-        "detail": {
-            "type": "主动技能",//技能类型，主动、被动、自定等
-            "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
-            "tab": ["伤害", "拦截"],//技能标签
-            "sizeLevel": [
-                ["450%", "38%"],
-                ["518%", "44%"],
-                ["585%", "49%"],
-                ["652%", "55%"],
-                ["720%", "61%"],
-                ["788%", "67%"],
-                ["855%", "72%"],
-                ["922%", "78%"],
-                ["990%", "84%"],
-                ["1035%", "87%"],
-                ["1080%", "91%"],
-                ["1125%", "95%"],
-                ["1148%", "97%"],
-                ["1170%", "99%"],
-                ["1193%", "101%"]
-            ],
-            "content": [
-                "指挥电子狗冲向目标区域，持续朝区域内发射红外激光射线，共造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "并拦截其中投射物，结束时在该目标位置形成射线网，射线网持续",
-                speSkillCon("20"),
-                "秒，射线网每2秒对其中的目标造成",
-                speSkillCon("", 0, -1, 1),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "，并对其施加",
-                speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
-                "标记",
+const skill1: DefaultNormalSkillObj = {
+    "name": "摇滚连音",
+    "aliasNum": "1",//技能简称，1技能
+    "maxLevel": 15,//技能最大等级
+    "detail": {
+        "type": "主动技能",//技能类型，主动、被动、自定等
+        "skillTab": [["指令冷却", "15秒"], ["次数", "5"]],//技能使用情况，如冷却，可使用次数
+        "tab": ["伤害", "拦截"],//技能标签
+        "sizeLevel": [
+            ["450%", "38%"],
+            ["518%", "44%"],
+            ["585%", "49%"],
+            ["652%", "55%"],
+            ["720%", "61%"],
+            ["788%", "67%"],
+            ["855%", "72%"],
+            ["922%", "78%"],
+            ["990%", "84%"],
+            ["1035%", "87%"],
+            ["1080%", "91%"],
+            ["1125%", "95%"],
+            ["1148%", "97%"],
+            ["1170%", "99%"],
+            ["1193%", "101%"]
+        ],
+        "content": [
+            "指挥电子狗冲向目标区域，持续朝区域内发射红外激光射线，共造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "并拦截其中投射物，结束时在该目标位置形成射线网，射线网持续",
+            speSkillCon("20"),
+            "秒，射线网每2秒对其中的目标造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "，并对其施加",
+            speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
+            "标记",
+            "",
+            "自身每",
+            speSkillCon("10%"),
+            "攻击速度提升可降低",
+            speSkillCon("0.1"),
+            "秒射线网伤害触发的间隔"
+        ]//满级技能内容描述
+    }
+}
+const skill2: DefaultNormalSkillObj = {
+    "name": "即兴鼓点",
+    "aliasNum": "2",
+    "maxLevel": 15,
+    "detail": {
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "20秒"], ["增益持续", "20秒"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["418%"],
+            ["481%"],
+            ["543%"],
+            ["606%"],
+            ["669%"],
+            ["732%"],
+            ["794%"],
+            ["857%"],
+            ["920%"],
+            ["961%"],
+            ["1003%"],
+            ["1045%"],
+            ["1066%"],
+            ["1087%"],
+            ["1108%"]
+        ],
+        "content": [
+            "开启后电子狗获得强化，攻击速度提升",
+            speSkillCon("30%"),
+            speSkillCon("（属性乘区·额外攻击速度）", SkillColorEnum.injuries),
+            "，攻击会同时射出两道激光射线，对当前目标共造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "；该强化效果持续",
+            speSkillCon("20"),
+            "秒"
+        ]
+    }
+}
+const skillSP: DefaultNormalSkillObj = {
+    "name": "朋克主义",
+    "aliasNum": "异核",
+    "maxLevel": 6,
+    "detail": {
+        "type": "异核技能",
+        "skillTab": [["充能时间", "100秒"]],
+        "tab": ["伤害", "持续施法"],
+        "content": [
+            "指挥电子狗变成射灯球，自身进入唱跳状态，每",
+            speSkillCon("0.5"),
+            "秒对随机",
+            speSkillCon("200"),
+            "半径范围内所有敌方单位预计总共造成",
+            speSkillCon("6000%最终攻击的雷元素伤害"),
+            "，命中带有",
+            speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
+            "标记的单位时额外造成",
+            speSkillCon("50%无视减伤的物理伤害"),
+            "（不会清除",
+            speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
+            "标记）",
+            "",
+            "自身每",
+            speSkillCon("10%"),
+            "攻击速度提升可降低",
+            speSkillCon("0.013"),
+            "秒伤害触发的间隔"
+        ]
+    }
+}
+const skillTese: DefaultTeseSkillObj = {
+    "name": "特性：反·音阶计划",
+    "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
+    "detail": {
+        "type": "战斗特性",
+        "tab": [["射程", "800"], ["攻击速度", "0.59次每秒"]],
+        "atType": ["单体", "对空"],
+        "content": [
+            "指挥电子狗向目标发射激光射线，造成",
+            speSkillCon("170%最终攻击的雷元素伤害"),
+            "",
+            "普通攻击会同时攻击除目标外场上带有【音律】标记的单位（最多",
+            speSkillCon("3"),
+            "个），造成",
+            speSkillCon("40%无视减伤的物理伤害"),
+            "，并清除该目标【音律】标记"
+        ],//普通攻击
+        "specialContent": [
+            [
+                "电子狗视为召唤物",
                 "",
-                "自身每",
-                speSkillCon("10%"),
-                "攻击速度提升可降低",
-                speSkillCon("0.1"),
-                "秒射线网伤害触发的间隔"
-            ]//满级技能内容描述
-        }
-    },
-    {
-        "name": "即兴鼓点",
+                "自身",
+                speSkillCon("1200"),
+                "范围内的友方受到攻击时，攻击者会被标记为",
+                speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
+                "单位",
+                "",
+                "芙蕖在场时，攻击速度提升",
+                speSkillCon("20%"),
+                speSkillCon("（属性乘区·额外攻击速度）", SkillColorEnum.injuries)
+            ],//零花本体特性
+            [
+                "普通攻击可以同时散射攻击除目标外场上最多",
+                speSkillCon("5"),
+                "个带有",
+                speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
+                "标记的单位"
+            ],//一花特性
+            [
+                "散射攻击带有",
+                speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
+                "标记的目标时，有",
+                speSkillCon("30%"),
+                "的概率不消耗目标",
+                speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
+                "标记"
+            ]//三花特性
+        ]
+    }
+}
+const skillLink: DefaultSkillLinkObj = {
+    "name": "技能同调",
+    "aliasNum": "技能同调",
+    "repSkill": 1,//被替换的技能，值为该角色技能组数据对应技能下标
+    "unlock": LaohenNameEnum.双重引力,//该技能解锁条件，拥有对应的烙痕ID
+    "detail": {
+        "name": "高光和弦",
         "aliasNum": "2",
         "maxLevel": 15,
-        "detail": {
-            "type": "自动技能",
-            "skillTab": [["增益冷却", "20秒"], ["增益持续", "20秒"]],
-            "tab": ["伤害", "自身增益"],
-            "sizeLevel": [
-                ["418%"],
-                ["481%"],
-                ["543%"],
-                ["606%"],
-                ["669%"],
-                ["732%"],
-                ["794%"],
-                ["857%"],
-                ["920%"],
-                ["961%"],
-                ["1003%"],
-                ["1045%"],
-                ["1066%"],
-                ["1087%"],
-                ["1108%"]
-            ],
-            "content": [
-                "开启后电子狗获得强化，攻击速度提升",
-                speSkillCon("30%"),
-                speSkillCon("（属性乘区·额外攻击速度）", SkillColorEnum.injuries),
-                "，攻击会同时射出两道激光射线，对当前目标共造成",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "；该强化效果持续",
-                speSkillCon("20"),
-                "秒"
-            ]
-        }
-    },
-    {
-        "name": "朋克主义",
-        "aliasNum": "异核",
-        "maxLevel": 6,
-        "detail": {
-            "type": "异核技能",
-            "skillTab": [["充能时间", "100秒"]],
-            "tab": ["伤害", "持续施法"],
-            "content": [
-                "指挥电子狗变成射灯球，自身进入唱跳状态，每",
-                speSkillCon("0.5"),
-                "秒对随机",
-                speSkillCon("200"),
-                "半径范围内所有敌方单位预计总共造成",
-                speSkillCon("6000%最终攻击的雷元素伤害"),
-                "，命中带有",
-                speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
-                "标记的单位时额外造成",
-                speSkillCon("50%无视减伤的物理伤害"),
-                "（不会清除",
-                speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
-                "标记）",
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "10秒"], ["增益持续", "12秒"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["184%"],
+            ["212%"],
+            ["239%"],
+            ["267%"],
+            ["294%"],
+            ["322%"],
+            ["350%"],
+            ["377%"],
+            ["405%"],
+            ["423%"],
+            ["442%"],
+            ["460%"],
+            ["478%"],
+            ["497%"],
+            ["515%"]
+        ],
+        "content": [
+            "开启后电子狗获得强化，进入持续",
+            speSkillCon("12"),
+            "秒的增益状态",
+            "",
+            "该状态下电子狗普通攻击会发射巨型激光，激光可穿透目标，对路径上单位每",
+            speSkillCon("0.3"),
+            "秒造成一次",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的雷元素伤害"),
+            "，共造成",
+            speSkillCon("3"),
+            "次伤害",
+            "",
+            "该伤害会触发目标身上的【音律】标记（包含当前目标）"
+        ],
+        "specialContent": [
+            [
+                "当自身编入队伍时，同调者的召唤物伤害提高8%",
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
                 "",
-                "自身每",
-                speSkillCon("10%"),
-                "攻击速度提升可降低",
-                speSkillCon("0.013"),
-                "秒伤害触发的间隔"
-            ]
-        }
-    },
-    {
-        "name": "特性：反·音阶计划",
-        "aliasNum": "特性",//特性技能需要特殊处理，在具体的地方需要用v-if判断
-        "detail": {
-            "type": "战斗特性",
-            "tab": [["射程", "800"], ["攻击速度", "0.59次每秒"]],
-            "atType": ["单体", "对空"],
-            "content": [
-                "指挥电子狗向目标发射激光射线，造成",
-                speSkillCon("170%最终攻击的雷元素伤害"),
-                "",
-                "普通攻击会同时攻击除目标外场上带有【音律】标记的单位（最多",
-                speSkillCon("3"),
-                "个），造成",
-                speSkillCon("40%无视减伤的物理伤害"),
-                "，并清除该目标【音律】标记"
-            ],//普通攻击
-            "specialContent": [
-                [
-                    "电子狗视为召唤物",
-                    "",
-                    "自身",
-                    speSkillCon("1200"),
-                    "范围内的友方受到攻击时，攻击者会被标记为",
-                    speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
-                    "单位",
-                    "",
-                    "芙蕖在场时，攻击速度提升",
-                    speSkillCon("20%"),
-                    speSkillCon("（属性乘区·额外攻击速度）", SkillColorEnum.injuries)
-                ],//零花本体特性
-                [
-                    "普通攻击可以同时散射攻击除目标外场上最多",
-                    speSkillCon("5"),
-                    "个带有",
-                    speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
-                    "标记的单位"
-                ],//一花特性
-                [
-                    "散射攻击带有",
-                    speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
-                    "标记的目标时，有",
-                    speSkillCon("30%"),
-                    "的概率不消耗目标",
-                    speSkillCon("[音律]", SkillColorEnum.normal, ToastSkillEnum.音律),
-                    "标记"
-                ]//三花特性
-            ]
-        }
-    },
-    {
-        "name": "技能同调",
-        "aliasNum": "技能同调",
-        "repSkill": 1,//被替换的技能，值为该角色技能组数据对应技能下标
-        "unlock": LaohenNameEnum.双重引力,//该技能解锁条件，拥有对应的烙痕ID
-        "detail": {
-            "name": "高光和弦",
-            "aliasNum": "2",
-            "maxLevel": 15,
-            "type": "自动技能",
-            "skillTab": [["增益冷却", "10秒"], ["增益持续", "12秒"]],
-            "tab": ["伤害", "自身增益"],
-            "sizeLevel": [
-                ["184%"],
-                ["212%"],
-                ["239%"],
-                ["267%"],
-                ["294%"],
-                ["322%"],
-                ["350%"],
-                ["377%"],
-                ["405%"],
-                ["423%"],
-                ["442%"],
-                ["460%"],
-                ["478%"],
-                ["497%"],
-                ["515%"]
-            ],
-            "content": [
-                "开启后电子狗获得强化，进入持续",
-                speSkillCon("12"),
-                "秒的增益状态",
-                "",
-                "该状态下电子狗普通攻击会发射巨型激光，激光可穿透目标，对路径上单位每",
-                speSkillCon("0.3"),
-                "秒造成一次",
-                speSkillCon("", 0, -1, 0),
-                speSkillCon("最终攻击的雷元素伤害"),
-                "，共造成",
-                speSkillCon("3"),
-                "次伤害",
-                "",
-                "该伤害会触发目标身上的【音律】标记（包含当前目标）"
-            ],
-            "specialContent":[
-                [
-                    "当自身编入队伍时，同调者的召唤物伤害提高8%",
-                    speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
-                    "",
-                    "受到技能【高光和弦】激光伤害的敌方目标受到的伤害提高40%",
-                    speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
-                    "，持续20秒，效果不可叠加"
-                ],//特质Ⅱ级解锁
-                [
-                    "技能【高光和弦】的激光触发【音律】标记时额外造成目标当前生命值6％的真实伤害"
-                ],//特质Ⅴ级解锁
-            ]
-        }
+                "受到技能【高光和弦】激光伤害的敌方目标受到的伤害提高40%",
+                speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                "，持续20秒，效果不可叠加"
+            ],//特质Ⅱ级解锁
+            [
+                "技能【高光和弦】的激光触发【音律】标记时额外造成目标当前生命值6％的真实伤害"
+            ],//特质Ⅴ级解锁
+        ]
     }
+}
+
+const Skill = [
+    skill1,
+    skill2,
+    skillSP,
+    skillTese,
+    skillLink
 ]
 
-const Tea = {
+const Tea: DefaultTeaObj = {
     "achievement": [
         {
             "name": "淡柠檬水",
@@ -377,7 +384,7 @@ const Tea = {
                 "正常冰",
                 "蜜桃冻"
             ],
-            "ex": [356, 399, 434],//参考默契值，无加，满家具，满加成
+            "ex": [356],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 4,
@@ -386,7 +393,7 @@ const Tea = {
                 "三分糖",
                 "奇异果片"
             ],
-            "ex": [393, 542, 480],//参考默契值，无加，满家具，满加成
+            "ex": [393],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 8,
@@ -396,7 +403,7 @@ const Tea = {
                 "正常冰",
                 "咸梅干"
             ],
-            "ex": [484, 542, 590],//参考默契值，无加，满家具，满加成
+            "ex": [484],//参考默契值，无加，满家具，满加成
         },
         {
             "needLevel": 18,
@@ -405,7 +412,7 @@ const Tea = {
                 "正常冰",
                 "叶子冻"
             ],
-            "ex": [495, 554, 604],//参考默契值，无加，满家具，满加成
+            "ex": [495],//参考默契值，无加，满家具，满加成
         }
     ]
 }
