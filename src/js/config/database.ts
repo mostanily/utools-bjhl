@@ -1,126 +1,12 @@
-import { createClient } from '@supabase/supabase-js'
+import { getPool, getLaoHen, getRole, getVersion, getRoleIntro } from './dataApi'
 import poolMustGet from './poolWithMust';
 import { poolConfig } from './pool';
 import { laohenConfig } from './laohen';
 import { roleConfig } from './role';
-import { supKey, supUrl } from './SubKey';
+import { ConfigPool, ConfigLaohenOrRole, DBBasePool, DBLimitPool, LimitPool, DBLaohenOrRole, UtoolsDBObj } from "./dataInterface"
+import type { roleIntroInter } from './apiInterface'
 
-const supabaseUrl = supUrl//superbase官网项目接口path
-const supabaseKey = supKey//superbase官网项目key
-const supabase = createClient(supabaseUrl, supabaseKey)
 
-const getPool = async () => {
-    let { data: bj_pool_base } = await supabase
-        .from('bj_pool_base')
-        .select(`
-            *,
-            bj_pool_limit (
-                poolId,id,name,up,startTime,endTime
-            )
-        `)
-
-    return bj_pool_base;
-}
-
-const getLaoHen = async () => {
-    let { data: bj_lh } = await supabase
-        .from('bj_lh')
-        .select('*')
-
-    return bj_lh;
-}
-
-const getRole = async () => {
-    let { data: bj_role } = await supabase
-        .from('bj_role')
-        .select('*')
-
-    return bj_role;
-}
-
-const getVersion = async () => {
-    let { data: bj_version, error } = await supabase
-        .from('bj_version')
-        .select('*')
-        .eq('id', 1)
-
-    return error == null && bj_version != null ? bj_version[0].version : "";
-}
-
-class BasePool {
-    type: string;
-    name: string;
-    up: string;
-    constructor() {
-        this.type = "";
-        this.name = "";
-        this.up = ""
-    }
-}
-
-class LimitPool {
-    name: string;
-    up: string;
-    startTime: string;
-    endTime: string;
-    constructor() {
-        this.name = "";
-        this.up = "";
-        this.startTime = "";
-        this.endTime = "";
-    }
-}
-
-class ConfigPool extends BasePool {
-    mustGet?: boolean;
-    desc?: string;
-    limit?: LimitPool[];
-    constructor() {
-        super();
-        this.mustGet = false
-        this.desc = ""
-        this.limit = []
-    }
-}
-
-class ConfigLaohenOrRole {
-    name = "";
-    rarity = "";
-}
-
-class DBLimitPool extends LimitPool {
-    id: number;
-    constructor() {
-        super();
-        this.id = -1
-    }
-}
-class DBBasePool extends BasePool {
-    id: number;
-    bj_pool_limit: DBLimitPool[];
-    constructor() {
-        super();
-        this.id = -1
-        this.bj_pool_limit = []
-    }
-}
-
-class DBLaohenOrRole extends ConfigLaohenOrRole {
-    id: number;
-    constructor() {
-        super();
-        this.id = -1
-    }
-}
-
-class UtoolsDBObj {
-    _id: string;
-    data: any;
-    _rev?: string;
-    constructor() {
-        this._id = ""
-    }
-}
 
 const poolConfigDataObj: Record<string, ConfigPool> = {}
 const roleConfigDataObj: Record<string, ConfigLaohenOrRole> = {}
@@ -139,6 +25,10 @@ class ConfigDataObj {
 
 const ConfigDataConst = new ConfigDataObj()
 
+/**
+ * 初始化游戏卡池信息
+ * @returns 
+ */
 const initSupData = async () => {
     const localPoolVer = window.utools.dbStorage.getItem('currPoolVer');
     const localPoolDB = window.utools.db.get("bj-config-pool");
@@ -230,6 +120,46 @@ const dealRoleOrLH = (lhOrRole: any[] | null, isRole = false) => {
     }
 }
 
-// const configData = await initSupData();
-// console.log(configData)
-export default initSupData;
+class RoleIntroObj {
+    data: Record<string, roleIntroInter>;
+    constructor() {
+        this.data = {}
+    }
+}
+const RoleIntroData = new RoleIntroObj()
+
+/**
+ * 初始化角色属性概况
+ * @returns 
+ */
+const initIntroData = async () => {
+    const localIntroVer = window.utools.dbStorage.getItem('currIntroVer');
+    const localIntroDB = window.utools.db.get("bj-config-role-intro");
+    const version = await getVersion('intro_version');
+    if (version !== "") {
+        if (version !== localIntroVer || localIntroDB == null) {
+            const roleIntroDbData = await getRoleIntro();
+            if (roleIntroDbData !== null) {
+                roleIntroDbData.forEach((introItem: roleIntroInter) => {
+                    RoleIntroData.data[introItem.role_name] = introItem
+                })
+                window.utools.dbStorage.setItem('currIntroVer', version);
+                let saveData = new UtoolsDBObj()
+                saveData._id = "bj-config-role-intro"
+                saveData.data = RoleIntroData.data
+                if (localIntroDB) {
+                    saveData._rev = localIntroDB._rev;
+                }
+                window.utools.db.put(saveData)
+            }
+            console.log(RoleIntroData)
+        } else {
+            RoleIntroData.data = localIntroDB.data
+        }
+    } else {
+        RoleIntroData.data = localIntroDB?.data
+    }
+    return RoleIntroData
+}
+
+export { initSupData, initIntroData };

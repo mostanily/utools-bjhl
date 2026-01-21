@@ -15,13 +15,17 @@
                         <li :class="{ 'tabberactive': currentActiveIndex === 2 }" @click="setParentActiveClass(2)"><a
                                 title="信息概览" data-hash="信息概览" style="cursor: pointer;">信息概览</a></li><wbr>
                         <li :class="{ 'tabberactive': currentActiveIndex === 3 }" @click="setParentActiveClass(3)"><a
-                                title="战斗技能" data-hash="战斗技能" style="cursor: pointer;">战斗技能</a></li><wbr>
+                                title="队长潜能" data-hash="队长潜能" style="cursor: pointer;">队长潜能</a></li><wbr>        
                         <li :class="{ 'tabberactive': currentActiveIndex === 4 }" @click="setParentActiveClass(4)"><a
+                                title="战斗技能" data-hash="战斗技能" style="cursor: pointer;">战斗技能</a></li><wbr>
+                        <li :class="{ 'tabberactive': currentActiveIndex === 5 }" @click="setParentActiveClass(5)"><a
                                 title="午后茶憩" data-hash="午后茶憩" style="cursor: pointer;">午后茶憩</a></li><wbr>
                     </ul>
+                    <DetailIntro v-if="showChild(1)"></DetailIntro>
                     <Profile v-if="showChild(2)"></Profile>
-                    <Skill v-if="showChild(3)"></Skill>
-                    <Tea v-if="showChild(4)"></Tea>
+                    <DetailPotential v-if="showChild(3)" :charName="$route.params.name"></DetailPotential>
+                    <Skill v-if="showChild(4)"></Skill>
+                    <Tea v-if="showChild(5)"></Tea>
                     <CharNav></CharNav>
                 </div>
             </div>
@@ -34,6 +38,8 @@ import { defineComponent } from 'vue';
 import Profile from './detail/DetailProfile.vue';
 import Skill from './detail/DetailSkill.vue';
 import Tea from './detail/DetailTea.vue';
+import DetailIntro from './detail/DetailIntro.vue';
+import DetailPotential from './detail/DetailPotential.vue';
 import CharNav from './detail/DetailCharNav.vue';
 import CharTachie from './components/CharTachie.vue';
 import FirstMeet from './components/FirstMeet.vue';
@@ -45,7 +51,7 @@ export default defineComponent({
         }
     },
     components: {
-        Profile, Skill, Tea, CharNav, CharTachie, FirstMeet
+        Profile, Skill, Tea, DetailIntro, DetailPotential, CharNav, CharTachie, FirstMeet
     },
     methods: {
         setParentActiveClass(index: number) {

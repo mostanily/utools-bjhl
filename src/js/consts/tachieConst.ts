@@ -1,4 +1,5 @@
 import { allChar } from './charConsts.ts'
+import { initIntroData } from '../config/database.ts';
 
 class DefaultTachieObj {
     name: string;
@@ -13,8 +14,13 @@ class DefaultTachieObj {
 
 const tachieList: DefaultTachieObj[] = new Array
 
+const roleAttrIntroObj = await initIntroData()
+
 const initChar = () => {
     Object.entries(allChar).forEach(([charName, charObj]) => {
+        if (roleAttrIntroObj.data !== null) {
+            charObj.attrIntro = roleAttrIntroObj.data[charName]
+        }
         if (Array.isArray(charObj.extraTacgie)) {
             charObj.extraTacgie.forEach(tachieItem => {
                 if (tachieItem.name === "森罗映像") {

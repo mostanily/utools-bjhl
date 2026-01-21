@@ -1,4 +1,5 @@
 import { DefaultRes } from './SkillCon.ts';
+import type { roleIntroInter } from '../config/apiInterface.ts'
 /**
  * 角色立绘对象接口
  */
@@ -28,6 +29,7 @@ export interface DefaultCharDescObj {
     introText: string;//角色简介文本
     tacgie: TacgieObj;//角色初始外装立绘
     extraTacgie?: TacgieObj[];//角色额外立绘、3D等资源，如：森罗映像
+    attrIntro?: roleIntroInter;//角色基础属性值概况信息
 }
 
 /**

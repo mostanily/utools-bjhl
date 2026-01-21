@@ -1,5 +1,9 @@
 import AllCharHelper from '../char/allCharHelper.ts';
-
+import { speSkillCon } from './SkillCon.ts'
+import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
+import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
+import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { allLaohenSkill } from './laohenConsts.ts'
 /**
  * 角色属性名称
  */
@@ -11,6 +15,115 @@ const charAttr = {
     feng: "风",
     shi: "蚀",
     wuli: "物理"
+}
+
+const speL7Skill = (skillEnum: number) => {
+    const skillName = allLaohenSkill[skillEnum].name
+    return [
+        "若在场且拥有刻印技能【",
+        speSkillCon(skillName, SkillColorEnum.bing, -1, skillEnum),
+        "】时，场上同调者刻印攻击提高25%",
+        speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries)
+    ]
+}
+
+/**
+ * 角色队长潜能，部分特殊等级的特殊技能描述（L4：职业；L7：属性；L9：激励）
+ */
+const charPotential = {
+    job: {
+        铁御: [
+            "作为队长时，自身每次回复或消耗格挡值，场上同调者额外伤害提高60%",
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+            "，持续30秒"
+        ],
+        轻卫: [
+            "作为队长时，格挡能力的激活状态变化时场上同调者额外伤害提高60%",
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+            "，持续60秒"
+        ],
+        尖锋: [
+            "作为队长时，自身对首领或精英目标造成伤害时，场上同调者额外伤害提高60%",
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+            "，持续30秒"
+        ],
+        游徒: [
+            "作为队长时，自身连击发生后，场上同调者额外伤害提高60%",
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries)
+        ],
+        筑术师: [
+            "作为队长时，自身每次使用主动技能，场上同调者额外伤害提高20%",
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+            "，最多叠加3次，持续30秒"
+        ],
+        护佑者: [
+            "作为队长时，自身每次治疗使受治疗目标造成的额外伤害提高60%",
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+            "，持续30秒"
+        ],
+        战术家: [
+            "作为队长时，自身施放负面状态型或友方增益型技能后，场上同调者额外伤害提高60%",
+            speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+            "，持续30秒"
+        ]
+    },
+    attr: {
+        yan: [
+            "作为队长且在场时：炎元素同调者忽视目标基础减伤10%",
+            speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+            "，场上有元素反应触发时，对全场敌人施加40%",
+            speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+            speSkillCon("[元素反应触发增伤]", SkillColorEnum.normal, ToastSkillEnum.元素反应触发增伤),
+            "，持续30秒"
+        ],
+        shui: [
+            "作为队长且在场时：水元素同调者忽视目标基础减伤10%",
+            speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+            "，场上有元素反应触发时，对全场敌人施加40%",
+            speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+            speSkillCon("[元素反应触发增伤]", SkillColorEnum.normal, ToastSkillEnum.元素反应触发增伤),
+            "，持续30秒"
+        ],
+        lei: [
+            "作为队长且在场时：雷元素同调者忽视目标基础减伤10%",
+            speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+            "，场上有元素反应触发时，对全场敌人施加40%",
+            speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+            speSkillCon("[元素反应触发增伤]", SkillColorEnum.normal, ToastSkillEnum.元素反应触发增伤),
+            "，持续30秒"
+        ],
+        shuang: [
+            "作为队长且在场时：霜元素同调者忽视目标基础减伤10%",
+            speSkillCon("(属性乘区·忽略减伤)", SkillColorEnum.injuries),
+            "，场上有元素反应触发时，对全场敌人施加40%",
+            speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+            speSkillCon("[元素反应触发增伤]", SkillColorEnum.normal, ToastSkillEnum.元素反应触发增伤),
+            "，持续30秒"
+        ],
+        feng: [
+            "作为队长且在场时：场上同调者刻印攻击提高25%",
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries)
+        ],
+        shi: ["作为队长且在场时：场上每有一个蚀元素同调者蚀爆伤害提高25%，最多提高50%"],
+        wuli: [
+            "作为队长时，自身及召唤物攻击目标有35%概率使目标物理抗性降低100%",
+            speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+            "，且目标身上的物理抗性降低效果最多为100%，持续15秒"
+        ]
+    },
+    jl: [
+        "作为队长时，场上同调者额外伤害提高50%",
+        speSkillCon("(增伤乘区·额外伤害)", SkillColorEnum.injuries),
+        "，且在计算",
+        speSkillCon("[激励]", SkillColorEnum.normal, ToastSkillEnum.激励),
+        "需求的人数时自身可视为2人"
+    ],
+    speL7: {
+        skillCon: {
+            言雀:speL7Skill(MXLaohenEnum.高压雷击),
+            言御:speL7Skill(MXLaohenEnum.刺骨寒意),
+        }//特殊角色对应的L7潜能等级，存在额外的潜能效果
+    }
 }
 
 /**
@@ -259,4 +372,4 @@ const allCharTea = {
     "老板": AllCharHelper.老板.tea
 }
 
-export { charAttr, allChar, allCharSkill, allCharTea }
+export { charAttr, charPotential, allChar, allCharSkill, allCharTea }

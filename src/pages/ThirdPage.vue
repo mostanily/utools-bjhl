@@ -357,7 +357,7 @@ import { computed } from 'vue';
 import html2canvas from 'html2canvas';
 import ProgressBar from './components/ProgressBar.vue';
 import OtherBar from './components/OtherBar.vue';
-import initSupData from '../js/config/database.ts';
+import { initSupData } from '../js/config/database.ts';
 
 export default {
     components: {

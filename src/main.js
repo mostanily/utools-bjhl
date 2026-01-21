@@ -4,6 +4,7 @@ import VueScrollTo from 'vue-scrollto'
 import PhotoPreview from 'vue3-photo-preview'
 import 'vue3-photo-preview/dist/index.css';
 import './style.css'
+import './loading.css'
 import App from './App.vue'
 
 import router from './router.ts'
