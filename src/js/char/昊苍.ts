@@ -1,8 +1,8 @@
 import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
-import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultSkillLinkObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
 const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.化险为夷, MXLaohenEnum.烈焰暴击], "attr": "yan", "star": "6",
@@ -260,13 +260,101 @@ const skillTeseStrong: DefaultTeseSkillObj = {
         ]
     }
 }
+const skillLink: DefaultSkillLinkObj = {
+    "name": "技能同调",
+    "aliasNum": "技能同调",
+    "repSkill": 1,//被替换的技能，值为该角色技能组数据对应技能下标
+    "unlock": LaohenNameEnum.蚀冕,//该技能解锁条件，拥有对应的烙痕ID
+    "detail": {
+        "name": "自赎之火",
+        "aliasNum": "2",
+        "maxLevel": 15,
+        "type": "自动技能",
+        "skillTab": [["增益冷却", "15秒"], ["增益持续", "18秒"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["15%", "1400%", "20%", "2000%"],
+            ["16%", "1610%", "23%", "2300%"],
+            ["17%", "1820%", "26%", "2600%"],
+            ["18%", "2030%", "29%", "2900%"],
+            ["19%", "2240%", "32%", "3200%"],
+            ["20%", "2450%", "35%", "3500%"],
+            ["21%", "2660%", "38%", "3800%"],
+            ["22%", "2870%", "41%", "4100%"],
+            ["24%", "3080%", "44%", "4400%"],
+            ["25%", "3220%", "46%", "4600%"],
+            ["27%", "3360%", "48%", "4800%"],
+            ["30%", "3500%", "50%", "5000%"],
+            ["31%", "3640%", "52%", "5200%"],
+            ["32%", "3780%", "54%", "5400%"],
+            ["34%", "3920%", "56%", "5600%"]
+        ],
+        "content": [
+            speSkillCon("人形状态下可使用", SkillColorEnum.injuries),
+            "",
+            "自身暴击率提升",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("18"),
+            "秒，期间普通攻击变为范围炎元素伤害，受到攻击会触发反击，对正前方直线区域造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，且",
+            speSkillCon("5"),
+            "秒内未受到伤害会自动触发一次反击。反击施放期间无法再次反击",
+            "",
+            "",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            speSkillCon("「坎尼斯」状态下可使用", SkillColorEnum.injuries),
+            "",
+            "自身暴击率提升",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+            "、暴击伤害提升",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("18"),
+            "秒，期间普通攻击变为范围炎元素伤害，受到攻击会触发反击，对正前方扇形区域造成",
+            speSkillCon("", 0, -1, 3),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，并延长",
+            speSkillConWithImg(SkillDescStatusImg.昊苍坎尼斯),
+            "「坎尼斯」状态",
+            speSkillCon("6"),
+            "秒。若",
+            speSkillCon("4"),
+            "秒内未受到伤害会自动触发一次反击。反击造成的伤害提升（提升幅度为目标当前生命值百分比，最高提升",
+            speSkillCon("100%"),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+            "）。反击施放期间无法再次反击"
+        ],
+        "specialContent": [
+            [
+                "反击会使目标受到伤害提高25%",
+                speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                "，炎元素抗性降低30%",
+                speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+                "，持续20秒"
+            ],//特质Ⅱ级解锁
+            [
+                "「坎尼斯」状态下暴击伤害额外提高80%",
+                speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
+                "，反击和主动技能【血脉印记】伤害提高150%",
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries)
+            ],//特质Ⅴ级解锁
+        ]
+    }
+}
 
 const Skill = [
     skill1,
     skill2,
     skillSP,
     skillTese,
-    skillTeseStrong
+    skillTeseStrong,
+    skillLink
 ]
 
 const Tea: DefaultTeaObj = {

@@ -148,6 +148,7 @@ import { 向火而去 } from "./向火而去"
 import { 旧景三叠 } from "./旧景三叠"
 import { 系 } from "./系"
 import { 共弈者 } from "./共弈者"
+import { 蚀冕 } from "./蚀冕"
 
 export default class AllLaohenHelper {
     static 遇见宝石海: DefaultLaohenDetailObj = 遇见宝石海
@@ -299,4 +300,5 @@ export default class AllLaohenHelper {
     static 旧景三叠: DefaultLaohenDetailObj = 旧景三叠
     static 系: DefaultLaohenDetailObj = 系
     static 共弈者: DefaultLaohenDetailObj = 共弈者
+    static 蚀冕: DefaultLaohenDetailObj = 蚀冕
 }

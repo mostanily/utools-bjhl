@@ -356,6 +356,7 @@ enum MXLaohenEnum {
     利刃侵袭,
     异能解构,
     叠焰燎原,
+    炎焱威能,
 }
 
 /**
@@ -511,6 +512,7 @@ enum LaohenNameEnum {
     旧景三叠,
     系,
     共弈者,
+    蚀冕,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

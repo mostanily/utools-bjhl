@@ -1776,6 +1776,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.天陷,
                 LaohenNameEnum.野风,
+                LaohenNameEnum.蚀冕,
                 LaohenNameEnum.新醅,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.瞳中困影,
@@ -1941,6 +1942,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.怯者的墓志铭,
                 LaohenNameEnum.同行,
+                LaohenNameEnum.蚀冕,
                 LaohenNameEnum.光阴间隙,
                 LaohenNameEnum.事无出世间,
                 LaohenNameEnum.恶土之花,
@@ -2570,6 +2572,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
                 LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.角色扮演,
                 LaohenNameEnum.噩梦,
+                LaohenNameEnum.蚀冕,
                 LaohenNameEnum.血露薇绝密,
                 LaohenNameEnum.局外人,
                 LaohenNameEnum.难渡,
@@ -4558,6 +4561,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.蚀冕,
                 LaohenNameEnum.事无出世间,
                 LaohenNameEnum.失罪夜,
                 LaohenNameEnum.形与神,
@@ -4596,6 +4600,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
         ],
         "sourseLaohen": {
             "烙痕漫巡技能": [
+                LaohenNameEnum.蚀冕,
                 LaohenNameEnum.局外人,
                 LaohenNameEnum.潮湿前路,
                 LaohenNameEnum.向火而去,
@@ -5012,6 +5017,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.洗出汪外,
                 LaohenNameEnum.野风,
+                LaohenNameEnum.蚀冕,
                 LaohenNameEnum.浊雨,
                 LaohenNameEnum.事无出世间,
                 LaohenNameEnum.千纪启明,
@@ -9658,6 +9664,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.怯者的墓志铭,
+                LaohenNameEnum.蚀冕,
                 LaohenNameEnum.局外人,
                 LaohenNameEnum.新醅,
                 LaohenNameEnum.向火而去,
@@ -12961,6 +12968,37 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区暴击伤害),
         ]
     },
+    {
+        "name": "炎焱威能", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.炎焱威能,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            180,
+            240,
+            300
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.蚀冕], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "使用异核技能后，同调者自身的额外攻击提高",
+            speSkillCon("10%（等级1时）"),
+            "/",
+            speSkillCon("20%（等级2时）"),
+            "/",
+            speSkillCon("30%（等级3时）"),
+            speSkillCon("(属性乘区·额外攻击力加成)", SkillColorEnum.injuries),
+            "，若为炎元素同调者则该效果翻倍，持续45秒，重复触发刷新效果持续时间"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区额外攻击力加成),
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -13113,6 +13151,7 @@ const allLaohen = [
     AllLaohenHelper.旧景三叠,
     AllLaohenHelper.系,
     AllLaohenHelper.共弈者,
+    AllLaohenHelper.蚀冕,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }
