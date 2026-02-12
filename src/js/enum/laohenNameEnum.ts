@@ -357,6 +357,8 @@ enum MXLaohenEnum {
     异能解构,
     叠焰燎原,
     炎焱威能,
+    异核能量,
+    能量自溢,
 }
 
 /**
@@ -513,6 +515,8 @@ enum LaohenNameEnum {
     系,
     共弈者,
     蚀冕,
+    最初章,
+    夜幕裁决,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }

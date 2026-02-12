@@ -1,8 +1,8 @@
 import { SkillColorEnum } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon } from '../consts/SkillCon.ts';
-import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultSkillLinkObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
 const Desc: DefaultCharDescObj = {
     "job": "轻卫", "skill": [MXLaohenEnum.大敌当前, MXLaohenEnum.蚀之激励], "attr": "shi", "star": "6",
@@ -285,12 +285,100 @@ const skillTeseStrong: DefaultTeseSkillObj = {
     }
 }
 
+const skillLink: DefaultSkillLinkObj = {
+    "name": "技能同调",
+    "aliasNum": "技能同调",
+    "repSkill": 1,//被替换的技能，值为该角色技能组数据对应技能下标
+    "unlock": LaohenNameEnum.夜幕裁决,//该技能解锁条件，拥有对应的烙痕ID
+    "detail": {
+        "name": "流音断奏",
+        "aliasNum": "2",
+        "maxLevel": 15,
+        "type": "自动技能",
+        "skillTab": [["施放冷却", "20秒"]],
+        "tab": ["持续施法", "伤害", "穿透屏障"],
+        "sizeLevel": [
+            ["320%", "2560%", "2000%"],
+            ["368%", "2944%", "2300%"],
+            ["416%", "3328%", "2600%"],
+            ["464%", "3712%", "2900%"],
+            ["512%", "4096%", "3200%"],
+            ["560%", "4480%", "3500%"],
+            ["608%", "4864%", "3800%"],
+            ["656%", "5248%", "4100%"],
+            ["704%", "5632%", "4400%"],
+            ["736%", "5888%", "4600%"],
+            ["768%", "6144%", "4800%"],
+            ["800%", "6400%", "5000%"],
+            ["832%", "6656%", "5200%"],
+            ["864%", "6912%", "5400%"],
+            ["896%", "7168%", "5600%"]
+        ],
+        "content": [
+            "会根据当前演奏的曲目产生额外效果",
+            "",
+            speSkillCon("当前演奏【变奏曲】「攻击姿态」：", SkillColorEnum.injuries),
+            "",
+            "为终端附加",
+            speSkillCon("25点蚀爆值"),
+            "，对当前目标半径",
+            speSkillCon("400"),
+            "范围每",
+            speSkillCon("0.5"),
+            "秒持续造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，共造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的蚀元素伤害"),
+            "，破坏目标",
+            speSkillCon("4段格挡条"),
+            "。",
+            "",
+            speSkillCon("当前演奏【前奏曲】「防御姿态」：", SkillColorEnum.injuries),
+            "",
+            "为终端附加",
+            speSkillCon("35点蚀爆值"),
+            "，每",
+            speSkillCon("0.5"),
+            "秒",
+            speSkillCon("以3级"),
+            speSkillCon("[位移强度]", SkillColorEnum.normal, ToastSkillEnum.位移强度),
+            "拉拽自身周围半径",
+            speSkillCon("400"),
+            "范围内目标，共造成",
+            speSkillCon("", 0, -1, 2),
+            speSkillCon("最终攻击的蚀元素伤害"),
+        ],
+        "specialContent": [
+            [
+                "【流音断奏】命中目标后，使目标受到伤害提高30%",
+                speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                "，持续30秒。",
+                "",
+                "场上触发蚀爆后，自身自动技能回复速度提高60%",
+                speSkillCon("(属性乘区·自动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区自动技能回复速度),
+            ],//特质Ⅱ级解锁
+            [
+                "【流音断奏】施放后，",
+                speSkillCon("[复调]", SkillColorEnum.normal, ToastSkillEnum.复调),
+                "伤害提高10%",
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "和【流音断奏】的伤害提高30%",
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "，该效果最多叠加8次"
+            ],//特质Ⅴ级解锁
+        ]
+    }
+}
+
 const Skill = [
     skill1,
     skill2,
     skillSP,
     skillTese,
-    skillTeseStrong
+    skillTeseStrong,
+    skillLink
 ]
 
 const Tea: DefaultTeaObj = {
