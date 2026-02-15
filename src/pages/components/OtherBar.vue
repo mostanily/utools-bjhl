@@ -28,7 +28,7 @@ export default {
          * @param laohenEnum 烙痕对应的枚举值
          */
         getLaohenBg(laohenEnum) {
-            return window.$laohen.getLaohenBg(this.$props.laohenEnumToName.indexOf(laohenEnum))
+            return window.$laohen.getLaohenBg(this.$props.laohenEnumToName.indexOf(laohenEnum), true)
         }
     }
 }

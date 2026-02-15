@@ -402,8 +402,7 @@ export default {
             }
 
             const initBJ = window.utools.ubrowser.goto('https://seed.qq.com/act/a20240905record/index.html')
-                .devTools("right")
-                .viewport(1280, 900)
+                .viewport(1280, 900)//删除devTools方法，utools不再支持窗口打开开发者工具
                 .evaluate((needQueryYear) => {
                     // let queryPoolConfigUrl = "https://seed.qq.com/act/a20240905record/pc/json/pool.json";
                     // let queryRoleConfigUrl = "https://seed.qq.com/act/a20240905record/pc/json/concordant.json";
