@@ -151,6 +151,7 @@ import { 共弈者 } from "./共弈者"
 import { 蚀冕 } from "./蚀冕"
 import { 最初章 } from "./最初章"
 import { 夜幕裁决 } from "./夜幕裁决"
+import { 不眠夜 } from "./不眠夜"
 
 export default class AllLaohenHelper {
     static 遇见宝石海: DefaultLaohenDetailObj = 遇见宝石海
@@ -305,4 +306,5 @@ export default class AllLaohenHelper {
     static 蚀冕: DefaultLaohenDetailObj = 蚀冕
     static 最初章: DefaultLaohenDetailObj = 最初章
     static 夜幕裁决: DefaultLaohenDetailObj = 夜幕裁决
+    static 不眠夜: DefaultLaohenDetailObj = 不眠夜
 }

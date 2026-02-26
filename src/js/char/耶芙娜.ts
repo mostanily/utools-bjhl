@@ -1,8 +1,8 @@
 import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
-import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultSkillLinkObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
 const Desc: DefaultCharDescObj = {
     "job": "尖锋", "skill": [MXLaohenEnum.自动瞄准系统方块β型, MXLaohenEnum.冻结精通], "attr": "shuang", "star": "6",
@@ -173,13 +173,87 @@ const skillTeseStrong: DefaultTeseSkillObj = {
         ]
     }
 }
+const skillLink: DefaultSkillLinkObj = {
+    "name": "技能同调",
+    "aliasNum": "技能同调",
+    "repSkill": 1,//被替换的技能，值为该角色技能组数据对应技能下标
+    "unlock": LaohenNameEnum.不眠夜,//该技能解锁条件，拥有对应的烙痕ID
+    "detail": {
+        "name": "永冬誓约",
+        "aliasNum": "2",
+        "maxLevel": 15,
+        "type": "主动技能",
+        "skillTab": [["施放冷却", "15秒"]],
+        "tab": ["自身增益", "伤害", "对空", "格挡条破坏1"],
+        "sizeLevel": [
+            ["720%"],
+            ["828%"],
+            ["936%"],
+            ["1044%"],
+            ["1152%"],
+            ["1260%"],
+            ["1368%"],
+            ["1476%"],
+            ["1584%"],
+            ["1656%"],
+            ["1728%"],
+            ["1800%"],
+            ["1872%"],
+            ["1944%"],
+            ["2016%"]
+        ],
+        "content": [
+            "制造3道缓慢前进的霜龙卷，每秒对沿途敌人造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的霜元素伤害"),
+            "。若命中处于霜或水元素区域目标，则立即触发",
+            speSkillCon("[永霜]", SkillColorEnum.normal, ToastSkillEnum.永霜),
+            "的伤害效果，并使该次",
+            speSkillCon("[永霜]", SkillColorEnum.normal, ToastSkillEnum.永霜),
+            "效果的伤害提升",
+            speSkillCon("100%"),
+            speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+            "，有效半径增加",
+            speSkillCon("50%"),
+            "",
+            "霜龙卷每次造成伤害时，使自身获得",
+            speSkillConWithImg(SkillDescStatusImg.耶芙娜雪域),
+            "「雪域」状态：专精值提升",
+            speSkillCon("10%"),
+            speSkillCon("(属性乘区·专精加成)", SkillColorEnum.injuries),
+            "，暴击伤害提升",
+            speSkillCon("15%"),
+            speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
+            "，持续",
+            speSkillCon("20"),
+            "秒，最多可叠加",
+            speSkillCon("5"),
+            "次"
+        ],
+        "specialContent": [
+            [
+                "初始异核充能50%，普通和潮湿环境下永霜伤害范围会生成小范围霜区域。",
+                "",
+                "自动技能回复速度提高40%",
+                speSkillCon("(属性乘区·自动技能回复速度)", SkillColorEnum.injuries, ToastSkillEnum.属性乘区自动技能回复速度),
+                "；且霜龙卷效果使目标霜元素抗性降低30%",
+                speSkillCon("(目标减益乘区·目标抗性降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标抗性降低),
+                "，持续20秒"
+            ],//特质Ⅱ级解锁
+            [
+                "若敌方目标处于霜元素区域，则受到的霜龙卷及永霜伤害提高240%"
+            ],//特质Ⅴ级解锁
+        ]
+    }
+}
 
 const Skill = [
     skill1,
     skill2,
     skillSP,
     skillTese,
-    skillTeseStrong
+    skillTeseStrong,
+    skillLink
 ]
 
 const Tea: DefaultTeaObj = {

@@ -101,6 +101,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
                 LaohenNameEnum.幕影重重,
                 LaohenNameEnum.共弈者,
                 LaohenNameEnum.系,
+                LaohenNameEnum.不眠夜,
                 LaohenNameEnum.最强召唤师,
                 LaohenNameEnum.记虚,
                 LaohenNameEnum.芳年未及,
@@ -1497,6 +1498,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
                 LaohenNameEnum.幕影重重,
                 LaohenNameEnum.角色扮演,
                 LaohenNameEnum.底线大作战,
+                LaohenNameEnum.不眠夜,
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.馆中遗影,
                 LaohenNameEnum.雪轻日暖,
@@ -1781,6 +1783,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
                 LaohenNameEnum.蚀冕,
                 LaohenNameEnum.新醅,
                 LaohenNameEnum.浊雨,
+                LaohenNameEnum.不眠夜,
                 LaohenNameEnum.瞳中困影,
                 LaohenNameEnum.藏锋,
                 LaohenNameEnum.执愿,
@@ -3514,7 +3517,8 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
                 LaohenNameEnum.须臾浮生,
                 LaohenNameEnum.今日风平浪静,
                 LaohenNameEnum.Feat,
-                LaohenNameEnum.向新世界去
+                LaohenNameEnum.向新世界去,
+                LaohenNameEnum.不眠夜,
             ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [
@@ -3956,6 +3960,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
         "sourseLaohen": {
             "烙痕漫巡技能": [
                 LaohenNameEnum.血露薇绝密,
+                LaohenNameEnum.不眠夜,
                 LaohenNameEnum.寂静昨日,
                 LaohenNameEnum.最强召唤师,
                 LaohenNameEnum.一枕酣甜,
@@ -4571,6 +4576,7 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
             "烙痕漫巡技能": [
                 LaohenNameEnum.蚀冕,
                 LaohenNameEnum.事无出世间,
+                LaohenNameEnum.不眠夜,
                 LaohenNameEnum.失罪夜,
                 LaohenNameEnum.形与神,
                 LaohenNameEnum.潮湿前路,
@@ -11827,7 +11833,10 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
             90
         ],
         "sourseLaohen": {
-            "烙痕漫巡技能": [LaohenNameEnum.形与神], //枚举LaohenNameEnum.(x)
+            "烙痕漫巡技能": [
+                LaohenNameEnum.不眠夜,
+                LaohenNameEnum.形与神
+            ], //枚举LaohenNameEnum.(x)
             "烙痕唤醒技能": [], //枚举LaohenNameEnum.(x)
             "队长刻印技能": [] //角色名称
         },
@@ -13081,6 +13090,39 @@ const allLaohenSkill: DefaultLaohenSkillObj[] = [
             speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加),
         ]
     },
+    {
+        "name": "凛冬将至", //技能名称
+        "skillType": LaohenSkillType.核心技能,
+        "isJL": false,
+        "rarity": LaohenRarity.ssr, //稀有度，共3种（r，sr，ssr）
+        "id": MXLaohenEnum.凛冬将至,
+        "takeEffect": [JobTypeName.所有同调者], //职业名称
+        "useSkill": [
+            180,
+            240,
+            300
+        ],
+        "sourseLaohen": {
+            "烙痕漫巡技能": [], //枚举LaohenNameEnum.(x)
+            "烙痕唤醒技能": [LaohenNameEnum.不眠夜], //枚举LaohenNameEnum.(x)
+            "队长刻印技能": [] //角色名称
+        },
+        "detail": [
+            "霜元素同调者施展异核技能后，自身的刻印攻击提高",
+            speSkillCon("15%（等级1时）"),
+            "/",
+            speSkillCon("35%（等级2时）"),
+            "/",
+            speSkillCon("50%（等级3时）"),
+            speSkillCon("(属性乘区·刻印攻击百分比增加)", SkillColorEnum.injuries),
+            "，暴击率提高15%",
+            speSkillCon("(属性乘区·暴击率)", SkillColorEnum.injuries),
+            "，持续60秒，重复触发刷新效果持续时间"
+        ],
+        "speSkillToast": [
+            speLaohenSkillCon(LaohenToastSkillEnum.属性乘区刻印攻击百分比增加),
+        ]
+    },
 ]
 
 const allLaohen = [
@@ -13236,6 +13278,7 @@ const allLaohen = [
     AllLaohenHelper.蚀冕,
     AllLaohenHelper.最初章,
     AllLaohenHelper.夜幕裁决,
+    AllLaohenHelper.不眠夜,
 ]
 
 export { allLaohenSkill, allLaohen, getSpeLink }
