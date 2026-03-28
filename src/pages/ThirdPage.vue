@@ -1136,6 +1136,7 @@ export default {
             //console.log(pool)
             //console.log(laohenOrRoleData)
             const needCheckRarity = isRole ? '6' : '3'
+            const defName = isRole ? "未知角色" : "未知烙痕"
             let allData = new Array//所有6星或者ssr（不含识海甄录卡池的角色数据）
             let changzhuData = new Array//常驻卡池
             let upWithNoWaiData = new Array//不算歪的UP池
@@ -1161,13 +1162,14 @@ export default {
                     //实际抽卡（角色/烙痕）通用数据结构：{time: '2024-01-12 09:19:42', poolId: '2', tid: '1013'}
                     const eachData = laohenList[index]
                     let poolId = eachData.poolId
+                    const tid = eachData.tid
                     //console.log(poolId)
                     let ssrLaohenWithPool = {
                         poolId: eachData.poolId,
                         poolName: pool[poolId].name,
                         time: eachData.time,
-                        name: laohenOrRole[eachData.tid].name,
-                        rarity: laohenOrRole[eachData.tid].rarity,
+                        name: Object.keys(laohenOrRole).includes(tid) ? laohenOrRole[tid].name : defName,
+                        rarity: Object.keys(laohenOrRole).includes(tid) ? laohenOrRole[tid].rarity : needCheckRarity,
                         dian: 0,
                         up: pool[poolId].up,
                         desc: "",

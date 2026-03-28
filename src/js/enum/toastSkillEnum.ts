@@ -119,6 +119,7 @@ enum LaohenToastSkillEnum {
     属性乘区刻印攻击百分比增加,
     潮湿效果,
     同调者攻击,
+    属性乘区忽略减伤,
 }
 
 export { ToastSkillEnum, LaohenToastSkillEnum }

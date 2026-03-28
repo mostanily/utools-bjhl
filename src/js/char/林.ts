@@ -1,8 +1,8 @@
 import { SkillColorEnum, SkillDescStatusImg } from '../enum/skillSimpleEnum.ts';
 import { ToastSkillEnum } from '../enum/toastSkillEnum.ts';
-import { MXLaohenEnum } from '../enum/laohenNameEnum.ts';
+import { MXLaohenEnum, LaohenNameEnum } from '../enum/laohenNameEnum.ts';
 import { speSkillCon, speSkillConWithImg } from '../consts/SkillCon.ts';
-import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
+import type { DefaultCharDescObj, DefaultNormalSkillObj, DefaultTeseSkillObj, DefaultSkillLinkObj, DefaultTeaObj } from '../consts/simpleInterfaceConst.ts';
 
 const Desc: DefaultCharDescObj = {
     "job": "轻卫", "skill": [MXLaohenEnum.核心充能方块α型, MXLaohenEnum.炎域强袭], "attr": "yan", "star": "6",
@@ -255,12 +255,98 @@ const skillTese: DefaultTeseSkillObj = {
         ]
     }
 }
+const skillLink: DefaultSkillLinkObj = {
+    "name": "技能同调",
+    "aliasNum": "技能同调",
+    "repSkill": 0,//被替换的技能，值为该角色技能组数据对应技能下标
+    "unlock": LaohenNameEnum.将明,//该技能解锁条件，拥有对应的烙痕ID
+    "detail": {
+        "name": "焚如",
+        "aliasNum": "1",
+        "maxLevel": 15,
+        "type": "主动技能",
+        "skillTab": [["指令冷却", "1秒"], ["次数", "∞"]],
+        "tab": ["伤害", "自身增益"],
+        "sizeLevel": [
+            ["1400%","960%"],
+            ["1610%","1100%"],
+            ["1820%","1250%"],
+            ["2030%","1390%"],
+            ["2240%","1540%"],
+            ["2450%","1680%"],
+            ["2660%","1820%"],
+            ["2870%","1970%"],
+            ["3080%","2110%"],
+            ["3220%","2210%"],
+            ["3360%","2300%"],
+            ["3500%","2400%"],
+            ["3640%","2500%"],
+            ["3780%","2590%"],
+            ["3920%","2690%"]
+        ],
+        "content": [
+            "对自身周围",
+            speSkillCon("550"),
+            "半径造成",
+            speSkillCon("", 0, -1, 0),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "后，并拉拽目标至身边，随后进入持续",
+            speSkillCon("25"),
+            "秒的攻击姿态，且",
+            speSkillCon("25"),
+            "秒内无法再次进入，该姿态下自身暴击率提高",
+            speSkillCon("30%"),
+            "，最大生命值提高",
+            speSkillCon("80%"),
+            "，且每",
+            speSkillCon("2"),
+            "秒对自身周围触发",
+            speSkillConWithImg(SkillDescStatusImg.林熔毁),
+            "“熔毁·焚如”。",
+            "",
+            speSkillConWithImg(SkillDescStatusImg.林熔毁),
+            "“熔毁·焚如”：消耗自身最大生命值",
+            speSkillCon("4%"),
+            "对自身周围",
+            speSkillCon("550"),
+            "半径造成",
+            speSkillCon("", 0, -1, 1),
+            speSkillCon("最终攻击的炎元素伤害"),
+            "，自身生命值低于",
+            speSkillCon("30%"),
+            "后将不消耗生命值触发。（“熔毁·焚如”继承所有熔毁相关特性）",
+            "",
+            "处于攻击姿态时可施展技能退出该姿态；当自身受到敌方伤害导致生命值低于",
+            speSkillCon("20%"),
+            "（同调者未重伤）会提前退出该姿态，生命值恢复至进入姿态时的生命值。",
+        ],
+        "specialContent": [
+            [
+                "「攻击姿态」下暴击伤害额外提高50%",
+                speSkillCon("(属性乘区·暴击伤害)", SkillColorEnum.injuries),
+                "；熔毁·焚如命中目标后使目标受到伤害提高40%",
+                speSkillCon("(目标减益乘区·目标受伤害增加)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标受伤害增加),
+                "，持续30秒"
+            ],//特质Ⅱ级解锁
+            [
+                "熔毁·焚如伤害提高180%",
+                speSkillCon("(增伤乘区·独立增伤)", SkillColorEnum.injuries),
+                "，并且使目标基础减伤降低50",
+                speSkillCon("(目标减益乘区·目标基础减伤降低)", SkillColorEnum.injuries, ToastSkillEnum.目标减益乘区目标基础减伤降低),
+                "，持续20秒（该效果属于",
+                speSkillCon("[融甲]", SkillColorEnum.normal, ToastSkillEnum.融甲),
+                "，离场后消失）"
+            ],//特质Ⅴ级解锁
+        ]
+    }
+}
 
 const Skill = [
     skill1,
     skill2,
     skillSP,
-    skillTese
+    skillTese,
+    skillLink,
 ]
 
 const Tea: DefaultTeaObj = {

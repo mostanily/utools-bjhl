@@ -360,6 +360,8 @@ enum MXLaohenEnum {
     异核能量,
     能量自溢,
     凛冬将至,
+    物理供能,
+    炎能噬甲,
 }
 
 /**
@@ -519,6 +521,8 @@ enum LaohenNameEnum {
     最初章,
     夜幕裁决,
     不眠夜,
+    硝尘不染,
+    将明,
 }
 
 export { MXLaohenEnum, LaohenNameEnum }
